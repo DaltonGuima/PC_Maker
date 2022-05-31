@@ -9,7 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     
-
     <!-- link CSS -->
     <link rel="stylesheet" href="/css/css.css">
 
@@ -19,6 +18,7 @@
     <!-- Links icones -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+    <!-- link js -->
     <script src="/js/script.js"></script>
     
     <title>Home</title>
@@ -28,55 +28,60 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;" class="rounded-pill"> 
+                    <img src="/images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;"> 
                 </a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Monte seu Computador</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Builds</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Guias</a>
-                  </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Monte seu Computador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Builds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Guias</a>
+                    </li>
                 </ul>
                 <div class="search-button col-md-4">
                     <form class="d-flex" id="barraPesquisa">
                         <input class="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" >
                         <label id="search-field">
-                            <a href="" onclick="focusPesquisa();">
+                            <a href="" onclick="return focusPesquisa();">
                                 <i class="fa fa-search"></i>
                             </a>
                         </label>
                     </form>
                 </div>
                 <div class="profile">
+
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">Teste</a>
-                            <div class="dropdown-menu  dropdown-menu-end">
-                                <button class="dropdown-item" type="button">Action</button>
-                                <button class="dropdown-item" type="button">Another action</button>
-                                <button class="dropdown-item" type="button">Something else here</button>
+                            <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
+                                <img src="/images/among_us.jpg" alt="">Teste
+                            </a>
+                            <div class="dropdown-menu  dropdown-menu-end bg-dark ">
+                                <button class="dropdown-item disabled bg-dark">
+                                    <i class="fa fa-user-o"></i> Perfil
+                                </button>
+                                <button class="dropdown-item text-light" type="button">Action</button>
+                                <button class="dropdown-item text-light" type="button">Another action</button>
+                                <button class="dropdown-item text-light" type="button">Something else here</button>
                             </div>
                         </li>
                     </ul>
                 </div>
-              </div>
             </div>
-          </nav>
+        </nav>
     </header>
 
     <main>
-      
+        <h1>Amogus</h1>    
     </main>
     
     <footer class="site-footer">

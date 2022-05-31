@@ -2,7 +2,7 @@ function focusPesquisa(){
   
   let pesquisa = barraPesquisa.itemPesquisa.value
   
-  if(pesquisa==""){
+  if(pesquisa == ""){
     barraPesquisa.itemPesquisa.focus()
     return false
   } 
