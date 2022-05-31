@@ -1,0 +1,98 @@
+main{
+    background-color: #212425;
+    margin: 0;
+}
+
+/* *Banner */
+
+.banner1{
+    background-image: url("/images/banner1.png");
+    background-size:cover;
+}
+
+.banner2{
+    background-image: url("/images/banner2.png");
+    background-size:cover;
+    height: 200px;
+}
+
+@media screen and (min-width: 768px)
+{
+    .banner1{
+        height: 663px;
+    }
+    .banner2{
+        height: 450px;
+        padding-top: 8rem;
+    }
+}
+
+.banner2 .text-center{
+    padding-top: 5rem;
+    font-weight: bold;
+}
+
+.banner{
+    width: 100%;
+}
+
+
+
+@media screen and (min-width: 768px)
+{
+    .banner .row-fluid{
+        position: relative;
+        top: 20rem;
+        left: 4rem;
+        width: 25rem;
+        background-color: rgba(0, 0, 0, .47);
+    }
+}
+
+.banner p{
+    margin-top: 20px;
+}
+
+.banner .btn{
+    margin-top: 15px;
+    background-color: rgba(112,66,213, 0.8);
+    border: 2px solid rgba(0, 0, 0, .5);
+}
+
+/* *Card */
+.cards{
+    margin-bottom: 10rem;
+}
+
+.title{
+    margin: 4rem;
+}
+
+.card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  }
+  
+  .card-custom-img {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .card-custom-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card-custom-avatar{
+    align-self: left;
+    position: absolute;
+    top: 290px;
+    left: 10px;
+  }
+
+

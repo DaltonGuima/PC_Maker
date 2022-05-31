@@ -12,3 +12,4 @@ function pesquisar(){
   let pesquisa = barraPesquisa.itePesquisa.value
 
 }
+
