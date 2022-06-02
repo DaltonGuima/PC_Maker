@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Thumbnail Carousel - Responsive</title>
+    <link rel="stylesheet" href="style.css" />
+	
+<style>
+
+#wrapper {
+  width: 100%;
+  max-width: 1024px;
+  position: relative;
+  margin: 50px  auto;
+}
+
+#carousel {
+  overflow: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+#carousel::-webkit-scrollbar {
+  height: 0;
+}
+
+#prev, #next {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background: #004fb6;
+  border: none;
+  padding: 14px;
+  border-radius: 50%;
+  outline: 0;
+  cursor: pointer;
+  position: absolute;
+}
+
+#prev {
+  top: 50%;
+  left: 0;
+  transform: translate(50%, -50%);
+  display: none;
+}
+
+#next {
+  top: 50%;
+  right: 0;
+  transform: translate(-50%, -50%);
+}
+  
+button .arrow {
+  border: solid #fff;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 6px;
+  transition: transform 0.3s ease-out;
+  outline: none;
+}
+  
+  #prev .arrow {
+    position: relative;
+    left: 3px;
+    transform: rotate(135deg);
+}
+  
+ #next .arrow {
+   position: relative;
+   right: 3px;
+   transform: rotate(-45deg);
+} 
+  
+#content {
+	width: 100%;	
+	min-height: auto;		
+	display: flex;
+	flex-wrap: nowrap;
+}
+
+#content img {
+	width: 100%;
+	height: auto;
+}
+
+div.slide {
+	min-width: 100%;	
+	height: auto;	
+ }
+ 
+div.slide:not(:last-child) {
+	margin-right: 12px;
+}
+
+
+@media all and (min-width: 448px) {
+	div.slide {
+	min-width: 50%;			
+ }
+}
+
+@media all and (min-width: 778px) {
+	div.slide {
+	min-width: 33%;			
+ }
+}
+
+
+</style>
+	
+</head>
+<body>
+
+<div class="wrapperCarousel">
+  <div id="carousel">
+	<div id="content">
+		<div class="slide"><img src="https://via.placeholder.com/300x400/?text=pamonha" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/300x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
+		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>	        
+	</div>
+  </div>
+  <button id="prev"><i class="arrow"></i></button>
+  <button id="next"><i class="arrow"></i></button>
+</div>
+
+<script>
+
+  const carousel = document.getElementById("carousel"),
+  content = document.getElementById("content"),
+  next = document.getElementById("next"),
+  prev = document.getElementById("prev");
+
+next.addEventListener("click", e => {
+  carousel.scrollBy(width, 0);
+  if (carousel.scrollWidth !== 0) {
+    prev.style.display = "flex";
+  }
+  if (content.scrollWidth - width <= carousel.scrollLeft + width) {
+    next.style.display = "none";
+  }
+});
+
+prev.addEventListener("click", e => {
+  carousel.scrollBy(-width, 0);
+  if (carousel.scrollLeft - width <= 0) {
+    prev.style.display = "none";
+  }
+  if (!content.scrollWidth - width <= carousel.scrollLeft + width) {
+    next.style.display = "flex";
+  }
+});
+
+let width = carousel.offsetWidth;
+window.addEventListener("resize", e => (width = carousel.offsetWidth));
+
+</script>
+
+</body>
+  
+</html>

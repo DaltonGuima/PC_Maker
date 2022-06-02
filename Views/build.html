@@ -11,17 +11,20 @@
     
 
     <!-- link CSS -->
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/build.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/build.css">
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Links icones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css">
 
     <!-- link js -->
-    <script src="/js/script.js"></script>
+    <script src="../js/script.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    
     
     <title>Build</title>
 </head>
@@ -30,7 +33,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;"> 
+                    <img src="../images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;"> 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -62,7 +65,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
-                                <img src="/images/among_us.jpg" alt="">Teste
+                                <img src="../images/among_us.jpg" alt="">Teste
                             </a>
                             <div class="dropdown-menu  dropdown-menu-end bg-dark ">
                                 <button class="dropdown-item disabled bg-dark">
@@ -92,13 +95,28 @@
             </div>
             <div class="otherProfile">
                 <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
-                    <img src="/images/among_us2.png" alt="">Computador NukaCola - xxx_EnzoG4mer_xxx
+                    <img src="../images/among_us2.png" alt="">Computador NukaCola - xxx_EnzoG4mer_xxx
                 </a>
             </div>
         </div>
 
-        
-        
+        <div class="wrapperCarousel">
+            <div id="carousel">
+                <div id="content">
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                    <div class="slide"><img src="https://via.placeholder.com/800x500/?text=pamonha" /></div>	        
+                </div>
+            </div>
+            <button id="prev"><i class="arrow"></i></button>
+            <button id="next"><i class="arrow"></i></button>
+        </div>
+        <br>
+
 
     </main>
     
@@ -106,7 +124,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3">
-                    <img src="/images/Logo.png" class="col-sm-12" id="low-logo" alt="">
+                    <img src="../images/Logo.png" class="col-sm-12" id="low-logo" alt="">
                 </div>
                 <div class="col-xs-6 col-md">
                     <h6>Categorias</h6>
@@ -159,4 +177,35 @@
         </div>
     </footer>
 </body>
+<script>
+
+    const carousel = document.getElementById("carousel"),
+    content = document.getElementById("content"),
+    next = document.getElementById("next"),
+    prev = document.getElementById("prev");
+  
+  next.addEventListener("click", e => {
+    carousel.scrollBy(width, 0);
+    if (carousel.scrollWidth !== 0) {
+      prev.style.display = "flex";
+    }
+    if (content.scrollWidth - width <= carousel.scrollLeft + width) {
+      next.style.display = "none";
+    }
+  });
+  
+  prev.addEventListener("click", e => {
+    carousel.scrollBy(-width, 0);
+    if (carousel.scrollLeft - width <= 0) {
+      prev.style.display = "none";
+    }
+    if (!content.scrollWidth - width <= carousel.scrollLeft + width) {
+      next.style.display = "flex";
+    }
+  });
+  
+  let width = carousel.offsetWidth;
+  window.addEventListener("resize", e => (width = carousel.offsetWidth));
+  
+</script>
 </html>
