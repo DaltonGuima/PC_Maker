@@ -61,6 +61,8 @@ main{
     width: 80%;
     position: relative;
     margin: 14px  auto;
+    height: 8rem;
+    border-bottom:#7042D5 solid 2px;
   }
   
   #carousel {
@@ -77,7 +79,7 @@ main{
     display: flex;
     justify-content: center;
     align-content: center;
-    background: #004fb6;
+    background: rgba(0, 79, 182, 0.7);
     border: none;
     padding: 14px;
     border-radius: 50%;
@@ -87,16 +89,80 @@ main{
   }
   
   #prev {
-    top: 50%;
+    top: 40%;
     left: 0;
     transform: translate(50%, -50%);
+    background-color: rgba(0, 0, 0, 0);
     display: none;
   }
   
   #next {
-    top: 50%;
+    top: 40%;
     right: 0;
     transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  #descricaoSection{
+    padding-left: 10%;
+    padding-right: 10%;
+    color: white;
+  }
+
+#secaoSuperiorComponentes{
+    padding-bottom: 2%;
+    border-bottom:#7042D5 solid 2px;
+}
+
+  #listaComponentes{
+    padding-left: 10%;
+    padding-right: 10%;
+    color: white;
+    padding-top: 3%;
+    padding-bottom: 5%;
+    
+    
+  }
+
+  .componentes{
+    overflow: hidden;
+    float: left;
+  }
+
+  #tipoComponente{
+    padding-right: 8%;
+  }
+
+  #produtoComponente{
+    padding-right: 65%;
+  }
+
+  #precoComponente{
+    padding-right: 7%;
+  }
+
+
+  #descricaoTitle{
+    padding-bottom: 0.7rem;
+  }
+
+  #boxDescricao{
+    height: fit-content;
+    color: white;
+    background-color: #353A3C;
+    resize: none;
+    text-align: left;
+    border: #7042D5 solid 1px;
+  }
+
+  @media  screen and (min-width: 768px) {
+    #prev{
+      left: -5rem;
+
+    }
+    #next{
+      right: -5rem;
+    }   
   }
     
   button .arrow {
@@ -121,20 +187,25 @@ main{
   } 
     
   #content {
-      width: 100%;	
+      width: 50%;	
       min-height: auto;		
       display: flex;
       flex-wrap: nowrap;
   }
+
+  @media screen and (max-width: 320px){
+    #content{
+      width: 60%;
+    }   
+  }
   
   #content img {
-      width: 100%;
-      height: auto;
+      width: 10rem;
+      height: 6rem;
   }
   
   div.slide {
-      min-width: 100%;	
-      height: auto;	
+      min-width: 100%;		
    }
    
   div.slide:not(:last-child) {
@@ -153,5 +224,4 @@ main{
       min-width: 33%;			
    }
   }
-
 

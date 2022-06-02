@@ -1,3 +1,7 @@
+main{
+  background-color: #212425;
+  margin: 0;
+}
 /* Navbar */
 .search-button form{
     background-color: rgb(53, 58, 60);

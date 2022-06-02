@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- link bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- link CSS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/profile.css">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Links icones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- link js -->
+    <script src="../js/script.js"></script>
+    
+    <title>Home</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="../images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;"> 
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav">
+                        <li class="nav-item">
+                        <a class="nav-link" href="#">Monte seu Computador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="build.html">Builds</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Guias</a>
+                    </li>
+                </ul>
+                <div class="search-button col-md-4">
+                    <form class="d-flex" id="barraPesquisa">
+                        <input class="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" >
+                        <label id="search-field">
+                            <a href="" onclick="return focusPesquisa();">
+                                <i class="fa fa-search"></i>
+                            </a>
+                        </label>
+                    </form>
+                </div>
+                <div class="profile">
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
+                                <img src="../images/among_us.jpg" alt="">Teste
+                            </a>
+                            <div class="dropdown-menu  dropdown-menu-end bg-dark ">
+                                <button class="dropdown-item disabled bg-dark">
+                                    <i class="fa fa-user-o"></i> Perfil
+                                </button>
+                                <button class="dropdown-item text-light" type="button">Action</button>
+                                <button class="dropdown-item text-light" type="button">Another action</button>
+                                <button class="dropdown-item text-light" type="button">Something else here</button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="container-fluid">
+
+            <div class="row pt-5">
+                <div class="col-sm-1 profileImg">
+                    <img src="../images/among_us.jpg" alt="" class="img-fluid rounded-circle">
+                </div>
+                <div class="col-sm-5 text-light">
+                    <h1>Usuario</h1>
+                    <p>usuario@email.com</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <nav class="navbar-primary col-md-3">    
+            <div class="col-md-11 col-sm-1">
+                <button class="dropdown-item text-light" type="button">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
+                <button class="dropdown-item text-light" type="button">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i> Minha conta</button>
+                <button class="dropdown-item text-light" type="button">
+                    <i class="fa fa-lock" aria-hidden="true"></i> Login e Segurança</button>
+                <button class="dropdown-item text-light" id="LastInGroup" type="button">
+                    <i class="fa fa-envelope" aria-hidden="true"></i> Preferências de Email</button>
+
+                <button class="dropdown-item text-light" type="button">
+                    <i class="fa fa-microchip" aria-hidden="true"></i> Builds Salvas</button>
+                <button class="dropdown-item text-light" type="button">
+                    <i class="fa fa-desktop" aria-hidden="true"></i> Minhas Builds</button>
+            </div>
+        </nav>
+        <div class="main-container">
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Nome</h3>
+                <p class="disabled" >Usuario</p>
+                <button class="btn text-light btn-block float-end" type="button">Editar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Nome</h3>
+                <p class="disabled" >Usuario</p>
+                <button class="btn text-light btn-block float-end" type="button">Editar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Contas das redes sociais conectadas</h3>
+                <div class="col-xl-6 pt-2">
+                    <ul class="social-icons">
+                        <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="apple" href="#"><i class="fa fa-apple"></i></a></li>   
+                    </ul>
+                </div>
+                <button class="btn text-light btn-block float-end" type="button">Desconectar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Acessibilidade</h3>
+                <p class="disabled" >Alto Contraste de Cores</p>
+                <label class="switch float-end">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+        <br>
+    </main>
+    
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-3">
+                    <img src="../images/Logo.png" class="col-sm-12" id="low-logo" alt="">
+                </div>
+                <div class="col-xs-6 col-md">
+                    <h6>Categorias</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Monte Seu computador</a></li>
+                        <li><a href="#">Builds</a></li>
+                        <li><a href="#">Guias</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-md">
+                    <h6>Informações</h6>
+                    <ul class="footer-links">
+                        <li><a href="#">Fóruns</a></li>
+                        <li><a href="#">Variações de Preços</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-md">
+                    <ul class="footer-links">
+                        <h6>Sobre nós</h6>
+                        <li><a href="#">Equipe</a></li>
+                        <li><a href="#">Contato</a></li>
+                        <li><a href="#">Políticas de Privacidade</a></li>
+                        <li><a href="#">Código de Defesa do Consumidor</a></li>
+                    </ul>
+                </div>
+                <div class="col-xs-6 col-md">
+                    <h6>FAQ</h6>
+                        <ul class="footer-links">
+                        <li><a href="#">FAQ e Orientações</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">Copyright &copy; 2022 All Rights Reserved by 
+                    <a href="#">PC Maker</a>.
+                </p>
+                </div> 
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
