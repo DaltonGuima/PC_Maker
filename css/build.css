@@ -109,7 +109,7 @@ main{
     color: white;
   }
 
-#secaoSuperiorComponentes{
+  #secaoSuperiorComponentes{
     padding-bottom: 2%;
     border-bottom:#7042D5 solid 2px;
 }
@@ -123,25 +123,7 @@ main{
     
     
   }
-
-  .componentes{
-    overflow: hidden;
-    float: left;
-  }
-
-  #tipoComponente{
-    padding-right: 8%;
-  }
-
-  #produtoComponente{
-    padding-right: 65%;
-  }
-
-  #precoComponente{
-    padding-right: 7%;
-  }
-
-
+ 
   #descricaoTitle{
     padding-bottom: 0.7rem;
   }
@@ -154,6 +136,23 @@ main{
     text-align: left;
     border: #7042D5 solid 1px;
   }
+
+.tipoComponente{
+    background-color: #7042D5;
+    border: 1px absolute black;
+    color: aliceblue;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: 18%;
+    border-radius: 50px;
+    border-top: 200px;
+    border-bottom: 200px;
+    position: relative;
+    display: inline-block;
+    padding: 0rem 0.7rem 0rem 0.7rem;
+    width: auto;
+    height: auto;
+}
 
   @media  screen and (min-width: 768px) {
     #prev{
@@ -225,3 +224,16 @@ main{
    }
   }
 
+ /* Table */
+ 
+ .table thead{
+   border-bottom: #7042D5 solid 2px;
+ }
+
+ .table tr{
+   height: 5rem;
+ }
+
+ .table tr:last-child{
+   border-bottom: #7042D5 solid 2px;
+ }

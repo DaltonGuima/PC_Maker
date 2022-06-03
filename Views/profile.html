@@ -96,10 +96,10 @@
 
         <nav class="navbar-primary col-md-3">    
             <div class="col-md-11 col-sm-1">
-                <button class="dropdown-item text-light" type="button">
-                    <i class="fa fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
-                <button class="dropdown-item text-light" type="button">
+                <button class="dropdown-item text-light" type="button" onfocus="NoDisplay();" id="MyAccountBtn" autofocus>
                     <i class="fa fa-user-circle-o" aria-hidden="true"></i> Minha conta</button>
+                <button class="dropdown-item text-light" type="button" onfocus="NoDisplay();" id="UserProfileBtn">
+                    <i class="fa fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
                 <button class="dropdown-item text-light" type="button">
                     <i class="fa fa-lock" aria-hidden="true"></i> Login e Segurança</button>
                 <button class="dropdown-item text-light" id="LastInGroup" type="button">
@@ -111,9 +111,44 @@
                     <i class="fa fa-desktop" aria-hidden="true"></i> Minhas Builds</button>
             </div>
         </nav>
-        <div class="main-container">
+        
+        <div class="break"> </div>
+
+        <div class="main-container" id="MyAccount">
             <div class="col-md-11 pt-3 text-light box">
                 <h3 class="bold">Nome</h3>
+                <p class="disabled" >Usuario</p>
+                <button class="btn text-light btn-block float-end" type="button">Editar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Endereço de email</h3>
+                <p class="disabled" >usuario@email.com</p>
+                <button class="btn text-light btn-block float-end" type="button">Editar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Contas das redes sociais conectadas</h3>
+                <div class="col-xl-6 pt-2">
+                    <ul class="social-icons">
+                        <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a class="apple" href="#"><i class="fa fa-apple"></i></a></li>   
+                    </ul>
+                </div>
+                <button class="btn text-light btn-block float-end" type="button">Desconectar </button>
+            </div>
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Acessibilidade</h3>
+                <p class="disabled" >Alto Contraste de Cores</p>
+                <label class="switch float-end">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+        </div>
+
+        <div class="main-container" id="UserProfile" style="display: none;">
+            <div class="col-md-11 pt-3 text-light box">
+                <h3 class="bold">Noma</h3>
                 <p class="disabled" >Usuario</p>
                 <button class="btn text-light btn-block float-end" type="button">Editar </button>
             </div>

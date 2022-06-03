@@ -1,3 +1,5 @@
+
+
 function focusPesquisa(){
   
   let pesquisa = barraPesquisa.itemPesquisa.value
@@ -43,8 +45,33 @@ function carousel(){
   window.addEventListener("resize", e => (width = carousel.offsetWidth));
 }
 
-function collapse(){
-  $('.btn-expand-collapse').click(function(e) {
-    $('.navbar-primary').toggleClass('col-md-1');
-});
+
+function NoDisplay(){
+  const 
+  UserProfile = document.getElementById("UserProfile"),
+  MyAccount = document.getElementById("MyAccount"),
+  btn1 = document.getElementById("MyAccountBtn"),
+  btn2 = document.getElementById("UserProfileBtn");
+
+  function AuxNoDisplay(){
+    MyAccount.style.display = "none";
+    UserProfile.style.display = "none";
+  }
+
+  btn1.addEventListener("click", e => {
+    AuxNoDisplay();
+    MyAccount.style.display = "block";
+  });
+
+  btn2.addEventListener("click", e => {
+    AuxNoDisplay(); 
+    UserProfile.style.display = "block";   
+  });  
+
 }
+
+
+
+
+/* Profile */
+
