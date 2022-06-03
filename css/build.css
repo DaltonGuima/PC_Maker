@@ -143,14 +143,14 @@ main{
     color: aliceblue;
     margin-top: 1.5rem;
     margin-bottom: 0.5rem;
-    margin-left: 18%;
+    margin-left: 5%;
     border-radius: 50px;
     border-top: 200px;
     border-bottom: 200px;
     position: relative;
     display: inline-block;
     padding: 0rem 0.7rem 0rem 0.7rem;
-    width: auto;
+    width: 4rem;
     height: auto;
 }
 
@@ -225,6 +225,10 @@ main{
   }
 
  /* Table */
+
+ .table{
+   margin-bottom: 2rem;
+ }
  
  .table thead{
    border-bottom: #7042D5 solid 2px;
@@ -237,3 +241,57 @@ main{
  .table tr:last-child{
    border-bottom: #7042D5 solid 2px;
  }
+
+.table tbody .peca{
+  width: 70px;
+  height: 70px;
+}
+
+.VendedorImg{
+  width: 80px;
+  height: 20px;
+}
+
+.DescricaoProduto{
+  position: relative;
+  top: -1rem;
+  padding-top: 2px;
+}
+
+.plow{
+  position: relative;
+  top: -1rem;
+  height: 1px;
+  font-size: small;
+}
+
+@media screen and (min-width: 1300px) {
+  .DescricaoProduto{
+    height: 1px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .table tbody img{
+    display: none;
+  }
+  .tipoComponente{
+    width: min-content;
+  }
+  .table thead ,tbody{
+    font-size: small;
+  }
+}
+
+/* Texto Abaixo */
+
+.TextAfterTable h3{
+  text-align: right;
+  margin-right: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .TextAfterTable h3{
+    margin-right: 8rem;
+  } 
+}

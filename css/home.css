@@ -6,12 +6,12 @@ main{
 /* *Banner */
 
 .banner1{
-    background-image: url("/images/banner1.png");
+    background-image: url("../images/banner1.png");
     background-size:cover;
 }
 
 .banner2{
-    background-image: url("/images/banner2.png");
+    background-image: url("../images/banner2.png");
     background-size:cover;
     height: 200px;
 }
