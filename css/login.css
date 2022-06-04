@@ -33,6 +33,7 @@ input[type=password], input[type=email]{
     border: 0.2px solid white;
     height: 3rem;
     border-radius: 20px;
+    padding-left: 1rem;
 }
 
 img{
