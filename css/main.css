@@ -2,6 +2,7 @@ main{
   background-color: #212425;
   margin: 0;
 }
+
 /* Navbar */
 .search-button form{
     background-color: rgb(53, 58, 60);
@@ -216,4 +217,19 @@ main{
       font-weight: 600;
     }
   }
-  
+
+  /* Barra de acessibilidade */
+#acessibilidade{
+  background: rgb(144,141,141);
+  background: linear-gradient(0deg, rgba(144,141,141,1) 4%, rgba(219,219,226,1) 12%, rgba(255,255,255,1) 25%);
+  padding-bottom: 0.5rem;
+}
+
+#atalhos{
+  list-style: none;
+}
+
+#atalhos li{
+  margin-right: .5rem;
+}
+

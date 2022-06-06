@@ -45,6 +45,7 @@ function carousel(){
   window.addEventListener("resize", e => (width = carousel.offsetWidth));
 }
 
+/* Profile */
 
 function NoDisplay(){
   const 
@@ -69,9 +70,4 @@ function NoDisplay(){
   });  
 
 }
-
-
-
-
-/* Profile */
 
