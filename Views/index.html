@@ -53,14 +53,14 @@
                     <li class="contraste"><a href="javascript:void(0)" id="contraste">Contraste</a></li>
                     <li class="contraste"><a href="javascript:void(0)" id="semcontraste">Sem Contraste</a></li>
                     <li class="fonte"><a href="javascript:void(0)" id="aumentar">A +</a></li>
-                    <li class="fonte"><a href="javascript:void(0)" id="diminuir">A -</a></li>
+                    <li class="fonte"><a href   ="javascript:void(0)" id="diminuir">A -</a></li>
                 </div> 
             </ul>
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="topo">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="../images/Logo.png" alt="Avatar Logo" style="width:150px; height: 80px;"> 
+                    <img src="../images/Logo.png" alt="Logo da Empresa" style="width:150px; height: 80px;"> 
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                     <span class="navbar-toggler-icon"></span>
@@ -71,7 +71,7 @@
                         <a class="nav-link" href="#">Monte seu Computador</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="build.html">Builds</a>
+                        <a class="nav-link" >Builds</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Guias</a>
@@ -92,7 +92,7 @@
                     <ul class="navbar-nav">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
-                                <img src="../images/among_us.jpg" alt="">Perfil
+                                <img src="../images/among_us.jpg" alt="Foto de Perfil">Perfil
                             </a>
                             <div class="dropdown-menu  dropdown-menu-end bg-dark ">
                                 <button class="dropdown-item disabled bg-dark">
@@ -124,15 +124,15 @@
         </div>
 
         <div class="container cards">
-            <h1 class="text-center text-light title">Builds</h1>
-            <div class="row pt-5 m-auto">
+            <h1 class="text-center text-light title">Builds mais votadas</h1>
+            <div class="row pt-2 m-auto">
                 <div class="col-md-6 col-lg-4 pb-3">
         
                 <!-- Copy the content below until next comment -->
                 <div class="card card-custom bg-dark text-light">
                     <div class="card-custom-img" style="background-image: url(../images/Build\ 1.png);"></div>
                         <div class="card-custom-avatar">
-                            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
+                            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar do Usuário"  />
                         </div>
                     <div class="card-body" style="overflow-y: auto">
                         <h4 class="card-title">Build 1</h4>
@@ -141,6 +141,7 @@
                             <li>Radeon RX 6800XT</li>
                             <li>32GB DDR4 3200MHz</li>
                         </ul>
+                        <h6 class="text-secondary">Feito por Zezão extreme</h6>    
                     </div>
                 </div>
                 
@@ -148,21 +149,23 @@
         
             </div>
             <div class="col-md-6 col-lg-4 pb-3">
-        
-                <div class="card card-custom bg-dark text-light">
-                    <div class="card-custom-img" style="background-image: url(../images/Build\ 2.png);"></div>
-                        <div class="card-custom-avatar">
-                            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
+                <a href="../Views/build.html" class="text-decoration-none">
+                    <div class="card card-custom bg-dark text-light">
+                        <div class="card-custom-img" style="background-image: url(../images/Build\ 2.png);"></div>
+                            <div class="card-custom-avatar">
+                                <img class="img-fluid bg-dark border border-light" src="../images/among_us2.png" alt="Avatar do Usuário" title="xxx_EnzoG4mer_xxx" />
+                            </div>
+                        <div class="card-body" style="overflow-y: auto">
+                            <h4 class="card-title">Computador NukaCola</h4>
+                            <ul class="card-text pt-3">
+                                <li>Intel I5 10400F LGA1200</li>
+                                <li>Radeon RX 6800XT</li>
+                                <li>8GB DDR4 2400MHz</li>
+                            </ul>
+                            <h6 class="text-secondary">Feito por xxx_EnzoG4mer_xxx</h6>
                         </div>
-                    <div class="card-body" style="overflow-y: auto">
-                    <h4 class="card-title">Build 2</h4>
-                    <ul class="card-text pt-3">
-                        <li>Ryzen 7 5800X</li>
-                        <li>Radeon RX 6800XT</li>
-                        <li>32GB DDR4 3200MHz</li>
-                    </ul>
                     </div>
-                </div>
+                </a>
                 
             </div>
             <div class="col-md-6 col-lg-4 pb-3">
@@ -170,15 +173,16 @@
                 <div class="card card-custom  bg-dark text-light">
                     <div class="card-custom-img" style="background-image: url(../images/Build\ 3.png);"></div>
                         <div class="card-custom-avatar">
-                            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar" />
+                            <img class="img-fluid" src="http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg" alt="Avatar do Usuário" />
                         </div>
                     <div class="card-body" style="overflow-y: auto">
-                    <h4 class="card-title">Build 3</h4>
-                    <ul class="card-text pt-3">
-                        <li>AMD Threadripper 3990X</li>
-                        <li>RTX 3080</li>
-                        <li>16 DDR4 3200MHz</li>
-                    </ul>
+                        <h4 class="card-title">Build 3</h4>
+                        <ul class="card-text pt-3">
+                            <li>AMD Threadripper 3990X</li>
+                            <li>RTX 3080</li>
+                            <li>16 DDR4 3200MHz</li>
+                        </ul>
+                        <h6 class="text-secondary">Feito por Zezão extreme</h6>
                     </div>
                 </div>
                 
@@ -198,7 +202,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12 col-md-3">
-                    <img src="../images/Logo.png" class="col-sm-12" id="low-logo" alt="">
+                    <img src="../images/Logo.png" class="col-sm-12" id="low-logo" alt="Logo da empresa">
                 </div>
                 <div class="col-xs-6 col-md">
                     <h6>Categorias</h6>
