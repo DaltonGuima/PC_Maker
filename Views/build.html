@@ -34,32 +34,37 @@
 <body>
     <header>
         <div id="acessibilidade" class="container-fluid">
-            <ul id="atalhos" class="list-group list-group-horizontal">
-                <div class="col-md-8 d-inline-flex">
-                    <li>
-                        <a href="#conteudo" accesskey="1" title="Ir para o conteúdo da página">
-                            Ir para conteúdo [1]
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#menu" accesskey="2" title="Ir para o menu da navegação">
-                            Ir para menu [2]
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#rodape" accesskey="3" title="Ir para o rodapé">
-                            Ir para rodapé [3]
-                        </a>
-                    </li>
+            <div class="row">
+                <div class="d-md-inline-flex col-md">
+                    <ul id="atalhos" class="atalhos list-group list-group-horizontal">
+                        <li>
+                            <a href="#conteudo" accesskey="1" title="Ir para o conteúdo da página">
+                                Ir para conteúdo [1]
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#menu" accesskey="2" title="Ir para o menu da navegação">
+                                Ir para menu [2]
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#rodape" accesskey="3" title="Ir para o rodapé">
+                                Ir para rodapé [3]
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="d-md-inline-flex col-md Funcoes">
+                        <ul class="atalhos list-group list-group-horizontal">
+                            <li id="pgacess"><a href="acessibilidade.html">Acessibilidade</a></li>
+                            <li class="contraste"><a href="javascript:void(0)" id="contraste">Contraste</a></li>
+                            <li class="contraste"><a href="javascript:void(0)" id="semcontraste">Sem Contraste</a></li>
+                            <li class="fonte"><a href="javascript:void(0)" id="aumentar">A +</a></li>
+                            <li class="fonte"><a href="javascript:void(0)" id="diminuir">A -</a></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-md-4 d-md-inline-flex justify-content-end">
-                    <li id="pgacess"><a href="acessibilidade.html">Acessibilidade</a></li>
-                    <li class="contraste"><a href="javascript:void(0)" id="contraste">Contraste</a></li>
-                    <li class="contraste"><a href="javascript:void(0)" id="semcontraste">Sem Contraste</a></li>
-                    <li class="fonte"><a href="javascript:void(0)" id="aumentar">A +</a></li>
-                    <li class="fonte"><a href="javascript:void(0)" id="diminuir">A -</a></li>
-                </div> 
-            </ul>
+            </div> 
         </div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" id="topo">
             <div class="container-fluid">

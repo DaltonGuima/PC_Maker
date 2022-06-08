@@ -225,11 +225,17 @@ main{
   padding-bottom: 0.5rem;
 }
 
-#atalhos{
+.atalhos{
   list-style: none;
 }
 
-#atalhos li{
+.atalhos li{
   margin-right: .5rem;
 }
 
+@media screen and (min-width: 768px){
+  .Funcoes{
+    position: absolute;
+    right: 0;
+  }
+}

@@ -8,6 +8,7 @@ main{
 .banner1{
     background-image: url("../images/banner1.png");
     background-size:cover;
+    font-weight: bold;
 }
 
 .banner2{
@@ -20,6 +21,7 @@ main{
 {
     .banner1{
         height: 663px;
+        font-weight:unset;
     }
     .banner2{
         height: 450px;
@@ -36,7 +38,11 @@ main{
     width: 100%;
 }
 
-
+.banner .row-fluid p{
+    background-color: rgba(0, 0, 0, .80);
+    padding: 6px;
+    border-radius: 10px;
+}
 
 @media screen and (min-width: 768px)
 {
@@ -46,6 +52,10 @@ main{
         left: 4rem;
         width: 25rem;
         background-color: rgba(0, 0, 0, .47);
+    }
+    .banner .row-fluid p{
+        background-color: transparent;
+        padding: 0;
     }
 }
 
