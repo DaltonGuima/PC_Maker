@@ -71,3 +71,48 @@ function NoDisplay(){
 
 }
 
+function ModifyButtons(){
+
+  let
+  /* buttons */
+  NomeBtn = document.getElementById("NomeBtn"),
+  EmailBtn = document.getElementById("EmailBtn"),
+  AltoContraste = document.getElementById("AltoContraste"),
+
+  Validador = document.getElementById("ValidadorMinhaConta");
+
+  /* Inputs */
+  Nome = document.getElementById("Nome");
+  Email = document.getElementById("Email"),
+
+  NomeBtn.addEventListener("click", e => {
+    Nome.disabled = false
+    Nome.focus()
+    NomeBtn.disabled = true
+  });
+
+  EmailBtn.addEventListener("click", e => {
+    Email.disabled = false
+    Email.focus()
+    EmailBtn.disabled = true
+  });
+
+  AltoContraste.addEventListener("change", e => {
+    if(!AltoContraste.checked && !NomeBtn.disabled && !EmailBtn.disabled){
+    Validador.style.display = "none";
+  }
+  });
+    
+  Validador.style.display = "block";
+}
+
+function CancelModify(){
+  let
+  Cancel = document.getElementById("cancel");
+
+  Cancel.addEventListener("click", e => {
+    location.reload();
+  });
+
+}
+

@@ -45,14 +45,29 @@
     
 }
 
-.btn{
-    position: relative;
-    top: -3rem;
-    width: 8rem;
-} 
-
-
 /* Contents */
+.btn{
+  position: relative;
+  top: -3rem;
+  width: 8rem;
+}
+
+.Validador{
+  height: 2.5rem;
+  margin-bottom: -4.5rem;
+}
+
+.Validador button{
+  width: 7rem;
+}
+
+
+@media screen and (max-width: 576px){
+  .btn{
+    width: 7rem;
+  }
+}
+
 .social-icons a.apple:hover {
     background-color: gray;
 }
@@ -79,7 +94,19 @@
     padding-bottom: 1rem;
 }
 
+/* Minha Conta */
 
+.FormProfile{
+  width: 50%;
+}
+
+.FormProfile:enabled{
+  border-bottom: white solid 1px;
+}
+
+
+
+/* RadioButton */
 .switch {
     position: relative;
     display: inline-block;

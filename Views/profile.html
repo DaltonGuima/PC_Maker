@@ -145,37 +145,55 @@
         
         <div class="break"> </div>
 
-        <div class="main-container" id="MyAccount">
-            <div class="col-md-11 pt-3 text-light box">
-                <h3 class="bold">Nome</h3>
-                <p class="disabled" >Usuario</p>
-                <button class="btn text-light btn-block float-end" type="button">Editar </button>
-            </div>
-            <div class="col-md-11 pt-3 text-light box">
-                <h3 class="bold">Endereço de email</h3>
-                <p class="disabled" >usuario@email.com</p>
-                <button class="btn text-light btn-block float-end" type="button">Editar </button>
-            </div>
-            <div class="col-md-11 pt-3 text-light box">
-                <h3 class="bold">Contas das redes sociais conectadas</h3>
-                <div class="col-xl-6 pt-2">
-                    <ul class="social-icons">
-                        <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
-                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a class="apple" href="#"><i class="fa fa-apple"></i></a></li>   
-                    </ul>
+        <form class="was-validated">
+            <div class="main-container" id="MyAccount">
+                <div class="col-md-11 pt-3 text-light box">
+                    <h3 class="bold">Nome</h3>
+                    <input type="text" name="Nome" id="Nome" class="form-control-plaintext text-light FormProfile" placeholder="Usuario" disabled required>
+                    <div class="invalid-feedback">Por favor preencha este campo</div>
+                    <button class="btn text-light btn-block float-end" type="button" onfocus="ModifyButtons();" id="NomeBtn">Editar </button>
                 </div>
-                <button class="btn text-light btn-block float-end" type="button">Desconectar </button>
+                <div class="col-md-11 pt-3 text-light box">
+                    <h3 class="bold">Endereço de email</h3>
+                    <input type="text" name="email" id="Email" class="form-control-plaintext FormProfile" placeholder="usuario@email.com" disabled required>
+                    <div class="invalid-feedback">Por favor preencha este campo</div>
+                    <button class="btn text-light btn-block float-end" type="button" onfocus="ModifyButtons();" id="EmailBtn">Editar </button>
+                </div>
+                <div class="col-md-11 pt-3 text-light box">
+                    <h3 class="bold">Contas das redes sociais conectadas</h3>
+                    <div class="col-xl-6 pt-2">
+                        <ul class="social-icons">
+                            <li><a class="google" href="#"><i class="fa fa-google"></i></a></li>
+                            <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="apple" href="#"><i class="fa fa-apple"></i></a></li>   
+                        </ul>
+                    </div>
+                    <button class="btn text-light btn-block float-end" type="button">Desconectar </button>
+                </div>
+                <div class="col-md-11 pt-3 text-light box">
+                    <h3 class="bold">Acessibilidade</h3>
+                    <p class="disabled" >Alto Contraste de Cores</p>
+                    <label class="switch float-end">
+                        <input type="checkbox" onchange="ModifyButtons();" id="AltoContraste">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta"style="display: none;">
+                    <button class="btn text-light btn-block" type="reset"><i class="fa fa-trash" aria-hidden="true"></i>
+                        <span class="d-md-inline" style="display: none;"> Limpar</span>
+                    </button>
+                    
+                    <div class="float-end d-inline text-light user-select-none">
+                        <button class="btn text-light btn-block bg-danger d-none-text" type="button" onfocus="CancelModify();" id="cancel"><i class="fa fa-close" aria-hidden="true"></i> 
+                            <span class="d-md-inline" style="display: none;"> Cancelar</span>
+                        </button>
+                        <button class="btn text-light btn-block bg-success" type="submit"><i class="fa fa-check" aria-hidden="true"></i> 
+                            <span class="d-md-inline" style="display: none;"> Salvar</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-11 pt-3 text-light box">
-                <h3 class="bold">Acessibilidade</h3>
-                <p class="disabled" >Alto Contraste de Cores</p>
-                <label class="switch float-end">
-                    <input type="checkbox">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-        </div>
+        </form>
 
         <div class="main-container" id="UserProfile" style="display: none;">
             <div class="col-md-11 pt-3 text-light box">
