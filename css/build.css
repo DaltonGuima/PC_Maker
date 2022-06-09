@@ -31,6 +31,12 @@ main{
     /*color: #7042D5;*/ /*dificuldade de visibilidade*/
 }
 
+@media screen and (min-width: 768px){
+  .tagsBuild{
+    margin-left: 3rem;
+  } 
+}
+
 .tipoTela, .dataCriacao {
     background-color: #7042D5;
     color: aliceblue;
@@ -299,16 +305,8 @@ main{
 
 /* Rate */
 .RattingIcons{
-  text-align: center;
   color: transparent;
-  -webkit-text-stroke: 1px white;
-}
-
-@media screen and (min-width: 768px) {
-  .RattingIcons{
-    margin-left: 7rem;
-    text-align: left;
-  } 
+  -webkit-text-stroke: 1px rgba(255,255,255,.5);
 }
 
 .RattingVote input {
@@ -321,17 +319,20 @@ main{
   cursor: pointer;
   -webkit-transition: .4s;
   transition: .4s;
-  font-size: 4.5rem;
+  font-size: 1.5rem;
 }
 
 #upvote:checked + .Rate {
   color: green;
+  -webkit-text-stroke: .1px rgba(255,255,255,.5);
 }
 #downvote:checked + .Rate {
   color: red;
+  -webkit-text-stroke: .1px rgba(255,255,255,.5);
 }
 #fav:checked + .Rate{
-  color: gold;
+  color: #7042D5;
+  -webkit-text-stroke: .1px rgba(255,255,255,.5);
 }
   
 input:checked + .Rate:before {

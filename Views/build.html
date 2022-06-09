@@ -54,7 +54,7 @@
                         </li>
                     </ul>
 
-                    <div class="d-md-inline-flex col-md Funcoes">
+                    <div class="col-md Funcoes">
                         <ul class="atalhos list-group list-group-horizontal">
                             <li id="pgacess"><a href="acessibilidade.html">Acessibilidade</a></li>
                             <li class="contraste"><a href="javascript:void(0)" id="contraste">Contraste</a></li>
@@ -130,9 +130,29 @@
                 </div>
             </div>
             <div class="otherProfile">
-                <a class="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
-                    <img src="../images/among_us2.png" alt="Foto de Perfil">Computador NukaCola - xxx_EnzoG4mer_xxx
-                </a>
+                <div class="row-fluid text-center">
+                    <div class="col col-lg-10 col-md-9 d-inline-flex">
+                        <a class="nav-link dropleft text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
+                            <img src="../images/among_us2.png" alt="Foto de Perfil">Computador NukaCola - xxx_EnzoG4mer_xxx
+                        </a>
+                    </div>
+                    <div class="d-inline-flex RattingIcons">
+                        <form action="">
+                            <label class="RattingVote" title="Favoritar">
+                                <input type="checkbox" id="fav">
+                                <span class="Rate"><i class="fa fa-star" aria-hidden="true"></i></span>
+                            </label>
+                            <label class="RattingVote" title="Gostei">
+                                <input type="radio" name="Ratting" id="upvote">
+                                <span class="Rate"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+                            </label>
+                            <label class="RattingVote" title="Não gostei">
+                                <input type="radio" name="Ratting" id="downvote">
+                                <span class="Rate"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
+                            </label>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -315,23 +335,7 @@ Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling
 
         <br>
         <div class="container-fluid text-light text-right TextAfterTable" >
-            <div class="row">
-                <div class="col-sm-1 col-md-6 RattingIcons">
-                    <form action="">
-                        <label class="RattingVote" title="Favoritar">
-                            <input type="checkbox" id="fav">
-                            <span class="Rate"><i class="fa fa-star" aria-hidden="true"></i></span>
-                        </label>
-                        <label class="RattingVote" title="Gostei">
-                            <input type="radio" name="Ratting" id="upvote">
-                            <span class="Rate"><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
-                        </label>
-                        <label class="RattingVote" title="Não gostei">
-                            <input type="radio" name="Ratting" id="downvote">
-                            <span class="Rate"><i class="fa fa-arrow-down" aria-hidden="true"></i></span>
-                        </label>
-                    </form>
-                </div>  
+            <div class="row">  
                 <div class="col">
                     <h3>Voltagem Estimada: <small class="text-secondary">315W</small></h3>
                     <h3>Total: <small class="text-secondary">R$ 4137,21</small></h3>
