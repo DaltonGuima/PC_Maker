@@ -1,179 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Thumbnail Carousel - Responsive</title>
-    <link rel="stylesheet" href="style.css" />
-	
-<style>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
-#wrapper {
-  width: 100%;
-  max-width: 1024px;
-  position: relative;
-  margin: 50px  auto;
-}
-
-#carousel {
-  overflow: auto;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-}
-
-#carousel::-webkit-scrollbar {
-  height: 0;
-}
-
-#prev, #next {
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  background: #004fb6;
-  border: none;
-  padding: 14px;
-  border-radius: 50%;
-  outline: 0;
-  cursor: pointer;
-  position: absolute;
-}
-
-#prev {
-  top: 50%;
-  left: 0;
-  transform: translate(50%, -50%);
-  display: none;
-}
-
-#next {
-  top: 50%;
-  right: 0;
-  transform: translate(-50%, -50%);
-}
-  
-button .arrow {
-  border: solid #fff;
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  padding: 6px;
-  transition: transform 0.3s ease-out;
-  outline: none;
-}
-  
-  #prev .arrow {
-    position: relative;
-    left: 3px;
-    transform: rotate(135deg);
-}
-  
- #next .arrow {
-   position: relative;
-   right: 3px;
-   transform: rotate(-45deg);
-} 
-  
-#content {
-	width: 100%;	
-	min-height: auto;		
-	display: flex;
-	flex-wrap: nowrap;
-}
-
-#content img {
-	width: 100%;
-	height: auto;
-}
-
-div.slide {
-	min-width: 100%;	
-	height: auto;	
- }
- 
-div.slide:not(:last-child) {
-	margin-right: 12px;
-}
-
-
-@media all and (min-width: 448px) {
-	div.slide {
-	min-width: 50%;			
- }
-}
-
-@media all and (min-width: 778px) {
-	div.slide {
-	min-width: 33%;			
- }
-}
-
-
-</style>
-	
+    <script src="../js/script.js"></script>
 </head>
 <body>
-
-<div class="wrapperCarousel">
-  <div id="carousel">
-	<div id="content">
-		<div class="slide"><img src="https://via.placeholder.com/300x400/?text=pamonha" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/300x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>
-		<div class="slide"><img src="https://via.placeholder.com/600x400/text=1" /></div>	        
-	</div>
-  </div>
-  <button id="prev"><i class="arrow"></i></button>
-  <button id="next"><i class="arrow"></i></button>
-</div>
-
-<script>
-
-  const carousel = document.getElementById("carousel"),
-  content = document.getElementById("content"),
-  next = document.getElementById("next"),
-  prev = document.getElementById("prev");
-
-next.addEventListener("click", e => {
-  carousel.scrollBy(width, 0);
-  if (carousel.scrollWidth !== 0) {
-    prev.style.display = "flex";
-  }
-  if (content.scrollWidth - width <= carousel.scrollLeft + width) {
-    next.style.display = "none";
-  }
-});
-
-prev.addEventListener("click", e => {
-  carousel.scrollBy(-width, 0);
-  if (carousel.scrollLeft - width <= 0) {
-    prev.style.display = "none";
-  }
-  if (!content.scrollWidth - width <= carousel.scrollLeft + width) {
-    next.style.display = "flex";
-  }
-});
-
-let width = carousel.offsetWidth;
-window.addEventListener("resize", e => (width = carousel.offsetWidth));
-
-</script>
-
-</body>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="a();">Open modal for @mdo</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@fat">Open modal for @fat</button>
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@getbootstrap">Open modal for @getbootstrap</button>
   
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Recipient:</label>
+              <input type="text" class="form-control" id="recipient-name">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Message:</label>
+              <textarea class="form-control" id="message-text"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</body>
 </html>

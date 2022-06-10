@@ -278,7 +278,7 @@ main{
 }
 
 @media screen and (max-width: 576px) {
-  .table tbody img{
+  .peca, .Vendedor{
     display: none;
   }
   .tipoComponente{
@@ -289,6 +289,9 @@ main{
   }
 }
 
+.modal-header{
+  border-bottom: 2px solid #7042D5;
+}
 /* Texto Abaixo */
 
 .TextAfterTable h3{
