@@ -221,7 +221,7 @@ main{
   /* Barra de acessibilidade */
 #acessibilidade{
   background: rgb(144,141,141);
-  background: linear-gradient(0deg, rgba(144,141,141,1) 4%, rgba(219,219,226,1) 12%, rgba(255,255,255,1) 25%);
+  background: linear-gradient(0deg, rgba(144,141,141,1) 4%, rgb(179, 179, 199) 12%, rgb(206, 204, 204) 25%);
   padding-bottom: 0.5rem;
 }
 
