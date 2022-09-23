@@ -1,0 +1,182 @@
+/* Side Navbar */
+.navbar-primary{
+    position: absolute;
+    border-right: #7042D5 solid 2px;
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    font-size: small    ;
+    background-color: #212425;
+}
+
+@media  screen and (min-width: 1024px) {
+    .navbar-primary{
+        font-size:larger}
+}
+
+.navbar-primary .dropdown-item:hover, .dropdown-item:focus{
+    background-color: lightslategray;
+    padding-left: 0.5rem;
+}
+
+.navbar-primary .dropdown-item{
+    height: 3rem;
+}
+
+.navbar-primary #LastInGroup{
+    border-bottom: #7042D5 solid 2px;
+}
+
+.main-container{
+    margin-left: 30%;
+    margin-bottom: 5rem;
+}
+
+@media screen and (max-width: 700px) {
+    .navbar-primary{
+        position: relative;
+        padding-left: 0;
+    }
+    .main-container{
+        margin-left: 2px;
+    }
+    .break{
+      height: 30px;
+      background-color: rgba(91, 99, 101, 0.1);
+    }
+    
+}
+
+/* Contents */
+.btn{
+  position: relative;
+  top: -3rem;
+  width: 8rem;
+}
+
+.Validador{
+  height: 2.5rem;
+  margin-bottom: -4.5rem;
+}
+
+.Validador button{
+  width: 7rem;
+}
+
+
+@media screen and (max-width: 576px){
+  .btn{
+    width: 6.5rem;
+    margin-right: 0.2rem;
+  }
+  .Validador button{
+    width: 4rem;
+  }
+}
+
+.social-icons a.apple:hover {
+    background-color: gray;
+}
+.social-icons a.google:hover {
+    background-color: #DB4437;
+}
+
+.social-icons a{
+    width: 43px;
+    height: 43px;
+    text-decoration: none;
+}
+.social-icons i{
+  position: relative;
+  top: 10px;
+  text-align: center;
+}
+
+.disabled{
+    color: gray;
+}
+
+.main-container .btn{
+    background-color: #7042D5;
+}
+
+.box{
+    border-bottom: #7042D5 solid 2px;
+    padding-bottom: 1rem;
+}
+
+/* Minha Conta */
+
+.FormProfile{
+  width: 50%;
+}
+
+.FormProfile:enabled{
+  border-bottom: white solid 1px;
+}
+
+
+
+/* RadioButton */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    top: -3rem;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(112, 66, 213, .5);
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+    
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
