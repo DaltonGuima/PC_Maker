@@ -83,7 +83,8 @@ p {
 }
 
 .foot{
-    margin-bottom: -7rem;
+    background-color: #353a3c;
+    margin-bottom: -10rem;
 }
 
 .table-responsive {
@@ -1661,10 +1662,13 @@ section {
 }
 
 .header-mobile {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     right: 0;
+    background-color: #353a3c;
+    padding-bottom: 5rem;
+    margin-bottom: -6rem;
 }
 
 .header-mobile .header-mobile__bar {
@@ -1754,16 +1758,6 @@ section {
     padding-left: 15px !important;
 }
 
-.header-mobile .navbar-mobile .navbar-mobile__list li a {
-    color: #555;
-    display: block;
-    padding: 10px 15px;
-    padding-right: 25px;
-    padding-left: 0;
-    border-bottom: 1px solid #e6e6e6;
-    text-transform: capitalize;
-    line-height: inherit;
-}
 
 .header-mobile .navbar-mobile .navbar-mobile__list li a:hover {
     color: #4272d7;
@@ -1773,25 +1767,6 @@ section {
     margin-right: 19px;
 }
 
-.header-mobile .navbar-mobile .navbar-mobile__list li.has-dropdown > a:after {
-    content: '\f105';
-    font-family: FontAwesome, cursive;
-    float: right;
-    font-size: 16px;
-    line-height: 22px;
-    -webkit-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-}
-
-.header-mobile .navbar-mobile .navbar-mobile__list li.has-dropdown > a.active::after {
-    -webkit-transform: rotate(90deg);
-    -moz-transform: rotate(90deg);
-    -ms-transform: rotate(90deg);
-    -o-transform: rotate(90deg);
-    transform: rotate(90deg);
-}
 
 .header-mobile .navbar-mobile .navbar-mobile__dropdown {
     padding-left: 35px;
@@ -4242,6 +4217,7 @@ section {
     -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.1);
+    
 }
 
 .table-earning thead th {
@@ -4273,18 +4249,15 @@ section {
     padding-right: 65px;
 }
 
+.table-earning tbody tr{
+    border-bottom: 0.2px solid #fff;
+}
+
 .table-earning tbody tr:hover td {
     color: #555;
     cursor: pointer;
 }
 
-.table-striped tbody tr:nth-of-type(odd) {
-    background-color: #fff;
-}
-
-.table-striped tbody tr:nth-of-type(even) {
-    background-color: #f5f5f5;
-}
 
 .table-top-countries tbody td {
     white-space: nowrap;

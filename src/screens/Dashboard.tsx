@@ -19,32 +19,23 @@ return (
                         <a className="logo" href="dashboard.html">
                             <img src="/icon/logo.png" alt="CoolAdmin" />
                         </a>
-                        <button className="hamburger hamburger--slider" type="button">
-                            <span className="hamburger-box">
-                                <span className="hamburger-inner"></span>
-                            </span>
-                        </button>
+                        <div className='navbar-nav bg-dark'>
+                            <div className="hamburger hamburger--slider dropdown nav-item">
+                                <a className="dropleft" href="#" role="button" data-bs-toggle="dropdown">
+                                    <span className="hamburger-box">
+                                        <span className="hamburger-inner bg-dark"></span>
+                                    </span>
+                                </a>
+                                <div className="dropdown-menu dropdown-menu-end bg-dark">
+                                    <a className="dropdown-item text-light" href='#'>Meu Perfil</a>
+                                    <a className="dropdown-item text-light"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
+                                    <a className="dropdown-item text-light"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <nav className="navbar-mobile">
-                <div className="container-fluid">
-                    <ul className="navbar-mobile__list list-unstyled">
-                        <li>
-                            <a href="dashboard.html">
-                                <i className="fas fa-chart-bar"></i>Dashboard</a>
-                        </li>
-                        <li>
-                            <a href="table.html">
-                                <i className="fas fa-table"></i>Tabelas</a>
-                        </li>
-                        <li>
-                            <a href="form.html">
-                                <i className="far fa-check-square"></i>Formulário</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
         </header>
         {/* <!-- END HEADER MOBILE-->
 
@@ -189,10 +180,10 @@ return (
                         </div>
                     
                         <div className="row">
-                            <div className="col-lg-9">
+                            <div className="col-lg-9 ">
                                 <h2 className="title-1 m-b-25">Earnings By Items</h2>
                                 <div className="table-responsive table--no-card m-b-40">
-                                    <table className="table table-borderless table-striped table-earning">
+                                    <table className="table table-borderless table-earning">
                                         <thead>
                                             <tr>
                                                 <th>Data</th>
@@ -203,7 +194,7 @@ return (
                                                 <th className="text-right">Total</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody >
                                             <tr>
                                                 <td>2018-09-29 05:57</td>
                                                 <td>100398</td>
