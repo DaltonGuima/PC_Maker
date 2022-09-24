@@ -7,6 +7,7 @@ import Cadastro from "../screens/Cadastro";
 import Build from "../screens/Build";
 import Perfil from "../screens/Perfil";
 import Dashboard from "../screens/Dashboard";
+import { Children } from "react";
 
 export const router = createBrowserRouter([
     {
@@ -29,8 +30,15 @@ export const router = createBrowserRouter([
         path: "/perfil",
         element: <Perfil/> 
     },
+
+    /* Dashboards */
     {
         path: "/dashboard",
-        element: <Dashboard/> 
+        element: <Dashboard/>, 
     },
+        {
+        path: "/dashboard/teste",
+        element: <Perfil/>,
+        }
+
 ]);

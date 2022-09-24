@@ -3,6 +3,7 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import '../styles/build.css'
 import '../styles/main.css'
+import '../script/script.js'
 //import './App.css'
 
 function Build() {
@@ -82,8 +83,8 @@ return (
                     </div>                   	        	        	        	             	        	        	        	        	        	        	             	        	        	               	        	        	             	        	        	        	        	        	        	             	        	        	                	        	        	             	        	        	        	        	        	        	             	        	        	               	        	        	             	        	        	        	        	        	        	             	        	        	    	        	        	             	        	        	                                             	        	        	        	             	        	        	        	        	        	        	             	        	        	               	        	        	             	        	        	        	        	        	        	             	        	        	                	        	        	             	        	        	        	        	        	        	             	        	        	               	        	        	             	        	        	        	        	        	        	             	        	        	    	        	        	             	        	        	        
                 </div>
             </div>
-            <button id="prev"><i className="arrow"></i></button>
-            <button id="next"><i className="arrow"></i></button>
+            <button id="prev" onClick={carousel}><i className="arrow"></i></button>
+            <button id="next" onClick={carousel}><i className="arrow"></i></button>
         </div>
         <div id="descricaoSection">
             <div id="descricaoTitle">

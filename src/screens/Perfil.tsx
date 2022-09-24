@@ -1,8 +1,10 @@
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 
+import '../script/script.js'
 import '../styles/profile.css'
 import '../styles/main.css'
+import { Outlet } from 'react-router-dom'
 
 
 function Perfil() {
@@ -53,13 +55,13 @@ function Perfil() {
                             <h3 className="bold">Nome</h3>
                             <input type="text" name="Nome" id="Nome" className="form-control-plaintext text-light FormProfile" placeholder="Usuario" disabled required />
                             <div className="invalid-feedback">Por favor preencha este campo</div>
-                            <button className="btn text-light btn-block float-end" type="button" id="NomeBtn">Editar </button>
+                            <button className="btn text-light btn-block float-end" type="button" id="NomeBtn" onFocus={ModifyButtons}>Editar </button>
                         </div>
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Endereço de email</h3>
                             <input type="text" name="email" id="Email" className="form-control-plaintext FormProfile" placeholder="usuario@email.com" disabled required />
                             <div className="invalid-feedback">Por favor preencha este campo</div>
-                            <button className="btn text-light btn-block float-end" type="button" id="EmailBtn">Editar </button>
+                            <button className="btn text-light btn-block float-end" type="button" id="EmailBtn" onFocus={ModifyButtons}>Editar </button>
                         </div>
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Contas das redes sociais conectadas</h3>
@@ -76,18 +78,18 @@ function Perfil() {
                             <h3 className="bold">Acessibilidade</h3>
                             <p className="disabled" >Alto Contraste de Cores</p>
                             <label className="switch float-end">
-                                <input type="checkbox" id="AltoContraste" />
+                                <input type="checkbox" id="AltoContraste" onChange={ModifyButtons}/>
                                 <span className="slider round"></span>
                             </label>
                         </div>
-                        <div className="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta">
+                        <div className="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta" style={{display: 'none'}}>
                             <button className="btn text-light btn-block" type="reset" title="Limpar"><i className="fa fa-trash" aria-hidden="true"></i>
                                 <span className="d-none d-md-inline" > Limpar</span>
                             </button>
 
                             <div className="float-end d-inline text-light user-select-none">
-                                <button className="btn text-light btn-block bg-danger d-none-text mx-2" title="Cancelar" type="button" id="cancel"><i className="fa fa-close" aria-hidden="true"></i>
-                                    <span className="d-none d-md-inline" > Cancelar</span>
+                                <button className="btn text-light btn-block bg-danger d-none-text mx-2" title="Cancelar" type="button" id="cancel" onFocus={CancelModify}><i className="fa fa-close" aria-hidden="true"></i>
+                                    <span className="d-none d-md-inline"> Cancelar</span>
                                 </button>
                                 <button className="btn btn-block text-light bg-success mx-2" title="Salvar" type="submit"><i className="fa fa-check" aria-hidden="true"></i>
                                     <span className="d-none d-md-inline" > Salvar</span>
