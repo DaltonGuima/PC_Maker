@@ -24,7 +24,7 @@ return (
                 </div>
             </div>
             <div className="otherProfile">
-                <div className="row-fluid text-center">
+                <div className="row-fluid text-center p-2">
                     <div className="col col-lg-10 col-md-9 d-inline-flex">
                         <a className="nav-link dropleft text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
                             <img src="/among_us2.png" alt="Foto de Perfil" />Computador NukaCola - xxx_EnzoG4mer_xxx
@@ -135,8 +135,8 @@ Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling
                                 </span>           
                             </div>  
                         </td>
-                        <td className="text-success p-sm-3">R$ 742,99</td>
-                        <td className="d-flex justify-content-center p-sm-3">
+                        <td className="text-success p-sm-2">R$ 742,99</td>
+                        <td className="d-flex justify-content-center p-sm-2">
                             <p className="d-block d-md-none">Kabum</p>
                             <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
                         </td>
@@ -165,8 +165,8 @@ Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling
                                 </span>           
                             </div>  
                         </td>
-                        <td className="text-success p-sm-3">R$ 989,99</td>
-                        <td className="d-flex justify-content-center p-sm-3">
+                        <td className="text-success p-sm-2">R$ 989,99</td>
+                        <td className="d-flex justify-content-center p-sm-2">
                             <p className="d-block d-md-none">Kabum</p>
                             <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
                         </td>
@@ -195,8 +195,8 @@ Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling
                                 </span>           
                             </div>  
                         </td>
-                        <td className="text-success p-sm-3">R$ 214,90</td>
-                        <td className="d-flex justify-content-center p-sm-3">
+                        <td className="text-success p-sm-2">R$ 214,90</td>
+                        <td className="d-flex justify-content-center p-sm-2">
                             <p className="d-block d-md-none">Kabum</p>
                             <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
                         </td>
@@ -225,8 +225,8 @@ Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling
                                 </span>           
                             </div>  
                         </td>
-                        <td className="text-success p-sm-3">R$ 345,00</td>
-                        <td className="d-flex justify-content-center p-sm-3">
+                        <td className="text-success p-sm-2">R$ 345,00</td>
+                        <td className="d-flex justify-content-center p-sm-2">
                             <p className="d-block d-md-none">Kabum</p>
                             <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
                         </td>
