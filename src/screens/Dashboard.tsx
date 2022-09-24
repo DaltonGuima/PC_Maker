@@ -42,21 +42,6 @@ return (
                             <a href="form.html">
                                 <i className="far fa-check-square"></i>Formulário</a>
                         </li>
-                        <li className="has-sub">
-                            <a className="js-arrow" href="#">
-                                <i className="fas fa-copy"></i>Páginas</a>
-                            <ul className="navbar-mobile-sub__list list-unstyled js-sub-list">
-                                <li>
-                                    <a href="login.html">Login</a>
-                                </li>
-                                <li>
-                                    <a href="cadastro.html">Register</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Forget Password (?)</a>
-                                </li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </nav>
@@ -646,7 +631,7 @@ return (
                                 </div>
                             </div>
                         </div>
-                        <div className="row">
+                        <div className="row foot">
                             <div className="col-md-12">
                                 <div className="copyright">
                                     <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>

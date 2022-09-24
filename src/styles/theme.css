@@ -82,6 +82,10 @@ p {
     margin: 0;
 }
 
+.foot{
+    margin-bottom: -5rem;
+}
+
 .table-responsive {
     padding-right: 1px;
 }
