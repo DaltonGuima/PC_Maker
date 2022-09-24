@@ -16,7 +16,7 @@ export function CardBuild(props:CardBuildProps){
                             <img className="img-fluid bg-light p-1 border border-secondary" src={props.perfilImg} alt="Avatar do Usuário"  />
                         </div>
                     <div className="card-body" style={{overflowY: 'auto'}}>
-                    <a href="" style={{textDecoration: 'none'}} title='Ir para a build'>
+                    <a href="/build" style={{textDecoration: 'none'}} title='Ir para a build'>
                         <h4 className="card-title">{props.title}</h4>
                     </a>
                         <ul className="card-text pt-3">
