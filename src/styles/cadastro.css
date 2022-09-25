@@ -11,10 +11,6 @@ input[type=date]{
     padding: 10px;
 }
 
-input[type=password], input[type=email]{
-    height: 2rem;
-}
-
 .social-icons a{
     display: flex;
     justify-content:center;

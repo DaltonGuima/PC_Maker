@@ -7,7 +7,6 @@ import Cadastro from "../screens/Cadastro";
 import Build from "../screens/Build";
 import Perfil from "../screens/Perfil";
 import Dashboard from "../screens/Dashboard";
-import { Children } from "react";
 
 export const router = createBrowserRouter([
     {

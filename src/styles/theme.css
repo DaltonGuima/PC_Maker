@@ -84,7 +84,18 @@ p {
 
 .foot{
     background-color: #353a3c;
-    margin-bottom: -10rem;
+    margin-bottom: -8rem;
+}
+
+@media screen and (min-width: 2000px){
+    .foot{
+        background-color: #353a3c;
+        padding-bottom: 100rem;
+        margin-bottom: -100rem;
+    }
+    body{
+        background-color: #353a3c;  
+    }
 }
 
 .table-responsive {

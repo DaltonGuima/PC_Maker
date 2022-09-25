@@ -25,10 +25,10 @@ export function Header(){
                     <div className="d-md-inline-flex col-md Funcoes">
                         <ul className="atalhos list-group list-group-horizontal">
                             <li id="pgacess"><a href="acessibilidade.html"><i className="fa-solid fa-circle-info"></i></a></li>
-                            <li className="contraste"><a href="javascript:void(0)" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
-                            <li className="contraste"><a href="javascript:void(0)" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
-                            <li className="fonte"><a href="javascript:void(0)"id="aumentar"><i className="fa-solid fa-arrow-up-a-z"></i></a></li> 
-                            <li className="fonte"><a href="javascript:void(0)" id="diminuir"><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
+                            <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
+                            <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
+                            <li className="fonte"><a href=""id="aumentar"><i className="fa-solid fa-arrow-up-a-z"></i></a></li> 
+                            <li className="fonte"><a href="" id="diminuir"><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                         </ul>
                     </div>
                 </div>

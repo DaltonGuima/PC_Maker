@@ -214,7 +214,7 @@ main{
    }
    
   div.slide:not(:last-child) {
-      margin-right: 12px;
+      margin-right: -5rem;
   }
   
   

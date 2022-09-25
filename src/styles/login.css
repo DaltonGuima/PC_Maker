@@ -27,12 +27,12 @@ body{
     border-top-right-radius: 4%;
 }
 
-input[type=password], input[type=email]{
+#email, #senha, #confirmar-Email, #confirmar-Senha{
     background-color: #292b2c;
     color: white;
     border: 0.2px solid white;
-    height: 3rem;
-    border-radius: 20px;
+    height: 2rem;
+    border-radius: 10rem;
     padding-left: 1rem;
 }
 

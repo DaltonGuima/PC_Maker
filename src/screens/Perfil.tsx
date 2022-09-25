@@ -4,10 +4,42 @@ import { Header } from '../components/Header'
 import '../script/script.js'
 import '../styles/profile.css'
 import '../styles/main.css'
-import { Outlet } from 'react-router-dom'
 
+import {useState } from 'react'
 
 function Perfil() {
+
+    const [checked, setChecked] = useState(false);
+    const [formControl,setFormControl] = useState(false);
+    const [formButton,setFormButton] = useState(true);
+
+
+    const handleChange = () => {
+        setChecked(!checked);
+    };
+
+    function openForm(id:string){
+        setFormControl(true);
+        setFormButton(false);
+        
+        const localConst = document.getElementById(id) as HTMLElement
+        localConst.focus()
+    }
+
+    function closeForm(){
+
+        const inputsProfile = [
+            document.getElementById('nome') as HTMLInputElement,
+            document.getElementById('emailProfile') as HTMLInputElement
+        ]
+
+        inputsProfile.map(inputProfile => {
+            inputProfile.value = ''
+        })
+        setFormControl(false);
+        setFormButton(true);
+    }
+
     return (
         <div>
             <title>Home</title>
@@ -52,17 +84,41 @@ function Perfil() {
                 <form className="was-validated">
                     <div className="main-container" id="MyAccount">
                         <div className="col-md-11 pt-3 text-light box">
-                            <h3 className="bold">Nome</h3>
-                            <input type="text" name="Nome" id="Nome" className="form-control-plaintext text-light FormProfile" placeholder="Usuario" disabled required />
-                            <div className="invalid-feedback">Por favor preencha este campo</div>
-                            <button className="btn text-light btn-block float-end" type="button" id="NomeBtn" onFocus={ModifyButtons}>Editar </button>
+                            <h3 className="bold">Nome</h3>                  
+                                <input type="text" name="nome" id="nome" className="form-control-plaintext text-light FormProfile" placeholder="Usuario" readOnly={formButton} required/>
+                                <div className="invalid-feedback">Por favor preencha este campo</div>
+                                <label 
+                                    htmlFor="nome" 
+                                    className="btn text-light btn-block float-end"
+                                    onClick={() => openForm('nome')}
+                                >
+                                    <button                                     
+                                        type="button" 
+                                        id="NomeBtn" 
+                                    >
+                                        Editar 
+                                    </button>
+                                </label>
                         </div>
+
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Endereço de email</h3>
-                            <input type="text" name="email" id="Email" className="form-control-plaintext FormProfile" placeholder="usuario@email.com" disabled required />
+                            <input type='email' name="emailProfile" id="emailProfile" className="form-control-plaintext text-light FormProfile" placeholder="usuario@email.com" readOnly={formButton} required />
                             <div className="invalid-feedback">Por favor preencha este campo</div>
-                            <button className="btn text-light btn-block float-end" type="button" id="EmailBtn" onFocus={ModifyButtons}>Editar </button>
+                            <label 
+                                htmlFor="email" 
+                                className="btn text-light btn-block float-end"
+                                onFocus={() => openForm('emailProfile')}
+                            >
+                                    <button                                     
+                                        type="button" 
+                                        id="NomeBtn" 
+                                    >
+                                        Editar 
+                                    </button>
+                                </label>
                         </div>
+
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Contas das redes sociais conectadas</h3>
                             <div className="col-xl-6 pt-2">
@@ -78,24 +134,31 @@ function Perfil() {
                             <h3 className="bold">Acessibilidade</h3>
                             <p className="disabled" >Alto Contraste de Cores</p>
                             <label className="switch float-end">
-                                <input type="checkbox" id="AltoContraste" onChange={ModifyButtons}/>
+                                <input type="checkbox" id="AltoContraste" 
+                                checked={checked}
+                                onChange={handleChange}
+                            />
                                 <span className="slider round"></span>
                             </label>
                         </div>
-                        <div className="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta" style={{display: 'none'}}>
-                            <button className="btn text-light btn-block" type="reset" title="Limpar"><i className="fa fa-trash" aria-hidden="true"></i>
-                                <span className="d-none d-md-inline" > Limpar</span>
-                            </button>
+                        { formControl ?
+                            <div className="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta">
+                                <button className="btn text-light btn-block" type="reset" title="Limpar"><i className="fa fa-trash" aria-hidden="true"></i>
+                                    <span className="d-none d-md-inline" > Limpar</span>
+                                </button>
 
-                            <div className="float-end d-inline text-light user-select-none">
-                                <button className="btn text-light btn-block bg-danger d-none-text mx-2" title="Cancelar" type="button" id="cancel" onFocus={CancelModify}><i className="fa fa-close" aria-hidden="true"></i>
-                                    <span className="d-none d-md-inline"> Cancelar</span>
-                                </button>
-                                <button className="btn btn-block text-light bg-success mx-2" title="Salvar" type="submit"><i className="fa fa-check" aria-hidden="true"></i>
-                                    <span className="d-none d-md-inline" > Salvar</span>
-                                </button>
+                                <div className="float-end d-inline text-light user-select-none">
+                                    <button className="btn text-light btn-block bg-danger d-none-text mx-2" title="Cancelar" type="button" id="cancel" onFocus={closeForm}><i className="fa fa-close" aria-hidden="true"></i>
+                                        <span className="d-none d-md-inline"> Cancelar</span>
+                                    </button>
+                                    <button className="btn btn-block text-light bg-success mx-2" title="Salvar" type="submit"><i className="fa fa-check" aria-hidden="true"></i>
+                                        <span className="d-none d-md-inline" > Salvar</span>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
+                        :
+                        null
+                        }
                     </div>
                 </form>
 
