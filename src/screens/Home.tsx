@@ -3,12 +3,18 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import '../styles/home.css'
 import '../styles/main.css'
+
+//Importa titulo
+import useDocumentTitle from '../utils/useDocumentTitle'
 //import './App.css'
 
 function Home() {
+
+  //Importar titulo
+  useDocumentTitle('Home')
+  
   return (
     <div>
-      <title>Home</title>
       <Header />
       <main id="conteudo">
 
