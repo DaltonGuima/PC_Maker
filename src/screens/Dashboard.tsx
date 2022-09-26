@@ -48,30 +48,30 @@ return (
                 <nav className="navbar-sidebar">
                     <ul className="list-unstyled navbar__list">
                         <li>
-                            <a href="dashboard.html">
+                            <a href="/Dashboard">
                                 <i className="fas fa-chart-bar"></i>Dashboard</a>
                         </li>
-                        <li>
-                            <a href="table.html">
+                        <li className="has-sub">
+                            <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">
                                 <i className="fas fa-table"></i>Tabelas</a>
-                        </li>
-    
-                        <li>
-                            <a href="form.html">
-                                <i className="far fa-check-square"></i>Formulário</a>
+                            <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
+                                <li>
+                                    <a href="/componentes">Componente</a>
+                                </li>
+                            </ul>
                         </li>
                         <li className="has-sub">
-                            <a className="js-arrow" href="#">
+                            <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <i className="fas fa-copy"></i>Páginas</a>
-                            <ul className="list-unstyled navbar__sub-list js-sub-list">
+                            <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="collapseExample">
                                 <li>
-                                    <a href="login.html">Login</a>
+                                    <a href="../login">Login</a>
                                 </li>
                                 <li>
-                                    <a href="cadastro.html">Register</a>
+                                    <a href="../cadastro">Register</a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Forget Password (?)</a>
+                                    <a href="../forget-pass.html">Forget Password (?)</a>
                                 </li>
                             </ul>
                         </li>
@@ -90,31 +90,20 @@ return (
 
             {/* <!-- MAIN CONTENT--> */}
             <Outlet/>
-            {/* <!-- END MAIN CONTENT-->
+            {/* <!-- END MAIN CONTENT-->*/}
+            <div className="row foot">
+                <div className="col-md-12">
+                    <div className="copyright">
+                        <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                    </div>
+                </div>
+            </div>
 
-            <!-- END PAGE CONTAINER--> */}
         </div>
 
     </div>
 
-    {/* <!-- Vendor JS       --> */}
-    <script src="../vendor/slick/slick.min.js">
-    </script>
-    <script src="../vendor/wow/wow.min.js"></script>
-    <script src="../vendor/animsition/animsition.min.js"></script>
-    <script src="../vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="../vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="../vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="../vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="../vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="../vendor/select2/select2.min.js">
-    </script>
 
-    {/* <!-- Main JS--> */}
-    <script src="../script/main.js"></script>
 
 </div>
 

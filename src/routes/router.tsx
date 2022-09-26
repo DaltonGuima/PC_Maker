@@ -8,6 +8,7 @@ import Build from "../screens/Build";
 import Perfil from "../screens/Perfil";
 import Dashboard from "../screens/Dashboard";
 import MainDashboard from "../screens/DashboardElements/MainDashboard";
+import DashboardComponents from "../screens/DashboardElements/DashboardComponents";
 
 
 export const router = createBrowserRouter([
@@ -34,12 +35,15 @@ export const router = createBrowserRouter([
 
     /* Dashboards */
     {
-        path: "/dashboard",
         element: <Dashboard/>,
         children:[
             {
-                path: 'mainPage',
+                path: '/dashboard',
                 element: <MainDashboard/>,
+            },
+            {
+                path: '/componentes',
+                element: <DashboardComponents/>,
             },
         ]
     }
