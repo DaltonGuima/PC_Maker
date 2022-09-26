@@ -1,4 +1,3 @@
-import { Outlet } from 'react-router-dom'
 import '../styles/theme.css'
 
 //import './App.css'
@@ -6,10 +5,6 @@ import '../styles/theme.css'
 function Dashboard() {
 return (
     <div className="animsition">
-        
-
-
-        
     <div className="page-wrapper">
         {/* <!-- HEADER MOBILE--> */}
         <header className="header-mobile d-block d-lg-none">
@@ -393,11 +388,7 @@ return (
                                     <div className="au-inbox-wrap js-inbox-wrap">
                                         <div className="au-message js-list-load">
                                             <div className="au-message__noti">
-                                                <p>Você tem 
-                                                    <span>2</span>
-
-                                                    novas mensagens
-                                                </p>
+                                                <p>Você tem <span>2</span> novas mensagens</p>
                                             </div>
                                             <div className="au-message-list">
                                                 <div className="au-message__item unread">

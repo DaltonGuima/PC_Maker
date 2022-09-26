@@ -198,17 +198,30 @@ main{
       flex-wrap: nowrap;
   }
 
-  @media screen and (max-width: 320px){
-    #content{
-      width: 60%;
-    }   
-  }
+
   
-  #content img {
-      width: 10rem;
-      height: 6rem;
-      padding-right: 1rem;
+  #content .slide{
+      width: 100%;
+      margin-right: 1rem;
   }
+
+  #content img{
+    height: 6.5rem;
+  }
+
+  @media screen and (max-width: 576px) {
+    .peca, .Vendedor{
+      display: none;
+    }
+    .tipoComponente{
+      width: min-content;
+    }
+    .table thead ,tbody{
+      font-size: small;
+    }
+  }
+
+    
   
   div.slide {
       min-width: 100%;		

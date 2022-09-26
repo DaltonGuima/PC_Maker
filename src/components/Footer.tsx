@@ -19,9 +19,6 @@ export function Footer(){
                     <ul className="footer-links">
                         <li><a href="#">Fóruns</a></li>
                         <li><a href="#">Variações de Preços</a></li>
-                        <h6>Não possui conta?</h6>
-                        <li><a href="../Views/cadastro.html">Cadastro</a></li>
-                        <li><a href="../Views/login.html">Tela Login</a></li>
                     </ul>
                 </div>
                 <div className="col-xs-6 col-md">

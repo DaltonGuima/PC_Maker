@@ -4,7 +4,7 @@ interface CardBuildProps{
     title: string,
     Itens: string[],
     buildImg: string,
-    perfilImg: string
+    perfilImg: string,
     criador: string
 }
 

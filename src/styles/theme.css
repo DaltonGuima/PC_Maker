@@ -4475,6 +4475,10 @@ section {
     }
 }
 
+.table-responsive{
+    -webkit-scrollbar: 0
+}
+
 .table-data2 {
     border-collapse: collapse;
     overflow: visible;

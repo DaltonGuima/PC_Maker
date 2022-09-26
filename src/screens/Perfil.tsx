@@ -83,11 +83,12 @@ function Perfil() {
                                     placeholder="Usuario" 
                                     readOnly={formButton} 
                                     required
+                                    defaultValue={'Usuario'}
                                 />
-                                <div className="invalid-feedback">Por favor preencha este campo</div>
+                                
                                 <label 
                                     htmlFor="nome" 
-                                    className="btn text-light btn-block float-end"
+                                    className="btn text-light btn-block float-end" 
                                     onClick={() => openForm('nome')}
                                 >
                                     <button                                     
@@ -101,8 +102,17 @@ function Perfil() {
 
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Endereço de email</h3>
-                            <input type='email' name="emailProfile" id="emailProfile" className="form-control-plaintext text-light FormProfile" placeholder="usuario@email.com" readOnly={formButton} required />
-                            <div className="invalid-feedback">Por favor preencha este campo</div>
+                            <input 
+                                type='email' 
+                                name="emailProfile" 
+                                id="emailProfile" 
+                                className="form-control-plaintext text-light FormProfile" 
+                                placeholder="usuario@email.com" 
+                                readOnly={formButton} 
+                                required
+                                defaultValue={'usuario@email.com'} 
+                            />
+                            
                             <label 
                                 htmlFor="email" 
                                 className="btn text-light btn-block float-end"
