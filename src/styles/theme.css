@@ -102,6 +102,28 @@ p {
     padding-right: 1px;
 }
 
+/* Scrollbar */
+.table-responsive::-webkit-scrollbar {
+    width: 1px;
+    height: 10px;
+  }
+  
+/* Track */
+.table-responsive::-webkit-scrollbar-track {
+background: transparent; 
+}
+
+/* Handle */
+.table-responsive::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px; 
+}
+
+/* Handle on hover */
+.table-responsive::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
 .card {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
