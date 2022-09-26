@@ -6,6 +6,8 @@ import '../styles/profile.css'
 import '../styles/main.css'
 
 import {useState } from 'react'
+import { Route } from 'react-router-dom'
+import { FormControl } from '../components/FormControl'
 
 function Perfil() {
 
@@ -14,8 +16,9 @@ function Perfil() {
     const [formButton,setFormButton] = useState(true);
 
 
-    const handleChange = () => {
+    function handleChange() {
         setChecked(!checked);
+        setFormControl(true)
     };
 
     function openForm(id:string){
@@ -26,19 +29,6 @@ function Perfil() {
         localConst.focus()
     }
 
-    function closeForm(){
-
-        const inputsProfile = [
-            document.getElementById('nome') as HTMLInputElement,
-            document.getElementById('emailProfile') as HTMLInputElement
-        ]
-
-        inputsProfile.map(inputProfile => {
-            inputProfile.value = ''
-        })
-        setFormControl(false);
-        setFormButton(true);
-    }
 
     return (
         <div>
@@ -85,7 +75,15 @@ function Perfil() {
                     <div className="main-container" id="MyAccount">
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Nome</h3>                  
-                                <input type="text" name="nome" id="nome" className="form-control-plaintext text-light FormProfile" placeholder="Usuario" readOnly={formButton} required/>
+                                <input 
+                                    type="text" 
+                                    name="nome" 
+                                    id="nome" 
+                                    className="form-control-plaintext text-light FormProfile" 
+                                    placeholder="Usuario" 
+                                    readOnly={formButton} 
+                                    required
+                                />
                                 <div className="invalid-feedback">Por favor preencha este campo</div>
                                 <label 
                                     htmlFor="nome" 
@@ -108,7 +106,7 @@ function Perfil() {
                             <label 
                                 htmlFor="email" 
                                 className="btn text-light btn-block float-end"
-                                onFocus={() => openForm('emailProfile')}
+                                onClick={() => openForm('emailProfile')}
                             >
                                     <button                                     
                                         type="button" 
@@ -142,22 +140,9 @@ function Perfil() {
                             </label>
                         </div>
                         { formControl ?
-                            <div className="col-md-11 pt-5 mt-4 text-light Validador" id="ValidadorMinhaConta">
-                                <button className="btn text-light btn-block" type="reset" title="Limpar"><i className="fa fa-trash" aria-hidden="true"></i>
-                                    <span className="d-none d-md-inline" > Limpar</span>
-                                </button>
-
-                                <div className="float-end d-inline text-light user-select-none">
-                                    <button className="btn text-light btn-block bg-danger d-none-text mx-2" title="Cancelar" type="button" id="cancel" onFocus={closeForm}><i className="fa fa-close" aria-hidden="true"></i>
-                                        <span className="d-none d-md-inline"> Cancelar</span>
-                                    </button>
-                                    <button className="btn btn-block text-light bg-success mx-2" title="Salvar" type="submit"><i className="fa fa-check" aria-hidden="true"></i>
-                                        <span className="d-none d-md-inline" > Salvar</span>
-                                    </button>
-                                </div>
-                            </div>
+                            <FormControl/>
                         :
-                        null
+                            null
                         }
                     </div>
                 </form>

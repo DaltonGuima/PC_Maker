@@ -207,6 +207,7 @@ main{
   #content img {
       width: 10rem;
       height: 6rem;
+      padding-right: 1rem;
   }
   
   div.slide {
