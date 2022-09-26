@@ -1,9 +1,11 @@
 import { Outlet } from 'react-router'
 import '../styles/theme.css'
+import useDocumentTitle from '../utils/useDocumentTitle'
 
 //import './App.css'
 
 function Dashboard() {
+    useDocumentTitle('Dashboard')
 return (
     <div className="animsition">
     <div className="page-wrapper">
