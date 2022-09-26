@@ -7,6 +7,7 @@ import Cadastro from "../screens/Cadastro";
 import Build from "../screens/Build";
 import Perfil from "../screens/Perfil";
 import Dashboard from "../screens/Dashboard";
+import MainDashboard from "../screens/DashboardElements/MainDashboard";
 
 
 export const router = createBrowserRouter([
@@ -35,10 +36,11 @@ export const router = createBrowserRouter([
     {
         path: "/dashboard",
         element: <Dashboard/>,
-    },
-        /* {
-        path: "/dashboard/teste",
-        element: <Perfil/>,
-        } */
-
+        children:[
+            {
+                path: 'mainPage',
+                element: <MainDashboard/>,
+            },
+        ]
+    }
 ]);
