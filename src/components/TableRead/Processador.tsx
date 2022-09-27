@@ -1,6 +1,6 @@
-import { TableRead, TableReadProps } from "../TableRead";
+import { TableRead } from "../TableRead"
 
-interface ProcessadorProps extends TableReadProps{
+export interface ProcessadorProps extends TableRead{
     soquete: string,
     nNucleos: number,
     nThreads: number,
@@ -13,17 +13,35 @@ interface ProcessadorProps extends TableReadProps{
 }
 
 export function Processador(props:ProcessadorProps){
-    return(
-        <TableRead
-        titulo="teste"
-        cols={['teste']}
-        nome="Xablau"
-        fabricante="teste"
-        modelo=""
-        preco={1.2}
-        status
-        />
-
-
+    return (
+        <tr className="tr-shadow">
+            <td>{props.nome}</td>
+            <td>{props.fabricante}</td>
+            <td className="desc">{props.modelo}</td>
+            <td>{props.preco}</td>
+            <td>{props.soquete}</td>
+            <td>{props.nNucleos}</td>
+            <td>{props.nThreads}</td>
+            <td>{props.frequencia}</td>
+            <td>{props.freBoost}</td>
+            <td>{props.tdp}</td>
+            <td>
+            <span className="status--denied">{props.overClock}</span>
+            </td>
+            <td>
+            <span className="status--denied">{props.graficoIntregado}</span>
+            </td>
+            <td>{props.tipoMemoria}</td>
+            <td>
+                <div className="table-data-feature">
+                    <button className="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                        <i className="zmdi zmdi-edit"></i>
+                    </button>
+                    <button className="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                        <i className="zmdi zmdi-delete"></i>
+                    </button>
+                </div>
+            </td>
+        </tr>
     )
 }

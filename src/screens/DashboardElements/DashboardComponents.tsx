@@ -1,3 +1,6 @@
+import { TableRead } from "../../components/TableRead"
+
+
 function DashboardComponents(){
     return(
         <div className="main-content">
@@ -5,6 +8,7 @@ function DashboardComponents(){
             <div className="container-fluid">
                 <div className="row">
                     <div className="col-md-12">
+                    
                         {/* TABELA 2 */}
                         <h3 className="title-5 m-b-35 text-light table-h3">Processador</h3>
                         <div className="table-data__tool">
@@ -81,7 +85,7 @@ function DashboardComponents(){
                                         </td>
                                         <td>DDR4</td>
                                         <td>
-                                        <div className="table-data-feature">
+                                            <div className="table-data-feature">
                                                 <button className="item" data-toggle="tooltip" data-placement="top" title="Send">
                                                     <i className="zmdi zmdi-mail-send"></i>
                                                 </button>
@@ -95,7 +99,7 @@ function DashboardComponents(){
                                                     <i className="zmdi zmdi-more"></i>
                                                 </button>
                                             </div>
-                                        </td>
+                                        </td>   
                                     </tr>
                                     <tr className="spacer"></tr>
                                     <tr className="tr-shadow">
@@ -135,11 +139,14 @@ function DashboardComponents(){
                                             </div>
                                         </td>
                                     </tr>
+                                    <tr className="spacer"></tr>
                                 </tbody>
                             </table>
                         </div>
-
-                    {/* TABELA 3 */}
+                    </div>
+                    <div className="col-md-12">
+                    
+                        {/* TABELA 3 */}
                     <h3 className="title-5 m-b-35 text-light table-h3">Armazenamento</h3>
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
@@ -218,8 +225,7 @@ function DashboardComponents(){
                                         </td>
                                     </tr>
                                     <tr className="spacer"></tr>
-                                    <tr className="tr-shadow">
-                                         
+                                    <tr className="tr-shadow">                                       
                                         <td>HD Seagate 4TB BarraCuda</td>
                                         <td>Seagate</td>
                                         <td className="desc">ST4000DM004</td>
@@ -250,7 +256,7 @@ function DashboardComponents(){
                             </table>
                         </div>
                     </div>
-                    
+                    <div className="col-md-12">
                     {/* TABELA 4 */}
                     <h3 className="title-5 m-b-35 text-light table-h3">Mouse</h3>
                         <div className="table-data__tool">
@@ -335,8 +341,8 @@ function DashboardComponents(){
                                 </tbody>
                             </table>
                         </div>
-
-                    
+                    </div>
+                    <div className="col-md-12">
                     {/* TABELA 5 */}
                     <h3 className="title-5 m-b-35 text-light table-h3">Placa de Vídeo</h3>
                         <div className="table-data__tool">
@@ -421,10 +427,20 @@ function DashboardComponents(){
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    
+                    <TableRead
+                        cols={['Nome','Fabricante','Modelo','Preço','Soquete','Nº de Núcleos']}
+                        titulo='Teste'
+                    />
+                    
 
+                    
+                
 
                 </div>
             </div>
+            
         </div>
     </div>
 
