@@ -1,11 +1,11 @@
-function DashboardInsercaoTemplate(){
+function DashboardInsercaoGpu(){
     return (
         <div className="main-content">
         
             <div className="col-lg-6 tabela-insercao">
                 <div className="card">
                     <div className="card-header">
-                        <strong>Templatezin</strong>
+                        <strong>Placa de Video</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -46,44 +46,43 @@ function DashboardInsercaoTemplate(){
                                     <small className="help-block form-text">Preço do produto</small>
                                 </div>
                             </div>
-
-
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="selectSm" className=" form-control-label">Select</label>
+                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
                                 </div>
                                 <div className="col-12 col-md-9">
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0">Please select</option>
-                                        <option value="1">Option #1</option>
-                                        <option value="2">Option #2</option>
-                                        <option value="3">Option #3</option>
-                                        <option value="4">Option #4</option>
-                                        <option value="5">Option #5</option>
-                                    </select>
+                                    <input type="email" id="email-input" name="email-input" placeholder="Clock" className="form-control"/>
+                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
                                 </div>
                             </div>
-                            
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label className=" form-control-label">Radios</label>
+                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
                                 </div>
-                                <div className="col col-md-9">
-                                    <div className="form-check">
-                                        <div className="radio">
-                                            <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="radio1" name="radios" value="option1" className="form-check-input"/>Option 1
-                                            </label>
-                                        </div>
-                                        <div className="radio">
-                                            <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="option2" className="form-check-input"/>Option 2
-                                            </label>
-                                        </div>
-                                    
-                                    </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="email" id="email-input" name="email-input" placeholder="Memória" className="form-control"/>
+                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
                                 </div>
                             </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="email" id="email-input" name="email-input" placeholder="Clock de Memória" className="form-control"/>
+                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="email" id="email-input" name="email-input" placeholder="Conectores" className="form-control"/>
+                                    <small className="help-block form-text">Conectores de alimentação</small>
+                                </div>
+                            </div>
+
                             
                         </form>
                     </div>
@@ -99,4 +98,4 @@ function DashboardInsercaoTemplate(){
         </div>
     )
 }
-export default DashboardInsercaoTemplate
+export default DashboardInsercaoGpu;

@@ -1,7 +1,28 @@
 import { Outlet } from 'react-router'
+import { useNavigate } from 'react-router-dom';
 
 function DashboardInsercao() {
-  return (
+    const navigate = useNavigate();
+    //Função para navegar
+    function Navegacao(){
+        const localConst = document.getElementById('Navegador') as HTMLSelectElement
+        
+        switch (localConst.value){
+            case 'Processador':
+                navigate("/insercao/processador")
+            break;
+            case 'Armazenamento':
+                navigate("/insercao/armazenamento")
+            break;
+            case 'Gpu':
+                navigate("/insercao/gpu")
+            break;
+            default:
+                navigate("/insercao")
+        }
+    }
+
+    return (
         <div className="main-content">
             <div className="section__content section__content--p30">
                 <div className="container-fluid">
@@ -11,10 +32,12 @@ function DashboardInsercao() {
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
-                                    <select className="js-select2 selectFilter" name="property">
-                                        <option value="">Pag 1</option>
-                                        <option value=""><a href="/componentes">Option 1</a></option>
-                                        <option value="">Option 2</option>
+                                    {/* Botei id */}
+                                    <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador'>
+                                        <option value="">Escolha um</option>
+                                        <option value="Processador">Processador</option>
+                                        <option value="Armazenamento">Armazenamento</option>
+                                        <option value="Gpu">Placa de Vídeo</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>
@@ -27,7 +50,9 @@ function DashboardInsercao() {
                                     <div className="dropDownSelect2"></div>
                                 </div>
                                 <button className="au-btn-filter">
-                                <i className="zmdi zmdi-filter-list"></i>filters</button>
+                                <i className="zmdi zmdi-filter-list"></i>filters
+                                </button>
+
                             </div>
                         </div>
                     </div>

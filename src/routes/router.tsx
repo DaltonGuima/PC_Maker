@@ -11,7 +11,9 @@ import MainDashboard from "../screens/DashboardElements/MainDashboard";
 import DashboardComponents from "../screens/DashboardElements/DashboardComponents";
 import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
 import DashboardInsercaoProcessador from "../components/InsertData/InsertProcessador";
-import  DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
+import DashboardInsercaoArmazenamento from "../components/InsertData/InsertArmazenamento";
+import DashboardInsercaoGpu from "../components/InsertData/InsertGpu";
+import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 
 
 export const router = createBrowserRouter([
@@ -59,6 +61,14 @@ export const router = createBrowserRouter([
                     {
                         path: 'processador',
                         element: <DashboardInsercaoProcessador/>
+                    },
+                    {
+                        path: 'armazenamento',
+                        element: <DashboardInsercaoArmazenamento/>
+                    },
+                    {
+                        path: 'gpu',
+                        element: <DashboardInsercaoGpu/>
                     }
                 ]
             }

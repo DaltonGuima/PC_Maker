@@ -51,16 +51,19 @@ return (
                                 <i className="fas fa-chart-bar"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="/Dashboard">
+                            <a href="/feedback">
                                 <i className="fa-solid fa-comment-dots"></i>Feedback
                             </a>
                         </li>
                         <li className="has-sub">
                             <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">
-                                <i className="fas fa-table"></i>Tabelas</a>
+                                <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
                             <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
                                 <li>
-                                    <a href="/componentes">Componente</a>
+                                    <a href="/componentes"><i className="fas fa-table"></i>Tabelas</a>
+                                </li>
+                                <li>
+                                    <a href="/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
                                 </li>
                             </ul>
                         </li>

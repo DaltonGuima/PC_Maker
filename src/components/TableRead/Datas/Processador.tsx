@@ -29,7 +29,7 @@ export function Processador(props:ProcessadorProps){
             <td>{props.nome}</td>
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
-            <td>{props.preco}</td>
+            <td>R${props.preco}</td>
             <td>{props.soquete}</td>
             <td>{props.nNucleos}</td>
             <td>{props.nThreads}</td>

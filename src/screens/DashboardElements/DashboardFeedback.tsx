@@ -1,7 +1,5 @@
 import { TableRead } from "../../components/TableRead"
-import { Feedback } from "../../components/TableRead/Datas/FeedBack"
-
-
+import { Feedback } from "../../components/TableRead/Datas/Feedback"
 
 
 function DashboardFeedback(){

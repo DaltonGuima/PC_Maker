@@ -26,7 +26,7 @@ export function TableElements(){
                 <i className="zmdi zmdi-plus"></i>add item</button>
             <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                 <select className="js-select2 selectFilter" name="type">
-                    <option >Export</option>
+                    <option> Export</option>
                     <option value="">Option 1</option>
                     <option value="">Option 2</option>
                 </select>

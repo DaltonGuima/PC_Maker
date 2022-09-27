@@ -1,5 +1,4 @@
 import { useState } from "react";
-import '../styles/theme.css'
 
 interface FeedbackProps{
     idUsuario: string,
@@ -25,7 +24,7 @@ export function Feedback(props:FeedbackProps){
             <td>{props.idUsuario}</td>
             <td>{props.usuario}</td>
             <td className="desc">{props.comentario}</td>
-            <td className="status--process">{props.upvotes} <i className="fa-solid fa-chevron-up"></i></td>
+            <td className="text-success">{props.upvotes} <i className="fa-solid fa-chevron-up"></i></td>
             <td className="text-danger">{props.downvotes} <i className="fa-solid fa-chevron-down"></i></td>
             <td>
                 <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
