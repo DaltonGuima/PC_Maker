@@ -10,7 +10,7 @@ interface FeedbackProps{
     status: boolean
 }
 
-function Feedback(props:FeedbackProps){
+export function Feedback(props:FeedbackProps){
     const [editable,setEditable] = useState(false);
 
     function handleEdit() {
@@ -55,5 +55,3 @@ function Feedback(props:FeedbackProps){
         </tr>     
     )
 }
-
-export default Feedback

@@ -11,7 +11,7 @@ import MainDashboard from "../screens/DashboardElements/MainDashboard";
 import DashboardComponents from "../screens/DashboardElements/DashboardComponents";
 import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
 import DashboardInsercaoProcessador from "../components/InsertData/InsertProcessador";
-import { DashboardFeedback } from "../screens/DashboardElements/DashboardFeedback";
+import  DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 
 
 export const router = createBrowserRouter([

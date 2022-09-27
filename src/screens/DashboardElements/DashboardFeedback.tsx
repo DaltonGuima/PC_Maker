@@ -1,5 +1,6 @@
 import { TableRead } from "../../components/TableRead"
-import Feedback from "../../components/TableRead/Datas/Feedback"
+import { Feedback } from "../../components/TableRead/Datas/FeedBack"
+
 
 
 
