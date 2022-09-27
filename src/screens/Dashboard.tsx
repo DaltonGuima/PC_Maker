@@ -3,7 +3,6 @@ import '../styles/theme.css'
 import useDocumentTitle from '../utils/useDocumentTitle'
 
 //import './App.css'
-
 function Dashboard() {
     useDocumentTitle('Dashboard')
 return (
@@ -15,7 +14,7 @@ return (
                 <div className="container-fluid">
                     <div className="header-mobile-inner">
                         <a className="logo" href="dashboard.html">
-                            <img src="/icon/logo.png" alt="CoolAdmin" />
+                            <img src="/Logo.png" alt="CoolAdmin" className='logo'/>
                         </a>
                         <div className='navbar-nav bg-dark'>
                             <div className="hamburger hamburger--slider dropdown nav-item">
@@ -41,7 +40,7 @@ return (
         <aside className="menu-sidebar d-none d-lg-block">
             <div className="logo">
                 <a href="#">
-                    <img src="/icon/logo.png" alt="Cool Admin" />
+                    <img src="/logo.png" alt="Cool Admin" className='logo' />
                 </a>
             </div>
             <div className="menu-sidebar__content js-scrollbar1">
@@ -50,6 +49,11 @@ return (
                         <li>
                             <a href="/Dashboard">
                                 <i className="fas fa-chart-bar"></i>Dashboard</a>
+                        </li>
+                        <li>
+                            <a href="/Dashboard">
+                                <i className="fa-solid fa-comment-dots"></i>Feedback
+                            </a>
                         </li>
                         <li className="has-sub">
                             <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">

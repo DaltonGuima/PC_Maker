@@ -42,12 +42,12 @@ main {
   padding: 1rem;
 }
 
-.cardbanner .card-body a{
+.cardbanner .card-body-h a{
   margin-bottom: 1rem;
   position: relative;
   top: .8rem;
 }
-.cardbanner .card-body a:hover{
+.cardbanner .card-body-h a:hover{
   background-color: rgba(112, 66, 213, 0.6);
 }
 

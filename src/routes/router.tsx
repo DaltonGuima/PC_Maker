@@ -10,6 +10,8 @@ import Dashboard from "../screens/Dashboard";
 import MainDashboard from "../screens/DashboardElements/MainDashboard";
 import DashboardComponents from "../screens/DashboardElements/DashboardComponents";
 import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
+import DashboardInsercaoProcessador from "../components/InsertData/InsertProcessador";
+import { DashboardFeedback } from "../screens/DashboardElements/DashboardFeedback";
 
 
 export const router = createBrowserRouter([
@@ -47,8 +49,18 @@ export const router = createBrowserRouter([
                 element: <DashboardComponents/>,
             },
             {
+                path: '/feedback',
+                element: <DashboardFeedback/>,
+            },
+            {
                 path: '/insercao',
                 element: <DashboardInsercao/>,
+                children:[
+                    {
+                        path: 'processador',
+                        element: <DashboardInsercaoProcessador/>
+                    }
+                ]
             }
         ]
     }

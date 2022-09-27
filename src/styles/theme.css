@@ -96,6 +96,8 @@ p {
     background-color: #353a3c;
     margin-bottom: -8rem;
     margin-right: -1.5rem;
+    padding-top: 5rem;
+    margin-top: -4rem;
 }
 
 @media screen and (min-width: 2000px){
@@ -119,7 +121,9 @@ p {
     gap: 10;
 }
 
-
+.radio{
+    font-size: 0.9rem;
+}
 
 .table-responsive {
     padding-right: 1px;
@@ -567,6 +571,14 @@ section {
 
 .au-btn--purple {
     background: #6610f2;
+}
+
+.au-btn--red {
+    background: #d00f0f;
+}
+
+.au-btn--red:hover {
+    background: #bd2f2f;
 }
 
 /*
@@ -1176,8 +1188,13 @@ section {
     transform: rotate(45deg);
 }
 
+.form-check-input:checked{
+    background-color: #6610f2;
+    border-color: #6f42c1;
+}
+
 .form-check-input{
-    background-color: #757575;
+    background-color: #757575;  
 }
 
 .form-control {
@@ -1186,16 +1203,22 @@ section {
     -moz-border-radius: 2px;
     border-radius: 2px;
     background-color: #353a3c;
-    border: 1px solid #646060;  
+    border: 1px solid #444c4f;  
+    font-size: 0.9rem;
 }
 
 .form-control:focus{
-    background-color: #272829;
+    background-color: #353a3c;
+    color: #6c757d;
 }
 
 .card {
     margin-bottom: 30px;
+    border: 3px solid #7042d5;
+    --bs-card-bg: #7042d5;
+    margin-top: -6.5rem; /*Não é nem um pouco responsivo, tem que ser consertado posteriormente*/
 }
+
 
 .input-group-addon {
     background-color: transparent;
@@ -4276,7 +4299,7 @@ section {
 
 .card-header{
     background-color: #212529;
-    border-bottom: 1px solid #776e6e;;
+    border-bottom: 1px solid  #7042d5;
 }
 
 .table {
@@ -4619,6 +4642,7 @@ section {
     -moz-box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
     background: #212529;
+    border-bottom: 5px solid #353a3c;
 }
 
 .table-data__tool {

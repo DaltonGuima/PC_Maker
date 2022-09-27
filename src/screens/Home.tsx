@@ -21,7 +21,7 @@ function Home() {
           <div className="banner banner1">
               <div className="row-fluid rounded">
                   <div className="cardbanner">
-                      <div className="card-body">
+                      <div className="card-body-h">
                           <h2 className="card-title text-light text-bold">Monte seu Computador</h2>
                           <p className="card-text text-light">Utilize nossas mais recentes ferramentas para 
                               montar o seu PC do seu jeito.</p>

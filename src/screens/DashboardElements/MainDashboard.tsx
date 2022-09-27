@@ -386,7 +386,7 @@ function MainDashboard(){
                                                             </div>
                                                             <div className="text">
                                                                 <h5 className="name">Rodrigo Silva</h5>
-                                                                <p>Lorem ipsum dolor sit amet</p>
+                                                                <p>As peças já chegaram?</p>
                                                             </div>
                                                         </div>
                                                         <div className="au-message__item-time">
@@ -404,7 +404,7 @@ function MainDashboard(){
                                                             </div>
                                                             <div className="text">
                                                                 <h5 className="name">Michelle Sims</h5>
-                                                                <p>Purus feugiat finibus</p>
+                                                                <p>Os novos SSDs já foram cadastrados?</p>
                                                             </div>
                                                         </div>
                                                         <div className="au-message__item-time">
