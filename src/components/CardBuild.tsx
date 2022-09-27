@@ -20,9 +20,7 @@ export function CardBuild(props:CardBuildProps){
     
                         <h4 className="card-title">{props.title}</h4>
                         <ul className="card-text pt-3">
-                            <li>{props.Itens[0]}</li>
-                            <li>{props.Itens[1]}</li>
-                            <li>{props.Itens[2]}</li>
+                            {props.Itens.map(itens => <li>{itens}</li>)}
                         </ul>
                         <h6 className="text-secondary">Feito por {props.criador}</h6>    
                     </div>

@@ -82,9 +82,20 @@ p {
     margin: 0;
 }
 
+.main-content{
+    margin-right: -1.5rem;
+}
+.header-mobile{
+    margin-right: -1.5rem;
+}
+.header-desktop{
+    margin-right: -1.5rem;
+}
+
 .foot{
     background-color: #353a3c;
     margin-bottom: -8rem;
+    margin-right: -1.5rem;
 }
 
 @media screen and (min-width: 2000px){
@@ -445,6 +456,10 @@ section {
     display: block;
 }
 
+.form-group{
+    padding-top: 2%;
+}
+
 .login-content {
     background: #fff;
     padding: 30px 30px 20px;
@@ -506,6 +521,12 @@ section {
 /*                   COMPONENTS                        */
 /*-----------------------------------------------------*/
 /* ----- Buttons----- */
+.btn-sm{
+    position: relative;
+    top: 0rem;
+}
+
+
 .au-btn {
     line-height: 45px;
     padding: 0 35px;
@@ -1155,10 +1176,21 @@ section {
     transform: rotate(45deg);
 }
 
+.form-check-input{
+    background-color: #757575;
+}
+
 .form-control {
+    color: #94999d;
     -webkit-border-radius: 2px;
     -moz-border-radius: 2px;
     border-radius: 2px;
+    background-color: #353a3c;
+    border: 1px solid #646060;  
+}
+
+.form-control:focus{
+    background-color: #272829;
 }
 
 .card {
@@ -3310,6 +3342,10 @@ section {
     background-image: -ms-linear-gradient(90deg, #6610f2 0%, #6f42c1 100%);
 }
 
+.card-footer{
+    background-color: #25292d;
+}
+
 .au-card-top-countries {
     padding: 40px;
     padding-top: 25px;
@@ -3462,6 +3498,10 @@ section {
     text-align: center;
     padding-top: 35px;
     padding-bottom: 45px;
+}
+
+.help-block{
+    font-size: 0.75rem ;
 }
 
 .au-message__footer {
@@ -4226,6 +4266,19 @@ section {
 }
 
 /* ----- Table ----- */
+.tabela-insercao{
+    color: black;
+}
+
+.card-body{
+    background-color: #212529;
+}
+
+.card-header{
+    background-color: #212529;
+    border-bottom: 1px solid #776e6e;;
+}
+
 .table {
     margin: 0;
 }

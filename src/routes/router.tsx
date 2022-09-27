@@ -9,6 +9,7 @@ import Perfil from "../screens/Perfil";
 import Dashboard from "../screens/Dashboard";
 import MainDashboard from "../screens/DashboardElements/MainDashboard";
 import DashboardComponents from "../screens/DashboardElements/DashboardComponents";
+import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
 
 
 export const router = createBrowserRouter([
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
                 path: '/componentes',
                 element: <DashboardComponents/>,
             },
+            {
+                path: '/insercao',
+                element: <DashboardInsercao/>,
+            }
         ]
     }
 ]);
