@@ -26,12 +26,15 @@ export function Processador(props:ProcessadorProps){
             <td>{props.freBoost}</td>
             <td>{props.tdp}</td>
             <td>
-            <span className="status--denied">{props.overClock}</span>
+            <span className="status--denied">{props.overClock? '' : 'Bloqueado'}</span>
             </td>
             <td>
-            <span className="status--denied">{props.graficoIntregado}</span>
+            <span className="status--denied">{props.graficoIntregado? '' : 'Não'}</span>
             </td>
             <td>{props.tipoMemoria}</td>
+            <td>
+            <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
+            </td>
             <td>
                 <div className="table-data-feature">
                     <button className="item" data-toggle="tooltip" data-placement="top" title="Edit">
