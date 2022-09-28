@@ -1,4 +1,10 @@
+import { useEffect } from "react";
+import { changeSelectValue } from "../../utils/changeSelectValue";
+
 function DashboardInsercaoArmazenamento() {
+    useEffect(() => {
+        changeSelectValue('armazenamento')
+    });
     return (
         <div className="main-content">
             <div className="col-lg-6 tabela-insercao">
@@ -8,7 +14,24 @@ function DashboardInsercaoArmazenamento() {
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
+                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
+                                    <small className="help-block form-text text-muted">Link url do produto</small>
+                                </div>
+                            </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
                                     <label htmlFor="nome-produto" className=" form-control-label">Nome</label>

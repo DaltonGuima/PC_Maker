@@ -6,12 +6,12 @@ interface PsuProps extends Componente {
     potencia: number,
     certificacao: string,
     pfc: string,
-    ventoinha : number, 
+    ventoinha: number,
     conPrincipal: string,
     conCPU: string,
     conPCIe: string,
     conSATA: string,
-    }
+}
 
 export function Psu(props: PsuProps) {
     const [controls, setControls] = useState(false);
@@ -41,9 +41,7 @@ export function Psu(props: PsuProps) {
             <td>{props.conPCIe}</td>
             <td>{props.conSATA}</td>
             <td>{props.vendedor}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {controls ?
                     <div className="table-data-feature">

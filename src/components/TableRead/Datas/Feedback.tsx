@@ -1,22 +1,21 @@
 import { useState } from "react";
 
-interface FeedbackProps{
+interface FeedbackProps {
     idUsuario: string,
     usuario: string,
     comentario: string,
     upvotes: number,
     downvotes: number,
-    status: boolean
 }
 
-export function Feedback(props:FeedbackProps){
-    const [editable,setEditable] = useState(false);
+export function Feedback(props: FeedbackProps) {
+    const [editable, setEditable] = useState(false);
 
     function handleEdit() {
-        if(editable)
-        setEditable(false);
+        if (editable)
+            setEditable(false);
         else
-        setEditable(true);
+            setEditable(true);
     };
 
     return (
@@ -27,10 +26,7 @@ export function Feedback(props:FeedbackProps){
             <td className="text-success">{props.upvotes} <i className="fa-solid fa-chevron-up"></i></td>
             <td className="text-danger">{props.downvotes} <i className="fa-solid fa-chevron-down"></i></td>
             <td>
-                <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
-            </td>
-            <td>
-                {editable?
+                {editable ?
                     <div className="table-data-feature">
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={handleEdit}>
                             <i className="fa-solid fa-xmark text-danger"></i>
@@ -42,15 +38,15 @@ export function Feedback(props:FeedbackProps){
                     :
                     <div className="table-data-feature">
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Edit" onClick={handleEdit}>
-                        <i className='zmdi zmdi-edit'></i>
+                            <i className='zmdi zmdi-edit'></i>
                         </button>
-                
+
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Delete" onClick={handleEdit}>
                             <i className="zmdi zmdi-delete"></i>
                         </button>
                     </div>
                 }
             </td>
-        </tr>     
+        </tr>
     )
 }

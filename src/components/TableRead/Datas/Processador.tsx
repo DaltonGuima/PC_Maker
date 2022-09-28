@@ -39,7 +39,6 @@ export function Processador(props: ProcessadorProps) {
             <td>{props.frequencia} Ghz</td>
             <td>{props.freBoost} Ghz</td>
             <td>{props.tdp}W</td>
-            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.overClock ? 'Desbloqueado' : <span className="status--denied">Bloqueado</span>}</span>
             </td>
@@ -47,9 +46,8 @@ export function Processador(props: ProcessadorProps) {
                 <span className="status--denied">{props.graficoIntregado ? '' : 'Não'}</span>
             </td>
             <td>{props.tipoMemoria}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td>{props.vendedor}</td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {controls ?
                     <div className="table-data-feature">

@@ -1,22 +1,22 @@
 import { TableElements, TableElementsProps } from "./TableRead/TableElements"
 import { TableReadHead } from "./TableRead/TableReadHead"
-export interface Componente{
+export interface Componente {
     id: string,
     nome: string,
     fabricante: string,
     modelo: string,
     preco: number,
-    status: boolean,
     vendedor: string,
+    linkProduto: string
 }
 
-interface TableReadProps extends TableElementsProps{
+interface TableReadProps extends TableElementsProps {
     body: React.ReactNode[],
     cols: string[]
 }
 
-export function TableRead(props:TableReadProps){
-    return(
+export function TableRead(props: TableReadProps) {
+    return (
         <div className="col-md-12">
             <h3 className="title-5 m-b-35 text-light table-h3">{props.id}</h3>
             <TableElements
@@ -30,7 +30,7 @@ export function TableRead(props:TableReadProps){
                     />
                     <tbody>
                         {props.body}
-                    </tbody>      
+                    </tbody>
                 </table>
             </div>
         </div>

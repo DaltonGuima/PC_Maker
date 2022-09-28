@@ -1,15 +1,39 @@
-function DashboardInsercaoGpu() {
+import { useEffect } from "react";
+import { changeSelectValue } from "../../utils/changeSelectValue";
+
+function DashboardInsercaoPlacaCaptura() {
+    useEffect(() => {
+        changeSelectValue('placa-de-captura')
+    });
+
     return (
         <div className="main-content">
 
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Video</strong>
+                        <strong>Placa de Captura</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
+                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
+                                    <small className="help-block form-text text-muted">Link url do produto</small>
+                                </div>
+                            </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
                                     <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
@@ -48,41 +72,40 @@ function DashboardInsercaoGpu() {
                             </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
+                                    <label htmlFor="preco-input" className=" form-control-label">Interface</label>
                                 </div>
                                 <div className="col-12 col-md-9">
-                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
-                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
+                                    <input type="text" name="preco-input" placeholder="Interface" className="form-control" />
+                                    <small className="help-block form-text">Interface</small>
                                 </div>
                             </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
+                                    <label htmlFor="preco-input" className=" form-control-label">Saida</label>
                                 </div>
                                 <div className="col-12 col-md-9">
-                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
-                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
+                                    <input type="text" name="preco-input" placeholder="Saida" className="form-control" />
+                                    <small className="help-block form-text">Saida</small>
                                 </div>
                             </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
+                                    <label htmlFor="preco-input" className=" form-control-label">Taxa de bits</label>
                                 </div>
                                 <div className="col-12 col-md-9">
-                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
-                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
+                                    <input type="text" name="preco-input" placeholder="Taxa de bits" className="form-control" />
+                                    <small className="help-block form-text">Taxa de bits</small>
                                 </div>
                             </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
+                                    <label htmlFor="preco-input" className=" form-control-label">Maior resolução suportada</label>
                                 </div>
                                 <div className="col-12 col-md-9">
-                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
-                                    <small className="help-block form-text">Conectores de alimentação</small>
+                                    <input type="text" name="preco-input" placeholder="Maior resolução suportada" className="form-control" />
+                                    <small className="help-block form-text">Maior resolução suportada</small>
                                 </div>
                             </div>
-
 
                         </form>
                     </div>
@@ -98,4 +121,4 @@ function DashboardInsercaoGpu() {
         </div>
     )
 }
-export default DashboardInsercaoGpu;
+export default DashboardInsercaoPlacaCaptura;

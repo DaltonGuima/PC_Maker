@@ -1,4 +1,11 @@
-function DashboardInsercaoRam() {
+import { useEffect } from "react";
+import { changeSelectValue } from "../../utils/changeSelectValue";
+
+function DashboardInsercaoMemoriaRam() {
+
+    useEffect(() => {
+        changeSelectValue('memoria-ram')
+    });
     return (
         <div className="main-content">
 
@@ -9,7 +16,24 @@ function DashboardInsercaoRam() {
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
-
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
+                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
+                                    <small className="help-block form-text text-muted">Link url do produto</small>
+                                </div>
+                            </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
                                     <label htmlFor="nome-processador" className=" form-control-label">Nome</label>
@@ -116,7 +140,7 @@ function DashboardInsercaoRam() {
                                     <div className="form-check">
                                         <div className="checkbox">
                                             <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" className="form-check-input check"/>É para notebooks?
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
                                             </label>
                                         </div>
                                     </div>
@@ -136,4 +160,4 @@ function DashboardInsercaoRam() {
         </div>
     )
 }
-export default DashboardInsercaoRam
+export default DashboardInsercaoMemoriaRam

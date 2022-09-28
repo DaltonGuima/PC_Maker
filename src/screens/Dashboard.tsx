@@ -60,7 +60,7 @@ function Dashboard() {
                                         <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
                                     <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
                                         <li>
-                                            <a href="/componentes/tabelas"><i className="fas fa-table"></i>Tabelas</a>
+                                            <a href="/componentes"><i className="fas fa-table"></i>Tabelas</a>
                                         </li>
                                         <li>
                                             <a href="/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>

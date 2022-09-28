@@ -1,5 +1,5 @@
 import {
-    createBrowserRouter,
+    createBrowserRouter, createRoutesFromElements, Route,
 } from "react-router-dom";
 import Home from "../screens/Home";
 import Login from "../screens/Login";
@@ -12,13 +12,14 @@ import DashboardComponents from "../screens/DashboardElements/DashboardComponent
 import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
 import DashboardInsercaoProcessador from "../components/InsertData/InsertProcessador";
 import DashboardInsercaoArmazenamento from "../components/InsertData/InsertArmazenamento";
-import DashboardInsercaoGpu from "../components/InsertData/InsertGpu";
-import DashboardInsercaoRam from "../components/InsertData/InsertRam";
-import DashboardInsercaoMobo from "../components/InsertData/InsertMobo";
-import DashboardInsercaoPsu from "../components/InsertData/InsertPsu";
-import DashboardInsercaoPlacaCaptura from "../components/InsertData/InsertPlacaCaptura";
+import DashboardInsercaoPlacaDeVideo from "../components/InsertData/InsertPlacaDeVideo";
+import DashboardInsercaoMemoriaRam from "../components/InsertData/InsertMemoriaRam";
+import DashboardInsercaoPlacaMae from "../components/InsertData/InsertPlacaMae";
+import DashboardInsercaoFonteDeAlimentacao from "../components/InsertData/InsertFonteDeAlimentacao";
+import DashboardInsercaoPlacaDeCaptura from "../components/InsertData/InsertPlacaDeCaptura";
 import DashboardInsercaoGabinete from "../components/InsertData/InsertGabinete";
 import DashboardInsercaoMouse from "../components/InsertData/InsertMouse";
+import DashboardInsercaoTeclado from "../components/InsertData/InsertTeclado";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 
 
@@ -56,10 +57,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/componentes',
-                children:[
+                children: [
                     {
                         path: 'insercao',
                         element: <DashboardInsercao />,
+
                         children: [
                             {
                                 path: 'processador',
@@ -71,23 +73,23 @@ export const router = createBrowserRouter([
                             },
                             {
                                 path: 'placa-de-video',
-                                element: <DashboardInsercaoGpu />
+                                element: <DashboardInsercaoPlacaDeVideo />
                             },
                             {
                                 path: 'memoria-ram',
-                                element: <DashboardInsercaoRam />,
+                                element: <DashboardInsercaoMemoriaRam />,
                             },
                             {
                                 path: 'placa-mae',
-                                element: <DashboardInsercaoMobo />,
+                                element: <DashboardInsercaoPlacaMae />,
                             },
                             {
                                 path: 'fonte-de-alimentacao',
-                                element: <DashboardInsercaoPsu />,
+                                element: <DashboardInsercaoFonteDeAlimentacao />,
                             },
                             {
                                 path: 'placa-de-captura',
-                                element: <DashboardInsercaoPlacaCaptura />,
+                                element: <DashboardInsercaoPlacaDeCaptura />,
                             },
                             {
                                 path: 'gabinete',
@@ -97,10 +99,14 @@ export const router = createBrowserRouter([
                                 path: 'mouse',
                                 element: <DashboardInsercaoMouse />,
                             },
+                            {
+                                path: 'teclado',
+                                element: <DashboardInsercaoTeclado />,
+                            },
                         ]
                     },
                     {
-                        path: 'tabelas',
+                        path: '',
                         element: <DashboardComponents />,
                     }
                 ]
@@ -109,7 +115,7 @@ export const router = createBrowserRouter([
                 path: '/feedback',
                 element: <DashboardFeedback />,
             },
-           
+
         ]
     }
 ]);

@@ -1,4 +1,12 @@
+import { useEffect } from "react";
+import { changeSelectValue } from "../../utils/changeSelectValue";
+
 function DashboardInsercaoProcessador() {
+
+    useEffect(() => {
+        changeSelectValue('processador')
+    });
+
     return (
         <div className="main-content">
 
@@ -9,6 +17,24 @@ function DashboardInsercaoProcessador() {
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
+                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col col-md-3">
+                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
+                                </div>
+                                <div className="col-12 col-md-9">
+                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
+                                    <small className="help-block form-text text-muted">Link url do produto</small>
+                                </div>
+                            </div>
                             <div className="row form-group">
                                 <div className="col col-md-3">
                                     <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
@@ -26,12 +52,12 @@ function DashboardInsercaoProcessador() {
                                     <div className="form-check">
                                         <div className="radio">
                                             <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="radio1" name="radios" value="option1" className="form-check-input" />Intel
+                                                <input type="radio" id="radio1" name="radios" value="intel" className="form-check-input" />Intel
                                             </label>
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="option2" className="form-check-input" />AMD
+                                                <input type="radio" id="radio2" name="radios" value="amd" className="form-check-input" />AMD
                                             </label>
                                         </div>
                                     </div>

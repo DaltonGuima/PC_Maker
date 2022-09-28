@@ -2,21 +2,19 @@ import { useState } from "react";
 import { Componente } from "../../TableRead"
 
 
-interface MouseProps extends Componente{
+interface MouseProps extends Componente {
     nome: string,
     fabricante: string,
-
-    status: boolean
 }
 
-export function Mouse(props:MouseProps){
-    const [editable,setEditable] = useState(false);
+export function Mouse(props: MouseProps) {
+    const [editable, setEditable] = useState(false);
 
     function handleEdit() {
-        if(editable)
-        setEditable(false);
+        if (editable)
+            setEditable(false);
         else
-        setEditable(true);
+            setEditable(true);
     };
 
     return (
@@ -27,10 +25,7 @@ export function Mouse(props:MouseProps){
             <td>R${props.preco}</td>
             <td>{props.vendedor}</td>
             <td>
-                <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
-            </td>
-            <td>
-                {editable?
+                {editable ?
                     <div className="table-data-feature">
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={handleEdit}>
                             <i className="fa-solid fa-xmark text-danger"></i>
@@ -42,15 +37,15 @@ export function Mouse(props:MouseProps){
                     :
                     <div className="table-data-feature">
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Edit" onClick={handleEdit}>
-                        <i className='zmdi zmdi-edit'></i>
+                            <i className='zmdi zmdi-edit'></i>
                         </button>
-                
+
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Delete" onClick={handleEdit}>
                             <i className="zmdi zmdi-delete"></i>
                         </button>
                     </div>
                 }
             </td>
-        </tr>     
+        </tr>
     )
 }

@@ -6,9 +6,9 @@ interface GpuProps extends Componente {
     clock: number,
     memoria: string,
     clmemoria: string,
-    barramento : number, 
+    barramento: number,
     conector: string
-    }
+}
 
 export function Gpu(props: GpuProps) {
     const [controls, setControls] = useState(false);
@@ -35,9 +35,7 @@ export function Gpu(props: GpuProps) {
             <td>{props.barramento}Bit</td>
             <td>{props.conector}</td>
             <td>{props.vendedor}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {controls ?
                     <div className="table-data-feature">

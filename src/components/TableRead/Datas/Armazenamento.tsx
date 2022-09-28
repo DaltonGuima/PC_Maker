@@ -6,8 +6,8 @@ interface ArmazenamentoProps extends Componente {
     tipo: string,
     capacidade: number,
     velEscrita: number,
-    velLeitura: number,
-    }
+    velLeitura?: number,
+}
 
 export function Armazenamento(props: ArmazenamentoProps) {
     const [controls, setControls] = useState(false);
@@ -30,12 +30,10 @@ export function Armazenamento(props: ArmazenamentoProps) {
             <td>R${props.preco}</td>
             <td>{props.tipo}</td>
             <td>{props.capacidade} GB</td>
-            <td>{props.velEscrita} MB/s</td>
-            <td>{props.velLeitura} MB/s</td>
+            <td>{props.velEscrita} {props.tipo == 'HDD SATA' ? 'RPM' : 'MB/s'}</td>
+            <td>{props.tipo == 'HDD SATA' ? '-' : `${props.velLeitura} MB/s`}</td>
             <td>{props.vendedor}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {controls ?
                     <div className="table-data-feature">

@@ -24,9 +24,7 @@ export function Gabinete(props: GabineteProps) {
             <td>R${props.preco}</td>
             <td>{props.tipo}</td>
             <td>{props.vendedor}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {editable ?
                     <div className="table-data-feature">

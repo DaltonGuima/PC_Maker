@@ -35,11 +35,9 @@ export function Ram(props: RamProps) {
             <td>{props.tecnologia}</td>
             <td>{props.voltagem} V</td>
             <td>{props.latencia} Ghz</td>
-            <td>{props.notebook? 'True':'False'}</td>
+            <td>{props.notebook ? 'True' : 'False'}</td>
             <td>{props.vendedor}</td>
-            <td>
-                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
-            </td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {controls ?
                     <div className="table-data-feature">
