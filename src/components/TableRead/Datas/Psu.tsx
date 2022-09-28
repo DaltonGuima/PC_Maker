@@ -2,16 +2,18 @@ import { useState } from "react";
 import { Componente } from "../../TableRead"
 
 
-interface RamProps extends Componente {
-    capacidade: number,
-    velocidade: number,
-    tecnologia: string,
-    voltagem: string,
-    latencia: string,
-    notebook: boolean
-}
+interface PsuProps extends Componente {
+    potencia: number,
+    certificacao: string,
+    pfc: string,
+    ventoinha : number, 
+    conPrincipal: string,
+    conCPU: string,
+    conPCIe: string,
+    conSATA: string,
+    }
 
-export function Ram(props: RamProps) {
+export function Psu(props: PsuProps) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 
@@ -30,13 +32,11 @@ export function Ram(props: RamProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.capacidade}</td>
-            <td>{props.velocidade} Mhz</td>
-            <td>{props.tecnologia}</td>
-            <td>{props.voltagem} V</td>
-            <td>{props.latencia} Ghz</td>
-            <td>{props.notebook? 'True':'False'}</td>
-
+            <td>{props.clock} Mhz</td>
+            <td>{props.memoria}</td>
+            <td>{props.clmemoria}</td>
+            <td>{props.barramento}Bit</td>
+            <td>{props.conector}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>
