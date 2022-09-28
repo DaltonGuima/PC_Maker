@@ -23,12 +23,12 @@ function DashboardInsercao() {
                                         <option value="">Escolha um</option>
                                         <option value="Processador">Processador</option>
                                         <option value="Armazenamento">Armazenamento</option>
-                                        <option value="PlacaDeVideo">Placa de Vídeo</option>
-                                        <option value="Ram">Memória RAM</option>
-                                        <option value="Mobo">Placa-mãe</option>
-                                        <option value="Psu">Fonte</option>
+                                        <option value="Placa-De-Video">Placa de Vídeo</option>
+                                        <option value="Memoria-Ram">Memória RAM</option>
+                                        <option value="placa-mae">Placa-mãe</option>
+                                        <option value="fonte-de-alimentacao">Fonte</option>
                                         <option value="Gabinete">Gabinete</option>
-                                        <option value="Captura">Placa de Captura</option>
+                                        <option value="placa-de-captura">Placa de Captura</option>
                                         <option value="mouse">Mouse</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>

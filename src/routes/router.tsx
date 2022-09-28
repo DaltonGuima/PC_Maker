@@ -18,6 +18,7 @@ import DashboardInsercaoMobo from "../components/InsertData/InsertMobo";
 import DashboardInsercaoPsu from "../components/InsertData/InsertPsu";
 import DashboardInsercaoPlacaCaptura from "../components/InsertData/InsertPlacaCaptura";
 import DashboardInsercaoGabinete from "../components/InsertData/InsertGabinete";
+import DashboardInsercaoMouse from "../components/InsertData/InsertMouse";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 
 
@@ -69,28 +70,32 @@ export const router = createBrowserRouter([
                                 element: <DashboardInsercaoArmazenamento />
                             },
                             {
-                                path: 'placadevideo',
+                                path: 'placa-de-video',
                                 element: <DashboardInsercaoGpu />
                             },
                             {
-                                path: 'memoriaram',
+                                path: 'memoria-ram',
                                 element: <DashboardInsercaoRam />,
                             },
                             {
-                                path: 'placamae',
+                                path: 'placa-mae',
                                 element: <DashboardInsercaoMobo />,
                             },
                             {
-                                path: 'fontedealimentacao',
+                                path: 'fonte-de-alimentacao',
                                 element: <DashboardInsercaoPsu />,
                             },
                             {
-                                path: 'placacaptura',
+                                path: 'placa-de-captura',
                                 element: <DashboardInsercaoPlacaCaptura />,
                             },
                             {
                                 path: 'gabinete',
                                 element: <DashboardInsercaoGabinete />,
+                            },
+                            {
+                                path: 'mouse',
+                                element: <DashboardInsercaoMouse />,
                             },
                         ]
                     },
