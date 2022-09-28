@@ -35,7 +35,7 @@ export function Ram(props: RamProps) {
             <td>{props.tecnologia}</td>
             <td>{props.voltagem} V</td>
             <td>{props.latencia} Ghz</td>
-            <td>{props.notebook}</td>
+            <td>{props.notebook? 'True':'False'}</td>
 
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
