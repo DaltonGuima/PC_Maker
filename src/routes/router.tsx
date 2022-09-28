@@ -74,23 +74,23 @@ export const router = createBrowserRouter([
                         element: <DashboardInsercaoArmazenamento />
                     },
                     {
-                        path: 'gpu',
+                        path: 'placadevideo',
                         element: <DashboardInsercaoGpu />
                     },
                     {
-                        path: 'ram',
+                        path: 'memoriaram',
                         element: <DashboardInsercaoRam />,
                     },
                     {
-                        path: 'mobo',
+                        path: 'placamae',
                         element: <DashboardInsercaoMobo />,
                     },
                     {
-                        path: 'psu',
+                        path: 'fontedealimentacao',
                         element: <DashboardInsercaoPsu />,
                     },
                     {
-                        path: 'placa-captura',
+                        path: 'placacaptura',
                         element: <DashboardInsercaoPlacaCaptura />,
                     },
                     {

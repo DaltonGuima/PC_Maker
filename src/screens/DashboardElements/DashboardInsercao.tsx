@@ -19,16 +19,16 @@ function DashboardInsercao() {
                 navigate("/insercao/armazenamento")
                 break;
             case 'Gpu':
-                navigate("/insercao/gpu")
+                navigate("/insercao/placadevideo")
                 break;
             case 'Ram':
-                navigate("/insercao/ram")
+                navigate("/insercao/memoriaram")
                 break;
             case 'Mobo':
-                navigate("/insercao/mobo")
+                navigate("/insercao/placamae")
                 break;
             case 'Psu':
-                navigate("/insercao/psu")
+                navigate("/insercao/fontedealimentacao")
                 break;
             case 'Gabinete':
                 navigate("/insercao/gabinete")
