@@ -4,19 +4,25 @@ import { useNavigate } from 'react-router-dom';
 function DashboardInsercao() {
     const navigate = useNavigate();
     //Função para navegar
-    function Navegacao(){
+    function Navegacao() {
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
-        
-        switch (localConst.value){
+
+        switch (localConst.value) {
             case 'Processador':
                 navigate("/insercao/processador")
-            break;
+                break;
             case 'Armazenamento':
                 navigate("/insercao/armazenamento")
-            break;
+                break;
             case 'Gpu':
                 navigate("/insercao/gpu")
-            break;
+                break;
+            case 'Ram':
+                navigate("/insercao/ram")
+                break;
+            case 'Mobo':
+                navigate("/insercao/mobo")
+                break;
             default:
                 navigate("/insercao")
         }
@@ -38,6 +44,8 @@ function DashboardInsercao() {
                                         <option value="Processador">Processador</option>
                                         <option value="Armazenamento">Armazenamento</option>
                                         <option value="Gpu">Placa de Vídeo</option>
+                                        <option value="Ram">Memória RAM</option>
+                                        <option value="Mobo">Placa-mãe</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>
@@ -50,14 +58,14 @@ function DashboardInsercao() {
                                     <div className="dropDownSelect2"></div>
                                 </div>
                                 <button className="au-btn-filter">
-                                <i className="zmdi zmdi-filter-list"></i>filters
+                                    <i className="zmdi zmdi-filter-list"></i>filters
                                 </button>
 
                             </div>
                         </div>
                     </div>
 
-                    <Outlet/>
+                    <Outlet />
 
                     {/* Formulário */}
 
@@ -65,7 +73,7 @@ function DashboardInsercao() {
             </div>
         </div>
 
-  )
+    )
 }
 
 export default DashboardInsercao

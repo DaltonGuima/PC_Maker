@@ -13,6 +13,8 @@ import DashboardInsercao from "../screens/DashboardElements/DashboardInsercao";
 import DashboardInsercaoProcessador from "../components/InsertData/InsertProcessador";
 import DashboardInsercaoArmazenamento from "../components/InsertData/InsertArmazenamento";
 import DashboardInsercaoGpu from "../components/InsertData/InsertGpu";
+import DashboardInsercaoRam from "../components/InsertData/InsertRam";
+import DashboardInsercaoMobo from "../components/InsertData/InsertMobo";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 
 
@@ -69,7 +71,15 @@ export const router = createBrowserRouter([
                     {
                         path: 'gpu',
                         element: <DashboardInsercaoGpu/>
-                    }
+                    },
+                    {
+                        path: 'ram',
+                        element: <DashboardInsercaoRam/>,
+                    },
+                    {
+                        path: 'mobo',
+                        element: <DashboardInsercaoMobo/>,
+                    },
                 ]
             }
         ]

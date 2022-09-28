@@ -36,8 +36,9 @@ export function Processador(props:ProcessadorProps){
             <td>{props.frequencia} Ghz</td>
             <td>{props.freBoost} Ghz</td>
             <td>{props.tdp}W</td>
+
             <td>
-            <span className="status--denied">{props.overClock? '' : 'Bloqueado'}</span>
+            <span className="status--process">{props.overClock? 'Desbloqueado' : <span className="status--denied">Bloqueado</span> }</span>
             </td>
             <td>
             <span className="status--denied">{props.graficoIntregado? '' : 'Não'}</span>

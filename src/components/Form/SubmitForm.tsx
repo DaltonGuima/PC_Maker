@@ -1,12 +1,12 @@
 
 
-interface ButtonProps{
+interface ButtonProps {
     text: string;
     id: string;
     name: string;
 }
 
-export function SubmitForm(props :ButtonProps) {
+export function SubmitForm(props: ButtonProps) {
     return (
         <button
             id={props.id}

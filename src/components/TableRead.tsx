@@ -1,6 +1,5 @@
-import { Processador } from "./TableRead/Datas/Processador"
 import { TableElements } from "./TableRead/TableElements"
-import { TableReadHead, TableReadHeadProps } from "./TableRead/TableReadHead"
+import { TableReadHead } from "./TableRead/TableReadHead"
 export interface Componente{
     id: string,
     nome: string,
@@ -20,7 +19,9 @@ export function TableRead(props:TableReadProps){
     return(
         <div className="col-md-12">
             <h3 className="title-5 m-b-35 text-light table-h3">{props.titulo}</h3>
-            <TableElements/>
+            <TableElements
+                id={props.titulo}
+            />
             <div className="table-responsive">
                 <table className="table table-data2">
                     <TableReadHead

@@ -84,6 +84,7 @@ p {
 
 .main-content{
     margin-right: -1.5rem;
+    padding-bottom: 1rem;
 }
 .header-mobile{
     margin-right: -1.5rem;
@@ -234,13 +235,13 @@ strong {
 }
 
 .title-1 {
-    text-transform: capitalize;
+    
     font-weight: 400;
     font-size: 30px;
 }
 
 .title-2 {
-    text-transform: capitalize;
+     
     font-weight: 400;
     font-size: 24px;
     line-height: 1;
@@ -248,7 +249,7 @@ strong {
 }
 
 .title-3 {
-    text-transform: capitalize;
+     
     font-weight: 400;
     font-size: 24px;
     color: #333;
@@ -266,7 +267,7 @@ strong {
 }
 
 .title-5 {
-    text-transform: capitalize;
+     
     font-size: 22px;
     font-weight: 500;
     color: #393939;
@@ -282,7 +283,7 @@ strong {
     font-size: 24px;
     font-weight: 500;
     color: #333;
-    text-transform: capitalize;
+     
     margin-bottom: 10px;
 }
 
@@ -650,7 +651,7 @@ section {
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
     padding: 0 15px;
     line-height: 40px;
-    text-transform: capitalize;
+     
 }
 
 
@@ -1492,7 +1493,7 @@ section {
 
 .account-item > .content > a {
     color: #333;
-    text-transform: capitalize;
+     
     font-weight: 500;
 }
 
@@ -1566,7 +1567,7 @@ section {
 .account-dropdown .info .content .name a {
     color: #333;
     font-weight: 500;
-    text-transform: capitalize;
+     
 }
 
 .account-dropdown .info .content .name a:hover {
@@ -1958,7 +1959,7 @@ section {
 
 .mess__footer a, .email__footer a, .notifi__footer a {
     display: block;
-    text-transform: capitalize;
+     
     text-align: center;
     font-size: 14px;
     color: #4272d7;
@@ -2161,7 +2162,7 @@ section {
     box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.03);
     padding: 10px 15px;
     line-height: 40px;
-    text-transform: capitalize;
+     
 }
 
 .menu-sidebar-min {
@@ -2246,7 +2247,7 @@ section {
 }
 
 .account2 .name {
-    text-transform: capitalize;
+     
     font-weight: 500;
     font-size: 20px;
     margin-top: 20px;
@@ -4133,7 +4134,7 @@ section {
 }
 
 .chart-note {
-    text-transform: capitalize;
+     
     display: inline-block;
     margin-right: 12px;
     font-size: 14px;
@@ -4155,7 +4156,7 @@ section {
 
 .chart-statis .label {
     display: block;
-    text-transform: capitalize;
+     
     line-height: 1.2;
 }
 
@@ -4322,7 +4323,7 @@ section {
     color: #fff;
     vertical-align: middle;
     font-weight: 400;
-    text-transform: capitalize;
+     
     line-height: 1;
     padding: 22px 40px;
     white-space: nowrap;
@@ -4463,7 +4464,7 @@ section {
 .table-data__info h6 {
     font-size: 14px;
     color: #808080;
-    text-transform: capitalize;
+     
     font-weight: 400;
 }
 
@@ -4519,7 +4520,7 @@ section {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    text-transform: capitalize;
+     
 }
 
 .role.admin {
@@ -4759,7 +4760,7 @@ section {
     font-size: 16px;
     color: #fff;
     font-weight: 400;
-    text-transform: capitalize;
+     
     padding: 18px 40px;
     padding-right: 10px;
 }

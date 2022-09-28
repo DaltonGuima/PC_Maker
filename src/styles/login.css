@@ -1,44 +1,62 @@
-body{
-    background: rgba(57, 17, 123, 0.844538);
-    background:  linear-gradient(243.38deg, rgba(57, 17, 123, 0.844538), 44.97%, rgba(26, 64, 200, 0.85), 95.59%);;
+body {
+  background: rgba(57, 17, 123, 0.844538);
+  background: linear-gradient(
+    243.38deg,
+    rgba(57, 17, 123, 0.844538),
+    44.97%,
+    rgba(26, 64, 200, 0.85),
+    95.59%
+  );
 }
 
 /* Formulário */
 
-.DontHAveAccount{
-    color: #393f81;
+.DontHAveAccount {
+  color: #393f81;
 }
 
 .social-icons a.apple:hover {
-    background-color: gray;
+  background-color: gray;
 }
 .social-icons a.google:hover {
-    background-color: #DB4437;
+  background-color: #db4437;
 }
 
-.social-icons a{
-    background-color: rgb(57, 17, 123);
-    width: 43px;
-    height: 43px;
+.social-icons a {
+  background-color: rgb(57, 17, 123);
+  width: 43px;
+  height: 43px;
 }
 
-.card{
-    border-bottom-right-radius: 4%;
-    border-top-right-radius: 4%;
+.card-login {
+  border-bottom-right-radius: 2%;
+  border-top-right-radius: 2%;
 }
 
-#email, #senha, #confirmar-Email, #confirmar-Senha{
-    background-color: #292b2c;
-    color: white;
-    border: 0.2px solid white;
-    height: 2rem;
-    border-radius: 10rem;
-    padding-left: 1rem;
+@media (min-width: 992px) {
+  .btn-login {
+    margin-left: -3.5rem;
+  }
 }
 
-img{
-    width: 100%;
-    height: 100%;
+@media (max-width: 992px) {
+  .btn-login {
+    margin-left: -0.1rem;
+  }
+}
+#email,
+#senha,
+#confirmar-Email,
+#confirmar-Senha {
+  background-color: #292b2c;
+  color: white;
+  border: 0.2px solid white;
+  height: 2rem;
+  border-radius: 10rem;
+  padding-left: 1rem;
 }
 
-
+img {
+  width: 100%;
+  height: 100%;
+}
