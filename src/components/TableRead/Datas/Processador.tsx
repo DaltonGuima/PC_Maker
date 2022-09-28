@@ -27,8 +27,6 @@ export function Processador(props: ProcessadorProps) {
 
     };
 
-
-
     return (
         <tr className="tr-shadow" contentEditable={editable}>
             <td>{props.nome}</td>
