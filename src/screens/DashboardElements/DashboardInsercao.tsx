@@ -36,6 +36,9 @@ function DashboardInsercao() {
             case 'Captura':
                 navigate("/insercao/placa-captura")
                 break;
+            case 'Mouse':
+                navigate("/insercao/mouse")
+                break;
             default:
                 navigate("/insercao")
         }
@@ -60,6 +63,7 @@ function DashboardInsercao() {
                                         <option value="Psu">Fonte</option>
                                         <option value="Gabinete">Gabinete</option>
                                         <option value="Captura">Placa de Captura</option>
+                                        <option value="mouse">Mouse</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>

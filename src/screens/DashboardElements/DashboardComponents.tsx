@@ -2,6 +2,8 @@ import { TableRead } from "../../components/TableRead"
 import { Gabinete } from "../../components/TableRead/Datas/Gabinete"
 import { Processador } from "../../components/TableRead/Datas/Processador"
 import { Mouse } from "../../components/TableRead/Datas/Mouse"
+import { Armazenamento } from "../../components/TableRead/Datas/Armazenamento"
+import { Ram } from "../../components/TableRead/Datas/ram"
 
 function DashboardComponents() {
     return (
@@ -586,25 +588,20 @@ function DashboardComponents() {
                         />]}
                     />
                   <TableRead             
-                        key={'Processador'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Soquete','nNucleos','nThreads','frequencia','freBoost','Tdp', 'Status']}
-                        titulo='Processador'
-                        body={[<Processador
+                        key={'Armazenamento'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
+                        titulo='Armazenamento'
+                        body={[<Armazenamento
                             key={'1'}
                             id={'1'}
-                            nome="Intel I5 10400F LGA1200"
-                            fabricante="Intel"
-                            modelo="10400F"
-                            preco={989.99}
-                            soquete={'FCLGA1200'}
-                            nNucleos={6}
-                            nThreads={12}
-                            frequencia={2.9}
-                            freBoost={4.3}
-                            tdp={65}
-                            overClock={true}
-                            graficoIntregado={false}
-                            tipoMemoria={'DDR4'}
+                            nome="SSD 960 GB Kingston A400"
+                            fabricante="Kingston"
+                            modelo="A400"
+                            preco={439.99}
+                            tipo={'SSD SATA'}
+                            capacidade={960}
+                            velEscrita={450}
+                            velLeitura={500}
                             status
                         />]}
                     />
@@ -620,6 +617,26 @@ function DashboardComponents() {
                             modelo="Deathadder V2"
                             preco={269.90}
                             status
+                        />]}
+                    />
+                    <TableRead             
+                        key={'Ram'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
+                        titulo='Mémoria Ram'
+                        body={[<Ram
+                            key={'1'}
+                            id={'1'}
+                            nome="Husky Technologies"
+                            fabricante="Husky Technologies"
+                            modelo="HTCQ003"
+                            preco={379.99}
+                            capacidade={16}
+                            velocidade={2666}
+                            tecnologia={'DDR4'}
+                            voltagem={'1.2V~1.35V'}
+                            latencia={'CL 19'}
+                            notebook={true}
+                            status 
                         />]}
                     />
                 </div>
