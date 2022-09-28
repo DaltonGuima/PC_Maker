@@ -25,6 +25,7 @@ export function Mouse(props:MouseProps){
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
             </td>

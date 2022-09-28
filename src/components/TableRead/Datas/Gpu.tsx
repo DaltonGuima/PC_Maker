@@ -34,6 +34,7 @@ export function Gpu(props: GpuProps) {
             <td>{props.clmemoria}</td>
             <td>{props.barramento}Bit</td>
             <td>{props.conector}</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>

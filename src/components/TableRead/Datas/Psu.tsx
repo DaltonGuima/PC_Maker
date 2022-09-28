@@ -40,6 +40,7 @@ export function Psu(props: PsuProps) {
             <td>{props.conCPU}</td>
             <td>{props.conPCIe}</td>
             <td>{props.conSATA}</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>

@@ -23,6 +23,7 @@ export function Gabinete(props: GabineteProps) {
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
             <td>{props.tipo}</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>

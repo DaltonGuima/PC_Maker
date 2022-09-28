@@ -17,7 +17,7 @@ function DashboardComponents() {
                         key={'Processador'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
                             'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
-                            'Gráfico integrado', 'Tipo de memória', 'Status']}
+                            'Gráfico integrado', 'Tipo de memória','Vendedor', 'Status']}
                         titulo='Processador'
                         body={[<Processador
                             key={'1'}
@@ -35,6 +35,7 @@ function DashboardComponents() {
                             overClock={true}
                             graficoIntregado={false}
                             tipoMemoria='DDR4'
+                            vendedor={'Kabum'}
                             status
                         />, <Processador
                             key={'2'}
@@ -52,6 +53,7 @@ function DashboardComponents() {
                             overClock={false}
                             graficoIntregado={false}
                             tipoMemoria='DDR4'
+                            vendedor={'PICHAU'}
                             status
                         />]}
                     />
@@ -401,7 +403,7 @@ function DashboardComponents() {
 
                     <TableRead
                         key={'Gabinete'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor','Status']}
                         titulo='Gabinete'
                         body={[<Gabinete
                             key={'1'}
@@ -411,12 +413,13 @@ function DashboardComponents() {
                             modelo="100-100000927BOX"
                             preco={999.99}
                             tipo={'Full Tower'}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                   <TableRead             
                         key={'Armazenamento'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura','Vendedor', 'Status']}
                         titulo='Armazenamento'
                         body={[<Armazenamento
                             key={'1'}
@@ -429,12 +432,13 @@ function DashboardComponents() {
                             capacidade={960}
                             velEscrita={450}
                             velLeitura={500}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                     <TableRead             
                         key={'Mouse'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço','Vendedor','Status']}
                         titulo='Mouse'
                         body={[<Mouse
                             key={'1'}
@@ -443,14 +447,13 @@ function DashboardComponents() {
                             fabricante="Razer"
                             modelo="Deathadder V2"
                             preco={269.90}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                     <TableRead             
                         key={'Ram'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 
-                        'Capacidade', 'Velocidade','Tecnologia','Voltagem', 
-                        'Latência','Notebook']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço','Capacidade', 'Velocidade','Tecnologia','Voltagem','Latência','Notebook', 'Vendedor', 'Status']}
                         titulo='Mémoria Ram'
                         body={[<Ram
                             key={'1'}
@@ -465,12 +468,13 @@ function DashboardComponents() {
                             voltagem={'1.2V~1.35V'}
                             latencia={'CL 19'}
                             notebook={true}
+                            vendedor={'KABUM'}
                             status 
                         />]}
                     />
                     <TableRead             
                         key={'Gpu'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector', 'Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector','Vendedor', 'Status']}
                         titulo='Gpu'
                         body={[<Gpu
                             key={'1'}
@@ -484,17 +488,18 @@ function DashboardComponents() {
                             clmemoria={'1500 Mhz x 4'}
                             barramento={256}
                             conector={'1 x 8 Pin'}
+                            vendedor={'KABUM'}
                             status 
                         />]}
                     />
                     <TableRead             
                         key={'Psu'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Vendedor','Status']}
                         titulo='Fonte'
                         body={[<Psu
                             key={'1'}
                             id={'1'}
-                            nome="FONTE GAMER AZZA 650W RGB 80 PLUS BRONZE PFC ATIVO, PSAZ-650W-ARGB"
+                            nome="FONTE GAMER AZZA, PSAZ-650W-ARGB"
                             fabricante="AZZA"
                             modelo="PSAZ-650W-ARGB"
                             preco={269.90}
@@ -506,6 +511,7 @@ function DashboardComponents() {
                             conCPU={'EPS 8 pin (4+4)'}
                             conPCIe={'PCI-E 8 pin (6+2)'}
                             conSATA={'5x Conectores SATA'}
+                            vendedor = {'PICHAU'}
                             status 
                         />]}
                     />

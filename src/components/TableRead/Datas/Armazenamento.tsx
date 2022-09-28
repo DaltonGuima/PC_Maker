@@ -32,6 +32,7 @@ export function Armazenamento(props: ArmazenamentoProps) {
             <td>{props.capacidade} GB</td>
             <td>{props.velEscrita} MB/s</td>
             <td>{props.velLeitura} MB/s</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>
