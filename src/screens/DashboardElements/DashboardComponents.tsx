@@ -4,6 +4,7 @@ import { Processador } from "../../components/TableRead/Datas/Processador"
 import { Mouse } from "../../components/TableRead/Datas/Mouse"
 import { Armazenamento } from "../../components/TableRead/Datas/Armazenamento"
 import { Ram } from "../../components/TableRead/Datas/ram"
+import { Gpu } from "../../components/TableRead/Datas/Gpu"
 
 function DashboardComponents() {
     return (
@@ -636,6 +637,25 @@ function DashboardComponents() {
                             voltagem={'1.2V~1.35V'}
                             latencia={'CL 19'}
                             notebook={true}
+                            status 
+                        />]}
+                    />
+                    <TableRead             
+                        key={'Gpu'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
+                        titulo='Mémoria Ram'
+                        body={[<Gpu
+                            key={'1'}
+                            id={'1'}
+                            nome="RX 570 4GB RedDragon"
+                            fabricante="RedDragon"
+                            modelo="RX 570"
+                            preco={1100.00}
+                            clock={1250}
+                            memoria={'4GB GDDR5'}
+                            clmemoria={'1500 Mhz x 4'}
+                            barramento={256}
+                            conector={'1 x 8 Pin'}
                             status 
                         />]}
                     />
