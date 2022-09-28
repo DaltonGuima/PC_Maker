@@ -78,7 +78,7 @@ export const router = createBrowserRouter([
                         element: <DashboardInsercaoGpu />
                     },
                     {
-                        path: 'ram',
+                        path: 'memoriaram',
                         element: <DashboardInsercaoRam />,
                     },
                     {
