@@ -46,10 +46,6 @@ function DashboardInsercaoTeclado() {
                                     <small className="help-block form-text">R$ 89,90</small>
                                 </div>
                             </div>
-
-
-                           
-
                         </form>
                     </div>
                     <div className="card-footer">
