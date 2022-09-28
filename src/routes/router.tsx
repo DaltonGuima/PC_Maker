@@ -55,50 +55,56 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/componentes',
-                element: <DashboardComponents />,
+                children:[
+                    {
+                        path: 'insercao',
+                        element: <DashboardInsercao />,
+                        children: [
+                            {
+                                path: 'processador',
+                                element: <DashboardInsercaoProcessador />
+                            },
+                            {
+                                path: 'armazenamento',
+                                element: <DashboardInsercaoArmazenamento />
+                            },
+                            {
+                                path: 'placadevideo',
+                                element: <DashboardInsercaoGpu />
+                            },
+                            {
+                                path: 'memoriaram',
+                                element: <DashboardInsercaoRam />,
+                            },
+                            {
+                                path: 'placamae',
+                                element: <DashboardInsercaoMobo />,
+                            },
+                            {
+                                path: 'fontedealimentacao',
+                                element: <DashboardInsercaoPsu />,
+                            },
+                            {
+                                path: 'placacaptura',
+                                element: <DashboardInsercaoPlacaCaptura />,
+                            },
+                            {
+                                path: 'gabinete',
+                                element: <DashboardInsercaoGabinete />,
+                            },
+                        ]
+                    },
+                    {
+                        path: 'tabelas',
+                        element: <DashboardComponents />,
+                    }
+                ]
             },
             {
                 path: '/feedback',
                 element: <DashboardFeedback />,
             },
-            {
-                path: '/insercao',
-                element: <DashboardInsercao />,
-                children: [
-                    {
-                        path: 'processador',
-                        element: <DashboardInsercaoProcessador />
-                    },
-                    {
-                        path: 'armazenamento',
-                        element: <DashboardInsercaoArmazenamento />
-                    },
-                    {
-                        path: 'placadevideo',
-                        element: <DashboardInsercaoGpu />
-                    },
-                    {
-                        path: 'memoriaram',
-                        element: <DashboardInsercaoRam />,
-                    },
-                    {
-                        path: 'placamae',
-                        element: <DashboardInsercaoMobo />,
-                    },
-                    {
-                        path: 'fontedealimentacao',
-                        element: <DashboardInsercaoPsu />,
-                    },
-                    {
-                        path: 'placacaptura',
-                        element: <DashboardInsercaoPlacaCaptura />,
-                    },
-                    {
-                        path: 'gabinete',
-                        element: <DashboardInsercaoGabinete />,
-                    },
-                ]
-            }
+           
         ]
     }
 ]);

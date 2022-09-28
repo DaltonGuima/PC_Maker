@@ -1,47 +1,13 @@
 import { Outlet } from 'react-router'
 import { useNavigate } from 'react-router-dom';
 
-
-
-
 function DashboardInsercao() {
     const navigate = useNavigate();
     //Função para navegar
     function Navegacao() {
 
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
-
-        switch (localConst.value) {
-            case 'Processador':
-                navigate("/insercao/processador")
-                break;
-            case 'Armazenamento':
-                navigate("/insercao/armazenamento")
-                break;
-            case 'Gpu':
-                navigate("/insercao/placadevideo")
-                break;
-            case 'Ram':
-                navigate("/insercao/memoriaram")
-                break;
-            case 'Mobo':
-                navigate("/insercao/placamae")
-                break;
-            case 'Psu':
-                navigate("/insercao/fontedealimentacao")
-                break;
-            case 'Gabinete':
-                navigate("/insercao/gabinete")
-                break;
-            case 'Captura':
-                navigate("/insercao/placa-captura")
-                break;
-            case 'Mouse':
-                navigate("/insercao/mouse")
-                break;
-            default:
-                navigate("/insercao")
-        }
+        navigate(`/componentes/insercao/${localConst.value}`)
     }
     return (
         <div className="main-content">
@@ -57,7 +23,7 @@ function DashboardInsercao() {
                                         <option value="">Escolha um</option>
                                         <option value="Processador">Processador</option>
                                         <option value="Armazenamento">Armazenamento</option>
-                                        <option value="Gpu">Placa de Vídeo</option>
+                                        <option value="PlacaDeVideo">Placa de Vídeo</option>
                                         <option value="Ram">Memória RAM</option>
                                         <option value="Mobo">Placa-mãe</option>
                                         <option value="Psu">Fonte</option>

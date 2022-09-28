@@ -55,21 +55,27 @@ function Dashboard() {
                                         <i className="fa-solid fa-comment-dots"></i>Feedback
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="/Dashboard">
-                                        <i className="fa-solid fa-comment-dots"></i>Vendedor
-                                    </a>
-                                </li>
-
                                 <li className="has-sub">
-                                    <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">
-                                        <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
-                                    <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
+                                    <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#vendedor" role="button" aria-expanded="false" aria-controls="componentes">
+                                        <i className="fa-solid fa-puzzle-piece"></i>Vendedor</a>
+                                    <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="vendedor">
                                         <li>
                                             <a href="/componentes"><i className="fas fa-table"></i>Tabelas</a>
                                         </li>
                                         <li>
                                             <a href="/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className="has-sub">
+                                    <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">
+                                        <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
+                                    <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
+                                        <li>
+                                            <a href="/componentes/tabelas"><i className="fas fa-table"></i>Tabelas</a>
+                                        </li>
+                                        <li>
+                                            <a href="/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
                                         </li>
                                     </ul>
                                 </li>

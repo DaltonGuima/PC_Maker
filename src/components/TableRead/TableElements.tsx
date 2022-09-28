@@ -31,9 +31,9 @@ export function TableElements({id}:TableElementsProps){
                 <i className="zmdi zmdi-filter-list"></i>filters</button>
         </div>
         <div className="table-data__tool-right">
-            <Link style={{textDecoration: 'none'}} to={`/insercao/${id}`} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
+            <a style={{textDecoration: 'none'}} href={`insercao/${id}`} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
                 <i className="zmdi zmdi-plus"></i>add item
-            </Link>
+            </a>
             <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                 <select className="js-select2 selectFilter" name="type">
                     <option> Export</option>
