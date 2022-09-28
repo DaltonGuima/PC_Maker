@@ -37,17 +37,17 @@ main {
   width: 100%;
 }
 
-.cardbanner{
+.cardbanner {
   background-color: rgba(0, 0, 0, 0.7);
   padding: 1rem;
 }
 
-.cardbanner .card-body-h a{
+.cardbanner .card-body-h a {
   margin-bottom: 1rem;
   position: relative;
-  top: .8rem;
+  top: 0.8rem;
 }
-.cardbanner .card-body-h a:hover{
+.cardbanner .card-body-h a:hover {
   background-color: rgba(112, 66, 213, 0.6);
 }
 
@@ -62,7 +62,7 @@ main {
     background-color: transparent;
     padding: 0;
   }
-  .cardbanner{
+  .cardbanner {
     border-radius: 1rem;
   }
 }

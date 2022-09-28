@@ -1,10 +1,14 @@
 import { Outlet } from 'react-router'
 import { useNavigate } from 'react-router-dom';
 
+
+
+
 function DashboardInsercao() {
     const navigate = useNavigate();
     //Função para navegar
     function Navegacao() {
+
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
 
         switch (localConst.value) {
@@ -23,11 +27,19 @@ function DashboardInsercao() {
             case 'Mobo':
                 navigate("/insercao/mobo")
                 break;
+            case 'Psu':
+                navigate("/insercao/psu")
+                break;
+            case 'Gabinete':
+                navigate("/insercao/gabinete")
+                break;
+            case 'Captura':
+                navigate("/insercao/placa-captura")
+                break;
             default:
                 navigate("/insercao")
         }
     }
-
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
@@ -38,7 +50,6 @@ function DashboardInsercao() {
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
-                                    {/* Botei id */}
                                     <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador'>
                                         <option value="">Escolha um</option>
                                         <option value="Processador">Processador</option>
@@ -46,21 +57,15 @@ function DashboardInsercao() {
                                         <option value="Gpu">Placa de Vídeo</option>
                                         <option value="Ram">Memória RAM</option>
                                         <option value="Mobo">Placa-mãe</option>
-                                    </select>
-                                    <div className="dropDownSelect2"></div>
-                                </div>
-                                <div className="rs-select2--light rs-select2--sm ">
-                                    <select className="js-select2 selectFilter" name="time">
-                                        <option >Today</option>
-                                        <option value="">3 Days</option>
-                                        <option value="">1 Week</option>
+                                        <option value="Psu">Fonte</option>
+                                        <option value="Gabinete">Gabinete</option>
+                                        <option value="Captura">Placa de Captura</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>
                                 <button className="au-btn-filter">
                                     <i className="zmdi zmdi-filter-list"></i>filters
                                 </button>
-
                             </div>
                         </div>
                     </div>

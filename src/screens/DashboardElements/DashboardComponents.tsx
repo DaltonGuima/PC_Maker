@@ -1,58 +1,59 @@
 import { TableRead } from "../../components/TableRead"
+import { Gabinete } from "../../components/TableRead/Datas/Gabinete"
 import { Processador } from "../../components/TableRead/Datas/Processador"
 
-function DashboardComponents(){
-    return(
+function DashboardComponents() {
+    return (
         <div className="main-content">
-        <div className="section__content section__content--p30">
-            <div className="container-fluid">
-                <div className="row"></div>
-                <TableRead
-                    key={'Processador'}
-                    cols={['Nome','Fabricante','Modelo','Preço','Soquete','Nº de Núcleos',
-                    'Nº de Threads','Frequência','Frequência máxima com Boost','TDP','OverClock',
-                    'Gráfico integrado','Tipo de memória','Status'] }
-                    titulo='Processador'
-                    body={[<Processador
-                        key={'1'}
-                        id={'1'}
-                        nome="AMD Ryzen 5 5600"
-                        fabricante="AMD"
-                        modelo="100-100000927BOX"
-                        preco={999.99}
-                        soquete='AM4'
-                        nNucleos={6}
-                        nThreads={12}
-                        frequencia={4.4}
-                        freBoost={3.5}
-                        tdp={205}
-                        overClock={true}
-                        graficoIntregado={false}
-                        tipoMemoria='DDR4'
-                        status
-                    />,<Processador
-                        key={'2'}
-                        id={'2'}
-                        nome="Intel Core i5-10400F"
-                        fabricante="Intel"
-                        modelo="BX8070110400F"
-                        preco={959.99}
-                        soquete='LFCLGA1200'
-                        nNucleos={6}
-                        nThreads={12}
-                        frequencia={2.90}
-                        freBoost={4.30}
-                        tdp={65}
-                        overClock={false}
-                        graficoIntregado={false}
-                        tipoMemoria='DDR4'
-                        status
-                    />]}
-                />
+            <div className="section__content section__content--p30">
+                <div className="container-fluid">
+                    <div className="row"></div>
+                    <TableRead
+                        key={'Processador'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
+                            'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
+                            'Gráfico integrado', 'Tipo de memória', 'Status']}
+                        titulo='Processador'
+                        body={[<Processador
+                            key={'1'}
+                            id={'1'}
+                            nome="AMD Ryzen 5 5600"
+                            fabricante="AMD"
+                            modelo="100-100000927BOX"
+                            preco={999.99}
+                            soquete='AM4'
+                            nNucleos={6}
+                            nThreads={12}
+                            frequencia={4.4}
+                            freBoost={3.5}
+                            tdp={205}
+                            overClock={true}
+                            graficoIntregado={false}
+                            tipoMemoria='DDR4'
+                            status
+                        />, <Processador
+                            key={'2'}
+                            id={'2'}
+                            nome="Intel Core i5-10400F"
+                            fabricante="Intel"
+                            modelo="BX8070110400F"
+                            preco={959.99}
+                            soquete='LFCLGA1200'
+                            nNucleos={6}
+                            nThreads={12}
+                            frequencia={2.90}
+                            freBoost={4.30}
+                            tdp={65}
+                            overClock={false}
+                            graficoIntregado={false}
+                            tipoMemoria='DDR4'
+                            status
+                        />]}
+                    />
                     <div className="col-md-12">
-                    
+
                         {/* TABELA 3 */}
-                    <h3 className="title-5 m-b-35 text-light table-h3">Armazenamento</h3>
+                        <h3 className="title-5 m-b-35 text-light table-h3">Armazenamento</h3>
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
@@ -130,7 +131,7 @@ function DashboardComponents(){
                                         </td>
                                     </tr>
                                     <tr className="spacer"></tr>
-                                    <tr className="tr-shadow">                                       
+                                    <tr className="tr-shadow">
                                         <td>HD Seagate 4TB BarraCuda</td>
                                         <td>Seagate</td>
                                         <td className="desc">ST4000DM004</td>
@@ -156,14 +157,14 @@ function DashboardComponents(){
                                             </div>
                                         </td>
                                     </tr>
-                                    
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                     <div className="col-md-12">
-                    {/* TABELA 4 */}
-                    <h3 className="title-5 m-b-35 text-light table-h3">Mouse</h3>
+                        {/* TABELA 4 */}
+                        <h3 className="title-5 m-b-35 text-light table-h3">Mouse</h3>
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
@@ -215,7 +216,7 @@ function DashboardComponents(){
                                 </thead>
                                 <tbody>
                                     <tr className="tr-shadow">
-                                         
+
                                         <td>Razer Deathadder V2 Chroma</td>
                                         <td>Razer</td>
                                         <td className="desc">Deathadder V2</td>
@@ -248,8 +249,8 @@ function DashboardComponents(){
                         </div>
                     </div>
                     <div className="col-md-12">
-                    {/* TABELA 5 */}
-                    <h3 className="title-5 m-b-35 text-light table-h3">Placa de Vídeo</h3>
+                        {/* TABELA 5 */}
+                        <h3 className="title-5 m-b-35 text-light table-h3">Placa de Vídeo</h3>
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
@@ -295,7 +296,7 @@ function DashboardComponents(){
                                         <th>Clock</th>
                                         <th>Memória</th>
                                         <th>Clock da Memória</th>
-                                        <th>Barramento</th> 
+                                        <th>Barramento</th>
                                         <th>Conectore</th>
                                     </tr>
                                 </thead>
@@ -359,7 +360,7 @@ function DashboardComponents(){
                                     <tr className="spacer"></tr>
 
                                     <tr className="tr-shadow">
-                                        
+
                                         <td>Asus GeForce RTX 3050 OC</td>
                                         <td>Asus</td>
                                         <td className="desc">DUAL-RTX3050-O8G</td>
@@ -395,8 +396,8 @@ function DashboardComponents(){
 
 
                     <div className="col-md-12">
-                    {/* TABELA 6 */}
-                    <h3 className="title-5 m-b-35 text-light table-h3">Memória RAM</h3>
+                        {/* TABELA 6 */}
+                        <h3 className="title-5 m-b-35 text-light table-h3">Memória RAM</h3>
                         <div className="table-data__tool">
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
@@ -442,7 +443,7 @@ function DashboardComponents(){
                                         <th>Velocidade</th>
                                         <th>Tecnologia</th>
                                         <th>Voltagem</th>
-                                        <th>Latência</th> 
+                                        <th>Latência</th>
                                         <th>Notebook?</th>
                                     </tr>
                                 </thead>
@@ -485,7 +486,7 @@ function DashboardComponents(){
                                         <td>DDR4</td>
                                         <td>1,2 V ~ 1,35 V</td>
                                         <td>CL 19</td>
-                                        <td className= "text-danger">Não</td>
+                                        <td className="text-danger">Não</td>
                                         <td>
                                             <div className="table-data-feature">
                                                 <button className="item" data-toggle="tooltip" data-placement="top" title="Send">
@@ -514,7 +515,7 @@ function DashboardComponents(){
                                         <td>DDR4</td>
                                         <td>1,20V</td>
                                         <td>CL 16</td>
-                                        <td className= "text-danger">Não</td>
+                                        <td className="text-danger">Não</td>
                                         <td>
                                             <div className="table-data-feature">
                                                 <button className="item" data-toggle="tooltip" data-placement="top" title="Send">
@@ -542,7 +543,7 @@ function DashboardComponents(){
                                         <td>3200MHz</td>
                                         <td>DDR4</td>
                                         <td>1,2V</td>
-                                        <td>CL 20</td> 
+                                        <td>CL 20</td>
                                         <td className="text-success">Sim</td>
                                         <td>
                                             <div className="table-data-feature">
@@ -567,13 +568,25 @@ function DashboardComponents(){
                             </table>
                         </div>
                     </div>
-                    
-                    
-       
 
+                    <TableRead
+                        key={'Gabinete'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Status']}
+                        titulo='Gabinete'
+                        body={[<Gabinete
+                            key={'1'}
+                            id={'1'}
+                            nome="AMD Ryzen 5 5600"
+                            fabricante="AMD"
+                            modelo="100-100000927BOX"
+                            preco={999.99}
+                            tipo={'Full Tower'}
+                            status
+                        />]}
+                    />
                 </div>
             </div>
-            
+
         </div>
 
 

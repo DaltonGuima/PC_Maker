@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Componente } from "../../TableRead"
 
 
-interface ProcessadorProps extends Componente{
+interface ProcessadorProps extends Componente {
     soquete: string,
     nNucleos: number,
     nThreads: number,
@@ -14,15 +14,20 @@ interface ProcessadorProps extends Componente{
     tipoMemoria: string
 }
 
-export function Processador(props:ProcessadorProps){
-    const [editable,setEditable] = useState(false);
+export function Processador(props: ProcessadorProps) {
+    const [controls, setControls] = useState(false);
+    const [editable, setEditable] = useState(false);
 
-    function handleEdit() {
-        if(editable)
-        setEditable(false);
-        else
-        setEditable(true);
+    function handleControls(typeControl: string) {
+
+        if (typeControl == 'Edit') {
+            setEditable(true)
+        }
+        setControls(true)
+
     };
+
+
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
@@ -38,37 +43,37 @@ export function Processador(props:ProcessadorProps){
             <td>{props.tdp}W</td>
 
             <td>
-            <span className="status--process">{props.overClock? 'Desbloqueado' : <span className="status--denied">Bloqueado</span> }</span>
+                <span className="status--process">{props.overClock ? 'Desbloqueado' : <span className="status--denied">Bloqueado</span>}</span>
             </td>
             <td>
-            <span className="status--denied">{props.graficoIntregado? '' : 'Não'}</span>
+                <span className="status--denied">{props.graficoIntregado ? '' : 'Não'}</span>
             </td>
             <td>{props.tipoMemoria}</td>
             <td>
-            <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
+                <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>
             <td>
-                {editable?
+                {controls ?
                     <div className="table-data-feature">
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={handleEdit}>
+                        <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={() => setControls(false)}>
                             <i className="fa-solid fa-xmark text-danger"></i>
                         </button>
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Cancelar" onClick={handleEdit}>
+                        <button className="item" data-toggle="tooltip" data-placement="top" title="Cancelar" onClick={() => setControls(false)}>
                             <i className="fa-solid fa-check text-success"></i>
                         </button>
                     </div>
                     :
                     <div className="table-data-feature">
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Edit" onClick={handleEdit}>
-                        <i className='zmdi zmdi-edit'></i>
+                        <button className="item" data-toggle="tooltip" data-placement="top" title="Edit" onClick={() => handleControls('Edit')}>
+                            <i className='zmdi zmdi-edit'></i>
                         </button>
-                
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Delete" onClick={handleEdit}>
+
+                        <button className="item" data-toggle="tooltip" data-placement="top" title="Delete" onClick={() => handleControls('Delete')}>
                             <i className="zmdi zmdi-delete"></i>
                         </button>
                     </div>
                 }
             </td>
-        </tr>     
+        </tr>
     )
 }

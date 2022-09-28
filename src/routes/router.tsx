@@ -15,70 +15,87 @@ import DashboardInsercaoArmazenamento from "../components/InsertData/InsertArmaz
 import DashboardInsercaoGpu from "../components/InsertData/InsertGpu";
 import DashboardInsercaoRam from "../components/InsertData/InsertRam";
 import DashboardInsercaoMobo from "../components/InsertData/InsertMobo";
+import DashboardInsercaoPsu from "../components/InsertData/InsertPsu";
+import DashboardInsercaoPlacaCaptura from "../components/InsertData/InsertPlacaCaptura";
+import DashboardInsercaoGabinete from "../components/InsertData/InsertGabinete";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
+
+
 
 
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home/> 
+        element: <Home />
     },
     {
         path: "/login",
-        element: <Login/> 
+        element: <Login />
     },
     {
         path: "/cadastro",
-        element: <Cadastro/> 
+        element: <Cadastro />
     },
     {
         path: "/build",
-        element: <Build/> 
+        element: <Build />
     },
     {
         path: "/perfil",
-        element: <Perfil/> 
+        element: <Perfil />
     },
 
     /* Dashboards */
     {
-        element: <Dashboard/>,
-        children:[
+        element: <Dashboard />,
+        children: [
             {
                 path: '/dashboard',
-                element: <MainDashboard/>,
+                element: <MainDashboard />,
             },
             {
                 path: '/componentes',
-                element: <DashboardComponents/>,
+                element: <DashboardComponents />,
             },
             {
                 path: '/feedback',
-                element: <DashboardFeedback/>,
+                element: <DashboardFeedback />,
             },
             {
                 path: '/insercao',
-                element: <DashboardInsercao/>,
-                children:[
+                element: <DashboardInsercao />,
+                children: [
                     {
                         path: 'processador',
-                        element: <DashboardInsercaoProcessador/>
+                        element: <DashboardInsercaoProcessador />
                     },
                     {
                         path: 'armazenamento',
-                        element: <DashboardInsercaoArmazenamento/>
+                        element: <DashboardInsercaoArmazenamento />
                     },
                     {
                         path: 'gpu',
-                        element: <DashboardInsercaoGpu/>
+                        element: <DashboardInsercaoGpu />
                     },
                     {
                         path: 'ram',
-                        element: <DashboardInsercaoRam/>,
+                        element: <DashboardInsercaoRam />,
                     },
                     {
                         path: 'mobo',
-                        element: <DashboardInsercaoMobo/>,
+                        element: <DashboardInsercaoMobo />,
+                    },
+                    {
+                        path: 'psu',
+                        element: <DashboardInsercaoPsu />,
+                    },
+                    {
+                        path: 'placa-captura',
+                        element: <DashboardInsercaoPlacaCaptura />,
+                    },
+                    {
+                        path: 'gabinete',
+                        element: <DashboardInsercaoGabinete />,
                     },
                 ]
             }

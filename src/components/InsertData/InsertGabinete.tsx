@@ -1,11 +1,11 @@
-function DashboardInsercaoTemplate() {
+function DashboardInsercaoGabinete() {
     return (
         <div className="main-content">
 
             <div className="col-lg-6 tabela-insercao">
                 <div className="card">
                     <div className="card-header">
-                        <strong>Templatezin</strong>
+                        <strong>Gabinete</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -46,44 +46,22 @@ function DashboardInsercaoTemplate() {
                                     <small className="help-block form-text">Preço do produto</small>
                                 </div>
                             </div>
-
-
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="selectSm" className=" form-control-label">Select</label>
+                                    <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
                                 </div>
                                 <div className="col-12 col-md-9">
                                     <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0" selected disabled>Selecione</option>
-                                        <option value="1">Option #1</option>
-                                        <option value="2">Option #2</option>
-                                        <option value="3">Option #3</option>
-                                        <option value="4">Option #4</option>
-                                        <option value="5">Option #5</option>
+                                        <option selected value="0" disabled>Selecione</option>
+                                        <option value="1">Full Tower</option>
+                                        <option value="2">Mid Tower</option>
+                                        <option value="3">Mini Tower</option>
+                                        <option value="4">Small Form Factor</option>
                                     </select>
                                 </div>
                             </div>
 
-                            <div className="row form-group">
-                                <div className="col col-md-3">
-                                    <label className=" form-control-label">Radios</label>
-                                </div>
-                                <div className="col col-md-9">
-                                    <div className="form-check">
-                                        <div className="radio">
-                                            <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="radio1" name="radios" value="option1" className="form-check-input" />Option 1
-                                            </label>
-                                        </div>
-                                        <div className="radio">
-                                            <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="option2" className="form-check-input" />Option 2
-                                            </label>
-                                        </div>
 
-                                    </div>
-                                </div>
-                            </div>
 
                         </form>
                     </div>
@@ -99,4 +77,4 @@ function DashboardInsercaoTemplate() {
         </div>
     )
 }
-export default DashboardInsercaoTemplate
+export default DashboardInsercaoGabinete
