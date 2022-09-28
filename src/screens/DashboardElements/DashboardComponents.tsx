@@ -5,6 +5,7 @@ import { Mouse } from "../../components/TableRead/Datas/Mouse"
 import { Armazenamento } from "../../components/TableRead/Datas/Armazenamento"
 import { Ram } from "../../components/TableRead/Datas/ram"
 import { Gpu } from "../../components/TableRead/Datas/Gpu"
+import { Psu } from "../../components/TableRead/Datas/Psu"
 
 function DashboardComponents() {
     return (
@@ -642,8 +643,8 @@ function DashboardComponents() {
                     />
                     <TableRead             
                         key={'Gpu'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
-                        titulo='Mémoria Ram'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector', 'Status']}
+                        titulo='Gpu'
                         body={[<Gpu
                             key={'1'}
                             id={'1'}
@@ -656,6 +657,28 @@ function DashboardComponents() {
                             clmemoria={'1500 Mhz x 4'}
                             barramento={256}
                             conector={'1 x 8 Pin'}
+                            status 
+                        />]}
+                    />
+                    <TableRead             
+                        key={'Psu'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Status']}
+                        titulo='Fonte'
+                        body={[<Psu
+                            key={'1'}
+                            id={'1'}
+                            nome="FONTE GAMER AZZA 650W RGB 80 PLUS BRONZE PFC ATIVO, PSAZ-650W-ARGB"
+                            fabricante="AZZA"
+                            modelo="PSAZ-650W-ARGB"
+                            preco={269.90}
+                            potencia={650}
+                            certificacao={'80PLUS® Bronze'}
+                            pfc={''}
+                            ventoinha={120}
+                            conPrincipal={'AC 100V/240V'}
+                            conCPU={'EPS 8 pin (4+4)'}
+                            conPCIe={'PCI-E 8 pin (6+2)'}
+                            conSATA={'5x Conectores SATA'}
                             status 
                         />]}
                     />

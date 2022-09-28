@@ -55,6 +55,12 @@ function Dashboard() {
                                         <i className="fa-solid fa-comment-dots"></i>Feedback
                                     </a>
                                 </li>
+                                <li>
+                                    <a href="/Dashboard">
+                                        <i className="fa-solid fa-comment-dots"></i>Vendedor
+                                    </a>
+                                </li>
+
                                 <li className="has-sub">
                                     <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#componentes" role="button" aria-expanded="false" aria-controls="componentes">
                                         <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
@@ -101,7 +107,7 @@ function Dashboard() {
                     <div className="row foot">
                         <div className="col-md-12">
                             <div className="copyright">
-                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                <p>Copyright © 2022 PC_MAKER. All rights reserved. Template by <a href="">PC_MAKER</a>.</p>
                             </div>
                         </div>
                     </div>
