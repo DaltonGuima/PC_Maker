@@ -18,7 +18,8 @@ function DashboardComponents() {
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
                             'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
                             'Gráfico integrado', 'Tipo de memória', 'Status']}
-                        titulo='Processador'
+                        id='Processador'
+                        tipoCRUD="componentes"
                         body={[<Processador
                             key={'1'}
                             id={'1'}
@@ -402,7 +403,8 @@ function DashboardComponents() {
                     <TableRead
                         key={'Gabinete'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Status']}
-                        titulo='Gabinete'
+                        id='Gabinete'
+                        tipoCRUD="componentes"
                         body={[<Gabinete
                             key={'1'}
                             id={'1'}
@@ -414,10 +416,11 @@ function DashboardComponents() {
                             status
                         />]}
                     />
-                  <TableRead             
+                  <TableRead
+                        tipoCRUD="componentes"             
                         key={'Armazenamento'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
-                        titulo='Armazenamento'
+                        id='Armazenamento'
                         body={[<Armazenamento
                             key={'1'}
                             id={'1'}
@@ -435,7 +438,8 @@ function DashboardComponents() {
                     <TableRead             
                         key={'Mouse'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Status']}
-                        titulo='Mouse'
+                        id='Mouse'
+                        tipoCRUD="componentes"
                         body={[<Mouse
                             key={'1'}
                             id={'1'}
@@ -446,12 +450,13 @@ function DashboardComponents() {
                             status
                         />]}
                     />
-                    <TableRead             
+                    <TableRead   
+                        tipoCRUD="componentes"          
                         key={'Ram'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 
                         'Capacidade', 'Velocidade','Tecnologia','Voltagem', 
                         'Latência','Notebook']}
-                        titulo='Mémoria Ram'
+                        id='Mémoria Ram'
                         body={[<Ram
                             key={'1'}
                             id={'1'}
@@ -468,10 +473,11 @@ function DashboardComponents() {
                             status 
                         />]}
                     />
-                    <TableRead             
+                    <TableRead 
+                        tipoCRUD="componentes"            
                         key={'Gpu'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector', 'Status']}
-                        titulo='Gpu'
+                        id='Gpu'
                         body={[<Gpu
                             key={'1'}
                             id={'1'}
@@ -487,10 +493,11 @@ function DashboardComponents() {
                             status 
                         />]}
                     />
-                    <TableRead             
+                    <TableRead
+                        tipoCRUD="componentes"             
                         key={'Psu'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Status']}
-                        titulo='Fonte'
+                        id='Fonte'
                         body={[<Psu
                             key={'1'}
                             id={'1'}

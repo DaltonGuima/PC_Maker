@@ -1,4 +1,4 @@
-import { TableElements } from "./TableRead/TableElements"
+import { TableElements, TableElementsProps } from "./TableRead/TableElements"
 import { TableReadHead } from "./TableRead/TableReadHead"
 export interface Componente{
     id: string,
@@ -9,18 +9,18 @@ export interface Componente{
     status: boolean,
 }
 
-interface TableReadProps{
+interface TableReadProps extends TableElementsProps{
     body: React.ReactNode[],
-    titulo: string,
     cols: string[]
 }
 
 export function TableRead(props:TableReadProps){
     return(
         <div className="col-md-12">
-            <h3 className="title-5 m-b-35 text-light table-h3">{props.titulo}</h3>
+            <h3 className="title-5 m-b-35 text-light table-h3">{props.id}</h3>
             <TableElements
-                id={props.titulo}
+                tipoCRUD={props.tipoCRUD}
+                id={props.id}
             />
             <div className="table-responsive">
                 <table className="table table-data2">

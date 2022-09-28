@@ -1,13 +1,21 @@
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 
-interface TableElementsProps{
+export interface TableElementsProps{
     id:string
+    tipoCRUD: string
 }
 
-export function TableElements({id}:TableElementsProps){
-    id = id.replace(/\s/g, '');
-    id = id.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-    console.log(id)
+export function TableElements({id,tipoCRUD}:TableElementsProps){
+    const navigate = useNavigate();
+
+    function Navigate(){
+        id = id.replaceAll(/\s+/g, '-');
+        id = id.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        id = id.toLowerCase()
+        console.log(id)
+        navigate(`/${tipoCRUD}/insercao/${id}`)
+    }
+
     return(
     <div className="table-data__tool">
         <div className="table-data__tool-left">
@@ -31,7 +39,7 @@ export function TableElements({id}:TableElementsProps){
                 <i className="zmdi zmdi-filter-list"></i>filters</button>
         </div>
         <div className="table-data__tool-right">
-            <a style={{textDecoration: 'none'}} href={`insercao/${id}`} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
+            <a style={{textDecoration: 'none'}} onClick={Navigate} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
                 <i className="zmdi zmdi-plus"></i>add item
             </a>
             <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
