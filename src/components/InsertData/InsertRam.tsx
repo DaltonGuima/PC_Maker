@@ -107,17 +107,21 @@ function DashboardInsercaoRam() {
                                     <small className="help-block form-text">Latência padrão em que opera</small>
                                 </div>
                             </div>
+
                             <div className="row form-group">
                                 <div className="col col-md-3">
-                                    <label htmlFor="email-input" className=" form-control-label">Notebook?</label>
+                                    <label className=" form-control-label">Compatibilidade com Notebooks    </label>
                                 </div>
-                                <div className="col-12 col-md-9">
-                                    <input type="email" name="email-input" placeholder="Notebook?" className="form-control" />
-                                    <small className="help-block form-text">É uma memória específica para notebooks?</small>
+                                <div className="col col-md-9">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="option1" className="form-check-input check"/>É para notebooks?
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                     <div className="card-footer">
