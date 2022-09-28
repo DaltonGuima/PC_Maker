@@ -7,6 +7,7 @@ export interface Componente{
     modelo: string,
     preco: number,
     status: boolean,
+    vendedor: string,
 }
 
 interface TableReadProps extends TableElementsProps{

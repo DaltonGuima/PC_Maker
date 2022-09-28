@@ -14,12 +14,12 @@ function DashboardComponents() {
                 <div className="container-fluid">
                     <div className="row"></div>
                     <TableRead
+                        tipoCRUD="componentes"
                         key={'Processador'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
                             'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
-                            'Gráfico integrado', 'Tipo de memória', 'Status']}
+                            'Gráfico integrado', 'Tipo de memória','Vendedor', 'Status']}
                         id='Processador'
-                        tipoCRUD="componentes"
                         body={[<Processador
                             key={'1'}
                             id={'1'}
@@ -36,6 +36,7 @@ function DashboardComponents() {
                             overClock={true}
                             graficoIntregado={false}
                             tipoMemoria='DDR4'
+                            vendedor={'Kabum'}
                             status
                         />, <Processador
                             key={'2'}
@@ -53,6 +54,7 @@ function DashboardComponents() {
                             overClock={false}
                             graficoIntregado={false}
                             tipoMemoria='DDR4'
+                            vendedor={'PICHAU'}
                             status
                         />]}
                     />
@@ -402,9 +404,9 @@ function DashboardComponents() {
 
                     <TableRead
                         key={'Gabinete'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Status']}
                         id='Gabinete'
                         tipoCRUD="componentes"
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor','Status']}
                         body={[<Gabinete
                             key={'1'}
                             id={'1'}
@@ -413,13 +415,14 @@ function DashboardComponents() {
                             modelo="100-100000927BOX"
                             preco={999.99}
                             tipo={'Full Tower'}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                   <TableRead
                         tipoCRUD="componentes"             
                         key={'Armazenamento'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura', 'Status']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade','velescrita','velleitura','Vendedor', 'Status']}
                         id='Armazenamento'
                         body={[<Armazenamento
                             key={'1'}
@@ -432,14 +435,15 @@ function DashboardComponents() {
                             capacidade={960}
                             velEscrita={450}
                             velLeitura={500}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                     <TableRead             
                         key={'Mouse'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Status']}
                         id='Mouse'
                         tipoCRUD="componentes"
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço','Vendedor','Status']}
                         body={[<Mouse
                             key={'1'}
                             id={'1'}
@@ -447,16 +451,15 @@ function DashboardComponents() {
                             fabricante="Razer"
                             modelo="Deathadder V2"
                             preco={269.90}
+                            vendedor={'KABUM'}
                             status
                         />]}
                     />
                     <TableRead   
                         tipoCRUD="componentes"          
                         key={'Ram'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 
-                        'Capacidade', 'Velocidade','Tecnologia','Voltagem', 
-                        'Latência','Notebook']}
                         id='Mémoria Ram'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço','Capacidade', 'Velocidade','Tecnologia','Voltagem','Latência','Notebook', 'Vendedor', 'Status']}
                         body={[<Ram
                             key={'1'}
                             id={'1'}
@@ -470,14 +473,15 @@ function DashboardComponents() {
                             voltagem={'1.2V~1.35V'}
                             latencia={'CL 19'}
                             notebook={true}
+                            vendedor={'KABUM'}
                             status 
                         />]}
                     />
                     <TableRead 
                         tipoCRUD="componentes"            
                         key={'Gpu'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector', 'Status']}
                         id='Gpu'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória','Clock Memória','Barramento','Conector','Vendedor', 'Status']}
                         body={[<Gpu
                             key={'1'}
                             id={'1'}
@@ -490,18 +494,19 @@ function DashboardComponents() {
                             clmemoria={'1500 Mhz x 4'}
                             barramento={256}
                             conector={'1 x 8 Pin'}
+                            vendedor={'KABUM'}
                             status 
                         />]}
                     />
                     <TableRead
                         tipoCRUD="componentes"             
                         key={'Psu'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Status']}
                         id='Fonte'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação','PFC Ativo','Tamanho da ventoinha','Conector Principal','Conector CPU','Conector PCIe','Conector SATA','Vendedor','Status']}
                         body={[<Psu
                             key={'1'}
                             id={'1'}
-                            nome="FONTE GAMER AZZA 650W RGB 80 PLUS BRONZE PFC ATIVO, PSAZ-650W-ARGB"
+                            nome="FONTE GAMER AZZA, PSAZ-650W-ARGB"
                             fabricante="AZZA"
                             modelo="PSAZ-650W-ARGB"
                             preco={269.90}
@@ -513,6 +518,7 @@ function DashboardComponents() {
                             conCPU={'EPS 8 pin (4+4)'}
                             conPCIe={'PCI-E 8 pin (6+2)'}
                             conSATA={'5x Conectores SATA'}
+                            vendedor = {'PICHAU'}
                             status 
                         />]}
                     />

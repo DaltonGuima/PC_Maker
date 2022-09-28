@@ -32,11 +32,15 @@ export function Psu(props: PsuProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.clock} Mhz</td>
-            <td>{props.memoria}</td>
-            <td>{props.clmemoria}</td>
-            <td>{props.barramento}Bit</td>
-            <td>{props.conector}</td>
+            <td>{props.potencia} Mhz</td>
+            <td>{props.certificacao}</td>
+            <td>{props.pfc}</td>
+            <td>{props.ventoinha}Bit</td>
+            <td>{props.conPrincipal}</td>
+            <td>{props.conCPU}</td>
+            <td>{props.conPCIe}</td>
+            <td>{props.conSATA}</td>
+            <td>{props.vendedor}</td>
             <td>
                 <span className="status--process">{props.status ? 'Ativo' : 'Desativado'}</span>
             </td>
