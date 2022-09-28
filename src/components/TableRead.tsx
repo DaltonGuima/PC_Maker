@@ -6,7 +6,7 @@ export interface Componente{
     fabricante: string,
     modelo: string,
     preco: number,
-    status: boolean, 
+    status: boolean,
 }
 
 interface TableReadProps{

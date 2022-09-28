@@ -14,6 +14,8 @@ function Perfil() {
     const [checked, setChecked] = useState(false);
     const [formControl,setFormControl] = useState(false);
     const [formButton,setFormButton] = useState(true);
+    const [showElement, setShowElement] = useState(false);
+    const showOrHide = () => setShowElement(true);
 
 
     function handleChange() {
@@ -49,32 +51,29 @@ function Perfil() {
                     </div>
 
                 </div>
-
-
                 <nav className="navbar-primary col-md-3">
                     <div className="col-md-11 col-sm-1">
                         <button className="dropdown-item text-light" type="button" id="MyAccountBtn" autoFocus>
                             <i className="fa fa-user-circle-o" aria-hidden="true"></i> Minha conta</button>
+                        <button className="dropdown-item text-light" type="button" id="MyAccountBtn" autoFocus>
+                            <i onClick={showOrHide} aria-hidden="true"></i> Build Perfil (Questionario) </button>
                         <button className="dropdown-item text-light" type="button" id="UserProfileBtn">
                             <i className="fa fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
                         <button className="dropdown-item text-light" type="button">
                             <i className="fa fa-lock" aria-hidden="true"></i> Login e Segurança</button>
                         <button className="dropdown-item text-light" id="LastInGroup" type="button">
                             <i className="fa fa-envelope" aria-hidden="true"></i> Preferências de Email</button>
-
                         <button className="dropdown-item text-light" type="button">
                             <i className="fa fa-microchip" aria-hidden="true"></i> Builds Salvas</button>
                         <button className="dropdown-item text-light" type="button">
                             <i className="fa fa-desktop" aria-hidden="true"></i> Minhas Builds</button>
                     </div>
                 </nav>
-
                 <div className="break"> </div>
-
                 <form className="was-validated">
                     <div className="main-container" id="MyAccount">
                         <div className="col-md-11 pt-3 text-light box">
-                            <h3 className="bold">Nome</h3>                  
+                            <h3 className="bold">Nome</h3>
                                 <input 
                                     type="text" 
                                     name="nome" 
@@ -91,7 +90,7 @@ function Perfil() {
                                     className="btn text-light btn-block float-end" 
                                     onClick={() => openForm('nome')}
                                 >
-                                    <button                                     
+                                    <button
                                         type="button" 
                                         id="NomeBtn" 
                                     >
@@ -116,12 +115,10 @@ function Perfil() {
                             <label 
                                 htmlFor="email" 
                                 className="btn text-light btn-block float-end"
-                                onClick={() => openForm('emailProfile')}
-                            >
+                                onClick={() => openForm('emailProfile')}>
                                     <button                                     
                                         type="button" 
-                                        id="NomeBtn" 
-                                    >
+                                        id="NomeBtn" >
                                         Editar 
                                     </button>
                                 </label>
@@ -144,19 +141,13 @@ function Perfil() {
                             <label className="switch float-end">
                                 <input type="checkbox" id="AltoContraste" 
                                 checked={checked}
-                                onChange={handleChange}
-                            />
+                                onChange={handleChange} />
                                 <span className="slider round"></span>
                             </label>
                         </div>
-                        { formControl ?
-                            <FormControl/>
-                        :
-                            null
-                        }
+                        { formControl ? <FormControl/> : null}
                     </div>
                 </form>
-
                 <br></br>
             </main>
             <Footer />

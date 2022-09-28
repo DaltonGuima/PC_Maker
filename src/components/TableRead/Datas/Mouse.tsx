@@ -3,7 +3,10 @@ import { Componente } from "../../TableRead"
 
 
 interface MouseProps extends Componente{
-    
+    nome: string,
+    fabricante: string,
+
+    status: boolean
 }
 
 export function Mouse(props:MouseProps){
@@ -22,23 +25,6 @@ export function Mouse(props:MouseProps){
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.soquete}</td>
-            <td>{props.nNucleos}</td>
-            <td>{props.nThreads}</td>
-            <td>{props.frequencia} Ghz</td>
-            <td>{props.freBoost} Ghz</td>
-            <td>{props.tdp}W</td>
-
-            <td>
-            <span className="status--process">{props.overClock? 'Desbloqueado' : <span className="status--denied">Bloqueado</span> }</span>
-            </td>
-            <td>
-            <span className="status--denied">{props.graficoIntregado? '' : 'Não'}</span>
-            </td>
-            <td>{props.tipoMemoria}</td>
-            <td>
-            <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
-            </td>
             <td>
                 {editable?
                     <div className="table-data-feature">

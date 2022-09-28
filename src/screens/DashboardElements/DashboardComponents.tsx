@@ -1,6 +1,7 @@
 import { TableRead } from "../../components/TableRead"
 import { Gabinete } from "../../components/TableRead/Datas/Gabinete"
 import { Processador } from "../../components/TableRead/Datas/Processador"
+import { Mouse } from "../../components/TableRead/Datas/Mouse"
 
 function DashboardComponents() {
     return (
@@ -581,6 +582,43 @@ function DashboardComponents() {
                             modelo="100-100000927BOX"
                             preco={999.99}
                             tipo={'Full Tower'}
+                            status
+                        />]}
+                    />
+                  <TableRead             
+                        key={'Processador'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Soquete','nNucleos','nThreads','frequencia','freBoost','Tdp', 'Status']}
+                        titulo='Processador'
+                        body={[<Processador
+                            key={'1'}
+                            id={'1'}
+                            nome="Intel I5 10400F LGA1200"
+                            fabricante="Intel"
+                            modelo="10400F"
+                            preco={989.99}
+                            soquete={'FCLGA1200'}
+                            nNucleos={6}
+                            nThreads={12}
+                            frequencia={2.9}
+                            freBoost={4.3}
+                            tdp={65}
+                            overClock={true}
+                            graficoIntregado={false}
+                            tipoMemoria={'DDR4'}
+                            status
+                        />]}
+                    />
+                    <TableRead             
+                        key={'Mouse'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Status']}
+                        titulo='Mouse'
+                        body={[<Mouse
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            preco={269.90}
                             status
                         />]}
                     />
