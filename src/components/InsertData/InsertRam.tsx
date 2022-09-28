@@ -3,7 +3,7 @@ function DashboardInsercaoRam() {
         <div className="main-content">
 
             <div className="col-lg-6 tabela-insercao">
-                <div className="card">
+                <div className="card card-dash">
                     <div className="card-header">
                         <strong>Memória RAM</strong>
                     </div>

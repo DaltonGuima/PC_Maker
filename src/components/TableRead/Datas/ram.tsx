@@ -3,10 +3,6 @@ import { Componente } from "../../TableRead"
 
 
 interface RamProps extends Componente {
-    Nome: string,
-    Fabricante:string,
-    Modelo: string,
-    preco: number,
     capacidade: number,
     velocidade: number,
     tecnologia: string,

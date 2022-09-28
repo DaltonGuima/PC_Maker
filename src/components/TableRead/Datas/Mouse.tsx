@@ -26,6 +26,9 @@ export function Mouse(props:MouseProps){
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
             <td>
+                <span className="status--process">{props.status? 'Ativo' : 'Desativado'}</span>
+            </td>
+            <td>
                 {editable?
                     <div className="table-data-feature">
                         <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={handleEdit}>
