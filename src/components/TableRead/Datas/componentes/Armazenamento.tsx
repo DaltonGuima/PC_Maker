@@ -1,17 +1,15 @@
 import { useState } from "react";
-import { Componente } from "../../TableRead"
+import { Componente } from "../../../TableRead"
 
 
-interface RamProps extends Componente {
+interface ArmazenamentoProps extends Componente {
+    tipo: string,
     capacidade: number,
-    velocidade: number,
-    tecnologia: string,
-    voltagem: string,
-    latencia: string,
-    notebook: boolean
+    velEscrita: number,
+    velLeitura?: number,
 }
 
-export function Ram(props: RamProps) {
+export function Armazenamento(props: ArmazenamentoProps) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 
@@ -30,12 +28,10 @@ export function Ram(props: RamProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.capacidade}</td>
-            <td>{props.velocidade} Mhz</td>
-            <td>{props.tecnologia}</td>
-            <td>{props.voltagem} V</td>
-            <td>{props.latencia} Ghz</td>
-            <td>{props.notebook ? 'True' : 'False'}</td>
+            <td>{props.tipo}</td>
+            <td>{props.capacidade} GB</td>
+            <td>{props.velEscrita} {props.tipo == 'HDD SATA' ? 'RPM' : 'MB/s'}</td>
+            <td>{props.tipo == 'HDD SATA' ? '-' : `${props.velLeitura} MB/s`}</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>

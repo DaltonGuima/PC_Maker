@@ -20,6 +20,7 @@ export function TableRead(props: TableReadProps) {
         <div className="col-md-12">
             <h3 className="title-5 m-b-35 text-light table-h3">{props.id}</h3>
             <TableElements
+                insereDados={props.insereDados}
                 tipoCRUD={props.tipoCRUD}
                 id={props.id}
             />

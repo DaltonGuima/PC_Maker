@@ -1,11 +1,11 @@
 import { TableRead } from "../../components/TableRead"
-import { Gabinete } from "../../components/TableRead/Datas/Gabinete"
-import { Processador } from "../../components/TableRead/Datas/Processador"
-import { Mouse } from "../../components/TableRead/Datas/Mouse"
-import { Armazenamento } from "../../components/TableRead/Datas/Armazenamento"
-import { Ram } from "../../components/TableRead/Datas/Ram"
-import { Gpu } from "../../components/TableRead/Datas/Gpu"
-import { Psu } from "../../components/TableRead/Datas/Psu"
+import { Gabinete } from "../../components/TableRead/Datas/componentes/Gabinete"
+import { Processador } from "../../components/TableRead/Datas/componentes/Processador"
+import { Mouse } from "../../components/TableRead/Datas/componentes/Mouse"
+import { Armazenamento } from "../../components/TableRead/Datas/componentes/Armazenamento"
+import { Ram } from "../../components/TableRead/Datas/componentes/Ram"
+import { Gpu } from "../../components/TableRead/Datas/componentes/Gpu"
+import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
 
 function DashboardComponents() {
     const tipoCRUD = 'componentes';
@@ -21,6 +21,7 @@ function DashboardComponents() {
                             'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
                             'Gráfico integrado', 'Tipo de memória', 'Vendedor', 'LinkProduto', '']}
                         id='Processador'
+                        insereDados
                         body={[<Processador
                             key={'1'}
                             id={'1'}
@@ -67,6 +68,7 @@ function DashboardComponents() {
                         key={'Gabinete'}
                         id='Gabinete'
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', '']}
+                        insereDados
                         body={[<Gabinete
                             key={'1'}
                             id={'1'}
@@ -84,6 +86,7 @@ function DashboardComponents() {
                         key={'Armazenamento'}
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
                         id='Armazenamento'
+                        insereDados
                         body={[<Armazenamento
                             key={'1'}
                             id={'1'}
@@ -119,6 +122,7 @@ function DashboardComponents() {
                         key={'Mouse'}
                         id='Mouse'
                         tipoCRUD={tipoCRUD}
+                        insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', '']}
                         body={[<Mouse
                             key={'1'}
@@ -138,6 +142,7 @@ function DashboardComponents() {
                         tipoCRUD={tipoCRUD}
                         key={'Ram'}
                         id='Mémoria Ram'
+                        insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latência', 'Notebook', 'Vendedor', '']}
                         body={[<Ram
                             key={'1'}
@@ -163,6 +168,7 @@ function DashboardComponents() {
                         tipoCRUD={tipoCRUD}
                         key={'Gpu'}
                         id='Gpu'
+                        insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória', 'Clock Memória', 'Barramento', 'Conector', 'Vendedor', 'Link Produto']}
                         body={[<Gpu
                             key={'1'}
@@ -216,6 +222,7 @@ function DashboardComponents() {
                         tipoCRUD={tipoCRUD}
                         key={'Psu'}
                         id='Fonte'
+                        insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', '']}
                         body={[<Psu
                             key={'1'}

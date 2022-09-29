@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Componente } from "../../TableRead"
+import { Componente } from "../../../TableRead"
 
 
 interface GabineteProps extends Componente {

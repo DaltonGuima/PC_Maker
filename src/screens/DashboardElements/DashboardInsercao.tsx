@@ -22,7 +22,7 @@ function DashboardInsercao() {
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
                                     <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador' defaultValue={''}>
-                                        <option value="" disabled>Escolha um</option>
+                                        <option value="" className='text-secondary' disabled>Escolha um</option>
                                         <option value="processador">Processador</option>
                                         <option value="armazenamento">Armazenamento</option>
                                         <option value="placa-de-video">Placa de Vídeo</option>
@@ -32,12 +32,10 @@ function DashboardInsercao() {
                                         <option value="gabinete">Gabinete</option>
                                         <option value="placa-de-captura">Placa de Captura</option>
                                         <option value="mouse">Mouse</option>
+                                        <option value="teclado">Teclado</option>
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>
-                                <button className="au-btn-filter">
-                                    <i className="zmdi zmdi-filter-list"></i>filters
-                                </button>
                             </div>
                         </div>
                     </div>

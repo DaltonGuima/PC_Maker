@@ -67,21 +67,7 @@ function Dashboard() {
                                         </li>
                                     </ul>
                                 </li>
-                                <li className="has-sub">
-                                    <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        <i className="fas fa-copy"></i>Páginas</a>
-                                    <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="collapseExample">
-                                        <li>
-                                            <a href="../login">Login</a>
-                                        </li>
-                                        <li>
-                                            <a href="../cadastro">Register</a>
-                                        </li>
-                                        <li>
-                                            <a href="../forget-pass.html">Forget Password (?)</a>
-                                        </li>
-                                    </ul>
-                                </li>
+
                             </ul>
                         </nav>
                     </div>

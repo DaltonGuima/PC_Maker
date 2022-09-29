@@ -14,6 +14,7 @@ function DashboardFeedback() {
                             key={'Feedbacks'}
                             cols={['ID Usuario', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes', 'status']}
                             id='Feedbacks'
+                            insereDados={false}
                             body={[
                                 <Feedback
                                     key={'1'}

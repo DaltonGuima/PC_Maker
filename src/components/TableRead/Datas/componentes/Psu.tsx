@@ -1,20 +1,19 @@
 import { useState } from "react";
-import { Componente } from "../../TableRead"
+import { Componente } from "../../../TableRead"
 
 
-interface ProcessadorProps extends Componente {
-    soquete: string,
-    nNucleos: number,
-    nThreads: number,
-    frequencia: number,
-    freBoost: number,
-    tdp: number,
-    overClock: boolean,
-    graficoIntregado: boolean,
-    tipoMemoria: string
+interface PsuProps extends Componente {
+    potencia: number,
+    certificacao: string,
+    pfc: string,
+    ventoinha: number,
+    conPrincipal: string,
+    conCPU: string,
+    conPCIe: string,
+    conSATA: string,
 }
 
-export function Processador(props: ProcessadorProps) {
+export function Psu(props: PsuProps) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 
@@ -33,19 +32,14 @@ export function Processador(props: ProcessadorProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.soquete}</td>
-            <td>{props.nNucleos}</td>
-            <td>{props.nThreads}</td>
-            <td>{props.frequencia} Ghz</td>
-            <td>{props.freBoost} Ghz</td>
-            <td>{props.tdp}W</td>
-            <td>
-                <span className="status--process">{props.overClock ? 'Desbloqueado' : <span className="status--denied">Bloqueado</span>}</span>
-            </td>
-            <td>
-                <span className="status--denied">{props.graficoIntregado ? '' : 'Não'}</span>
-            </td>
-            <td>{props.tipoMemoria}</td>
+            <td>{props.potencia} Mhz</td>
+            <td>{props.certificacao}</td>
+            <td>{props.pfc}</td>
+            <td>{props.ventoinha}Bit</td>
+            <td>{props.conPrincipal}</td>
+            <td>{props.conCPU}</td>
+            <td>{props.conPCIe}</td>
+            <td>{props.conSATA}</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
