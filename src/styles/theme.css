@@ -93,7 +93,8 @@ p {
   border-bottom: 8px solid #7042d5;
   border-radius: 5px;
 }
-.nput-search-dashboard {
+.input-search-dashboard {
+  margin-top: 10rem;
 }
 
 /* Scrollbar */

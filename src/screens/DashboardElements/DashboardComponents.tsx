@@ -9,9 +9,40 @@ import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
 
 function DashboardComponents() {
     const tipoCRUD = 'componentes';
+
+    function Navegacao() {
+        const localConst = document.getElementById('Navegador') as HTMLSelectElement
+        const localId = document.getElementById(localConst.value) as HTMLElement
+        localId.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
+                <div className="col-12">
+                    <h3 className="title-5 m-b-35 text-light table-h3">Escolha o Componente</h3>
+                    <div className="table-data__tool">
+                        <div className="table-data__tool-left">
+                            <div className="rs-select2--light rs-select2--md">
+                                <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador' defaultValue={''}>
+                                    <option value="" className='text-secondary' disabled>Escolha um</option>
+                                    <option value="processador">Processador</option>
+                                    <option value="armazenamento">Armazenamento</option>
+                                    <option value="gpu">Placa de Vídeo</option>
+                                    <option value="memoria-ram">Memória RAM</option>
+                                    <option value="placa-mae">Placa-mãe</option>
+                                    <option value="fonte-de-alimentacao">Fonte</option>
+                                    <option value="gabinete">Gabinete</option>
+                                    <option value="placa-de-captura">Placa de Captura</option>
+                                    <option value="mouse">Mouse</option>
+                                    <option value="teclado">Teclado</option>
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <div className="container-fluid">
                     <div className="row"></div>
                     <TableRead
@@ -62,7 +93,6 @@ function DashboardComponents() {
 
                         />]}
                     />
-
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Gabinete'}
@@ -81,43 +111,44 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
-                    <TableRead
-                        tipoCRUD={tipoCRUD}
-                        key={'Armazenamento'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
-                        id='Armazenamento'
-                        insereDados
-                        body={[<Armazenamento
-                            key={'1'}
-                            id={'1'}
-                            nome="SSD 960 GB Kingston A400"
-                            fabricante="Kingston"
-                            modelo="A400"
-                            preco={439.99}
-                            tipo={'SSD SATA'}
-                            capacidade={960}
-                            velEscrita={450}
-                            velLeitura={500}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
+                    <div id="armazenamento">
+                        <TableRead
+                            tipoCRUD={tipoCRUD}
+                            key={'Armazenamento'}
+                            cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
+                            id='Armazenamento'
+                            insereDados
+                            body={[<Armazenamento
+                                key={'1'}
+                                id={'1'}
+                                nome="SSD 960 GB Kingston A400"
+                                fabricante="Kingston"
+                                modelo="A400"
+                                preco={439.99}
+                                tipo={'SSD SATA'}
+                                capacidade={960}
+                                velEscrita={450}
+                                velLeitura={500}
+                                vendedor={'KABUM'}
+                                linkProduto='https://theuselessweb.com/'
 
 
-                        />, <Armazenamento
-                            key={'2'}
-                            id={'2'}
-                            nome="HD Seagate 4TB BarraCuda"
-                            fabricante="Seagate"
-                            modelo="ST4000DM004"
-                            preco={469.99}
-                            tipo={'HDD SATA'}
-                            capacidade={4000}
-                            velEscrita={5400}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
+                            />, <Armazenamento
+                                key={'2'}
+                                id={'2'}
+                                nome="HD Seagate 4TB BarraCuda"
+                                fabricante="Seagate"
+                                modelo="ST4000DM004"
+                                preco={469.99}
+                                tipo={'HDD SATA'}
+                                capacidade={4000}
+                                velEscrita={5400}
+                                vendedor={'KABUM'}
+                                linkProduto='https://theuselessweb.com/'
 
-                        />]}
-                    />
-
+                            />]}
+                        />
+                    </div>
                     <TableRead
                         key={'Mouse'}
                         id='Mouse'
@@ -221,7 +252,7 @@ function DashboardComponents() {
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Psu'}
-                        id='Fonte'
+                        id='Fonte de Alimentação'
                         insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', '']}
                         body={[<Psu

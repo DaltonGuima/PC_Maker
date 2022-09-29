@@ -1,3 +1,4 @@
+import { arrumaId } from "../utils/arrumaId"
 import { TableElements, TableElementsProps } from "./TableRead/TableElements"
 import { TableReadHead } from "./TableRead/TableReadHead"
 export interface Componente {
@@ -17,7 +18,7 @@ interface TableReadProps extends TableElementsProps {
 
 export function TableRead(props: TableReadProps) {
     return (
-        <div className="col-md-12">
+        <div className="col-md-12 highlight-dashboard" id={arrumaId(props.id)}>
             <h3 className="title-5 m-b-35 text-light table-h3">{props.id}</h3>
             <TableElements
                 insereDados={props.insereDados}

@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { arrumaId } from '../../utils/arrumaId';
 
 export interface TableElementsProps {
     id: string
@@ -10,10 +11,7 @@ export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps)
     const navigate = useNavigate();
 
     function Navigate() {
-        id = id.replaceAll(/\s+/g, '-');
-        id = id.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
-        id = id.toLowerCase()
-        console.log(id)
+        arrumaId(id)
         navigate(`/${tipoCRUD}/insercao/${id}`)
         return id
     }
@@ -38,7 +36,7 @@ export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps)
                     <li><a className="dropdown-item text-light" href="#">Data de Modificação</a></li>
                 </ul>
                 <form className='input-search-dashboard d-inline'>
-                    <input className='mx-4 bg-dark rounded px-2' type="text" placeholder="Search" name='' id='itemPesquisa' />
+                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Search" name='' id='itemPesquisa' />
                     <button id="search-field">
                         <a className='text-white'>
                             <i className="fa fa-search"></i>
