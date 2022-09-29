@@ -202,7 +202,7 @@ function DashboardComponents() {
 
                         />]}
                     />
-                    <TableRead
+                    {/*                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'placa-mae'}
                         id='Placa-Mãe'
@@ -355,7 +355,7 @@ function DashboardComponents() {
                         tipoCRUD={tipoCRUD}
                         insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
-                    /* body={[<Vento
+                    body={[<Vento
                         key={'1'}
                         id={'1'}
                         nome="Razer Deathadder V2 Chroma"
@@ -365,7 +365,7 @@ function DashboardComponents() {
                         vendedor={'KABUM'}
                         linkProduto='https://theuselessweb.com/'
 
-                    />]} */
+                    />]}
                     />
 
                     <TableRead
@@ -402,7 +402,7 @@ function DashboardComponents() {
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
-                    />
+                    /> */}
 
 
 
