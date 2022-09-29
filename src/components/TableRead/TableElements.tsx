@@ -11,8 +11,7 @@ export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps)
     const navigate = useNavigate();
 
     function Navigate() {
-        arrumaId(id)
-        navigate(`/${tipoCRUD}/insercao/${id}`)
+        navigate(`/${tipoCRUD}/insercao/${arrumaId(id)}`)
         return id
     }
 
