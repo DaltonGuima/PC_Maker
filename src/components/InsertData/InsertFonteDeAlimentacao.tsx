@@ -6,7 +6,8 @@ function DashboardInsercaoFonteDeAlimentacao() {
         changeSelectValue('fonte-de-alimentacao')
     });
     return (
-        <div className="main-content">
+        <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
@@ -58,7 +59,7 @@ function DashboardInsercaoFonteDeAlimentacao() {
                                 <div className="col">
                                     <label htmlFor="selectSm" className=" form-control-label">Certificação</label>
                                     <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0" disabled>Selecione</option>
+                                        <option value="0" disabled className='text-secondary'>Selecione</option>
                                         <option value="1">Nenhuma</option>
                                         <option value="2">80 Plus White</option>
                                         <option value="3">80 Plus Bronze</option>
@@ -107,6 +108,7 @@ function DashboardInsercaoFonteDeAlimentacao() {
                     </div>
                 </div>
             </div>
+
 
         </div>
     )

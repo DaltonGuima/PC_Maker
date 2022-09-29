@@ -68,7 +68,7 @@ function DashboardInsercaoPlacaMae() {
                                 <div className="col">
                                     <label htmlFor="selectSm" className=" form-control-label">Fator de forma</label>
                                     <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={''}>
-                                        <option value="" disabled>Selecione</option>
+                                        <option value="" disabled className='text-secondary'>Selecione</option>
                                         <option value="mATX">mATX</option>
                                         <option value="ATX">ATX</option>
                                         <option value="EATX">EATX</option>
@@ -106,11 +106,6 @@ function DashboardInsercaoPlacaMae() {
                                     <label htmlFor="email-input" className=" form-control-label">Slots RAM</label>
                                     <input type="email" name="email-input" placeholder="Slots RAM" className="form-control" />
                                     <small className="help-block form-text">Quantidadede Slots RAM</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Soquete</label>
-                                    <input type="email" name="email-input" placeholder="Soquete" className="form-control" />
-                                    <small className="help-block form-text">Soquete</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="email-input" className=" form-control-label">Capacidade Máxima de RAM</label>

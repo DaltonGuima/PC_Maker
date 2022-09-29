@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
 
-
-interface MonitorProps extends Componente {
-    resolucaover: string,
-    taxadeatualiz: number,
-    tamanho: number,
+interface PerguntasProps {
+    id: string,
+    pergunta: string,
+    tipoRes: boolean,
+    alternativas: string[]
 }
 
-export function Monitor(props: MonitorProps) {
+export function Perguntas(props: PerguntasProps) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {
@@ -20,15 +19,14 @@ export function Monitor(props: MonitorProps) {
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td>{props.nome}</td>
-            <td>{props.fabricante}</td>
-            <td className="desc">{props.modelo}</td>
-            <td>R${props.preco}</td>
-            <td>{props.resolucaover}</td>
-            <td>{props.taxadeatualiz}Hz</td>
-            <td>{props.tamanho}pol</td>
-            <td>{props.vendedor}</td>
-            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
+            <td>{props.id}</td>
+            <td>{props.pergunta}</td>
+            {props.tipoRes ?
+                <td className="text-success">Sim</td>
+                :
+                <td className="text-danger">Não</td>
+            }
+            <td className="block-email">{props.alternativas.toString()}</td>
             <td>
                 {editable ?
                     <div className="table-data-feature">

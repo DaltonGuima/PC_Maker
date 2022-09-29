@@ -6,7 +6,8 @@ function DashboardInsercaoGabinete() {
         changeSelectValue('gabinete')
     });
     return (
-        <div className="main-content">
+        <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
@@ -50,12 +51,12 @@ function DashboardInsercaoGabinete() {
                                 </div>
                                 <div className="col">
                                     <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option selected value="0" disabled>Selecione</option>
-                                        <option value="1">Full Tower</option>
-                                        <option value="2">Mid Tower</option>
-                                        <option value="3">Mini Tower</option>
-                                        <option value="4">Small Form Factor</option>
+                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={""}>
+                                        <option selected value="" disabled className='text-secondary'>Selecione</option>
+                                        <option value="fulltower">Full Tower</option>
+                                        <option value="midtower">Mid Tower</option>
+                                        <option value="minitower">Mini Tower</option>
+                                        <option value="smallformfactor">Small Form Factor</option>
                                     </select>
                                 </div>
                             </div>
@@ -69,6 +70,7 @@ function DashboardInsercaoGabinete() {
                     </div>
                 </div>
             </div>
+
 
         </div>
     )

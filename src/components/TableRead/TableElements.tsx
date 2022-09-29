@@ -1,33 +1,50 @@
+import { Dispatch, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { arrumaId } from '../../utils/arrumaId';
-
-export interface TableElementsProps {
-    id: string
-    tipoCRUD: string
-    insereDados: boolean
+import { TableReadProps } from '../TableRead';
+interface TableElementsProps extends TableReadProps {
+    page: number,
+    setPage: Dispatch<number>,
+    slice: React.ReactNode[],
+    range: number[]
 }
 
-export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps) {
+export function TableElements(props: TableElementsProps) {
+
     const navigate = useNavigate();
 
     function Navigate() {
-        navigate(`/${tipoCRUD}/insercao/${arrumaId(id)}`)
-        return id
+        if (props.tipoCRUD == arrumaId(props.id)) {
+            navigate(`/${props.tipoCRUD}/insercao`)
+        } else {
+            navigate(`/${props.tipoCRUD}/insercao/${arrumaId(props.id)}`)
+        }
     }
+
+    function Paginacao(event: React.ChangeEvent<HTMLSelectElement>) {
+        const value = event.target.value;
+        props.setPage(parseInt(value))
+    }
+
+    useEffect(() => {
+        if (props.slice.length < 1 && props.page !== 1) {
+            props.setPage(props.page - 1);
+        }
+    }, [props.slice, props.page, props.setPage]);
 
     return (
         <div className="table-data__tool">
             <div className="table-data__tool-left">
                 <div className="rs-select2--light rs-select2--md">
-                    <select className="js-select2 selectFilter" name="property">
-                        <option>Pag 1</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
+                    <select onChange={Paginacao} className="js-select2 selectFilter" name="property" id='paginas'>
+                        {props.range.map(el =>
+                            (<option key={el} value={el}>Pág {el}</option>))
+                        }
                     </select>
                     <div className="dropDownSelect2"></div>
                 </div>
                 <button className="au-btn-filter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i className="zmdi zmdi-filter-list"></i>filters
+                    <i className="zmdi zmdi-filter-list"></i>filtros
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark">
                     <li><a className="dropdown-item text-light" href="#">A ~ Z</a></li>
@@ -46,9 +63,9 @@ export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps)
 
             </div>
             <div className="table-data__tool-right">
-                {insereDados ?
+                {props.insereDados ?
                     <button style={{ textDecoration: 'none' }} onClick={Navigate} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
-                        <i className="zmdi zmdi-plus"></i>add item
+                        <i className="zmdi zmdi-plus"></i>Adicionar item
                     </button>
                     :
                     null
@@ -62,6 +79,6 @@ export function TableElements({ id, tipoCRUD, insereDados }: TableElementsProps)
                     <div className="dropDownSelect2"></div>
                 </div>
             </div>
-        </div>
+        </div >
     )
 }

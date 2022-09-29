@@ -13,7 +13,7 @@ function Dashboard() {
                     <div className="header-mobile__bar">
                         <div className="container-fluid">
                             <div className="header-mobile-inner">
-                                <a className="logo" href="dashboard.html">
+                                <a className="logo" href="/dashboard">
                                     <img src="/Logo.png" alt="CoolAdmin" className='logo' />
                                 </a>
                                 <div className='navbar-nav bg-dark'>
@@ -24,9 +24,18 @@ function Dashboard() {
                                             </span>
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
-                                            <a className="dropdown-item text-light" href='#'>Meu Perfil</a>
-                                            <a className="dropdown-item text-light"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
-                                            <a className="dropdown-item text-light"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                            <a href="/Dashboard" className='dropdown-item text-light'>
+                                                <i className="fas fa-chart-bar"></i>Dashboard
+                                            </a>
+                                            <a href="/feedback" className='dropdown-item text-light'>
+                                                <i className="fa-solid fa-comment-dots"></i>Feedback
+                                            </a>
+                                            <a href="/componentes" className='dropdown-item text-light'>
+                                                <i className="fa-solid fa-puzzle-piece"></i>Componentes
+                                            </a>
+                                            <a href="/perguntas-para-build">
+                                                <i className="fas fa-table"></i>Tabelas
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -48,7 +57,8 @@ function Dashboard() {
                             <ul className="list-unstyled navbar__list">
                                 <li>
                                     <a href="/Dashboard">
-                                        <i className="fas fa-chart-bar"></i>Dashboard</a>
+                                        <i className="fas fa-chart-bar"></i>Dashboard
+                                    </a>
                                 </li>
                                 <li>
                                     <a href="/feedback">
@@ -64,6 +74,18 @@ function Dashboard() {
                                         </li>
                                         <li>
                                             <a href="/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li className="has-sub">
+                                    <a className="js-arrow" data-bs-toggle="collapse" data-bs-target="#perguntas" role="button" aria-expanded="false" aria-controls="componentes">
+                                        <i className="fa-solid fa-question"></i>Perguntas</a>
+                                    <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="perguntas">
+                                        <li>
+                                            <a href="/perguntas-para-build"><i className="fas fa-table"></i>Tabelas</a>
+                                        </li>
+                                        <li>
+                                            <a href="/perguntas-para-build/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -94,11 +116,11 @@ function Dashboard() {
 
                 </div>
 
-            </div>
+            </div >
 
 
 
-        </div>
+        </div >
 
     )
 }

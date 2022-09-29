@@ -6,7 +6,8 @@ function DashboardInsercaoMouse() {
         changeSelectValue('mouse')
     });
     return (
-        <div className="main-content">
+        <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
@@ -71,7 +72,17 @@ function DashboardInsercaoMouse() {
                                     <small className="help-block form-text">Sensibilidade do mouse</small>
                                 </div>
                             </div>
-
+                            <div className="row form-group">
+                                <div className="col">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div className="card-footer">
@@ -82,6 +93,7 @@ function DashboardInsercaoMouse() {
                     </div>
                 </div>
             </div>
+
 
         </div>
     )

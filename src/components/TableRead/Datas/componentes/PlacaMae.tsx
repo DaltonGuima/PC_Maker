@@ -2,13 +2,23 @@ import { useState } from "react";
 import { Componente } from "../../../TableRead"
 
 
-interface MonitorProps extends Componente {
-    resolucaover: string,
-    taxadeatualiz: number,
-    tamanho: number,
+interface PlacaMaeProps extends Componente {
+    tipo: string,
+    chipset: string,
+    soquete: string,
+    fatordeforma: string,
+    tdp: string,
+    tecnologiaram: string,
+    slotsram: number,
+    cmaxram: number,
+    graficoi: boolean,
+    slotsm2: number,
+    slotspciex16: number,
+    slotspci: number,
+
 }
 
-export function Monitor(props: MonitorProps) {
+export function PlacaMae(props: PlacaMaeProps) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {
@@ -24,9 +34,18 @@ export function Monitor(props: MonitorProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.resolucaover}</td>
-            <td>{props.taxadeatualiz}Hz</td>
-            <td>{props.tamanho}pol</td>
+            <td>{props.tipo}</td>
+            <td>{props.chipset}</td>
+            <td>{props.soquete}</td>
+            <td>{props.fatordeforma}</td>
+            <td>{props.tdp}</td>
+            <td>{props.tecnologiaram}</td>
+            <td>{props.slotsram}</td>
+            <td>{props.cmaxram}</td>
+            <td>{props.graficoi}</td>
+            <td>{props.slotsm2}</td>
+            <td>{props.slotspciex16}</td>
+            <td>{props.slotspci}</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>

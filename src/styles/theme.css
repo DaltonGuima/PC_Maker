@@ -368,6 +368,7 @@ section {
 .main-content {
   padding-top: 116px;
   min-height: 100vh;
+  padding-left: 1rem;
   background-color: #353a3c;
   /*#212529*/
 }

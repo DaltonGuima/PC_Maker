@@ -20,7 +20,13 @@ import DashboardInsercaoPlacaDeCaptura from "../components/InsertData/InsertPlac
 import DashboardInsercaoGabinete from "../components/InsertData/InsertGabinete";
 import DashboardInsercaoMouse from "../components/InsertData/InsertMouse";
 import DashboardInsercaoTeclado from "../components/InsertData/InsertTeclado";
+import DashboardInsercaoPlacaDeSom from "../components/InsertData/InsertPlacaDeSom";
+import DashboardInsercaoVentoinha from "../components/InsertData/InsertVentoinha";
+import DashboardInsercaoCoolerBox from "../components/InsertData/InsertCoolerBox";
+import DashboardInsercaoMonitor from "../components/InsertData/InsertMonitor";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
+import DashboardPerguntas from "../screens/DashboardElements/DashboardPerguntas";
+import DashboardInsercaoPerguntas from "../screens/DashboardElements/DashboardInsercaoPerguntas";
 
 
 
@@ -103,6 +109,22 @@ export const router = createBrowserRouter([
                                 path: 'teclado',
                                 element: <DashboardInsercaoTeclado />,
                             },
+                            {
+                                path: 'placa-de-som',
+                                element: <DashboardInsercaoPlacaDeSom />,
+                            },
+                            {
+                                path: 'ventoinha',
+                                element: <DashboardInsercaoVentoinha />,
+                            },
+                            {
+                                path: 'cooler-box',
+                                element: <DashboardInsercaoCoolerBox />,
+                            },
+                            {
+                                path: 'monitor',
+                                element: <DashboardInsercaoMonitor />,
+                            },
                         ]
                     },
                     {
@@ -114,6 +136,19 @@ export const router = createBrowserRouter([
             {
                 path: '/feedback',
                 element: <DashboardFeedback />,
+            },
+            {
+                path: '/perguntas-para-build',
+                children: [
+                    {
+                        path: 'insercao',
+                        element: <DashboardInsercaoPerguntas />,
+                    },
+                    {
+                        path: '',
+                        element: <DashboardPerguntas />,
+                    }
+                ]
             },
 
         ]

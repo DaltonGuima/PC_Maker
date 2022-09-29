@@ -7,7 +7,8 @@ function DashboardInsercaoMemoriaRam() {
         changeSelectValue('memoria-ram')
     });
     return (
-        <div className="main-content">
+        <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
@@ -114,6 +115,7 @@ function DashboardInsercaoMemoriaRam() {
                     </div>
                 </div>
             </div>
+
 
         </div>
     )

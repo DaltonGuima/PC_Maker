@@ -2,13 +2,14 @@ import { useState } from "react";
 import { Componente } from "../../../TableRead"
 
 
-interface MonitorProps extends Componente {
-    resolucaover: string,
-    taxadeatualiz: number,
-    tamanho: number,
+interface PlacaDeCapturaProps extends Componente {
+    interface: string,
+    saida: string,
+    taxadbit: number,
+    maioresupor: number,
 }
 
-export function Monitor(props: MonitorProps) {
+export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {
@@ -24,9 +25,10 @@ export function Monitor(props: MonitorProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.resolucaover}</td>
-            <td>{props.taxadeatualiz}Hz</td>
-            <td>{props.tamanho}pol</td>
+            <td>{props.interface}</td>
+            <td>{props.saida}</td>
+            <td>{props.taxadbit}Bit</td>
+            <td>{props.maioresupor}P</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>

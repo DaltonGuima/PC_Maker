@@ -24,6 +24,7 @@ export function Mouse(props: MouseProps) {
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
             <td>{props.vendedor}</td>
+            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {editable ?
                     <div className="table-data-feature">

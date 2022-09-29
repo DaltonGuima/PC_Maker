@@ -109,12 +109,12 @@ function DashboardInsercaoProcessador() {
                                 <div className="col">
                                     <label htmlFor="text-input" className=" form-control-label">Frequência</label>
                                     <input type="text" name="text-input" placeholder="Frequência" className="form-control" />
-                                    <small className="help-block form-text text-muted">Frequência base</small>
+                                    <small className="help-block form-text text-muted">Frequência base em megahertz (MHz)</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="text-input" className=" form-control-label">Frequência Máxima com Boost</label>
                                     <input type="text" name="text-input" placeholder="Frequência Máxima com Boost" className="form-control" />
-                                    <small className="help-block form-text text-muted">Frequência máxima com boost</small>
+                                    <small className="help-block form-text text-muted">Frequência máxima com boost em megahertz (MHz)</small>
                                 </div>
                             </div>
                             <div className="col">

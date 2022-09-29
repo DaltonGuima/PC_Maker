@@ -6,6 +6,9 @@ import { Armazenamento } from "../../components/TableRead/Datas/componentes/Arma
 import { Ram } from "../../components/TableRead/Datas/componentes/Ram"
 import { Gpu } from "../../components/TableRead/Datas/componentes/Gpu"
 import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
+import { CoolerBox } from "../../components/TableRead/Datas/componentes/CoolerBox"
+import { FonteDeAlimentacao } from "../../components/TableRead/Datas/componentes/FonteDeAlimentacao"
+
 
 function DashboardComponents() {
     const tipoCRUD = 'componentes';
@@ -19,7 +22,7 @@ function DashboardComponents() {
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
-                <div className="col-12">
+                <div className="container-fluid mt-3">
                     <h3 className="title-5 m-b-35 text-light table-h3">Escolha o Componente</h3>
                     <div className="table-data__tool">
                         <div className="table-data__tool-left">
@@ -42,7 +45,6 @@ function DashboardComponents() {
                         </div>
                     </div>
                 </div>
-
                 <div className="container-fluid">
                     <div className="row"></div>
                     <TableRead
@@ -111,44 +113,39 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
-                    <div id="armazenamento">
-                        <TableRead
-                            tipoCRUD={tipoCRUD}
-                            key={'Armazenamento'}
-                            cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
-                            id='Armazenamento'
-                            insereDados
-                            body={[<Armazenamento
-                                key={'1'}
-                                id={'1'}
-                                nome="SSD 960 GB Kingston A400"
-                                fabricante="Kingston"
-                                modelo="A400"
-                                preco={439.99}
-                                tipo={'SSD SATA'}
-                                capacidade={960}
-                                velEscrita={450}
-                                velLeitura={500}
-                                vendedor={'KABUM'}
-                                linkProduto='https://theuselessweb.com/'
-
-
-                            />, <Armazenamento
-                                key={'2'}
-                                id={'2'}
-                                nome="HD Seagate 4TB BarraCuda"
-                                fabricante="Seagate"
-                                modelo="ST4000DM004"
-                                preco={469.99}
-                                tipo={'HDD SATA'}
-                                capacidade={4000}
-                                velEscrita={5400}
-                                vendedor={'KABUM'}
-                                linkProduto='https://theuselessweb.com/'
-
-                            />]}
-                        />
-                    </div>
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'Armazenamento'}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
+                        id='Armazenamento'
+                        insereDados
+                        body={[<Armazenamento
+                            key={'1'}
+                            id={'1'}
+                            nome="SSD 960 GB Kingston A400"
+                            fabricante="Kingston"
+                            modelo="A400"
+                            preco={439.99}
+                            tipo={'SSD SATA'}
+                            capacidade={960}
+                            velEscrita={450}
+                            velLeitura={500}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />, <Armazenamento
+                            key={'2'}
+                            id={'2'}
+                            nome="HD Seagate 4TB BarraCuda"
+                            fabricante="Seagate"
+                            modelo="ST4000DM004"
+                            preco={469.99}
+                            tipo={'HDD SATA'}
+                            capacidade={4000}
+                            velEscrita={5400}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />]}
+                    />
                     <TableRead
                         key={'Mouse'}
                         id='Mouse'
