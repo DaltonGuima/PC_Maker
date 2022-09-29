@@ -8,7 +8,7 @@ function Login() {
 
 
   return (
-    <div>
+    <div className='login-page'>
       <section className="vh-100">
         <title>Login</title>
         <div className="container py-5 h-100">

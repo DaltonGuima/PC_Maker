@@ -19,7 +19,7 @@ export function Perguntas(props: PerguntasProps) {
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td>{props.id}</td>
+            <td className="text-nowrap">{props.id}</td>
             <td>{props.pergunta}</td>
             {props.tipoRes ?
                 <td className="text-success">Sim</td>

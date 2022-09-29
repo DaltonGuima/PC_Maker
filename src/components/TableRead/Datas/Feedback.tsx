@@ -20,7 +20,7 @@ export function Feedback(props: FeedbackProps) {
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td>{props.idUsuario}</td>
+            <td className="text-nowrap" >{props.idUsuario}</td>
             <td>{props.usuario}</td>
             <td className="desc">{props.comentario}</td>
             <td className="text-success">{props.upvotes} <i className="fa-solid fa-chevron-up"></i></td>

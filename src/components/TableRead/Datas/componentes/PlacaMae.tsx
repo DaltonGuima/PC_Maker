@@ -30,7 +30,7 @@ export function PlacaMae(props: PlacaMaeProps) {
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td>{props.nome}</td>
+            <td className="text-nowrap">{props.nome}</td>
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>

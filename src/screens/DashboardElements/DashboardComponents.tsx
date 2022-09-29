@@ -8,6 +8,12 @@ import { Gpu } from "../../components/TableRead/Datas/componentes/Gpu"
 import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
 import { CoolerBox } from "../../components/TableRead/Datas/componentes/CoolerBox"
 import { FonteDeAlimentacao } from "../../components/TableRead/Datas/componentes/FonteDeAlimentacao"
+import { SelectOption } from "../../components/SelectOptionComponent"
+import { Teclado } from "../../components/TableRead/Datas/componentes/Teclado"
+import { PlacaMae } from "../../components/TableRead/Datas/componentes/PlacaMae"
+import { PlacaDeCaptura } from "../../components/TableRead/Datas/componentes/PlacaDeCaptura"
+import { Monitor } from "../../components/TableRead/Datas/componentes/Monitor"
+import { PlacaDeSom } from "../../components/TableRead/Datas/componentes/PlacaDeSom"
 
 
 function DashboardComponents() {
@@ -28,19 +34,8 @@ function DashboardComponents() {
                         <div className="table-data__tool-left">
                             <div className="rs-select2--light rs-select2--md">
                                 <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador' defaultValue={''}>
-                                    <option value="" className='text-secondary' disabled>Escolha um</option>
-                                    <option value="processador">Processador</option>
-                                    <option value="armazenamento">Armazenamento</option>
-                                    <option value="gpu">Placa de Vídeo</option>
-                                    <option value="memoria-ram">Memória RAM</option>
-                                    <option value="placa-mae">Placa-mãe</option>
-                                    <option value="fonte-de-alimentacao">Fonte</option>
-                                    <option value="gabinete">Gabinete</option>
-                                    <option value="placa-de-captura">Placa de Captura</option>
-                                    <option value="mouse">Mouse</option>
-                                    <option value="teclado">Teclado</option>
+                                    <SelectOption />
                                 </select>
-
                             </div>
                         </div>
                     </div>
@@ -97,26 +92,8 @@ function DashboardComponents() {
                     />
                     <TableRead
                         tipoCRUD={tipoCRUD}
-                        key={'Gabinete'}
-                        id='Gabinete'
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', '']}
-                        insereDados
-                        body={[<Gabinete
-                            key={'1'}
-                            id={'1'}
-                            nome="AMD Ryzen 5 5600"
-                            fabricante="AMD"
-                            modelo="100-100000927BOX"
-                            preco={999.99}
-                            tipo={'Full Tower'}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
-                        />]}
-                    />
-                    <TableRead
-                        tipoCRUD={tipoCRUD}
                         key={'Armazenamento'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', '']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', 'Link Produto']}
                         id='Armazenamento'
                         insereDados
                         body={[<Armazenamento
@@ -146,56 +123,11 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
-                    <TableRead
-                        key={'Mouse'}
-                        id='Mouse'
-                        tipoCRUD={tipoCRUD}
-                        insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', '']}
-                        body={[<Mouse
-                            key={'1'}
-                            id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            preco={269.90}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
-
-                        />]}
-                    />
-
-
-                    <TableRead
-                        tipoCRUD={tipoCRUD}
-                        key={'Ram'}
-                        id='Mémoria Ram'
-                        insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latência', 'Notebook', 'Vendedor', '']}
-                        body={[<Ram
-                            key={'1'}
-                            id={'1'}
-                            nome="Husky Technologies"
-                            fabricante="Husky Technologies"
-                            modelo="HTCQ003"
-                            preco={379.99}
-                            capacidade={16}
-                            velocidade={2666}
-                            tecnologia={'DDR4'}
-                            voltagem={'1.2V~1.35V'}
-                            latencia={'CL 19'}
-                            notebook={true}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
-
-                        />]}
-                    />
-
 
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Gpu'}
-                        id='Gpu'
+                        id='Placa de vídeo'
                         insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória', 'Clock Memória', 'Barramento', 'Conector', 'Vendedor', 'Link Produto']}
                         body={[<Gpu
@@ -248,10 +180,55 @@ function DashboardComponents() {
                     />
                     <TableRead
                         tipoCRUD={tipoCRUD}
+                        key={'Ram'}
+                        id='Mémoria Ram'
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latência', 'Notebook', 'Vendedor', 'Link Produto']}
+                        body={[<Ram
+                            key={'1'}
+                            id={'1'}
+                            nome="Husky Technologies"
+                            fabricante="Husky Technologies"
+                            modelo="HTCQ003"
+                            preco={379.99}
+                            capacidade={16}
+                            velocidade={2666}
+                            tecnologia={'DDR4'}
+                            voltagem={'1.2V~1.35V'}
+                            latencia={'CL 19'}
+                            notebook={true}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+
+                        />]}
+                    />
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'placa-mae'}
+                        id='Placa-Mãe'
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Chipset', 'Soquete', 'Fator de Forma', 'TDP', 'Tecnologia RAM',
+                            'Slots RAM', 'Capacidade Máxima de RAM', 'Gráfico Integrado',
+                            'Slots M.2', 'Slots PCI Express x16', 'Slots PCI',
+                            'Vendedor', 'Link Produto']}
+                        body={[<PlacaMae
+                            key={'1'}
+                            id={'1'}
+                            nome="Husky Technologies"
+                            fabricante="Husky Technologies"
+                            modelo="HTCQ003"
+                            preco={379.99}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+
+                        />]}
+                    />
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
                         key={'Psu'}
                         id='Fonte de Alimentação'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', '']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', 'Link Produto']}
                         body={[<Psu
                             key={'1'}
                             id={'1'}
@@ -272,6 +249,165 @@ function DashboardComponents() {
 
                         />]}
                     />
+
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'Gabinete'}
+                        id='Gabinete'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
+                        insereDados
+                        body={[<Gabinete
+                            key={'1'}
+                            id={'1'}
+                            nome="AMD Ryzen 5 5600"
+                            fabricante="AMD"
+                            modelo="100-100000927BOX"
+                            preco={999.99}
+                            tipo={'Full Tower'}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />]}
+                    />
+
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'Placa de Captura'}
+                        id='Placa de Captura'
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
+                        insereDados
+                        body={[<PlacaDeCaptura
+                            key={'1'}
+                            id={'1'}
+                            nome="AMD Ryzen 5 5600"
+                            fabricante="AMD"
+                            modelo="100-100000927BOX"
+                            preco={999.99}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />]}
+                    />
+
+                    <TableRead
+                        key={'Mouse'}
+                        id='Mouse'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        body={[<Mouse
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            tamanho=""
+                            tipo=""
+                            semfio
+                            preco={269.90}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+
+                        />]}
+                    />
+
+                    <TableRead
+                        key={'Teclado'}
+                        id='Teclado'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        body={[<Teclado
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            tamanho=""
+                            tipo=""
+                            preco={269.90}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+
+                        />]}
+                    />
+
+                    <TableRead
+                        key={'Cooler Box'}
+                        id='Cooler Box'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        body={[<CoolerBox
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            preco={269.90}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+
+                        />]}
+                    />
+
+                    <TableRead
+                        key={'Ventoinha'}
+                        id='Ventoinha'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                    /* body={[<Vento
+                        key={'1'}
+                        id={'1'}
+                        nome="Razer Deathadder V2 Chroma"
+                        fabricante="Razer"
+                        modelo="Deathadder V2"
+                        preco={269.90}
+                        vendedor={'KABUM'}
+                        linkProduto='https://theuselessweb.com/'
+
+                    />]} */
+                    />
+
+                    <TableRead
+                        key={'Monitor'}
+                        id='Monitor'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        body={[<Monitor
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            preco={269.90}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />]}
+                    />
+
+                    <TableRead
+                        key={'Placa de Som'}
+                        id='Placa de Som'
+                        tipoCRUD={tipoCRUD}
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        body={[<PlacaDeSom
+                            key={'1'}
+                            id={'1'}
+                            nome="Razer Deathadder V2 Chroma"
+                            fabricante="Razer"
+                            modelo="Deathadder V2"
+                            preco={269.90}
+                            vendedor={'KABUM'}
+                            linkProduto='https://theuselessweb.com/'
+                        />]}
+                    />
+
+
+
+
+
                 </div>
             </div>
 

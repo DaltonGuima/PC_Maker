@@ -27,6 +27,7 @@ import DashboardInsercaoMonitor from "../components/InsertData/InsertMonitor";
 import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 import DashboardPerguntas from "../screens/DashboardElements/DashboardPerguntas";
 import DashboardInsercaoPerguntas from "../screens/DashboardElements/DashboardInsercaoPerguntas";
+import ErrorPage from "../screens/ErrorPage";
 
 
 
@@ -34,7 +35,8 @@ import DashboardInsercaoPerguntas from "../screens/DashboardElements/DashboardIn
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />
+        element: <Home />,
+        errorElement: <ErrorPage />
     },
     {
         path: "/login",

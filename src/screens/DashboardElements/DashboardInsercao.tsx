@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router'
 import { useNavigate } from 'react-router-dom';
+import { SelectOption } from '../../components/SelectOptionComponent';
 
 
 function DashboardInsercao() {
@@ -22,21 +23,7 @@ function DashboardInsercao() {
                             <div className="table-data__tool-left">
                                 <div className="rs-select2--light rs-select2--md">
                                     <select onChange={Navegacao} className="js-select2 selectFilter" name="property" id='Navegador' defaultValue={''}>
-                                        <option value="" className='text-secondary' disabled>Escolha um</option>
-                                        <option value="processador">Processador</option>
-                                        <option value="armazenamento">Armazenamento</option>
-                                        <option value="placa-de-video">Placa de Vídeo</option>
-                                        <option value="memoria-ram">Memória RAM</option>
-                                        <option value="placa-mae">Placa-mãe</option>
-                                        <option value="fonte-de-alimentacao">Fonte de Alimentação</option>
-                                        <option value="gabinete">Gabinete</option>
-                                        <option value="placa-de-captura">Placa de Captura</option>
-                                        <option value="mouse">Mouse</option>
-                                        <option value="teclado">Teclado</option>
-                                        <option value="cooler-box">Cooler Box</option>
-                                        <option value="ventoinha">Ventoinha</option>
-                                        <option value="monitor">Monitor</option>
-                                        <option value="placa-de-som">Placa de Som</option>
+                                        <SelectOption />
                                     </select>
                                     <div className="dropDownSelect2"></div>
                                 </div>

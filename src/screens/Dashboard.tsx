@@ -25,16 +25,16 @@ function Dashboard() {
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
                                             <a href="/Dashboard" className='dropdown-item text-light'>
-                                                <i className="fas fa-chart-bar"></i>Dashboard
+                                                <i className="fas fa-chart-bar"></i> Dashboard
                                             </a>
                                             <a href="/feedback" className='dropdown-item text-light'>
-                                                <i className="fa-solid fa-comment-dots"></i>Feedback
+                                                <i className="fa-solid fa-comment-dots"></i> Feedback
                                             </a>
                                             <a href="/componentes" className='dropdown-item text-light'>
-                                                <i className="fa-solid fa-puzzle-piece"></i>Componentes
+                                                <i className="fa-solid fa-puzzle-piece"></i> Componentes
                                             </a>
-                                            <a href="/perguntas-para-build">
-                                                <i className="fas fa-table"></i>Tabelas
+                                            <a href="/perguntas-para-build" className='dropdown-item text-light'>
+                                                <i className="fa-solid fa-question"></i> Perguntas para Build
                                             </a>
                                         </div>
                                     </div>
