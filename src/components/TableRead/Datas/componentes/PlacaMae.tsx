@@ -11,7 +11,7 @@ interface PlacaMaeProps extends Componente {
     tecnologiaram: string,
     slotsram: number,
     cmaxram: number,
-    graficoi: boolean,
+    graficoi: string,
     slotsm2: number,
     slotspciex16: number,
     slotspci: number,
@@ -34,14 +34,13 @@ export function PlacaMae(props: PlacaMaeProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.tipo}</td>
             <td>{props.chipset}</td>
             <td>{props.soquete}</td>
             <td>{props.fatordeforma}</td>
-            <td>{props.tdp}</td>
+            <td>{props.tdp}W</td>
             <td>{props.tecnologiaram}</td>
             <td>{props.slotsram}</td>
-            <td>{props.cmaxram}</td>
+            <td>{props.cmaxram}GB</td>
             <td>{props.graficoi}</td>
             <td>{props.slotsm2}</td>
             <td>{props.slotspciex16}</td>

@@ -14,6 +14,7 @@ import { PlacaMae } from "../../components/TableRead/Datas/componentes/PlacaMae"
 import { PlacaDeCaptura } from "../../components/TableRead/Datas/componentes/PlacaDeCaptura"
 import { Monitor } from "../../components/TableRead/Datas/componentes/Monitor"
 import { PlacaDeSom } from "../../components/TableRead/Datas/componentes/PlacaDeSom"
+import { Ventoinha } from "../../components/TableRead/Datas/componentes/Ventoinha"
 
 
 function DashboardComponents() {
@@ -209,7 +210,7 @@ function DashboardComponents() {
                         id='Fonte de Alimentação'
                         insereDados
                         cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'Conector Principal', 'Conector CPU', 'Conector PCIe' ,'Vendedor', 'Link Produto']}
-                        body={[<Psu
+                        body={[<FonteDeAlimentacao
                             key={'1'}
                             id={'1'}
                             nome="FONTE GAMER AZZA, PSAZ-650W-ARGB"
@@ -221,33 +222,45 @@ function DashboardComponents() {
                             conectorprin={'AC 100V/240V'}
                             conectorcpu={'EPS 8 pin (4+4)'}
                             conectorpcie={'PCI-E 8 pin (6+2)'}
-                            conSATA={'5x Conectores SATA'}
                             vendedor={'PICHAU'}
                             linkProduto='https://theuselessweb.com/'
 
-
-                    {/*                     <TableRead
+                            />]}
+                    />
+                    <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'placa-mae'}
                         id='Placa-Mãe'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Chipset', 'Soquete', 'Fator de Forma', 'TDP', 'Tecnologia RAM',
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Chipset', 'Soquete', 'Fator de Forma', 'TDP', 'Tecnologia RAM',
                             'Slots RAM', 'Capacidade Máxima de RAM', 'Gráfico Integrado',
                             'Slots M.2', 'Slots PCI Express x16', 'Slots PCI',
                             'Vendedor', 'Link Produto']}
                         body={[<PlacaMae
                             key={'1'}
                             id={'1'}
-                            nome="Husky Technologies"
-                            fabricante="Husky Technologies"
-                            modelo="HTCQ003"
-                            preco={379.99}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
-
+                            nome=""
+                            fabricante="Gigabyte"
+                            modelo="B550M AORUS ELITE"
+                            preco={899.00}
+                            chipset="AMD B550"
+                            soquete="AM4"
+                            fatordeforma="mATX"
+                            tdp=" - "
+                            tecnologiaram="DDR4"
+                            slotsram={4}
+                            cmaxram={128}
+                            graficoi="Sim"
+                            slotsm2={2}
+                            slotspciex16={2}
+                            slotspci={3}
+                            vendedor={'PICHAU'}
+                            linkProduto='https://theuselessweb.com/' tipo={""}
                         />]}
                     />
-                    <TableRead
+
+
+                 <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Psu'}
                         id='Fonte de Alimentação'
@@ -272,9 +285,9 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
 
                         />]}
-                    />
+                    /> */
 
-                    <TableRead
+                    <TableRead 
                         tipoCRUD={tipoCRUD}
                         key={'Gabinete'}
                         id='Gabinete'
@@ -283,134 +296,148 @@ function DashboardComponents() {
                         body={[<Gabinete
                             key={'1'}
                             id={'1'}
-                            nome="AMD Ryzen 5 5600"
-                            fabricante="AMD"
-                            modelo="100-100000927BOX"
-                            preco={999.99}
-                            tipo={'Full Tower'}
+                            nome="Rise Mode Glass 06"
+                            fabricante="Rise"
+                            modelo="RM-WT-06-SF"
+                            preco={199.99}
+                            tipo={'Mid Tower'}
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
 
                     <TableRead
-                        tipoCRUD={tipoCRUD}
+                        tipoCRUD={tipoCRUD} 
                         key={'Placa de Captura'}
                         id='Placa de Captura'
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Interface', 'Saída', 'Taxa de Bits', 'Maior Resolução Suportada', 'Vendedor', 'Link Produto']}
                         insereDados
                         body={[<PlacaDeCaptura
                             key={'1'}
                             id={'1'}
-                            nome="AMD Ryzen 5 5600"
-                            fabricante="AMD"
-                            modelo="100-100000927BOX"
-                            preco={999.99}
+                            nome="Placa de Captura Interna Elgato HD60 Pro"
+                            fabricante="Elgato"
+                            modelo="HD60 Pro"
+                            preco={799.99}
+                            interface="PCIe x1"
+                            saida="HDMI"
+                            taxadbit={60}
+                            maioresupor="1080p60"
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
-
-                    <TableRead
+ 
+  
+                    <TableRead 
                         key={'Mouse'}
                         id='Mouse'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Nº de botões', 'DPI', 'Vendedor', 'Link Produto']}
                         body={[<Mouse
                             key={'1'}
                             id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            tamanho=""
-                            tipo=""
-                            semfio
-                            preco={269.90}
+                            nome="G502 LIGHTSPEED"
+                            fabricante="Logitech"
+                            modelo="910-005631"
+                            preco={579.99}
+                            ndebotões={11}
+                            dpi={25600}
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
 
                         />]}
                     />
 
-                    <TableRead
+                    <TableRead  
                         key={'Teclado'}
                         id='Teclado'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Tamanho', 'Vendedor', 'Link Produto']}
                         body={[<Teclado
                             key={'1'}
                             id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            tamanho=""
-                            tipo=""
-                            preco={269.90}
-                            vendedor={'KABUM'}
+                            nome="Teclado Gamer Pichau P421 RGB RAinbow"
+                            fabricante="Pichau Gaming"
+                            modelo="PGK-P421-RGB"
+                            tipo="Membrana"
+                            tamanho="Full size"
+                            preco={89.90}
+                            vendedor={'PICHAU'}
                             linkProduto='https://theuselessweb.com/'
 
                         />]}
                     />
 
-                    <TableRead
+                    <TableRead 
                         key={'Cooler Box'}
                         id='Cooler Box'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Vendedor', 'Link Produto']}
                         body={[<CoolerBox
                             key={'1'}
                             id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            preco={269.90}
+                            nome="Rise Mode X$"
+                            fabricante="Rise Mode"
+                            modelo="RM-ACX-04-RGB"
+                            preco={34.99}
+                            potencia={115}
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
 
                         />]}
                     />
 
-                    <TableRead
+
+
+
+
+                    <TableRead 
                         key={'Ventoinha'}
                         id='Ventoinha'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
-                    body={[<Vento
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tamanho', 'Vendedor', 'Link Produto']}
+                    body={[<Ventoinha
                         key={'1'}
                         id={'1'}
-                        nome="Razer Deathadder V2 Chroma"
-                        fabricante="Razer"
-                        modelo="Deathadder V2"
-                        preco={269.90}
-                        vendedor={'KABUM'}
+                        nome="PICHAU GAMING FEATHER"
+                        fabricante="Pichau Gaming"
+                        modelo="PGFEA-WHITE"
+                        preco={19.90}
+                        tamanho={120}
+                        vendedor={'Pichau'}
                         linkProduto='https://theuselessweb.com/'
 
                     />]}
                     />
 
-                    <TableRead
+                    <TableRead    
                         key={'Monitor'}
                         id='Monitor'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Resolução vertical', 'Taxa de Atualização', 'Tamanho', 'Vendedor', 'Link Produto']}
                         body={[<Monitor
                             key={'1'}
                             id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            preco={269.90}
+                            nome="HQ LED 17.1' Widescreen"
+                            fabricante="HQ"
+                            modelo= "17HQ-LED"
+                            preco={350.10}
+                            resolucaover="1440x900p"
+                            taxadeatualiz={75}
+                            tamanho={17.1}
                             vendedor={'KABUM'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
 
-                    <TableRead
+
+                    <TableRead         
                         key={'Placa de Som'}
                         id='Placa de Som'
                         tipoCRUD={tipoCRUD}
@@ -419,24 +446,20 @@ function DashboardComponents() {
                         body={[<PlacaDeSom
                             key={'1'}
                             id={'1'}
-                            nome="Razer Deathadder V2 Chroma"
-                            fabricante="Razer"
-                            modelo="Deathadder V2"
-                            preco={269.90}
-                            vendedor={'KABUM'}
+                            nome="Placa de Som - 5.1 Canais - PCI-E"
+                            fabricante="Lotus"
+                            modelo="PC0041"
+                            preco={109.99}
+                            vendedor={'OFICINA DOS BITS'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
-                    /> */}
-
-
-
-                    
-
+                    /> 
 
                 </div>
             </div>
 
         </div>
+
     )
 }
 

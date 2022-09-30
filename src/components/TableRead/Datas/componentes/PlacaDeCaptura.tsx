@@ -6,7 +6,7 @@ interface PlacaDeCapturaProps extends Componente {
     interface: string,
     saida: string,
     taxadbit: number,
-    maioresupor: number,
+    maioresupor: string,
 }
 
 export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
@@ -27,8 +27,8 @@ export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
             <td>R${props.preco}</td>
             <td>{props.interface}</td>
             <td>{props.saida}</td>
-            <td>{props.taxadbit}Bit</td>
-            <td>{props.maioresupor}P</td>
+            <td>{props.taxadbit}Mbps</td>
+            <td>{props.maioresupor}</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>

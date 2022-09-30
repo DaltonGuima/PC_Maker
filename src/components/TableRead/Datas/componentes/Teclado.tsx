@@ -24,7 +24,6 @@ export function Teclado(props: TecladoProps) {
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
             <td>{props.tipo}</td>
-            <td>{props.tipo}</td>
             <td>{props.tamanho}</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>

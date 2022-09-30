@@ -52,16 +52,6 @@ function DashboardInsercaoMouse() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
-                                    <small className="help-block form-text">Nome técnico do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                                <div className="col">
                                     <label htmlFor="preco-input" className=" form-control-label">Nº de botões</label>
                                     <input type="text" name="preco-input" placeholder="Nº de botões" className="form-control" />
                                     <small className="help-block form-text">Número de botões</small>

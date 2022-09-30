@@ -5,9 +5,8 @@ import { Componente } from "../../../TableRead"
 interface MouseProps extends Componente {
     nome: string,
     fabricante: string,
-    tamanho: string,
-    tipo: string,
-    semfio: boolean,
+    ndebotões: number,
+    dpi: number,
 }
 
 export function Mouse(props: MouseProps) {
@@ -26,14 +25,9 @@ export function Mouse(props: MouseProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
+            <td>{props.ndebotões}</td>
+            <td>{props.dpi}</td>
             <td>{props.vendedor}</td>
-            <td>{props.tamanho}</td>
-            <td>{props.tipo}</td>
-            {props.semfio ?
-                <td className="text-success">Sim</td>
-                :
-                <td className="text-danger">Não</td>
-            }
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
                 {editable ?

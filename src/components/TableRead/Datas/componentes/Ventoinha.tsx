@@ -2,11 +2,11 @@ import { useState } from "react";
 import { Componente } from "../../../TableRead"
 
 
-interface GabineteProps extends Componente {
-    tamanho: string,
+interface VentoinhaProps extends Componente {
+    tamanho: number,
 }
 
-export function Gabinete(props: GabineteProps) {
+export function Ventoinha(props: VentoinhaProps) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {
@@ -22,7 +22,7 @@ export function Gabinete(props: GabineteProps) {
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>
-            <td>{props.tamanho}</td>
+            <td>{props.tamanho}mm</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>

@@ -3,7 +3,7 @@ import { Componente } from "../../../TableRead"
 
 
 interface FonteDeAlimentacaoProps extends Componente {
-    potencia: string,
+    potencia: number,
     certificacao: string,
     conectorprin: string,
     conectorcpu: string,

@@ -26,7 +26,7 @@ export function Monitor(props: MonitorProps) {
             <td>R${props.preco}</td>
             <td>{props.resolucaover}</td>
             <td>{props.taxadeatualiz}Hz</td>
-            <td>{props.tamanho}pol</td>
+            <td>{props.tamanho}"</td>
             <td>{props.vendedor}</td>
             <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
             <td>
