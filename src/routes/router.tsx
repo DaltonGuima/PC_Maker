@@ -55,7 +55,7 @@ export const router = createBrowserRouter([
         element: <Perfil />
     },
 
-    /* Dashboards */
+    /* Dashboard */
     {
         element: <Dashboard />,
         children: [
