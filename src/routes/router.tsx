@@ -34,7 +34,7 @@ import ErrorPage from "../screens/ErrorPage";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
+        path: "/PC_Maker",
         element: <Home />,
         errorElement: <ErrorPage />
     },
@@ -47,7 +47,7 @@ export const router = createBrowserRouter([
         element: <Cadastro />
     },
     {
-        path: "/build",
+        path: "/PC_Maker/build",
         element: <Build />
     },
     {
