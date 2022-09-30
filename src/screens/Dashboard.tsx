@@ -24,7 +24,7 @@ function Dashboard() {
                                             </span>
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
-                                            <a href="/Dashboard" className='dropdown-item text-light'>
+                                            <a href="PC_Maker/Dashboard" className='dropdown-item text-light'>
                                                 <i className="fas fa-chart-bar"></i> Dashboard
                                             </a>
                                             <a href="/feedback" className='dropdown-item text-light'>

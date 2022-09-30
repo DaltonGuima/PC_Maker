@@ -35,124 +35,139 @@ import ErrorPage from "../screens/ErrorPage";
 export const router = createBrowserRouter([
     {
         path: "/",
-        element: <Home />,
         errorElement: <ErrorPage />
     },
     {
-        path: "/login",
-        element: <Login />
-    },
-    {
-        path: "/cadastro",
-        element: <Cadastro />
-    },
-    {
-        path: "/PC_Maker/build",
-        element: <Build />
-    },
-    {
-        path: "/perfil",
-        element: <Perfil />
-    },
-
-    /* Dashboards */
-    {
-        element: <Dashboard />,
-        children: [
-            {
-                path: '/dashboard',
-                element: <MainDashboard />,
-            },
-            {
-                path: '/componentes',
-                children: [
-                    {
-                        path: 'insercao',
-                        element: <DashboardInsercao />,
-
-                        children: [
-                            {
-                                path: 'processador',
-                                element: <DashboardInsercaoProcessador />
-                            },
-                            {
-                                path: 'armazenamento',
-                                element: <DashboardInsercaoArmazenamento />
-                            },
-                            {
-                                path: 'placa-de-video',
-                                element: <DashboardInsercaoPlacaDeVideo />
-                            },
-                            {
-                                path: 'memoria-ram',
-                                element: <DashboardInsercaoMemoriaRam />,
-                            },
-                            {
-                                path: 'placa-mae',
-                                element: <DashboardInsercaoPlacaMae />,
-                            },
-                            {
-                                path: 'fonte-de-alimentacao',
-                                element: <DashboardInsercaoFonteDeAlimentacao />,
-                            },
-                            {
-                                path: 'placa-de-captura',
-                                element: <DashboardInsercaoPlacaDeCaptura />,
-                            },
-                            {
-                                path: 'gabinete',
-                                element: <DashboardInsercaoGabinete />,
-                            },
-                            {
-                                path: 'mouse',
-                                element: <DashboardInsercaoMouse />,
-                            },
-                            {
-                                path: 'teclado',
-                                element: <DashboardInsercaoTeclado />,
-                            },
-                            {
-                                path: 'placa-de-som',
-                                element: <DashboardInsercaoPlacaDeSom />,
-                            },
-                            {
-                                path: 'ventoinha',
-                                element: <DashboardInsercaoVentoinha />,
-                            },
-                            {
-                                path: 'cooler-box',
-                                element: <DashboardInsercaoCoolerBox />,
-                            },
-                            {
-                                path: 'monitor',
-                                element: <DashboardInsercaoMonitor />,
-                            },
-                        ]
-                    },
-                    {
-                        path: '',
-                        element: <DashboardComponents />,
-                    }
-                ]
-            },
-            {
-                path: '/feedback',
-                element: <DashboardFeedback />,
-            },
-            {
-                path: '/perguntas-para-build',
-                children: [
-                    {
-                        path: 'insercao',
-                        element: <DashboardInsercaoPerguntas />,
-                    },
-                    {
-                        path: '',
-                        element: <DashboardPerguntas />,
-                    }
-                ]
-            },
-
+        path: "/PC_Maker",
+        children: [{
+            path: "login",
+            element: <Login />
+        },
+        {
+            path: "cadastro",
+            element: <Cadastro />
+        },
+        {
+            path: "build",
+            element: <Build />
+        },
+        {
+            path: "perfil",
+            element: <Perfil />
+        },
+        {
+            path: '',
+            element: <Home />
+        },
+        {
+            element: <Dashboard />,
+            children: [
+                {
+                    path: 'dashboard',
+                    element: <MainDashboard />,
+                },
+            ]
+        }
         ]
     }
 ]);
+
+/* {
+    element: <Dashboard />,
+    children: [
+        {
+            path: '/dashboard',
+            element: <MainDashboard />,
+        },
+        {
+            path: '/componentes',
+            children: [
+                {
+                    path: 'insercao',
+                    element: <DashboardInsercao />,
+
+                    children: [
+                        {
+                            path: 'processador',
+                            element: <DashboardInsercaoProcessador />
+                        },
+                        {
+                            path: 'armazenamento',
+                            element: <DashboardInsercaoArmazenamento />
+                        },
+                        {
+                            path: 'placa-de-video',
+                            element: <DashboardInsercaoPlacaDeVideo />
+                        },
+                        {
+                            path: 'memoria-ram',
+                            element: <DashboardInsercaoMemoriaRam />,
+                        },
+                        {
+                            path: 'placa-mae',
+                            element: <DashboardInsercaoPlacaMae />,
+                        },
+                        {
+                            path: 'fonte-de-alimentacao',
+                            element: <DashboardInsercaoFonteDeAlimentacao />,
+                        },
+                        {
+                            path: 'placa-de-captura',
+                            element: <DashboardInsercaoPlacaDeCaptura />,
+                        },
+                        {
+                            path: 'gabinete',
+                            element: <DashboardInsercaoGabinete />,
+                        },
+                        {
+                            path: 'mouse',
+                            element: <DashboardInsercaoMouse />,
+                        },
+                        {
+                            path: 'teclado',
+                            element: <DashboardInsercaoTeclado />,
+                        },
+                        {
+                            path: 'placa-de-som',
+                            element: <DashboardInsercaoPlacaDeSom />,
+                        },
+                        {
+                            path: 'ventoinha',
+                            element: <DashboardInsercaoVentoinha />,
+                        },
+                        {
+                            path: 'cooler-box',
+                            element: <DashboardInsercaoCoolerBox />,
+                        },
+                        {
+                            path: 'monitor',
+                            element: <DashboardInsercaoMonitor />,
+                        },
+                    ]
+                },
+                {
+                    path: '',
+                    element: <DashboardComponents />,
+                }
+            ]
+        },
+        {
+            path: '/feedback',
+            element: <DashboardFeedback />,
+        },
+        {
+            path: '/perguntas-para-build',
+            children: [
+                {
+                    path: 'insercao',
+                    element: <DashboardInsercaoPerguntas />,
+                },
+                {
+                    path: '',
+                    element: <DashboardPerguntas />,
+                }
+            ]
+        },
+
+    ]
+} */
