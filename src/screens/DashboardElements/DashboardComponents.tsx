@@ -202,6 +202,30 @@ function DashboardComponents() {
 
                         />]}
                     />
+
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'Fonte de Alimentação'}
+                        id='Fonte de Alimentação'
+                        insereDados
+                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'Conector Principal', 'Conector CPU', 'Conector PCIe' ,'Vendedor', 'Link Produto']}
+                        body={[<Psu
+                            key={'1'}
+                            id={'1'}
+                            nome="FONTE GAMER AZZA, PSAZ-650W-ARGB"
+                            fabricante="AZZA"
+                            modelo="PSAZ-650W-ARGB"
+                            preco={269.90}
+                            potencia={650}
+                            certificacao={'80PLUS® Bronze'}
+                            conectorprin={'AC 100V/240V'}
+                            conectorcpu={'EPS 8 pin (4+4)'}
+                            conectorpcie={'PCI-E 8 pin (6+2)'}
+                            conSATA={'5x Conectores SATA'}
+                            vendedor={'PICHAU'}
+                            linkProduto='https://theuselessweb.com/'
+
+
                     {/*                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'placa-mae'}
@@ -406,6 +430,7 @@ function DashboardComponents() {
 
 
 
+                    
 
 
                 </div>
