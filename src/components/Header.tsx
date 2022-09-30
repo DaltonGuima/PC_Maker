@@ -37,8 +37,8 @@ export function Header() {
 
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark" id="topo">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/">
-                        <img src="/Logo.png" alt="Logo da Empresa" style={{ width: '150px', height: '80px', }} />
+                    <a className="navbar-brand" href="/PC_Maker">
+                        <img src="Logo.png" alt="Logo da Empresa" style={{ width: '150px', height: '80px', }} />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
