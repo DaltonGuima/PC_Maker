@@ -18,7 +18,8 @@ export function Ventoinha(props: VentoinhaProps) {
 
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td className="text-nowrap">{props.nome}</td>
+            <td className="text-nowrap py-5">{props.id}</td>
+            <td className="text-nowrap py-5">{props.nome}</td>
             <td>{props.fabricante}</td>
             <td className="desc">{props.modelo}</td>
             <td>R${props.preco}</td>

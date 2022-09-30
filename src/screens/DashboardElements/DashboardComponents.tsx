@@ -7,7 +7,6 @@ import { Ram } from "../../components/TableRead/Datas/componentes/Ram"
 import { Gpu } from "../../components/TableRead/Datas/componentes/Gpu"
 import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
 import { CoolerBox } from "../../components/TableRead/Datas/componentes/CoolerBox"
-import { FonteDeAlimentacao } from "../../components/TableRead/Datas/componentes/FonteDeAlimentacao"
 import { SelectOption } from "../../components/SelectOptionComponent"
 import { Teclado } from "../../components/TableRead/Datas/componentes/Teclado"
 import { PlacaMae } from "../../components/TableRead/Datas/componentes/PlacaMae"
@@ -46,7 +45,7 @@ function DashboardComponents() {
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Processador'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
                             'Nº de Threads', 'Frequência', 'Frequência máxima com Boost', 'TDP', 'OverClock',
                             'Gráfico integrado', 'Tipo de memória', 'Vendedor', 'LinkProduto', '']}
                         id='Processador'
@@ -94,7 +93,7 @@ function DashboardComponents() {
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Armazenamento'}
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Capacidade', 'velescrita', 'velleitura', 'Vendedor', 'Link Produto']}
                         id='Armazenamento'
                         insereDados
                         body={[<Armazenamento
@@ -130,7 +129,7 @@ function DashboardComponents() {
                         key={'Gpu'}
                         id='Placa de vídeo'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória', 'Clock Memória', 'Barramento', 'Conector', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Clock', 'Memória', 'Clock Memória', 'Barramento', 'Conector', 'Vendedor', 'Link Produto']}
                         body={[<Gpu
                             key={'1'}
                             id={'1'}
@@ -184,7 +183,7 @@ function DashboardComponents() {
                         key={'Ram'}
                         id='Mémoria Ram'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latência', 'Notebook', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latência', 'Notebook', 'Vendedor', 'Link Produto']}
                         body={[<Ram
                             key={'1'}
                             id={'1'}
@@ -206,40 +205,17 @@ function DashboardComponents() {
 
                     <TableRead
                         tipoCRUD={tipoCRUD}
-                        key={'Fonte de Alimentação'}
-                        id='Fonte de Alimentação'
-                        insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'Conector Principal', 'Conector CPU', 'Conector PCIe' ,'Vendedor', 'Link Produto']}
-                        body={[<FonteDeAlimentacao
-                            key={'1'}
-                            id={'1'}
-                            nome="FONTE GAMER AZZA, PSAZ-650W-ARGB"
-                            fabricante="AZZA"
-                            modelo="PSAZ-650W-ARGB"
-                            preco={269.90}
-                            potencia={650}
-                            certificacao={'80PLUS® Bronze'}
-                            conectorprin={'AC 100V/240V'}
-                            conectorcpu={'EPS 8 pin (4+4)'}
-                            conectorpcie={'PCI-E 8 pin (6+2)'}
-                            vendedor={'PICHAU'}
-                            linkProduto='https://theuselessweb.com/'
-
-                            />]}
-                    />
-                    <TableRead
-                        tipoCRUD={tipoCRUD}
                         key={'placa-mae'}
                         id='Placa-Mãe'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Chipset', 'Soquete', 'Fator de Forma', 'TDP', 'Tecnologia RAM',
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Chipset', 'Soquete', 'Fator de Forma', 'TDP', 'Tecnologia RAM',
                             'Slots RAM', 'Capacidade Máxima de RAM', 'Gráfico Integrado',
                             'Slots M.2', 'Slots PCI Express x16', 'Slots PCI',
                             'Vendedor', 'Link Produto']}
                         body={[<PlacaMae
                             key={'1'}
                             id={'1'}
-                            nome=""
+                            nome="B550M Aorus Elite,"
                             fabricante="Gigabyte"
                             modelo="B550M AORUS ELITE"
                             preco={899.00}
@@ -260,12 +236,12 @@ function DashboardComponents() {
                     />
 
 
-                 <TableRead
+                    <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Psu'}
                         id='Fonte de Alimentação'
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Certificação', 'PFC Ativo', 'Tamanho da ventoinha', 'Conector Principal', 'Conector CPU', 'Conector PCIe', 'Conector SATA', 'Vendedor', 'Link Produto']}
                         body={[<Psu
                             key={'1'}
                             id={'1'}
@@ -285,13 +261,13 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
 
                         />]}
-                    /> */
+                    />
 
-                    <TableRead 
+                    <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Gabinete'}
                         id='Gabinete'
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
                         insereDados
                         body={[<Gabinete
                             key={'1'}
@@ -307,10 +283,10 @@ function DashboardComponents() {
                     />
 
                     <TableRead
-                        tipoCRUD={tipoCRUD} 
+                        tipoCRUD={tipoCRUD}
                         key={'Placa de Captura'}
                         id='Placa de Captura'
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Interface', 'Saída', 'Taxa de Bits', 'Maior Resolução Suportada', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Interface', 'Saída', 'Taxa de Bits', 'Maior Resolução Suportada', 'Vendedor', 'Link Produto']}
                         insereDados
                         body={[<PlacaDeCaptura
                             key={'1'}
@@ -327,14 +303,14 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
- 
-  
-                    <TableRead 
+
+
+                    <TableRead
                         key={'Mouse'}
                         id='Mouse'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Nº de botões', 'DPI', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Nº de botões', 'DPI', 'Vendedor', 'Link Produto']}
                         body={[<Mouse
                             key={'1'}
                             id={'1'}
@@ -350,12 +326,12 @@ function DashboardComponents() {
                         />]}
                     />
 
-                    <TableRead  
+                    <TableRead
                         key={'Teclado'}
                         id='Teclado'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Tamanho', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Tamanho', 'Vendedor', 'Link Produto']}
                         body={[<Teclado
                             key={'1'}
                             id={'1'}
@@ -371,12 +347,12 @@ function DashboardComponents() {
                         />]}
                     />
 
-                    <TableRead 
+                    <TableRead
                         key={'Cooler Box'}
                         id='Cooler Box'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Potência', 'Vendedor', 'Link Produto']}
                         body={[<CoolerBox
                             key={'1'}
                             id={'1'}
@@ -395,38 +371,38 @@ function DashboardComponents() {
 
 
 
-                    <TableRead 
+                    <TableRead
                         key={'Ventoinha'}
                         id='Ventoinha'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Tamanho', 'Vendedor', 'Link Produto']}
-                    body={[<Ventoinha
-                        key={'1'}
-                        id={'1'}
-                        nome="PICHAU GAMING FEATHER"
-                        fabricante="Pichau Gaming"
-                        modelo="PGFEA-WHITE"
-                        preco={19.90}
-                        tamanho={120}
-                        vendedor={'Pichau'}
-                        linkProduto='https://theuselessweb.com/'
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tamanho', 'Vendedor', 'Link Produto']}
+                        body={[<Ventoinha
+                            key={'1'}
+                            id={'1'}
+                            nome="PICHAU GAMING FEATHER"
+                            fabricante="Pichau Gaming"
+                            modelo="PGFEA-WHITE"
+                            preco={19.90}
+                            tamanho={120}
+                            vendedor={'Pichau'}
+                            linkProduto='https://theuselessweb.com/'
 
-                    />]}
+                        />]}
                     />
 
-                    <TableRead    
+                    <TableRead
                         key={'Monitor'}
                         id='Monitor'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Resolução vertical', 'Taxa de Atualização', 'Tamanho', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Resolução vertical', 'Taxa de Atualização', 'Tamanho', 'Vendedor', 'Link Produto']}
                         body={[<Monitor
                             key={'1'}
                             id={'1'}
                             nome="HQ LED 17.1' Widescreen"
                             fabricante="HQ"
-                            modelo= "17HQ-LED"
+                            modelo="17HQ-LED"
                             preco={350.10}
                             resolucaover="1440x900p"
                             taxadeatualiz={75}
@@ -437,12 +413,12 @@ function DashboardComponents() {
                     />
 
 
-                    <TableRead         
+                    <TableRead
                         key={'Placa de Som'}
                         id='Placa de Som'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto']}
                         body={[<PlacaDeSom
                             key={'1'}
                             id={'1'}
@@ -453,7 +429,7 @@ function DashboardComponents() {
                             vendedor={'OFICINA DOS BITS'}
                             linkProduto='https://theuselessweb.com/'
                         />]}
-                    /> 
+                    />
 
                 </div>
             </div>
