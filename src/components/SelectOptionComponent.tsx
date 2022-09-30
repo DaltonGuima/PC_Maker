@@ -14,7 +14,7 @@ export function SelectOption() {
             <option value="teclado">Teclado</option>
             <option value="cooler-box">Cooler Box</option>
             <option value="ventoinha">Ventoinha</option>
-            <option value="monito">Monitor</option>
+            <option value="monitor">Monitor</option>
             <option value="placa-de-som">Placa de Som</option>
         </>
     )

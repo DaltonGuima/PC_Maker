@@ -52,12 +52,10 @@ export function TableElements(props: TableElementsProps) {
                     <li><a className="dropdown-item text-light" href="#">Data de Modificação</a></li>
                 </ul>
                 <form className='input-search-dashboard d-inline'>
-                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Search" name='' id='itemPesquisa' />
-                    <button id="search-field">
-                        <a className='text-white'>
-                            <i className="fa fa-search"></i>
-                        </a>
-                    </button>
+                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Search" name='' id={props.id} />
+                    <label className='text-white' htmlFor={props.id}>
+                        <i className="fa fa-search"></i>
+                    </label>
                 </form>
 
 
@@ -70,11 +68,11 @@ export function TableElements(props: TableElementsProps) {
                     :
                     null
                 }
-                <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
-                    <select className="js-select2 selectFilter" name="type">
-                        <option> Export</option>
-                        <option value="">Option 1</option>
-                        <option value="">Option 2</option>
+                <div className="rs-select2--dark rs-select2--sm rs-select2--dark2">
+                    <select className="js-select2 selectFilter col-10" name="type" defaultValue={''}>
+                        <option value=''> Export</option>
+                        <option value="">Excel</option>
+                        <option value="">Google Sheets</option>
                     </select>
                     <div className="dropDownSelect2"></div>
                 </div>
