@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 export function Footer() {
     return (
         <footer className="site-footer" id="rodape">
@@ -35,7 +33,7 @@ export function Footer() {
                     <div className="col-xs-6 col-md">
                         <h6>FAQ</h6>
                         <ul className="footer-links">
-                            <li><Link to="/PC_Maker/dashboard">FAQ e Orientações</Link></li>
+                            <li><a href="/PC_Maker/dashboard">FAQ e Orientações</a></li>
                         </ul>
                     </div>
                 </div>
