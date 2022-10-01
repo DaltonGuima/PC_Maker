@@ -15,9 +15,9 @@ export function TableElements(props: TableElementsProps) {
 
     function Navigate() {
         if (props.tipoCRUD == arrumaId(props.id)) {
-            navigate(`/${props.tipoCRUD}/insercao`)
+            navigate(`/PC_Maker/Dashboard/${props.tipoCRUD}/insercao`)
         } else {
-            navigate(`/${props.tipoCRUD}/insercao/${arrumaId(props.id)}`)
+            navigate(`/PC_Maker/Dashboard/${props.tipoCRUD}/insercao/${arrumaId(props.id)}`)
         }
     }
 

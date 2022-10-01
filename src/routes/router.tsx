@@ -76,6 +76,10 @@ export const router = createBrowserRouter([
                                     path: 'insercao',
                                     element: <DashboardInsercaoPerguntas />,
                                 },
+                                {
+                                    path: '',
+                                    element: <DashboardPerguntas />,
+                                }
                             ]
                         },
                         {

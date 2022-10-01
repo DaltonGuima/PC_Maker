@@ -9,7 +9,7 @@ function DashboardInsercao() {
     //Função para navegar
     function Navegacao() {
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
-        navigate(`/componentes/insercao/${localConst.value}`)
+        navigate(`/PC_Maker/Dashboard/componentes/insercao/${localConst.value}`)
     }
 
     return (
