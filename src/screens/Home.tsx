@@ -53,7 +53,7 @@ function Home() {
               title='Build 3'
               Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
               perfilImg='http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg'
-              buildImg='/Build_3.png'
+              buildImg='Build_3.png'
               criador='Zezão extreme'
             />
 
