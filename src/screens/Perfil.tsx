@@ -5,15 +5,15 @@ import '../script/script.js'
 import '../styles/profile.css'
 import '../styles/main.css'
 
-import {useState } from 'react'
+import { useState } from 'react'
 import { Route } from 'react-router-dom'
 import { FormControl } from '../components/FormControl'
 
 function Perfil() {
 
     const [checked, setChecked] = useState(false);
-    const [formControl,setFormControl] = useState(false);
-    const [formButton,setFormButton] = useState(true);
+    const [formControl, setFormControl] = useState(false);
+    const [formButton, setFormButton] = useState(true);
     const [showElement, setShowElement] = useState(false);
     const showOrHide = () => setShowElement(true);
 
@@ -23,10 +23,10 @@ function Perfil() {
         setFormControl(true)
     };
 
-    function openForm(id:string){
+    function openForm(id: string) {
         setFormControl(true);
         setFormButton(false);
-        
+
         const localConst = document.getElementById(id) as HTMLElement
         localConst.focus()
     }
@@ -42,7 +42,7 @@ function Perfil() {
 
                     <div className="row pt-5">
                         <div className="col-sm-1 profileImg">
-                            <img src="/among_us.jpg" alt="Foto do Perfil" className="img-fluid rounded-circle" />
+                            <img src="among_us.jpg" alt="Foto do Perfil" className="img-fluid rounded-circle" />
                         </div>
                         <div className="col-sm-5 text-light">
                             <h1>Usuario</h1>
@@ -74,54 +74,54 @@ function Perfil() {
                     <div className="main-container" id="MyAccount">
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Nome</h3>
-                                <input 
-                                    type="text" 
-                                    name="nome" 
-                                    id="nome" 
-                                    className="form-control-plaintext text-light FormProfile" 
-                                    placeholder="Usuario" 
-                                    readOnly={formButton} 
-                                    required
-                                    defaultValue={'Usuario'}
-                                />
-                                
-                                <label 
-                                    htmlFor="nome" 
-                                    className="btn text-light btn-block float-end" 
-                                    onClick={() => openForm('nome')}
+                            <input
+                                type="text"
+                                name="nome"
+                                id="nome"
+                                className="form-control-plaintext text-light FormProfile"
+                                placeholder="Usuario"
+                                readOnly={formButton}
+                                required
+                                defaultValue={'Usuario'}
+                            />
+
+                            <label
+                                htmlFor="nome"
+                                className="btn text-light btn-block float-end"
+                                onClick={() => openForm('nome')}
+                            >
+                                <button
+                                    type="button"
+                                    id="NomeBtn"
                                 >
-                                    <button
-                                        type="button" 
-                                        id="NomeBtn" 
-                                    >
-                                        Editar 
-                                    </button>
-                                </label>
+                                    Editar
+                                </button>
+                            </label>
                         </div>
 
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Endereço de email</h3>
-                            <input 
-                                type='email' 
-                                name="emailProfile" 
-                                id="emailProfile" 
-                                className="form-control-plaintext text-light FormProfile" 
-                                placeholder="usuario@email.com" 
-                                readOnly={formButton} 
+                            <input
+                                type='email'
+                                name="emailProfile"
+                                id="emailProfile"
+                                className="form-control-plaintext text-light FormProfile"
+                                placeholder="usuario@email.com"
+                                readOnly={formButton}
                                 required
-                                defaultValue={'usuario@email.com'} 
+                                defaultValue={'usuario@email.com'}
                             />
-                            
-                            <label 
-                                htmlFor="email" 
+
+                            <label
+                                htmlFor="email"
                                 className="btn text-light btn-block float-end"
                                 onClick={() => openForm('emailProfile')}>
-                                    <button                                     
-                                        type="button" 
-                                        id="NomeBtn" >
-                                        Editar 
-                                    </button>
-                                </label>
+                                <button
+                                    type="button"
+                                    id="NomeBtn" >
+                                    Editar
+                                </button>
+                            </label>
                         </div>
 
                         <div className="col-md-11 pt-3 text-light box">
@@ -139,13 +139,13 @@ function Perfil() {
                             <h3 className="bold">Acessibilidade</h3>
                             <p className="disabled" >Alto Contraste de Cores</p>
                             <label className="switch float-end">
-                                <input type="checkbox" id="AltoContraste" 
-                                checked={checked}
-                                onChange={handleChange} />
+                                <input type="checkbox" id="AltoContraste"
+                                    checked={checked}
+                                    onChange={handleChange} />
                                 <span className="slider round"></span>
                             </label>
                         </div>
-                        { formControl ? <FormControl/> : null}
+                        {formControl ? <FormControl /> : null}
                     </div>
                 </form>
                 <br></br>

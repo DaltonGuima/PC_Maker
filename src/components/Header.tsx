@@ -37,7 +37,7 @@ export function Header() {
 
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark" id="topo">
                 <div className="container-fluid">
-                    <a className="navbar-brand" href="/PC_Maker">
+                    <a className="navbar-brand" href="/PC_Maker/">
                         <img src="Logo.png" alt="Logo da Empresa" style={{ width: '150px', height: '80px', }} />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -72,13 +72,13 @@ export function Header() {
                             <ul className="navbar-nav">
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropleft" href="#" role="button" data-bs-toggle="dropdown">
-                                        <img src="/among_us.jpg" alt="Foto de Perfil" />Perfil
+                                        <img src="among_us.jpg" alt="Foto de Perfil" />Perfil
                                     </a>
                                     <div className="dropdown-menu  dropdown-menu-end bg-dark">
                                         <button className="dropdown-item disabled bg-dark">
                                             <i className="fa fa-user-o"></i> Perfil
                                         </button>
-                                        <a className="dropdown-item text-light" href="../Views/profile.html">Meu Perfil</a>
+                                        <a className="dropdown-item text-light" href="">Meu Perfil</a>
                                         <a className="dropdown-item text-light"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
                                         <a className="dropdown-item text-light"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                                     </div>

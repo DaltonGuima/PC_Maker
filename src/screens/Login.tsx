@@ -17,7 +17,7 @@ function Login() {
               <div className="card-login bg-dark text-light">{/* <!-- Aqui arrendoda --> */}
                 <div className="row g-0">
                   <div className="col-md-8 col-lg-7 d-none d-md-block">
-                    <img className="img-login" src="/Rectangle 6.png"
+                    <img className="img-login" src="Rectangle 6.png"
                       alt="Foto de um PC" />
                   </div>
                   <div className="col-md-4 col-lg-5 d-flex align-items-center">
@@ -68,7 +68,7 @@ function Login() {
                           </div>
                         </div>
                         <div className="container-fluid DontHAveAccount pt-lg-5">
-                          <p> Não tem uma conta? <a href="../Views/cadastro.html"> Cadastre aqui.</a> </p>
+                          <p> Não tem uma conta? <a href="PC_Maker/cadastro"> Cadastre aqui.</a> </p>
                         </div>
                       </form>
 

@@ -13,8 +13,8 @@ function Dashboard() {
                     <div className="header-mobile__bar">
                         <div className="container-fluid">
                             <div className="header-mobile-inner">
-                                <a className="logo" href="/dashboard">
-                                    <img src="/Logo.png" alt="CoolAdmin" className='logo' />
+                                <a className="logo" href="">
+                                    <img src="Logo.png" alt="CoolAdmin" className='logo' />
                                 </a>
                                 <div className='navbar-nav bg-dark'>
                                     <div className="hamburger hamburger--slider dropdown nav-item">
@@ -24,7 +24,7 @@ function Dashboard() {
                                             </span>
                                         </a>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
-                                            <a href="PC_Maker/Dashboard" className='dropdown-item text-light'>
+                                            <a href="Dashboard" className='dropdown-item text-light'>
                                                 <i className="fas fa-chart-bar"></i> Dashboard
                                             </a>
                                             <a href="/feedback" className='dropdown-item text-light'>
@@ -48,15 +48,15 @@ function Dashboard() {
         <!-- MENU SIDEBAR--> */}
                 <aside className="menu-sidebar d-none d-lg-block">
                     <div className="logo">
-                        <a href="/Dashboard">
-                            <img src="/logo.png" alt="Cool Admin" className='logo' />
+                        <a href="/PC_Maker/Dashboard/">
+                            <img src="/Logo.png" alt="Cool Admin" className='logo' />
                         </a>
                     </div>
                     <div className="menu-sidebar__content js-scrollbar1">
                         <nav className="navbar-sidebar">
                             <ul className="list-unstyled navbar__list">
                                 <li>
-                                    <a href="/Dashboard">
+                                    <a href="dashboard">
                                         <i className="fas fa-chart-bar"></i>Dashboard
                                     </a>
                                 </li>

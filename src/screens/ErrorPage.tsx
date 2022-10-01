@@ -15,7 +15,7 @@ function ErrorPage() {
             <div id='error-text'>
                 <span>404</span>
                 <p>PAGE NOT FOUND</p>
-                <p className='hmpg'><a href='/' className="back">Back To Home</a></p>
+                <p className='hmpg'><a href='/PC_Maker/' className="back">Back To Home</a></p>
             </div>
         </div>
     )
