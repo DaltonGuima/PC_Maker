@@ -33,7 +33,7 @@ export function Footer() {
                     <div className="col-xs-6 col-md">
                         <h6>FAQ</h6>
                         <ul className="footer-links">
-                            <li><a href="/PC_Maker/Dashboard/">FAQ e Orientações</a></li>
+                            <li><a href="/PC_Maker/dashboard/">FAQ e Orientações</a></li>
                         </ul>
                     </div>
                 </div>
