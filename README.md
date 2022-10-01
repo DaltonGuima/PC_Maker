@@ -9,3 +9,5 @@
 3. A ferramenta certa pra sua necessidade, te ajuda a chegar mais rapido nos seus objetivos.
 
 ##### Obs: rode npm i, depois npm run dev
+
+##### Para navegar pela deashboard, é necessário pela url, colocar /dashboard
