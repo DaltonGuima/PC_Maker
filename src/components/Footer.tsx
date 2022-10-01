@@ -1,10 +1,12 @@
+import { Link } from "react-router-dom";
+
 export function Footer() {
     return (
         <footer className="site-footer" id="rodape">
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-3">
-                        <img src="/Logo.png" className="col-sm-12" id="low-logo" alt="Logo da empresa" />
+                        <img src="Logo.png" className="col-sm-12" id="low-logo" alt="Logo da empresa" />
                     </div>
                     <div className="col-xs-6 col-md">
                         <h6>Categorias</h6>
@@ -33,7 +35,7 @@ export function Footer() {
                     <div className="col-xs-6 col-md">
                         <h6>FAQ</h6>
                         <ul className="footer-links">
-                            <li><a href="/PC_Maker/dashboard/">FAQ e Orientações</a></li>
+                            <li><Link to="/PC_Maker/dashboard">FAQ e Orientações</Link></li>
                         </ul>
                     </div>
                 </div>
