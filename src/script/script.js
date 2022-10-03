@@ -1,6 +1,6 @@
 
 
-function carousel(){
+export function carousel(){
   const carousel = document.getElementById("carousel"),
     content = document.getElementById("content"),
     next = document.getElementById("next"),
@@ -33,7 +33,7 @@ function carousel(){
 /* Modal */
 
 
-  function Modaltext(){
+  export function Modaltext(){
 
     var Modal = document.getElementById('ModalFoto')
     Modal.addEventListener('show.bs.modal', function (event) {

@@ -1,9 +1,9 @@
 
 import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
+import { carousel, Modaltext } from '../script/script'
 import '../styles/build.css'
 import '../styles/main.css'
-import '../script/script.js'
 //import './App.css'
 
 function Build() {
