@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router'
+import { Link } from 'react-router-dom'
 import '../styles/theme.css'
 import useDocumentTitle from '../utils/useDocumentTitle'
 
@@ -14,7 +15,7 @@ function Dashboard() {
                         <div className="container-fluid">
                             <div className="header-mobile-inner">
                                 <a className="logo" href="">
-                                    <img src="/Logo.png" alt="CoolAdmin" className='logo' />
+                                    <img src="Logo.png" alt="CoolAdmin" className='logo' />
                                 </a>
                                 <div className='navbar-nav bg-dark'>
                                     <div className="hamburger hamburger--slider dropdown nav-item">
@@ -70,10 +71,10 @@ function Dashboard() {
                                         <i className="fa-solid fa-puzzle-piece"></i>Componentes</a>
                                     <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
                                         <li>
-                                            <a href="/PC_Maker/Dashboard/componentes"><i className="fas fa-table"></i>Tabelas</a>
+                                            <Link to="/PC_Maker/Dashboard/componentes"><i className="fas fa-table"></i>Tabelas</Link>
                                         </li>
                                         <li>
-                                            <a href="/PC_Maker/Dashboard/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
+                                            <Link to="/PC_Maker/Dashboard/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</Link>
                                         </li>
                                     </ul>
                                 </li>
