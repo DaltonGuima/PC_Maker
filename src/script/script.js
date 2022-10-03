@@ -21,7 +21,7 @@ export function carousel(){
     if (carousel.scrollLeft - width <= 0) {
       prev.style.display = "none";
     }
-    if (!content.scrollWidth - width <= carousel.scrollLeft + width) {
+    if (content.scrollWidth - width <= carousel.scrollLeft + width) {
       next.style.display = "flex";
     }
   });

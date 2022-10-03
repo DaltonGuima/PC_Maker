@@ -10,7 +10,7 @@ function Build() {
 
 
     return (
-        <div>
+        <div onFocus={Modaltext}>
             <title>Home</title>
             <Header />
             <main id="conteudo">
