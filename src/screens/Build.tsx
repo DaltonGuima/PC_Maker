@@ -4,13 +4,15 @@ import { Header } from '../components/Header'
 import '../styles/build.css'
 import '../styles/main.css'
 import '../script/script.js'
+import { carousel } from '../utils/carousel'
+import { Modaltext } from '../script/script.js'
 //import './App.css'
 
 function Build() {
 
 
     return (
-        <div>
+        <div onFocus={Modaltext}>
             <title>Home</title>
             <Header />
             <main id="conteudo">
