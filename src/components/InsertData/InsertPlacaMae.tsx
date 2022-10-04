@@ -1,6 +1,6 @@
 
 import { useEffect } from "react";
-import { changeSelectValue } from "../../utils/changeSelectValue";
+import { changeSelectValue } from "../../script/changeSelectValue";
 
 function DashboardInsercaoPlacaMae() {
 

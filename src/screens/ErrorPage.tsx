@@ -2,7 +2,7 @@ import '../styles/home.css'
 import '../styles/main.css'
 
 //Importa titulo
-import useDocumentTitle from '../utils/useDocumentTitle'
+import useDocumentTitle from '../script/useDocumentTitle'
 //import './App.css'
 
 function ErrorPage() {

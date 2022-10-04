@@ -1,6 +1,6 @@
 import { Dispatch, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { arrumaId } from '../../utils/arrumaId';
+import { arrumaId } from '../../script/arrumaId';
 import { TableReadProps } from '../TableRead';
 interface TableElementsProps extends TableReadProps {
     page: number,

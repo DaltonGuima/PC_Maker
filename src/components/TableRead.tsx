@@ -1,6 +1,6 @@
 import { useState } from "react"
-import { arrumaId } from "../utils/arrumaId"
-import useTable from "../utils/useTable"
+import { arrumaId } from "../script/arrumaId"
+import useTable from "../script/useTable"
 import { TableElements } from "./TableRead/TableElements"
 import { TableReadHead } from "./TableRead/TableReadHead"
 

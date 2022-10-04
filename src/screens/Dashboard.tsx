@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router'
 import '../styles/theme.css'
-import useDocumentTitle from '../utils/useDocumentTitle'
+import useDocumentTitle from '../script/useDocumentTitle'
 
 //import './App.css'
 function Dashboard() {

@@ -3,16 +3,24 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import '../styles/build.css'
 import '../styles/main.css'
-import '../script/script.js'
-import { carousel } from '../utils/carousel'
-import { Modaltext } from '../script/script.js'
+import { carousel } from '../script/carousel'
+import { useState } from 'react'
+/* import { Modaltext } from '../script/script.js' */
 //import './App.css'
 
 function Build() {
 
+    const [imgBody, setImgBody] = useState('')
+    const [titleModal, setTitleModal] = useState('')
+
+    function Modaltext(img: string, title: string) {
+        setImgBody(img);
+        setTitleModal(title);
+    }
+
 
     return (
-        <div onFocus={Modaltext}>
+        <div>
             <title>Home</title>
             <Header />
             <main id="conteudo">
@@ -58,54 +66,47 @@ function Build() {
                         <div id="content">
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
-                                    onFocus={Modaltext}
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
                             <div className="slide">
                                 <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
                                 >
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
-                            <div className="slide">
-                                <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                    data-bs-name="Foto Build" data-bs-foto="https://via.placeholder.com/300x150/?text=Foto de build"
-                                >
-                                    <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
-                                </button>
-                            </div>
+
                         </div>
                     </div>
                     <button id="prev" onClick={carousel}><i className="arrow"></i></button>
@@ -145,13 +146,12 @@ function Build() {
                                 </td>
                                 <td>
                                     <div className="d-sm-inline-flex p-2">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                            data-bs-name="Placa Mãe Asus EX-B560M" data-bs-foto="https://via.placeholder.com/300x300/"
-                                            onFocus={Modaltext}
+                                        <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
+                                            onFocus={() => Modaltext('https://via.placeholder.com/300x300/', 'Placa Mãe Asus EX-B560M')}
                                         >
                                             <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
                                             <img className="peca" src="https://via.placeholder.com/300x300/" alt="Foto componente" />
-                                        </a>
+                                        </button>
                                     </div>
                                     <div className="d-sm-inline-flex p-2 text-white">
                                         <span className="DescricaoProduto p-2">
@@ -259,17 +259,18 @@ function Build() {
                                 </td>
                             </tr>
                         </tbody>
+
                         <div className="modal fade" id="ModalFoto" aria-labelledby="myModal">
                             <div className="modal-dialog">
                                 <div className="modal-content bg-dark text-light">
 
                                     <div className="modal-header">
-                                        <h6 className="modal-title "></h6>
+                                        <h6 className="modal-title ">{titleModal}</h6>
                                         <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
 
                                     <div className="modal-body d-flex justify-content-center">
-                                        <img className="img-fluid" alt="Foto componente" />
+                                        <img src={imgBody} className="img-fluid" alt="Foto componente" />
                                     </div>
 
                                 </div>
