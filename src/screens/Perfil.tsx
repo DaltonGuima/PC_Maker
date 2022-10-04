@@ -5,7 +5,6 @@ import '../styles/profile.css'
 import '../styles/main.css'
 
 import { useState } from 'react'
-import { Route } from 'react-router-dom'
 import { FormControl } from '../components/FormControl'
 
 function Perfil() {

@@ -5,12 +5,16 @@ import '../styles/build.css'
 import '../styles/main.css'
 import { carousel } from '../script/carousel'
 import { useState } from 'react'
+import TableBuild from '../components/TableBuild'
+import useDocumentTitle from '../script/useDocumentTitle'
 //import './App.css'
 
 function Build() {
 
-    const [imgBody, setImgBody] = useState('')
-    const [titleModal, setTitleModal] = useState('')
+    useDocumentTitle('Build')
+
+    const [imgBody, setImgBody] = useState<string>();
+    const [titleModal, setTitleModal] = useState<string>();
 
 
     function Modaltext(img: string, title: string) {
@@ -18,10 +22,8 @@ function Build() {
         setTitleModal(title);
     }
 
-
     return (
         <div>
-            <title>Home</title>
             <Header />
             <main id="conteudo">
                 {/* <!-- #212425 --> */}
@@ -138,126 +140,39 @@ function Build() {
 
                         </thead>
                         <tbody>
-                            <tr className="mt-2">
-                                <td>
-                                    <div className="tipoComponente">
-                                        MoB
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="d-sm-inline-flex p-2">
-                                        <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                            onFocus={() => Modaltext('https://via.placeholder.com/300x300/', 'Placa Mãe Asus EX-B560M')}
-                                        >
-                                            <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
-                                            <img className="peca" src="https://via.placeholder.com/300x300/" alt="Foto componente" />
-                                        </button>
-                                    </div>
-                                    <div className="d-sm-inline-flex p-2 text-white">
-                                        <span className="DescricaoProduto p-2">
-                                            <p>Placa Mãe Asus EX-B560M</p>
-                                            <a href="">
-                                                <p className="plow pt-3"><i className="fa fa-search-plus" aria-hidden="true"></i> Mostrar detalhes</p>
-                                            </a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td className="text-success p-sm-2">R$ 742,99</td>
-                                <td className="d-flex justify-content-center p-sm-2">
-                                    <p className="d-block d-md-none">Kabum</p>
-                                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                                </td>
-                            </tr>
-                            <tr className="mt-2">
-                                <td>
-                                    <div className="tipoComponente">
-                                        CPU
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="d-sm-inline-flex p-2">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                            data-bs-name="Intel I5 10400F LGA1200" data-bs-foto="https://via.placeholder.com/70x70/"
-                                        >
-                                            <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
-                                            <img className="peca" src="https://via.placeholder.com/70x70/" alt="Foto componente" />
-                                        </a>
-                                    </div>
-                                    <div className="d-sm-inline-flex p-2 text-white">
-                                        <span className="DescricaoProduto p-2">
-                                            <p>Intel I5 10400F LGA1200</p>
-                                            <a href="">
-                                                <p className="plow pt-3"><i className="fa fa-search-plus" aria-hidden="true"></i> Mostrar detalhes</p>
-                                            </a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td className="text-success p-sm-2">R$ 989,99</td>
-                                <td className="d-flex justify-content-center p-sm-2">
-                                    <p className="d-block d-md-none">Kabum</p>
-                                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                                </td>
-                            </tr>
-                            <tr className="mt-2">
-                                <td>
-                                    <div className="tipoComponente">
-                                        RAM
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="d-sm-inline-flex p-2">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                            data-bs-name="Memória Corsair Vengeance LPX 8GB, DDR4, 2400MHz, CL16" data-bs-foto="https://via.placeholder.com/70x70/"
-                                        >
-                                            <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
-                                            <img className="peca" src="https://via.placeholder.com/70x70/" alt="Foto componente" />
-                                        </a>
-                                    </div>
-                                    <div className="d-sm-inline-flex p-2 text-white">
-                                        <span className="DescricaoProduto p-2">
-                                            <p>Memória Corsair Vengeance LPX 8GB, DDR4, 2400MHz, CL16</p>
-                                            <a href="">
-                                                <p className="plow pt-3"><i className="fa fa-search-plus" aria-hidden="true"></i> Mostrar detalhes</p>
-                                            </a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td className="text-success p-sm-2">R$ 214,90</td>
-                                <td className="d-flex justify-content-center p-sm-2">
-                                    <p className="d-block d-md-none">Kabum</p>
-                                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                                </td>
-                            </tr>
-                            <tr className="mt-2">
-                                <td>
-                                    <div className="tipoComponente">
-                                        Case
-                                    </div>
-                                </td>
-                                <td>
-                                    <div className="d-sm-inline-flex p-2">
-                                        <a href="" data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                                            data-bs-name="GABINETE CORSAIR MID TOWER VIDRO TEMP, CC-9011166-WW" data-bs-foto="https://via.placeholder.com/70x70/"
-                                        >
-                                            <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
-                                            <img className="peca" src="https://via.placeholder.com/70x70/" alt="Foto componente" />
-                                        </a>
-                                    </div>
-                                    <div className="d-sm-inline-flex p-2 text-white">
-                                        <span className="DescricaoProduto p-2">
-                                            <p>GABINETE CORSAIR MID TOWER VIDRO TEMP, CC-9011166-WW</p>
-                                            <a href="">
-                                                <p className="plow pt-3"><i className="fa fa-search-plus" aria-hidden="true"></i> Mostrar detalhes</p>
-                                            </a>
-                                        </span>
-                                    </div>
-                                </td>
-                                <td className="text-success p-sm-2">R$ 345,00</td>
-                                <td className="d-flex justify-content-center p-sm-2">
-                                    <p className="d-block d-md-none">Kabum</p>
-                                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                                </td>
-                            </tr>
+                            <TableBuild
+                                setTitleModal={setTitleModal}
+                                setImgBody={setImgBody}
+                                img='https://via.placeholder.com/300x300/'
+                                nome='Placa Mãe Asus EX-B560M'
+                                tipo='MoB'
+                                preco='R$ 742,99'
+                            />
+                            <TableBuild
+                                setTitleModal={setTitleModal}
+                                setImgBody={setImgBody}
+                                img='https://via.placeholder.com/300x300/'
+                                nome='Intel I5 10400F LGA1200'
+                                tipo='CPU'
+                                preco='R$ 989,99'
+                            />
+                            <TableBuild
+                                setTitleModal={setTitleModal}
+                                setImgBody={setImgBody}
+                                img='https://via.placeholder.com/300x300/'
+                                nome='Memória Corsair Vengeance LPX 8GB, DDR4, 2400MHz, CL16'
+                                tipo='RAM'
+                                preco='R$ 214,90'
+                            />
+                            <TableBuild
+                                setTitleModal={setTitleModal}
+                                setImgBody={setImgBody}
+                                img='https://via.placeholder.com/300x300/'
+                                nome='GABINETE CORSAIR MID TOWER VIDRO TEMP, CC-9011166-WW'
+                                tipo='Case'
+                                preco='R$ 345,00'
+                            />
+
                         </tbody>
 
                         <div className="modal fade" id="ModalFoto" aria-labelledby="myModal">
