@@ -5,13 +5,13 @@ import '../styles/build.css'
 import '../styles/main.css'
 import { carousel } from '../script/carousel'
 import { useState } from 'react'
-/* import { Modaltext } from '../script/script.js' */
 //import './App.css'
 
 function Build() {
 
     const [imgBody, setImgBody] = useState('')
     const [titleModal, setTitleModal] = useState('')
+
 
     function Modaltext(img: string, title: string) {
         setImgBody(img);

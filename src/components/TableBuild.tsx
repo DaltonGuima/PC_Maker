@@ -1,4 +1,9 @@
+export function handleModal(img: string, title: string) {
+
+}
+
 export default function TableBuild() {
+
     return (
         <tr className="mt-2">
             <td>
@@ -9,7 +14,7 @@ export default function TableBuild() {
             <td>
                 <div className="d-sm-inline-flex p-2">
                     <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
-                        onFocus={() => Modaltext('https://via.placeholder.com/300x300/', 'Placa Mãe Asus EX-B560M')}
+                        onFocus={() => handleModal('https://via.placeholder.com/300x300/', 'Placa Mãe Asus EX-B560M')}
                     >
                         <p className="d-block d-md-none"><i className="fa fa-image"></i> Ver Imagem</p>
                         <img className="peca" src="https://via.placeholder.com/300x300/" alt="Foto componente" />
