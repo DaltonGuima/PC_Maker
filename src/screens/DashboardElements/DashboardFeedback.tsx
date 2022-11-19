@@ -12,7 +12,7 @@ function DashboardFeedback() {
                         <TableRead
                             tipoCRUD={tipoCRUD}
                             key={'Feedbacks'}
-                            cols={['ID Usuario', 'ID Build', 'Build nome', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes', 'status']}
+                            cols={['ID Usuario', 'ID Build', 'Build nome', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes']}
                             id='Feedbacks'
                             insereDados={false}
                             body={[
