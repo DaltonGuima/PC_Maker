@@ -2,6 +2,8 @@ import { useState } from "react";
 
 interface FeedbackProps {
     idUsuario: string,
+    idBuild: string,
+    nomeBuild: string,
     usuario: string,
     comentario: string,
     upvotes: number,
@@ -21,6 +23,8 @@ export function Feedback(props: FeedbackProps) {
     return (
         <tr className="tr-shadow" contentEditable={editable}>
             <td className="text-nowrap" >{props.idUsuario}</td>
+            <td>{props.idBuild}</td>
+            <td>{props.nomeBuild}</td>
             <td>{props.usuario}</td>
             <td className="desc">{props.comentario}</td>
             <td className="text-success">{props.upvotes} <i className="fa-solid fa-chevron-up"></i></td>

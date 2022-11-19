@@ -12,13 +12,15 @@ function DashboardFeedback() {
                         <TableRead
                             tipoCRUD={tipoCRUD}
                             key={'Feedbacks'}
-                            cols={['ID Usuario', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes', 'status']}
+                            cols={['ID Usuario', 'ID Build', 'Build nome', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes', 'status']}
                             id='Feedbacks'
                             insereDados={false}
                             body={[
                                 <Feedback
                                     key={'1'}
                                     idUsuario={'1'}
+                                    idBuild={'1'}
+                                    nomeBuild='Build Pc Rapidao'
                                     usuario='Astolfo'
                                     comentario="Queria voar"
                                     upvotes={5040}
@@ -26,7 +28,9 @@ function DashboardFeedback() {
                                 />,
                                 <Feedback
                                     key={'2'}
-                                    idUsuario={'2'}
+                                    idUsuario={'1'}
+                                    idBuild={'1'}
+                                    nomeBuild='Build Pc Rapidao'
                                     usuario='Reginaldo'
                                     comentario="Qual é velocidade do computador?"
                                     upvotes={4823}
