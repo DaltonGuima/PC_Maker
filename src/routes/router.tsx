@@ -1,5 +1,5 @@
 import {
-    createBrowserRouter, createRoutesFromElements, Route,
+    createBrowserRouter
 } from "react-router-dom";
 import Home from "../screens/Home";
 import Login from "../screens/Login";
@@ -28,6 +28,7 @@ import DashboardFeedback from "../screens/DashboardElements/DashboardFeedback";
 import DashboardPerguntas from "../screens/DashboardElements/DashboardPerguntas";
 import DashboardInsercaoPerguntas from "../screens/DashboardElements/DashboardInsercaoPerguntas";
 import ErrorPage from "../screens/ErrorPage";
+import Builder_Pc from "../screens/Builder_Pc";
 
 
 export const router = createBrowserRouter([
@@ -52,7 +53,10 @@ export const router = createBrowserRouter([
         path: "/perfil",
         element: <Perfil />
     },
-
+    {
+        path: "/building",
+        element: <Builder_Pc />
+    },
     /* Dashboard */
     {
         element: <Dashboard />,

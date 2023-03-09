@@ -1,0 +1,16 @@
+.menu-line {
+  background-color: rgb(53, 58, 60);
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.first-column-build {
+  border-right: 0.5rem solid #212425;
+}
+
+.btn-builder {
+  background-color: blueviolet;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+}

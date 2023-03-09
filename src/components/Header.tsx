@@ -1,4 +1,9 @@
+import useLocalStorage from 'use-local-storage'
+
 export function Header() {
+    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
+
     return (
         <header>
             <div id="acessibilidade" className="container-fluid bg-dark border-bottom py-2 border-secondary">
@@ -26,7 +31,7 @@ export function Header() {
                             <ul className="atalhos list-group list-group-horizontal">
                                 <li id="pgacess"><a href="acessibilidade.html"><i className="fa-solid fa-circle-info"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
-                                <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
+                                <li className="contraste"><a href="" id="semcontraste" data-theme={theme}><i className="fa-solid fa-circle-stop"></i></a></li>
                                 <li className="fonte"><a href="" id="aumentar"><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
                                 <li className="fonte"><a href="" id="diminuir"><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                             </ul>

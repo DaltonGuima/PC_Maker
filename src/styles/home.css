@@ -2,6 +2,12 @@ main {
   background-color: #212425;
   margin: 0;
 }
+[data-theme="dark"] {
+  --background: white;
+  --text-primary: black;
+  --text-secondary: grey;
+  --accent: darkred;
+}
 
 /* *Banner */
 

@@ -1,7 +1,11 @@
 main {
-  background-color: #212425;
+  background-color: #212425; /* #212425 */
   margin: 0;
   padding: 0;
+}
+
+.contraste {
+  background-color: #212425;
 }
 
 .headline {
