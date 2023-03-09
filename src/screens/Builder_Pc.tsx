@@ -2,7 +2,7 @@ import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import "../styles/home.css";
 import "../styles/main.css";
-import "../styles/builder_Pc.css";
+import "../styles/builder_PC.css";
 
 //Importa titulo
 import useDocumentTitle from "../script/useDocumentTitle";
@@ -27,13 +27,19 @@ function Home() {
               https://pcmaker.com.br/lista/dpGwc
             </div>
             <div className="col-sm-2 py-3">
-              <i className="fa fa-pencil mx-1" aria-hidden="true"></i>Histórico
+              <button className="btn-menu-line">
+                <i className="fa fa-pencil mx-1" aria-hidden="true"></i>Histórico
+              </button>
             </div>
             <div className="col-sm-2 py-3">
-              <i className="fa-solid fa-floppy-disk mx-1"></i>Salvar
+              <button className="btn-menu-line">
+                <i className="fa-solid fa-floppy-disk mx-1"></i>Salvar
+              </button>
             </div>
             <div className="col-sm-2 py-3">
-              <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
+              <button className="btn-menu-line">
+                <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
+              </button>
             </div>
           </div>
 
