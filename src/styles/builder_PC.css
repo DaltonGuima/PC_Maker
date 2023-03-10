@@ -3,10 +3,11 @@
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
 }
 
-.first-column-build {
-  border-right: 0.5rem solid #212425;
+@media screen and (min-width: 768px) {
+  .first-column-build {
+    border-right: 0.5rem solid #212425;
+  }
 }
-
 .btn-builder {
   background-color: blueviolet;
   color: white;
@@ -19,4 +20,14 @@
   background-color: transparent;
   border: none;
   color: white;
+}
+
+.notes-builder {
+  border-bottom: #7042d5 solid 2px;
+}
+
+.state-note {
+  background-color: green;
+  text-align: center;
+  height: 2rem;
 }

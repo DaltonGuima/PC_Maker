@@ -3,21 +3,26 @@ import { Footer } from '../components/Footer'
 import { Header } from '../components/Header'
 import '../styles/home.css'
 import '../styles/main.css'
-
+import "../styles/builder_PC.css";
+import useLocalStorage from 'use-local-storage'
 
 //Importa titulo
 import useDocumentTitle from '../script/useDocumentTitle'
+
+import { useState } from 'react'
 //import './App.css'
 
 function Home() {
 
+
   //Importar titulo
+
   useDocumentTitle('Home')
 
   return (
     <div>
       <Header />
-      <main id="conteudo">
+      <main id="conteudo" className="app">
 
         <div className="banner banner1">
           <div className="row-fluid rounded">

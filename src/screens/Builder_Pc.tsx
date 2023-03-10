@@ -1,8 +1,5 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import "../styles/home.css";
-import "../styles/main.css";
-import "../styles/builder_PC.css";
 
 //Importa titulo
 import useDocumentTitle from "../script/useDocumentTitle";
@@ -91,24 +88,59 @@ function Home() {
                   <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Fonte de Alimentação</button>
                 </td>
               </tr>
-
-
-
             </tbody>
-
           </table>
-          <div className="container-fluid text-light text-right TextAfterTable" >
-            <div className="row">
-              <div className="col">
-                <h3>Voltagem Estimada: <small className="text-secondary">315W</small></h3>
-                <h3>Total: <small className="text-secondary">R$ 4137,21</small></h3>
-              </div>
+        </div>
+        <div className="container-fluid text-light text-right TextAfterTable" >
+          <div className="row">
+            <div className="col">
+              <h3>Voltagem Estimada: <small className="text-secondary">315W</small></h3>
+              <h3>Total: <small className="text-secondary">R$ 4137,21</small></h3>
             </div>
           </div>
         </div>
-      </main>
+
+        <div className="container col-md-10 my-5">
+
+          <div className="notes-builder text-light">
+            <div className="row mb-3">
+              <div className="col-md-4">
+                <h3>
+                  Nota de Compatiblidade:
+                </h3>
+              </div>
+              <div className="state-note rounded col-md-1">
+                <p className="fw-bold">Compatível</p>
+              </div>
+            </div>
+          </div>
+
+
+          <div className="row">
+            <div>
+              <div className="my-2">
+
+                <div className="row">
+                  <div className="btn-builder mx-2 p-2 px-4 rounded col-md-2 col-4">Observação I:</div>
+                  <p className="text-light col my-2">Um adpatador</p>
+                </div>
+              </div>
+              <div className="my-2">
+
+                <div className="row">
+                  <div className="btn-builder mx-2 p-2 px-4 rounded col-md-2 col-4">Observação II:</div>
+                  <p className="text-light col my-2">a</p>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </main >
       <Footer />
-    </div>
+    </div >
   );
 }
 

@@ -1,12 +1,32 @@
-main {
-  background-color: #212425;
-  margin: 0;
+:root {
+  --background-primary: red;
+  --background-secondary: rgb(223, 223, 223);
+  --text-primary: black;
+  --text-secondary: royalblue;
+  --accent: purple;
 }
 [data-theme="dark"] {
-  --background: white;
-  --text-primary: black;
+  --background-primary: white; /*   #212425 */
+  --text-primary: white;
   --text-secondary: grey;
   --accent: darkred;
+}
+
+main {
+  background-color: var(--background-primary); /* #212425 */
+  margin: 0;
+}
+
+h1 {
+  background-color: var(--background-primary);
+}
+
+#temaSwitcher {
+  color: var(--text-primary);
+  background-color: var(--background-primary);
+  border: 2px var(--text-primary) solid;
+  float: right;
+  transition: all 0.5s;
 }
 
 /* *Banner */
