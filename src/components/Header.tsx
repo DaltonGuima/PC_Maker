@@ -1,6 +1,8 @@
+import { hookstate, State, useHookstate } from '@hookstate/core';
+import { useEffect, useState } from 'react';
 import useLocalStorage from 'use-local-storage'
 
-
+export const themePage = hookstate("");
 
 
 export function Header() {
@@ -11,6 +13,14 @@ export function Header() {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
     }
+    const changeTheme = useHookstate(themePage)
+
+    useEffect(() => {
+        changeTheme.set(theme)
+        console.log(changeTheme.get())
+    });
+
+
 
     return (
         <header>

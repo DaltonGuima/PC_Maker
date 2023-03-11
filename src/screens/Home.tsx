@@ -1,29 +1,27 @@
 import { CardBuild } from '../components/CardBuild'
 import { Footer } from '../components/Footer'
-import { Header } from '../components/Header'
+import { Header, themePage } from '../components/Header'
 import '../styles/home.css'
 import '../styles/main.css'
 import "../styles/builder_PC.css";
-import useLocalStorage from 'use-local-storage'
+
 
 //Importa titulo
 import useDocumentTitle from '../script/useDocumentTitle'
+import { useHookstate } from '@hookstate/core'
 
-import { useState } from 'react'
 //import './App.css'
 
 function Home() {
-
-
-  //Importar titulo
-
+  const changeTheme = useHookstate(themePage)
   useDocumentTitle('Home')
 
   return (
-    <div>
+    <div data-theme={changeTheme.get()}>
       <Header />
-      <main id="conteudo" className="app">
 
+      <main id="conteudo" className="app">
+        <h1>{changeTheme.get()}</h1>
         <div className="banner banner1">
           <div className="row-fluid rounded">
             <div className="cardbanner">
