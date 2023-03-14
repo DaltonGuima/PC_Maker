@@ -1,5 +1,5 @@
 import { Outlet } from 'react-router'
-/* import '../styles/theme.css' */
+import '../styles/theme.css'
 import useDocumentTitle from '../script/useDocumentTitle'
 
 //import './App.css'

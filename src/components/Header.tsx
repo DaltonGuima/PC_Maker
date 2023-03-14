@@ -1,26 +1,10 @@
-import { hookstate, State, useHookstate } from '@hookstate/core';
-import { useEffect, useState } from 'react';
-import useLocalStorage from 'use-local-storage'
+import { useHookstate } from '@hookstate/core';
 
-export const themePage = hookstate("");
-
+import { switchTheme, themePage } from '../script/changeTheme'
 
 export function Header() {
-    const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const [theme, setTheme] = useLocalStorage('theme', defaultDark ? 'dark' : 'light');
 
-    const switchTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    }
     const changeTheme = useHookstate(themePage)
-
-    useEffect(() => {
-        changeTheme.set(theme)
-        console.log(changeTheme.get())
-    });
-
-
 
     return (
         <header>
@@ -48,7 +32,7 @@ export function Header() {
                         <div className="d-md-inline-flex col-md Funcoes">
                             <ul className="atalhos list-group list-group-horizontal">
                                 <li id="pgacess"><a href="acessibilidade.html"><i className="fa-solid fa-circle-info"></i></a></li>
-                                <li className="tema" data-theme={theme}><button id="temaSwitcher" onClick={switchTheme}>a</button><a ><i className="fa-solid fa-sun"></i></a></li>
+                                <li className="tema" data-theme={changeTheme}><button id="temaSwitcher" onClick={() => switchTheme()}>a</button><a ><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
                                 <li className="fonte"><a href="" id="aumentar"><i className="fa-solid fa-arrow-up-a-z"></i></a></li>

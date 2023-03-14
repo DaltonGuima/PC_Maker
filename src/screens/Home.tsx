@@ -1,6 +1,6 @@
 import { CardBuild } from '../components/CardBuild'
 import { Footer } from '../components/Footer'
-import { Header, themePage } from '../components/Header'
+import { Header } from '../components/Header'
 import '../styles/home.css'
 import '../styles/main.css'
 import "../styles/builder_PC.css";
@@ -9,8 +9,10 @@ import "../styles/builder_PC.css";
 //Importa titulo
 import useDocumentTitle from '../script/useDocumentTitle'
 import { useHookstate } from '@hookstate/core'
+//Importa tema
+import { themePage } from '../script/changeTheme'
 
-//import './App.css'
+
 
 function Home() {
   const changeTheme = useHookstate(themePage)
