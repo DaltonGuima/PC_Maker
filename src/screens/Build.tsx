@@ -123,10 +123,12 @@ function Build() {
                         <b>Descrição</b>
                     </div>
                     <div className="form-group" >
-                        <textarea className="form-control" id="boxDescricao" rows={4} disabled>Máquina de venda automática NukaCola personalizada com garrafas Quantum (Glass Coke a Cola).
+                        <textarea className="form-control" id="boxDescricao" rows={4} disabled >
+                            Máquina de venda automática NukaCola personalizada com garrafas Quantum (Glass Coke a Cola).
 
                             Eu queria construir este PC usando o gabinete NZXT Nuka Cola... Fractal Define R6 USB-C com vidro temperado como chassi, e com vinil personalizado mas não foi possível.
-                            Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling.</textarea>
+                            Tem vários módulos RGB e ótima circulação de ar + sistema de liquid cooling.
+                        </textarea>
                     </div>
                 </div>
 
@@ -179,23 +181,23 @@ function Build() {
 
                         </tbody>
 
-                        <div className="modal fade" id="ModalFoto" aria-labelledby="myModal">
-                            <div className="modal-dialog">
-                                <div className="modal-content bg-dark text-light">
+                    </table>
+                    <div className="modal fade" id="ModalFoto" aria-labelledby="myModal">
+                        <div className="modal-dialog">
+                            <div className="modal-content bg-dark text-light">
 
-                                    <div className="modal-header">
-                                        <h6 className="modal-title ">{titleModal}</h6>
-                                        <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-                                    <div className="modal-body d-flex justify-content-center">
-                                        <img src={imgBody} className="img-fluid" alt="Foto componente" />
-                                    </div>
-
+                                <div className="modal-header">
+                                    <h6 className="modal-title ">{titleModal}</h6>
+                                    <button type="button" className="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
+
+                                <div className="modal-body d-flex justify-content-center">
+                                    <img src={imgBody} className="img-fluid" alt="Foto componente" />
+                                </div>
+
                             </div>
                         </div>
-                    </table>
+                    </div>
                 </div>
 
                 <br />
