@@ -8,8 +8,3 @@ function DefaultTheme() {
 }
 
 export const themePage = hookstate(DefaultTheme());
-
-export const switchTheme = () => {
-    const newTheme = themePage.get() === 'light' ? 'dark' : 'light';
-    themePage.set(newTheme);
-}

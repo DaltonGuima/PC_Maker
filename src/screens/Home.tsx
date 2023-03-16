@@ -4,6 +4,7 @@ import { Header } from '../components/Header'
 import '../styles/home.css'
 import '../styles/main.css'
 import "../styles/builder_PC.css";
+import "../styles/search.css";
 
 
 //Importa titulo
@@ -23,7 +24,6 @@ function Home() {
       <Header />
 
       <main id="conteudo" className="app">
-        <h1>{changeTheme.get()}</h1>
         <div className="banner banner1">
           <div className="row-fluid rounded">
             <div className="cardbanner">
@@ -68,7 +68,7 @@ function Home() {
 
         <div className="banner banner2">
 
-          <h1 className="text-center text-light">Guias</h1>
+          <h1 className="text-center text-light" id="GuiaBlocoCentral">Guias</h1>
 
         </div>
 

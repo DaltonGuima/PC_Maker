@@ -7,8 +7,12 @@ import '../styles/main.css'
 import { useState } from 'react'
 import { FormControl } from '../components/FormControl'
 
+import { useHookstate } from '@hookstate/core';
+import { themePage } from '../script/changeTheme';
+
 function Perfil() {
 
+    const changeTheme = useHookstate(themePage)
     const [checked, setChecked] = useState(false);
     const [formControl, setFormControl] = useState(false);
     const [formButton, setFormButton] = useState(true);
@@ -31,7 +35,7 @@ function Perfil() {
 
 
     return (
-        <div>
+        <div data-theme={changeTheme.get()}>
             <title>Home</title>
             <Header />
             <main id="conteudo">

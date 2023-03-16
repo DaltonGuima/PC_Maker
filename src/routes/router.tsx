@@ -29,6 +29,7 @@ import DashboardPerguntas from "../screens/DashboardElements/DashboardPerguntas"
 import DashboardInsercaoPerguntas from "../screens/DashboardElements/DashboardInsercaoPerguntas";
 import ErrorPage from "../screens/ErrorPage";
 import Builder_Pc from "../screens/Builder_Pc";
+import Search from "../screens/Search";
 
 
 export const router = createBrowserRouter([
@@ -56,6 +57,10 @@ export const router = createBrowserRouter([
     {
         path: "/building",
         element: <Builder_Pc />
+    },
+    {
+        path: "/search",
+        element: <Search />
     },
     /* Dashboard */
     {

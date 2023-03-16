@@ -7,6 +7,8 @@ import { carousel } from '../script/carousel'
 import { useState } from 'react'
 import TableBuild from '../components/TableBuild'
 import useDocumentTitle from '../script/useDocumentTitle'
+import { useHookstate } from '@hookstate/core'
+import { themePage } from '../script/changeTheme'
 //import './App.css'
 
 function Build() {
@@ -22,8 +24,10 @@ function Build() {
         setTitleModal(title);
     }
 
+    const changeTheme = useHookstate(themePage)
+
     return (
-        <div>
+        <div data-theme={changeTheme.get()}>
             <Header />
             <main id="conteudo">
                 {/* <!-- #212425 --> */}
