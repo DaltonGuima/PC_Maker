@@ -1,22 +1,3 @@
-:root {
-  --background-primary: white;
-  --background-secondary: rgb(223, 223, 223);
-  --background-tertiary: rgb(192, 184, 184); /* precisa ser trocado */
-  --background-primary-transparent: rgba(255, 255, 255, 0.4);
-  --text-primary: black;
-  --text-secondary: royalblue;
-  --accent: purple;
-}
-[data-theme="dark"] {
-  --background-primary: #212425;
-  --background-secondary: #353a3c;
-  --background-tertiary: #333333;
-  --background-primary-transparent: rgba(33, 36, 37, 0.9);
-  --text-primary: white;
-  --text-secondary: aliceblue;
-  --accent: darkred;
-}
-
 main {
   background-color: var(--background-primary); /* #212425 */
   margin: 0;
@@ -101,7 +82,7 @@ h6 {
   color: var(--text-primary);
 }
 
-.cardbanner .card-body-h a:hover {
+.cardbanner .card-body-h a:fa-close {
   background-color: rgba(112, 66, 213, 0.6);
 }
 

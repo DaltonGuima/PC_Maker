@@ -83,7 +83,6 @@ a[data-toggle="collapse"] {
 ----------------------------------------------------- */
 
 #content {
-  width: 100%;
   padding: 20px;
   min-height: 100vh;
   transition: all 0.3s;
@@ -103,4 +102,8 @@ a[data-toggle="collapse"] {
   #sidebarCollapse span {
     display: none;
   }
+}
+
+.side-component {
+  transition: all 0.2s;
 }

@@ -1,6 +1,7 @@
 .menu-line {
-  background-color: rgb(53, 58, 60);
+  background-color: var(--background-secondary); /* rgb(53, 58, 60) */
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  color: var(--text-primary) !important;
 }
 
 @media screen and (min-width: 768px) {
@@ -8,6 +9,11 @@
     border-right: 0.5rem solid #212425;
   }
 }
+
+.menu-info-medio {
+  color: var(--text-primary) !important;
+}
+
 .btn-builder {
   background-color: blueviolet;
   color: white;

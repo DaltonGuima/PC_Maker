@@ -43,7 +43,7 @@ function Build() {
                     <div className="otherProfile">
                         <div className="row-fluid text-center p-2">
                             <div className="col col-lg-10 col-md-9 d-inline-flex">
-                                <a className="nav-link dropleft text-decoration-none" href="#" role="button" data-bs-toggle="dropdown">
+                                <a className="nav-link dropleft text-decoration-none texto-temoso" href="#" role="button" data-bs-toggle="dropdown">
                                     <img src="/among_us2.png" alt="Foto de Perfil" />Computador NukaCola - xxx_EnzoG4mer_xxx
                                 </a>
                             </div>
@@ -119,7 +119,7 @@ function Build() {
                     <button id="next" onClick={carousel}><i className="arrow"></i></button>
                 </div>
                 <div id="descricaoSection">
-                    <div id="descricaoTitle">
+                    <div id="descricaoTitle" className="texto-temoso">
                         <b>Descrição</b>
                     </div>
                     <div className="form-group" >

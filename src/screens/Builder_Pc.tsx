@@ -19,22 +19,22 @@ function Home() {
 
         <div className="menu-line col-9 container-fluid my-3 rounded text-white">
           <div className="row">
-            <div className="col-6 text-decoration-underline first-column-build py-3">
+            <div className="col-6 text-decoration-underline first-column-build py-3 menu-info-medio">
               <i className="fa-solid fa-link mx-1"></i>
               https://pcmaker.com.br/lista/dpGwc
             </div>
-            <div className="col-sm-2 py-3">
-              <button className="btn-menu-line">
-                <i className="fa fa-pencil mx-1" aria-hidden="true"></i>Histórico
+            <div className="col-sm-2 py-3 ">
+              <button className="btn-menu-line menu-info-medio">
+                <i className="fa-solid fa-pencil mx-1" aria-hidden="true"></i>Histórico
               </button>
             </div>
             <div className="col-sm-2 py-3">
-              <button className="btn-menu-line">
+              <button className="btn-menu-line menu-info-medio">
                 <i className="fa-solid fa-floppy-disk mx-1"></i>Salvar
               </button>
             </div>
             <div className="col-sm-2 py-3">
-              <button className="btn-menu-line">
+              <button className="btn-menu-line menu-info-medio">
                 <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
               </button>
             </div>

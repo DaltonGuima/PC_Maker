@@ -5,7 +5,7 @@
   margin-top: 1rem;
   padding-left: 1.5rem;
   font-size: small;
-  background-color: #212425;
+  background-color: var(--background-secondary); /* #212425 */
 }
 
 @media screen and (min-width: 1024px) {
@@ -22,6 +22,7 @@
 
 .navbar-primary .dropdown-item {
   height: 3rem;
+  color: var(--text-primary) !important;
 }
 
 .navbar-primary #LastInGroup {
@@ -81,6 +82,7 @@
 }
 
 .social-icons a {
+  background-color: var(--background-secondary);
   width: 43px;
   height: 43px;
   text-decoration: none;
@@ -91,8 +93,14 @@
   text-align: center;
 }
 
+.fa-check,
+.fa-close,
+.fa-trash {
+  color: white;
+}
+
 .disabled {
-  color: gray;
+  color: var(--text-secondary);
 }
 
 .main-container .btn {
@@ -138,7 +146,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(112, 66, 213, 0.5);
+  background-color: #a88ff1; /*    rgba(112, 66, 213, 0.5)    */
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
@@ -156,11 +164,11 @@
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #7042d5;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+  box-shadow: 0 0 1px #7042d5;
 }
 
 input:checked + .slider:before {
@@ -176,4 +184,16 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.btn:first-child:hover {
+  background-color: #5f2ad4; /*#a10a5a*/
+}
+
+#cancel:hover {
+  background-color: #d8071c !important; /*#a10a5a*/
+}
+
+#salvar:hover {
+  background-color: #015a31 !important; /*#a10a5a*/
 }

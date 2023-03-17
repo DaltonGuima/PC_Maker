@@ -60,15 +60,15 @@ function Perfil() {
                         <button className="dropdown-item text-light" type="button" id="MyAccountBtn" autoFocus>
                             <i onClick={showOrHide} aria-hidden="true"></i> Build Perfil (Questionario) </button>
                         <button className="dropdown-item text-light" type="button" id="UserProfileBtn">
-                            <i className="fa fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
+                            <i className="fa-solid fa-pencil" aria-hidden="true"></i> Perfil Usuário</button>
                         <button className="dropdown-item text-light" type="button">
-                            <i className="fa fa-lock" aria-hidden="true"></i> Login e Segurança</button>
+                            <i className="fa-solid fa-lock" aria-hidden="true"></i> Login e Segurança</button>
                         <button className="dropdown-item text-light" id="LastInGroup" type="button">
-                            <i className="fa fa-envelope" aria-hidden="true"></i> Preferências de Email</button>
+                            <i className="fa-solid fa-envelope" aria-hidden="true"></i> Preferências de Email</button>
                         <button className="dropdown-item text-light" type="button">
-                            <i className="fa fa-microchip" aria-hidden="true"></i> Builds Salvas</button>
+                            <i className="fa-solid fa-microchip" aria-hidden="true"></i> Builds Salvas</button>
                         <button className="dropdown-item text-light" type="button">
-                            <i className="fa fa-desktop" aria-hidden="true"></i> Minhas Builds</button>
+                            <i className="fa-solid fa-desktop" aria-hidden="true"></i> Minhas Builds</button>
                     </div>
                 </nav>
                 <div className="break"> </div>

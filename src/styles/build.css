@@ -44,7 +44,7 @@ main {
 .tipoTela,
 .dataCriacao {
   background-color: #7042d5;
-  color: var(--text-secondary);
+  color: white;
   margin-top: 1.5rem;
   margin-left: 1.5rem;
   margin-bottom: 0.5rem;
@@ -325,7 +325,7 @@ div.slide:not(:last-child) {
 /* Rate */
 .RattingIcons i {
   color: transparent;
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.5);
+  -webkit-text-stroke: 1px var(--text-secondary); /*    rgba(255, 255, 255, 0.5)   */
 }
 
 .RattingVote input {
