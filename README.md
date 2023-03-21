@@ -5,6 +5,8 @@ Grupo 6
 - Dalton Joaquim Soares Guimarães
 - Lucas Albuquerque Paradella
 - Matheus de Carvalho Simões
+##### Processo de Desenvolvimento de Software - PDS
+> O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 ##### Estudo de Caso – Sistema de Montagem de Desktops e Interação entre os Usuários
 > No contexto do projeto interdisciplinar o estudo de caso tem como objetivo desenvolver e implantar um Sistema de Montagem de Desktops e Interação entre os Usuários.
 Os seguintes requisitos foram identificados na primeira reunião com o cliente (RU – Requisito de Usuário). O resultado da análise conclui que será possível implementar
