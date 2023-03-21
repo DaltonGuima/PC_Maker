@@ -38,7 +38,8 @@ como: "Quais aplicativos você irá utilizar?". Além disso, o cliente poderá m
 redirecionado para os sites onde as peças do desktop montado estarão disponíveis para compra.
 
 ##### Canvas 
-
+>
+O modelo Canva do Projeto:
 ![canvas](https://i.imgur.com/R1COMC1.png)
 
 ##### Sprint Backlog
@@ -46,12 +47,22 @@ redirecionado para os sites onde as peças do desktop montado estarão disponív
 ###
 | Identificador | Descrição | Prioridade |
 | ------------ | ------------------------------------------------------------------------ | ------|
+| REQ01 –  Gerenciar Usuários | Como – administrador, Eu quero – gerenciar usuários, De maneira que – seja possível identificar o cliente e o endereço de entrega para confirmar uma venda| Média |
+| REQ02 – consultar cliente por ID| Como – vendedor, Eu quero – consultar um cliente pelo ID, De maneira que – seja possível obter informações detalhas do cliente | Alta |
+| REQ03 – consultar cliente por CPF | Como – vendedor, Eu quero – consultar um cliente, De maneira que – seja possível obter informações detalhas do cliente | Alta |
+| REQ04 – consultar todos os clientes | Como – vendedor, Eu quero – consultar todos os clientes cadastrado, De maneira que – seja possível obter uma lista de clientes | Baixa |
+| REQ05 – corrigir informações de cliente | Como – vendedor, Eu quero – corrigir as informações do cliente, De maneira que – seja possível manter as informações atualizadas | Baixa |
+| REQ06 – excluir cliente | Como – vendedor, Eu quero – excluir um cliente, De maneira que – seja possível manter informações somente de clientes ativos | Baixa |
+
 | REQ01 – cadastrar cliente | Como – vendedor, Eu quero – cadastrar o cliente, De maneira que – seja possível identificar o cliente e o endereço de entrega para confirmar uma venda| Média |
 | REQ02 – consultar cliente por ID| Como – vendedor, Eu quero – consultar um cliente pelo ID, De maneira que – seja possível obter informações detalhas do cliente | Alta |
 | REQ03 – consultar cliente por CPF | Como – vendedor, Eu quero – consultar um cliente, De maneira que – seja possível obter informações detalhas do cliente | Alta |
 | REQ04 – consultar todos os clientes | Como – vendedor, Eu quero – consultar todos os clientes cadastrado, De maneira que – seja possível obter uma lista de clientes | Baixa |
 | REQ05 – corrigir informações de cliente | Como – vendedor, Eu quero – corrigir as informações do cliente, De maneira que – seja possível manter as informações atualizadas | Baixa |
 | REQ06 – excluir cliente | Como – vendedor, Eu quero – excluir um cliente, De maneira que – seja possível manter informações somente de clientes ativos | Baixa |
+
+
+
 
 ##### Definição de pronto
 > O sprint será considerado concluido quando:
