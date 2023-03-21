@@ -1,5 +1,5 @@
-  ### Fatec ZL - Centro Paula Souza
-  ## Projeto - Junta Peça (nome novo)
+### Fatec ZL - Centro Paula Souza
+## Projeto - Junta Peça (nome novo)
 ##### Disciplina - Programação Web III
 Grupo 6
 - Gabriel Magalhães de Oliveira
@@ -36,6 +36,10 @@ fazer login no nosso site, para que o computador seja montado sob medida para o 
 realizar um questionário prévio com respostas delimitadas. Nesse, o cliente terá que responder perguntas
 como: "Quais aplicativos você irá utilizar?". Além disso, o cliente poderá montar a própria Build e postala para que outras pessoas possam visualiza-la. E, por fim, em ambos os casos, o cliente será
 redirecionado para os sites onde as peças do desktop montado estarão disponíveis para compra.
+
+##### Canvas 
+
+![canvas](https://i.imgur.com/R1COMC1.png)
 
 ##### Sprint Backlog
 > Cada requisito tem um identificador único de maneira que seja possível rastrear a necessidade do cliente com a implementação do software.
