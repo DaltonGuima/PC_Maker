@@ -5,14 +5,30 @@ Grupo 6
 - Dalton Joaquim Soares Guimarães
 - Lucas Albuquerque Paradella
 - Matheus de Carvalho Simões
+
+
+
+O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  responsável  por  realizar  a montagem de Hardware de acordo com a necessidade do cliente. Ademais,  os  usuários  da  plataforma  poderão  realizar  a  montagem  de  computadores  por  conta própria e salvar na aba Builds.
+
+
+
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
+
+##### Objetivo do Projeto
+> O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  responsável  por  realizar  a montagem de Hardware de acordo com a necessidade do cliente. Ademais,  os  usuários  da  plataforma  poderão  realizar  a  montagem  de  computadores  por  conta própria e salvar na aba Builds. 
+
+##### Descrição do Projeto
+>    Primeiramente, é de suma importância explicar como surgiu a nossa ideia. Ela começou coma análise  de  estudos  profissionais  e  de  acontecimentos  pessoais  durante  a  pandemia.  Durante  as  nossas pesquisas iniciais, para decidir um tema, percebemos que o assunto tecnologia estava em alta. Após um aprofundamento,chegamos em um estudo da IDC Brasil que mostrava a seguinte informação: “o mercado brasileiro de PCs fechou 2021 com alta de 37% em relação a 2020.” Junto a isso, uma parcela 
+dos integrantes  do  grupo  relatou que  alguns  de  seus  parentes  tiveram  dificuldades  para  escolher  um desktop durante a pandemia.
+
+>   Levando  esses pontos em consideração, decidimos elaborar um site que  auxilie os usuários na compra de um desktop funcional, sem que ocorra desperdícios de recursoseconômicos ede hardware.
+
+>   O  nosso  site  irá  atender  alguns  requisitos  como,  por  exemplo:  o  usuário  poderá  se  cadastrar  e fazer login no nosso site,para que o computador seja montado sob medida para o cliente, ele terá que realizar um questionário prévio com respostas delimitadas. Nesse, o cliente terá que responder perguntas como: "Quais aplicativos você irá utilizar?". Além disso, o cliente poderá montar a própria Build e posta-la  para  que  outras  pessoas  possam  visualiza-la.  E,  por  fim,  em  ambos  os  casos,  o  cliente  será redirecionado para os sites onde as peças do desktop montado estarão disponíveis para compra.
+
+
 ##### Estudo de Caso – Sistema de Montagem de Desktops e Interação entre os Usuários
-> No contexto do projeto interdisciplinar o estudo de caso tem como objetivo desenvolver e implantar um Sistema de Montagem de Desktops e Interação entre os Usuários.
-Os seguintes requisitos foram identificados na primeira reunião com o cliente (RU – Requisito de Usuário). O resultado da análise conclui que será possível implementar
-o projeto no semestre com grupos de alunos atuando como programadores. O maior risco identificado é a falta de tempo para reunião do time de desenvolvimento e estudo
-do projeto. O grupo deve definir estratégias para mitigar o risco de dificuldades com a linguagem de programação, identificando membros do grupo com problemas na
-programação, selecionando videoaulas, referência bibliográficas, para melhora a produtividade do time.
+
 ##### Product Backlog
 - RU01 - Compras - Registra e acompanha os processos de compras na organização, prevê a entrega programada de pedidos de compra
 - RU02 - Recebimento - Registra, controla e informa sobre a entrada de mercadorias e integra as informações dos dados da nota fiscal de entrada com o estoque
