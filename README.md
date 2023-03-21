@@ -5,10 +5,8 @@ Grupo 6
 - Dalton Joaquim Soares Guimarães
 - Lucas Albuquerque Paradella
 - Matheus de Carvalho Simões
-##### Processo de Desenvolvimento de Software - PDS
-> O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
-##### Estudo de Caso – Sistema Integrado de Gestão
-> No contexto do projeto interdisciplinar o estudo de caso tem como objetivo desenvolver e implantar um Sistema Integrado de Gestão de Vendas e Suprimentos.
+##### Estudo de Caso – Sistema de Montagem de Desktops e Interação entre os Usuários
+> No contexto do projeto interdisciplinar o estudo de caso tem como objetivo desenvolver e implantar um Sistema de Montagem de Desktops e Interação entre os Usuários.
 Os seguintes requisitos foram identificados na primeira reunião com o cliente (RU – Requisito de Usuário). O resultado da análise conclui que será possível implementar
 o projeto no semestre com grupos de alunos atuando como programadores. O maior risco identificado é a falta de tempo para reunião do time de desenvolvimento e estudo
 do projeto. O grupo deve definir estratégias para mitigar o risco de dificuldades com a linguagem de programação, identificando membros do grupo com problemas na
@@ -21,14 +19,6 @@ programação, selecionando videoaulas, referência bibliográficas, para melhor
 > Cada requisito tem um identificador único de maneira que seja possível rastrear a necessidade do cliente com a implementação do software.
 
 | Identificador | Descrição | Prioridade |
-  ### Fatec ZL - Centro Paula Souza
-##### Disciplina - Programação Web III
-Grupo X
-- Joaquim da Silva Xavier
-- Jose Bonifacio
-- Isabel Cristina Leopoldina
-##### Processo de Desenvolvimento de Software - PDS
-> O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 ##### Estudo de Caso – Sistema Integrado de Gestão
 > No contexto do projeto interdisciplinar o estudo de caso tem como objetivo desenvolver e implantar um Sistema Integrado de Gestão de Vendas e Suprimentos.
 Os seguintes requisitos foram identificados na primeira reunião com o cliente (RU – Requisito de Usuário). O resultado da análise conclui que será possível implementar
