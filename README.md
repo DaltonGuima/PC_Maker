@@ -12,7 +12,7 @@ O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  res
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 
-##### Objetivo do projeto
+##### Estudo de Caso/Objetivo do projeto
 
 > O nosso projeto foi batizado de PCMaker. Ele será uma plataforma responsável por realizar a 
 montagem de Hardware de acordo com a necessidade do cliente. 
