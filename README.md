@@ -42,7 +42,7 @@ redirecionado para os sites onde as peças do desktop montado estarão disponív
 O modelo Canva do Projeto:
 ![canvas](https://i.imgur.com/R1COMC1.png)
 
-##### Sprint Backlog
+##### Requisitos Funcionais
 > Cada requisito tem um identificador único de maneira que seja possível rastrear a necessidade do cliente com a implementação do software.
 ###
 | Identificador | Descrição | Prioridade |
@@ -67,91 +67,14 @@ O modelo Canva do Projeto:
 é estabelecido pelo identificador do caso de teste.
 > 2) Depois de executado os casos de teste com 100% de satisfatorios o código deve ser armazenado no github (commit).
 
-##### Casos de teste
-| Identificador | Cenário de uso |
-| ------------ | ------------------------------------------------------------------------ |
-| REQ01CT01 | Dado (setup) que o CPF do cliente não está cadastrado; Quando (ação) o usuário confirma o cadastro; Então (resultado esperado) o sistema envia uma mensagem de cadastro realizado com sucesso |
-| REQ01CT02 | Dado (setup) que o CPF do cliente está cadastrado; Quando (ação) o usuário confirma o cadastro; Então (resultado esperado) o sistema rejeita e envia uma mensagem de dados inválidos |
->
+##### Modelo de Domínio
+
 O modelo de dominio (Larman, 2006 - classes conceituais ou classes de negócio) foi definido considerando as seguintes classes:
-![modelo de dominio](https://user-images.githubusercontent.com/68782201/160412338-54c2c974-d6d2-4ab6-bea5-e1137a6f7e6c.jpg)
-A arquitetura segue uma abordagem orientada a serviços. Os serviços foram classificados em três tipos (ERL, 2007):
-- **1. Serviços utilitários**. Implementam funcionalidades comuns a vários tipos de aplicações, como, por exemplo: log, notificação, transformação de informações. Um exemplo de serviço utilitário é um serviço de conversão de moeda que
-poderá ser acessado para calcular a conversão de uma moeda (por exemplo, dólares) para outra (por exemplo, euros).
-- **2. Serviços de entidade (serviços de negócios)**. Derivado de uma ou mais entidades de negócio (domínio), possuindo um alto grau de reutilização. Geralmente são serviços que fazem operações CRUD (Create, Read, Update e Delete).
-- **3. Serviços de tarefa (coordenação de processos-workflow)**. Tipo de serviço mais específico que possui baixo grau de reuso. Consome outros serviços para atender seus consumidores. São serviços que suportam um processo de negócios
-amplo que geralmente envolve atividades e atores diferentes. Um exemplo de serviço de coordenação em uma empresa é um serviço de pedidos em que os pedidos são feitos, os produtos são aceitos e os pagamentos são efetuados.
-A visão lógica da arquitetura para API de Cliente é apresentada na figura abaixo. A visã lógica descreve como o código está organizado, as classes os pacotes e os relacionamentos entre eles.
-![f3_visao_logica](https://user-images.githubusercontent.com/68782201/162488505-5ec27561-eb83-42dc-a05f-27760e5bb7f3.jpg)
->A entidade Cliente foi identificada como um serviço (ERL, 2007 - serviço do tipo entidade) o contrado das operações de sistema (LARMAN, 2006, pag.140) foram definidas no diagrama abaixo.
-```mermaid
-classDiagram
-class ClienteServicoI
-<<interface>> ClienteServicoI
-ClienteServicoI : +List<Cliente> consultaTodos()
-ClienteServicoI : +Optional<<Cliente>> consultaPorCpf(String cpf)
-ClienteServicoI : +Optional<<Cliente>> consultaPorId(Long id)
-ClienteServicoI : +Optional<<Cliente>> save(Cliente c)
-ClienteServicoI : +void delete (Long id)
-ClienteServicoI : +Optional<<Cliente>> altera (Cliente c)
-```
->O diagrama de sequência descreve como os varios componentes arquiteturais colaboram para manipular uma operação de sistema (exemplo para operação consultaTodos())
-```mermaid
-sequenceDiagram
-Usuario ->> APIClienteController: GET /api/v1/clientes
-APIClienteController ->> ClienteServiceI: consultaTodos ( )
-ClienteServiceI ->> ClienteRepository: findAll ( )
-ClienteRepository -->> ClienteServiceI: List[]
-ClienteServiceI-->> APIClienteController: List[]
-APIClienteController -->> Usuario: JSon[]
-```
+![modelo de dominio](https://i.imgur.com/thgVQAK.png)
+
 >Referencias
 - [1] KRUCHTEN, Philippe. Reference: Title: Architectural blueprints—the “4+ 1” view model of software architecture. IEEE software, v. 12, n. 6, 1995.
 - [2] RICHARDSON, Chris. Microservices patterns: with examples in Java. Simon and Schuster, 2018.
 - [3] ERL, Thomas. SOA principles of service design (the Prentice Hall service-oriented computing series from Thomas Erl). Prentice Hall PTR, 2007.
 - [4] LARMAN, Craig. Utilizando UML e padrões. 2aed., Porto Alegre: Bookman Editora, 2006 (pag. 147).
 
-
-##### Casos de teste
-| Identificador | Cenário de uso |
-| ------------ | ------------------------------------------------------------------------ |
-| REQ01CT01 | Dado (setup) que o CPF do cliente não está cadastrado; Quando (ação) o usuário confirma o cadastro; Então (resultado esperado) o sistema envia uma mensagem de cadastro realizado com sucesso |
-| REQ01CT02 | Dado (setup) que o CPF do cliente está cadastrado; Quando (ação) o usuário confirma o cadastro; Então (resultado esperado) o sistema rejeita e envia uma mensagem de dados inválidos |
->
-O modelo de dominio (Larman, 2006 - classes conceituais ou classes de negócio) foi definido considerando as seguintes classes:
-![modelo de dominio](https://user-images.githubusercontent.com/68782201/160412338-54c2c974-d6d2-4ab6-bea5-e1137a6f7e6c.jpg)
-A arquitetura segue uma abordagem orientada a serviços. Os serviços foram classificados em três tipos (ERL, 2007):
-- **1. Serviços utilitários**. Implementam funcionalidades comuns a vários tipos de aplicações, como, por exemplo: log, notificação, transformação de informações. Um exemplo de serviço utilitário é um serviço de conversão de moeda que
-poderá ser acessado para calcular a conversão de uma moeda (por exemplo, dólares) para outra (por exemplo, euros).
-- **2. Serviços de entidade (serviços de negócios)**. Derivado de uma ou mais entidades de negócio (domínio), possuindo um alto grau de reutilização. Geralmente são serviços que fazem operações CRUD (Create, Read, Update e Delete).
-- **3. Serviços de tarefa (coordenação de processos-workflow)**. Tipo de serviço mais específico que possui baixo grau de reuso. Consome outros serviços para atender seus consumidores. São serviços que suportam um processo de negócios
-amplo que geralmente envolve atividades e atores diferentes. Um exemplo de serviço de coordenação em uma empresa é um serviço de pedidos em que os pedidos são feitos, os produtos são aceitos e os pagamentos são efetuados.
-A visão lógica da arquitetura para API de Cliente é apresentada na figura abaixo. A visã lógica descreve como o código está organizado, as classes os pacotes e os relacionamentos entre eles.
-![f3_visao_logica](https://user-images.githubusercontent.com/68782201/162488505-5ec27561-eb83-42dc-a05f-27760e5bb7f3.jpg)
->A entidade Cliente foi identificada como um serviço (ERL, 2007 - serviço do tipo entidade) o contrado das operações de sistema (LARMAN, 2006, pag.140) foram definidas no diagrama abaixo.
-```mermaid
-classDiagram
-class ClienteServicoI
-<<interface>> ClienteServicoI
-ClienteServicoI : +List<Cliente> consultaTodos()
-ClienteServicoI : +Optional<<Cliente>> consultaPorCpf(String cpf)
-ClienteServicoI : +Optional<<Cliente>> consultaPorId(Long id)
-ClienteServicoI : +Optional<<Cliente>> save(Cliente c)
-ClienteServicoI : +void delete (Long id)
-ClienteServicoI : +Optional<<Cliente>> altera (Cliente c)
-```
->O diagrama de sequência descreve como os varios componentes arquiteturais colaboram para manipular uma operação de sistema (exemplo para operação consultaTodos())
-```mermaid
-sequenceDiagram
-Usuario ->> APIClienteController: GET /api/v1/clientes
-APIClienteController ->> ClienteServiceI: consultaTodos ( )
-ClienteServiceI ->> ClienteRepository: findAll ( )
-ClienteRepository -->> ClienteServiceI: List[]
-ClienteServiceI-->> APIClienteController: List[]
-APIClienteController -->> Usuario: JSon[]
-```
->Referencias
-- [1] KRUCHTEN, Philippe. Reference: Title: Architectural blueprints—the “4+ 1” view model of software architecture. IEEE software, v. 12, n. 6, 1995.
-- [2] RICHARDSON, Chris. Microservices patterns: with examples in Java. Simon and Schuster, 2018.
-- [3] ERL, Thomas. SOA principles of service design (the Prentice Hall service-oriented computing series from Thomas Erl). Prentice Hall PTR, 2007.
-- [4] LARMAN, Craig. Utilizando UML e padrões. 2aed., Porto Alegre: Bookman Editora, 2006 (pag. 147).
