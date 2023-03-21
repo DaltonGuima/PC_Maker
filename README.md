@@ -12,7 +12,7 @@ O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  res
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 
-##### Estudo de Caso/Objetivo do projeto
+##### Estudo de Caso / Objetivo do projeto
 
 > O nosso projeto foi batizado de PCMaker. Ele será uma plataforma responsável por realizar a 
 montagem de Hardware de acordo com a necessidade do cliente. 
@@ -53,11 +53,15 @@ redirecionado para os sites onde as peças do desktop montado estarão disponív
 | REQ05 – corrigir informações de cliente | Como – vendedor, Eu quero – corrigir as informações do cliente, De maneira que – seja possível manter as informações atualizadas | Baixa |
 | REQ06 – excluir cliente | Como – vendedor, Eu quero – excluir um cliente, De maneira que – seja possível manter informações somente de clientes ativos | Baixa |
 
+##### Diagrama de Caso de Uso
+![Diagrama de casos de uso](https://i.imgur.com/Noyu5P3.png)
+
 ##### Definição de pronto
 > O sprint será considerado concluido quando:
 > 1) Os casos de teste de aceitação forem executados e obtiverem 100% de satisfatorios. Os casos de teste (CT) são rastreáveis para os requisiitos (REQ). O elo de rastreabilidade
 é estabelecido pelo identificador do caso de teste.
 > 2) Depois de executado os casos de teste com 100% de satisfatorios o código deve ser armazenado no github (commit).
+
 ##### Casos de teste
 | Identificador | Cenário de uso |
 | ------------ | ------------------------------------------------------------------------ |
@@ -103,11 +107,6 @@ APIClienteController -->> Usuario: JSon[]
 - [4] LARMAN, Craig. Utilizando UML e padrões. 2aed., Porto Alegre: Bookman Editora, 2006 (pag. 147).
 
 
-##### Definição de pronto
-> O sprint será considerado concluido quando:
-> 1) Os casos de teste de aceitação forem executados e obtiverem 100% de satisfatorios. Os casos de teste (CT) são rastreáveis para os requisiitos (REQ). O elo de rastreabilidade
-é estabelecido pelo identificador do caso de teste.
-> 2) Depois de executado os casos de teste com 100% de satisfatorios o código deve ser armazenado no github (commit).
 ##### Casos de teste
 | Identificador | Cenário de uso |
 | ------------ | ------------------------------------------------------------------------ |
