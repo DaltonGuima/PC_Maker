@@ -18,6 +18,14 @@ h6 {
   color: white !important;
 }
 
+.montarButton {
+  background-color: var(--background-tertiary-transparent) !important;
+}
+
+.montarButton:hover {
+  background-color: var(--background-secondary-transparent) !important;
+}
+
 #temaSwitcher {
   color: var(--text-primary);
   background-color: var(--background-primary);

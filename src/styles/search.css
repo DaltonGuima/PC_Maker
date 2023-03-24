@@ -106,4 +106,13 @@ a[data-toggle="collapse"] {
 
 .side-component {
   transition: all 0.2s;
+  padding-bottom: 0.2rem;
+  border-bottom: 0.1rem solid #808080;
+}
+
+.table-search thead {
+  border-bottom: 0.3rem solid #686868;
+}
+.table-search tr {
+  border-bottom: 0.1rem solid #686868;
 }

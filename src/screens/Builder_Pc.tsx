@@ -1,6 +1,11 @@
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 
+import { useHookstate } from '@hookstate/core';
+import { useEffect } from 'react';
+import useLocalStorage from 'use-local-storage';
+import { themePage } from '../script/changeTheme';
+
 //Importa titulo
 import useDocumentTitle from "../script/useDocumentTitle";
 import TableBuilder from "../components/TableBuilder";
@@ -9,8 +14,10 @@ function Home() {
   //Importar titulo
   useDocumentTitle("Montando a Build");
 
+  const changeTheme = useHookstate(themePage)
+
   return (
-    <div>
+    <div data-theme={changeTheme.get()}>
       <Header />
       <main id="conteudo">
         <div className="headline text text-white">
@@ -100,7 +107,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="container col-md-10 my-5">
+        <div className="container col-md-10 nvlComp">
 
           <div className="notes-builder text-light">
             <div className="row mb-3">
@@ -122,14 +129,14 @@ function Home() {
 
                 <div className="row">
                   <div className="btn-builder mx-2 p-2 px-4 rounded col-md-2 col-4">Observação I:</div>
-                  <p className="text-light col my-2">Um adpatador</p>
+                  <p className="obsComp col my-2">Um adaptador</p>
                 </div>
               </div>
               <div className="my-2">
 
                 <div className="row">
                   <div className="btn-builder mx-2 p-2 px-4 rounded col-md-2 col-4">Observação II:</div>
-                  <p className="text-light col my-2">a</p>
+                  <p className="obsComp col my-2">Chipset</p>
                 </div>
 
               </div>

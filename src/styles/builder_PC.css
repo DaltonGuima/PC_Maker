@@ -28,6 +28,14 @@
   color: white;
 }
 
+.obsComp {
+  color: var(--text-primary);
+}
+
+.nvlComp {
+  margin-bottom: 5 rem;
+}
+
 .notes-builder {
   border-bottom: #7042d5 solid 2px;
 }

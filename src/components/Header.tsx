@@ -87,19 +87,18 @@ export function Header() {
                             </form>
                         </div>
                         <div className="profile">
-
                             <ul className="navbar-nav">
                                 <li className="nav-item dropdown">
                                     <a className="nav-link dropleft dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                        <img src="/among_us.jpg" alt="Foto de Perfil" />Perfil
+                                        <img src="/among_us.jpg" alt="Foto de Perfil" className="imagemPerfil" />Perfil
                                     </a>
-                                    <div className="dropdown-menu dropdown-menu-end bg-dark">
-                                        <button className="dropdown-item disabled bg-dark">
+                                    <div className="dropdown-menu dropdown-menu-end perfilDropdown">
+                                        <button className="dropdown-item disabled">
                                             <i className="fa fa-user-o"></i> Perfil
                                         </button>
-                                        <a className="dropdown-item text-light" href="../Views/profile.html">Meu Perfil</a>
-                                        <a className="dropdown-item text-light"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
-                                        <a className="dropdown-item text-light"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
+                                        <a className="dropdown-item" href="/perfil">Meu Perfil</a>
+                                        <a className="dropdown-item"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
+                                        <a className="dropdown-item"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
                                     </div>
                                 </li>
                             </ul>

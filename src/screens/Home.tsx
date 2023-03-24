@@ -31,7 +31,7 @@ function Home() {
                 <h2 className="card-title text-light text-bold">Monte seu Computador</h2>
                 <p className="card-text text-light">Utilize nossas mais recentes ferramentas para
                   montar o seu PC do seu jeito.</p>
-                <a href="#" className="btn text-light">Montar</a>
+                <a href="#" className="btn text-light montarButton">Montar</a>
               </div>
             </div>
           </div>
