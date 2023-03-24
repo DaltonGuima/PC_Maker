@@ -5,7 +5,7 @@
   margin-top: 1rem;
   padding-left: 1.5rem;
   font-size: small;
-  background-color: var(--background-secondary); /* #212425 */
+  background-color: var(--background-primary); /* #212425 */
 }
 
 @media screen and (min-width: 1024px) {
