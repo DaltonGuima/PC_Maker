@@ -12,12 +12,9 @@ export function Header() {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme)
     }
-
     useEffect(() => {
         changeTheme.set(theme)
     }, [changeTheme, theme]);
-
-
 
     return (
         <header data-theme={changeTheme.get()}>

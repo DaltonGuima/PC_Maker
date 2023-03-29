@@ -7,12 +7,10 @@ import { Header } from "~/components/Header"
 import { themePage } from "~/script/changeTheme"
 //css
 import home from "~/styles/home.css"
-import main from "~/styles/main.css"
 
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: home },
-    { rel: "stylesheet", href: main }
   ];
 };
 
