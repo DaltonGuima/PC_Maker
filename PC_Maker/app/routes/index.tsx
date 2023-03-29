@@ -1,14 +1,31 @@
 import { useHookstate } from "@hookstate/core"
+import type { LinksFunction, MetaFunction } from "@remix-run/node"
+import { Link } from "@remix-run/react"
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer"
 import { Header } from "~/components/Header"
 import { themePage } from "~/script/changeTheme"
+//css
+import home from "~/styles/home.css"
+import main from "~/styles/main.css"
+
+export const links: LinksFunction = () => {
+  return [
+    { rel: "stylesheet", href: home },
+    { rel: "stylesheet", href: main }
+  ];
+};
+
+export const meta: MetaFunction = () => ({
+  title: "Home"
+});
 
 export default function Home() {
   const changeTheme = useHookstate(themePage)
 
   return (
     <div data-theme={changeTheme.get()}>
+
       <Header />
 
       <main id="conteudo" className="app">
@@ -19,7 +36,7 @@ export default function Home() {
                 <h2 className="card-title text-light text-bold">Monte seu Computador</h2>
                 <p className="card-text text-light">Utilize nossas mais recentes ferramentas para
                   montar o seu PC do seu jeito.</p>
-                <a href="#" className="btn text-light montarButton">Montar</a>
+                <Link to="#" className="btn text-light montarButton">Montar</Link>
               </div>
             </div>
           </div>

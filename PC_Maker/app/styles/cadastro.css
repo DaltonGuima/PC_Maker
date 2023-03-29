@@ -1,0 +1,26 @@
+.card{
+    border-radius: 4%;
+}
+
+input[type=date]{
+    background-color: #292b2c;
+    color: white;
+    border: 0.2px solid white;
+    height: 2rem;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.social-icons a{
+    display: flex;
+    justify-content:center;
+    background-color: #292b2c;
+    width: 80px;
+    height: 80px;
+}
+
+.social-icons i{
+    position: relative;
+    top: 2rem;
+    font-size: larger;
+}
