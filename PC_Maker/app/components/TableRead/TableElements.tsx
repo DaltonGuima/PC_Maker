@@ -1,7 +1,8 @@
-import { Dispatch, useEffect } from 'react';
+import type { Dispatch } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { arrumaId } from '../../script/arrumaId';
-import { TableReadProps } from '../TableRead';
+import type { TableReadProps } from '../TableRead';
 interface TableElementsProps extends TableReadProps {
     page: number,
     setPage: Dispatch<number>,

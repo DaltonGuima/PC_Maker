@@ -51,7 +51,86 @@ p {
 .header-desktop {
   margin-right: -1.5rem;
 }
+/* Table */
+.table {
+  margin-bottom: 2rem;
+}
 
+.table thead {
+  border-bottom: #7042d5 solid 2px;
+}
+
+.has-sub li, .has-sub i{
+  color: #fff;
+}
+
+.table tr {
+  height: 5rem;
+}
+
+.table tr:last-child {
+  border-bottom: #7042d5 solid 2px;
+}
+
+.table tbody .peca {
+  width: 70px;
+  height: 70px;
+}
+
+.VendedorImg {
+  width: 80px;
+  height: 20px;
+}
+
+.DescricaoProduto {
+  position: relative;
+  top: -1rem;
+  padding-top: 2px;
+}
+
+.plow {
+  position: relative;
+  top: -1rem;
+  height: 1px;
+  font-size: small;
+}
+
+@media screen and (min-width: 1300px) {
+  .DescricaoProduto {
+    height: 1px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .peca,
+  .Vendedor {
+    display: none;
+  }
+  .tipoComponente {
+    width: min-content;
+  }
+  .table thead,
+  tbody {
+    font-size: small;
+  }
+}
+
+.modal-.navbar {
+  border-bottom: 2px solid #7042d5;
+}
+/* Texto Abaixo */
+
+.TextAfterTable h3 {
+  text-align: right;
+  margin-right: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .TextAfterTable h3 {
+    margin-right: 8rem;
+  }
+}
 .foot {
   background-color: #353a3c;
   margin-bottom: -8rem;
