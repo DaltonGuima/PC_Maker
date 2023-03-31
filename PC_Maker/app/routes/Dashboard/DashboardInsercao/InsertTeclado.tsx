@@ -1,20 +1,17 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoPlacaDeVideo() {
-
+function DashboardInsercaoTeclado() {
     useEffect(() => {
-        changeSelectValue('placa-de-video')
+        changeSelectValue('teclado')
     });
-
     return (
         <div style={{ paddingTop: '7rem' }}>
 
-
-            <div className="col-lg-10 tabela-insercao">
+            <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Video</strong>
+                        <strong>Teclados</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -54,24 +51,42 @@ function DashboardInsercaoPlacaDeVideo() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
-                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
-                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
+                                    <label htmlFor="selectSm" className=" form-control-label">Tamanho</label>
+                                    <select name="selectSm" id="Sele    ctLm" className="form-control-sm form-control" defaultValue={''}>
+                                        <option value="" disabled>Selecione</option>
+                                        <option value="battleship">Battle ship</option>
+                                        <option value="fullsize">Full size</option>
+                                        <option value="1800">1800</option>
+                                        <option value="90">96% / 90%</option>
+                                        <option value="80">Tenkeyless (TKL/80%)</option>
+                                        <option value="75">75%</option>
+                                        <option value="65">65%</option>
+                                        <option value="60">60%</option>
+                                        <option value="50">50%</option>
+                                        <option value="40">40%</option>
+                                    </select>
+                                    <small className="help-block form-text">Tamanho e formato do teclado</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
-                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
-                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
+                                    <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
+                                    <select name="selectSm" id="Sele    ctLm" className="form-control-sm form-control" defaultValue={''}>
+                                        <option value="" disabled className='text-secondary'>Selecione</option>
+                                        <option value="membrana">Membrana</option>
+                                        <option value="mecanico">Mecânico</option>
+                                        <option value="hibrido">Híbrido</option>
+                                    </select>
+                                    <small className="help-block form-text">Tipo de mecanismo de ação</small>
                                 </div>
+                            </div>
+                            <div className="row form-group">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
-                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
-                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
-                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
-                                    <small className="help-block form-text">Conectores de alimentação</small>
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -87,8 +102,7 @@ function DashboardInsercaoPlacaDeVideo() {
                 </div>
             </div>
 
-
         </div>
     )
 }
-export default DashboardInsercaoPlacaDeVideo;
+export default DashboardInsercaoTeclado

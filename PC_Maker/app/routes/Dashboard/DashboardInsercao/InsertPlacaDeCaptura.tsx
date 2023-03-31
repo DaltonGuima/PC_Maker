@@ -1,18 +1,19 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoMouse() {
+function DashboardInsercaoPlacaCaptura() {
     useEffect(() => {
-        changeSelectValue('mouse')
+        changeSelectValue('PlacaDeCaptura')
     });
+
     return (
         <div style={{ paddingTop: '7rem' }}>
 
 
-            <div className="col-lg-6 tabela-insercao">
+            <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Mouse</strong>
+                        <strong>Placa de Captura</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -52,27 +53,27 @@ function DashboardInsercaoMouse() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Nº de botões</label>
-                                    <input type="text" name="preco-input" placeholder="Nº de botões" className="form-control" />
-                                    <small className="help-block form-text">Número de botões</small>
+                                    <label htmlFor="preco-input" className=" form-control-label">Interface</label>
+                                    <input type="text" name="preco-input" placeholder="Interface" className="form-control" />
+                                    <small className="help-block form-text">Interface</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">DPI</label>
-                                    <input type="text" name="preco-input" placeholder="DPI" className="form-control" />
-                                    <small className="help-block form-text">Sensibilidade do mouse</small>
+                                    <label htmlFor="preco-input" className=" form-control-label">Saida</label>
+                                    <input type="text" name="preco-input" placeholder="Saida" className="form-control" />
+                                    <small className="help-block form-text">Saida</small>
                                 </div>
-                            </div>
-                            <div className="row form-group">
                                 <div className="col">
-                                    <div className="form-check">
-                                        <div className="checkbox">
-                                            <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
-                                            </label>
-                                        </div>
-                                    </div>
+                                    <label htmlFor="preco-input" className=" form-control-label">Taxa de bits</label>
+                                    <input type="text" name="preco-input" placeholder="Taxa de bits" className="form-control" />
+                                    <small className="help-block form-text">Taxa de bits</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">Maior resolução suportada</label>
+                                    <input type="text" name="preco-input" placeholder="Maior resolução suportada" className="form-control" />
+                                    <small className="help-block form-text">Maior resolução suportada</small>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                     <div className="card-footer">
@@ -88,4 +89,4 @@ function DashboardInsercaoMouse() {
         </div>
     )
 }
-export default DashboardInsercaoMouse
+export default DashboardInsercaoPlacaCaptura;

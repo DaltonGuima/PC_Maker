@@ -11,7 +11,7 @@ export const links: LinksFunction = () => {
 };
 
 export const meta: MetaFunction = () => ({
-    title: "Home"
+    title: "Dashboard"
 });
 //import './App.css'
 function Dashboard() {
@@ -24,29 +24,29 @@ function Dashboard() {
                     <div className="header-mobile__bar">
                         <div className="container-fluid">
                             <div className="header-mobile-inner">
-                                <a className="logo" href="/dashboard">
+                                <Link className="logo" to="/dashboard">
                                     <img src="/Logo.png" alt="CoolAdmin" className='logo' />
-                                </a>
+                                </Link>
                                 <div className='navbar-nav bg-dark'>
                                     <div className="hamburger hamburger--slider dropdown nav-item">
-                                        <a className="dropleft" href="#" role="button" data-bs-toggle="dropdown">
+                                        <Link className="dropleft" to="#" role="button" data-bs-toggle="dropdown">
                                             <span className="hamburger-box">
                                                 <span className="hamburger-inner bg-dark"></span>
                                             </span>
-                                        </a>
+                                        </Link>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
-                                            <a href="/Dashboard" className='dropdown-item text-light'>
+                                            <Link to="/Dashboard" className='dropdown-item text-light'>
                                                 <i className="fas fa-chart-bar"></i> Dashboard
-                                            </a>
-                                            <a href="/feedback" className='dropdown-item text-light'>
+                                            </Link>
+                                            <Link to="/Dashboard/DashboardFeedback" className='dropdown-item text-light'>
                                                 <i className="fa-solid fa-comment-dots"></i> Feedback
-                                            </a>
-                                            <a href="/componentes" className='dropdown-item text-light'>
+                                            </Link>
+                                            <Link to="/Dashboard/DashboardComponents" className='dropdown-item text-light'>
                                                 <i className="fa-solid fa-puzzle-piece"></i> Componentes
-                                            </a>
-                                            <a href="/perguntas-para-build" className='dropdown-item text-light'>
+                                            </Link>
+                                            <Link to="/Dashboard/DashBoardPerguntas" className='dropdown-item text-light'>
                                                 <i className="fa-solid fa-question"></i> Perguntas para Build
-                                            </a>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
@@ -72,7 +72,7 @@ function Dashboard() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/feedback">
+                                    <Link to="/Dashboard/DashboardFeedback">
                                         <i className="fa-solid fa-comment-dots text-light"></i>Feedback
                                     </Link>
                                 </li>
@@ -81,10 +81,10 @@ function Dashboard() {
                                         <i className="fa-solid fa-puzzle-piece me-3"></i>Componentes</button>
                                     <ul className="list-unstyled navbar__sub-list js-sub-list collapse" id="componentes">
                                         <li>
-                                            <a href="/componentes"><i className="fas fa-table"></i>Tabelas</a>
+                                            <Link to="/Dashboard/DashboardComponents"><i className="fas fa-table"></i>Tabelas</Link>
                                         </li>
                                         <li>
-                                            <a href="/componentes/insercao"><i className="fa-solid fa-circle-plus"></i>Inserção</a>
+                                            <Link to="/Dashboard/DashboardInsercao"><i className="fa-solid fa-circle-plus"></i>Inserção</Link>
                                         </li>
                                     </ul>
                                 </li>

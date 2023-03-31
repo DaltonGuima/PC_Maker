@@ -1,16 +1,20 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoPlacaDeSom() {
+function DashboardInsercaoPlacaDeVideo() {
+
     useEffect(() => {
-        changeSelectValue('placa-de-som')
+        changeSelectValue('PlacaDeVideo')
     });
+
     return (
         <div style={{ paddingTop: '7rem' }}>
-            <div className="col-lg-6 tabela-insercao">
+
+
+            <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Som</strong>
+                        <strong>Placa de Video</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -48,6 +52,30 @@ function DashboardInsercaoPlacaDeSom() {
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
+                            <div className="row">
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
+                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
+                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
+                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
+                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
+                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
+                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
+                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
+                                    <small className="help-block form-text">Conectores de alimentação</small>
+                                </div>
+                            </div>
+
+
                         </form>
                     </div>
                     <div className="card-footer">
@@ -58,7 +86,9 @@ function DashboardInsercaoPlacaDeSom() {
                     </div>
                 </div>
             </div>
+
+
         </div>
     )
 }
-export default DashboardInsercaoPlacaDeSom
+export default DashboardInsercaoPlacaDeVideo;

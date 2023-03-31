@@ -16,9 +16,9 @@ export function TableElements(props: TableElementsProps) {
 
     function Navigate() {
         if (props.tipoCRUD == arrumaId(props.id)) {
-            navigate(`/${props.tipoCRUD}/insercao`)
+            navigate(`/Dashboard/Insert${arrumaId(props.id)}`)
         } else {
-            navigate(`/${props.tipoCRUD}/insercao/${arrumaId(props.id)}`)
+            navigate(`/Dashboard/DashboardInsercao/Insert${arrumaId(props.id)}`)
         }
     }
 
@@ -31,7 +31,7 @@ export function TableElements(props: TableElementsProps) {
         if (props.slice.length < 1 && props.page !== 1) {
             props.setPage(props.page - 1);
         }
-    }, [props.slice, props.page, props.setPage]);
+    }, [props.slice, props.page, props.setPage, props]);
 
     return (
         <div className="table-data__tool">

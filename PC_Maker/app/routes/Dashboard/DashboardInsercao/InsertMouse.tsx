@@ -1,18 +1,18 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoGabinete() {
+function DashboardInsercaoMouse() {
     useEffect(() => {
-        changeSelectValue('gabinete')
+        changeSelectValue('mouse')
     });
     return (
         <div style={{ paddingTop: '7rem' }}>
 
 
-            <div className="col-lg-10 tabela-insercao">
+            <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Gabinete</strong>
+                        <strong>Mouse</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -49,15 +49,28 @@ function DashboardInsercaoGabinete() {
                                     <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
+                            </div>
+                            <div className="row">
                                 <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={""}>
-                                        <option selected value="" disabled className='text-secondary'>Selecione</option>
-                                        <option value="fulltower">Full Tower</option>
-                                        <option value="midtower">Mid Tower</option>
-                                        <option value="minitower">Mini Tower</option>
-                                        <option value="smallformfactor">Small Form Factor</option>
-                                    </select>
+                                    <label htmlFor="preco-input" className=" form-control-label">Nº de botões</label>
+                                    <input type="text" name="preco-input" placeholder="Nº de botões" className="form-control" />
+                                    <small className="help-block form-text">Número de botões</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">DPI</label>
+                                    <input type="text" name="preco-input" placeholder="DPI" className="form-control" />
+                                    <small className="help-block form-text">Sensibilidade do mouse</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -75,4 +88,4 @@ function DashboardInsercaoGabinete() {
         </div>
     )
 }
-export default DashboardInsercaoGabinete
+export default DashboardInsercaoMouse

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
 function DashboardInsercaoProcessador() {
 

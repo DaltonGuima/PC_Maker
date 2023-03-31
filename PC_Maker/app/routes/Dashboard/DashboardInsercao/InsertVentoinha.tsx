@@ -1,17 +1,18 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoTeclado() {
+function DashboardInsercaoVentoinha() {
     useEffect(() => {
-        changeSelectValue('teclado')
+        changeSelectValue('ventoinha')
     });
     return (
         <div style={{ paddingTop: '7rem' }}>
 
+
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Teclados</strong>
+                        <strong>Ventoinha</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -48,49 +49,19 @@ function DashboardInsercaoTeclado() {
                                     <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="col">
                                     <label htmlFor="selectSm" className=" form-control-label">Tamanho</label>
-                                    <select name="selectSm" id="Sele    ctLm" className="form-control-sm form-control" defaultValue={''}>
-                                        <option value="" disabled>Selecione</option>
-                                        <option value="battleship">Battle ship</option>
-                                        <option value="fullsize">Full size</option>
-                                        <option value="1800">1800</option>
-                                        <option value="90">96% / 90%</option>
-                                        <option value="80">Tenkeyless (TKL/80%)</option>
-                                        <option value="75">75%</option>
-                                        <option value="65">65%</option>
-                                        <option value="60">60%</option>
-                                        <option value="50">50%</option>
-                                        <option value="40">40%</option>
+                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={""}>
+                                        <option selected value="" disabled>Selecione</option>
+                                        <option value="80mm">80mm</option>
+                                        <option value="92mm">92mm</option>
+                                        <option value="120mm">120mm</option>
+                                        <option value="140mm">140mm</option>
+                                        <option value="180mm">180mm</option>
+                                        <option value="200mm">200mm</option>
                                     </select>
-                                    <small className="help-block form-text">Tamanho e formato do teclado</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
-                                    <select name="selectSm" id="Sele    ctLm" className="form-control-sm form-control" defaultValue={''}>
-                                        <option value="" disabled className='text-secondary'>Selecione</option>
-                                        <option value="membrana">Membrana</option>
-                                        <option value="mecanico">Mecânico</option>
-                                        <option value="hibrido">Híbrido</option>
-                                    </select>
-                                    <small className="help-block form-text">Tipo de mecanismo de ação</small>
                                 </div>
                             </div>
-                            <div className="row form-group">
-                                <div className="col">
-                                    <div className="form-check">
-                                        <div className="checkbox">
-                                            <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
                         </form>
                     </div>
                     <div className="card-footer">
@@ -102,7 +73,8 @@ function DashboardInsercaoTeclado() {
                 </div>
             </div>
 
+
         </div>
     )
 }
-export default DashboardInsercaoTeclado
+export default DashboardInsercaoVentoinha

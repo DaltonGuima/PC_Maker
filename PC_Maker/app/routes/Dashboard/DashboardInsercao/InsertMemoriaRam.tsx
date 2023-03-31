@@ -1,20 +1,19 @@
-
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoPlacaMae() {
+function DashboardInsercaoMemoriaRam() {
 
     useEffect(() => {
-        changeSelectValue('placa-mae')
+        changeSelectValue('MemoriaRam')
     });
-
     return (
         <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa-mãe</strong>
+                        <strong>Memória RAM</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -53,32 +52,15 @@ function DashboardInsercaoPlacaMae() {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Chipset</label>
-                                    <input type="email" name="email-input" placeholder="Chipset" className="form-control" />
-                                    <small className="help-block form-text">Chipset</small>
+                                <div className="col ">
+                                    <label htmlFor="email-input" className=" form-control-label">Capacidade</label>
+                                    <input type="email" name="email-input" placeholder="Capacidade" className="form-control" />
+                                    <small className="help-block form-text">Capacidade da memória</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Soquete</label>
-                                    <input type="email" name="email-input" placeholder="Soquete" className="form-control" />
-                                    <small className="help-block form-text">Soquete</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Fator de forma</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={''}>
-                                        <option value="" disabled className='text-secondary'>Selecione</option>
-                                        <option value="mATX">mATX</option>
-                                        <option value="ATX">ATX</option>
-                                        <option value="EATX">EATX</option>
-                                        <option value="Mini-ITX">Mini-ITX</option>
-                                    </select>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">TDP</label>
-                                    <input type="email" name="email-input" placeholder="TDP" className="form-control" />
-                                    <small className="help-block form-text">TDP do soquete</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Velocidade</label>
+                                    <input type="email" name="email-input" placeholder="Velocidade" className="form-control" />
+                                    <small className="help-block form-text">Frequência padrão em que opera</small>
                                 </div>
                                 <div className="col">
                                     <label className=" form-control-label">Tecnologia RAM</label>
@@ -95,44 +77,32 @@ function DashboardInsercaoPlacaMae() {
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio3" name="radios" value="DDR5" className="form-check-input" />DDR5
+                                                <input type="radio" id="radio2" name="radios" value="DDR5" className="form-check-input" />DDR5
                                             </label>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots RAM</label>
-                                    <input type="email" name="email-input" placeholder="Slots RAM" className="form-control" />
-                                    <small className="help-block form-text">Quantidadede Slots RAM</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Voltagem</label>
+                                    <input type="email" name="email-input" placeholder="Voltagem" className="form-control" />
+                                    <small className="help-block form-text">Voltagem padrão em que opera</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Capacidade Máxima de RAM</label>
-                                    <input type="email" name="email-input" placeholder="Capacidade Máxima de RAM" className="form-control" />
-                                    <small className="help-block form-text">Capacidade Máxima de RAM</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Gráfico Integrado</label>
-                                    <input type="email" name="email-input" placeholder="Gráfico Integrado" className="form-control" />
-                                    <small className="help-block form-text">Modelo do gráfico integrado</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Latência</label>
+                                    <input type="email" name="email-input" placeholder="Latência" className="form-control" />
+                                    <small className="help-block form-text">Latência padrão em que opera</small>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots M.2</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots M.2" className="form-control" />
-                                    <small className="help-block form-text">Quantidade de Slots M.2</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots PCI Express x16</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots PCI Express x16" className="form-control" />
-                                    <small className="help-block form-text">Quantidade de Slots PCI Express x16</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots PCI</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots PCI" className="form-control" />
-                                    <small className="help-block form-text">Quantidade de Slots PCI</small>
+
+                            <div className="row form-group">
+                                <div className="col col-md-9">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -150,4 +120,4 @@ function DashboardInsercaoPlacaMae() {
         </div>
     )
 }
-export default DashboardInsercaoPlacaMae;
+export default DashboardInsercaoMemoriaRam

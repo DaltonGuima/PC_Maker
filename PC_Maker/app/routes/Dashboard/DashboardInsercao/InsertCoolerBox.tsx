@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
 function DashboardInsercaoCoolerBox() {
     useEffect(() => {
-        changeSelectValue('cooler-box')
+        changeSelectValue('CoolerBox')
     });
     return (
         <div style={{ paddingTop: '7rem' }}>

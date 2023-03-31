@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../script/changeSelectValue";
+import { changeSelectValue } from "../../../script/changeSelectValue";
 
-function DashboardInsercaoFonteDeAlimentacao() {
+function DashboardInsercaoGabinete() {
     useEffect(() => {
-        changeSelectValue('fonte-de-alimentacao')
+        changeSelectValue('gabinete')
     });
     return (
         <div style={{ paddingTop: '7rem' }}>
@@ -12,7 +12,7 @@ function DashboardInsercaoFonteDeAlimentacao() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Fonte de Alimentação</strong>
+                        <strong>Gabinete</strong>
                     </div>
                     <div className="card-body card-block">
                         <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
@@ -49,53 +49,15 @@ function DashboardInsercaoFonteDeAlimentacao() {
                                     <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
-                            </div>
-                            <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Potência</label>
-                                    <input type="text" name="preco-input" placeholder="Potência" className="form-control" />
-                                    <small className="help-block form-text">Potência</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Certificação</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0" disabled className='text-secondary'>Selecione</option>
-                                        <option value="1">Nenhuma</option>
-                                        <option value="2">80 Plus White</option>
-                                        <option value="3">80 Plus Bronze</option>
-                                        <option value="4">80 Plus Silver</option>
-                                        <option value="5">80 Plus Gold</option>
-                                        <option value="5">80 Plus Platinum</option>
-                                        <option value="5">80 Plus Titanium</option>
+                                    <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
+                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control" defaultValue={""}>
+                                        <option selected value="" disabled className='text-secondary'>Selecione</option>
+                                        <option value="fulltower">Full Tower</option>
+                                        <option value="midtower">Mid Tower</option>
+                                        <option value="minitower">Mini Tower</option>
+                                        <option value="smallformfactor">Small Form Factor</option>
                                     </select>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector Principal</label>
-                                    <input type="text" name="preco-input" placeholder="Conector Principal" className="form-control" />
-                                    <small className="help-block form-text">Conector Principal (20 + 4 Pin, etc) </small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector da CPU</label>
-                                    <input type="text" name="preco-input" placeholder="Conector da CPU" className="form-control" />
-                                    <small className="help-block form-text">Conector da CPU (4 + 4 Pin, etc)</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector PCIe</label>
-                                    <input type="text" name="preco-input" placeholder="Conector PCIe" className="form-control" />
-                                    <small className="help-block form-text">Quantidade e tipo do conector PCIe (6 + 2 Pin, etc)</small>
-                                </div>
-                            </div>
-                            <div className="row form-group">
-                                <div className="col col-md-9">
-                                    <div className="form-check">
-                                        <div className="checkbox">
-                                            <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
-                                            </label>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </form>
@@ -113,4 +75,4 @@ function DashboardInsercaoFonteDeAlimentacao() {
         </div>
     )
 }
-export default DashboardInsercaoFonteDeAlimentacao;
+export default DashboardInsercaoGabinete

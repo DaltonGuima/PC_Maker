@@ -5,7 +5,7 @@ import { Perguntas } from "~/components/TableRead/Datas/Perguntas";
 
 
 function DashboardPerguntas() {
-    const tipoCRUD = 'perguntas-para-build';
+    const tipoCRUD = 'Perguntas';
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
@@ -15,7 +15,7 @@ function DashboardPerguntas() {
                             tipoCRUD={tipoCRUD}
                             key={'Perguntas'}
                             cols={['ID', 'Pergunta', 'Somente uma resposta?', 'Alternativas']}
-                            id='Perguntas para Build'
+                            id='Perguntas'
                             insereDados
                             body={[<Perguntas
                                 key={1}
