@@ -1,6 +1,7 @@
 import { useHookstate } from "@hookstate/core"
-import type { LinksFunction, MetaFunction } from "@remix-run/node"
-import { Link } from "@remix-run/react"
+import { LinksFunction, MetaFunction, json } from "@remix-run/node"
+import { Link, useLoaderData } from "@remix-run/react"
+import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react"
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer"
 import { Header } from "~/components/Header"
@@ -18,13 +19,24 @@ export const meta: MetaFunction = () => ({
   title: "Home"
 });
 
+export async function loader() {
+  const res = await fetch("http://127.0.0.1:8080/api/v1/clientes");
+  return json(await res.json());
+}
+
 export default function Home() {
   const changeTheme = useHookstate(themePage)
+  const teste = useLoaderData<typeof loader>();
 
   return (
     <div data-theme={changeTheme.get()}>
 
       <Header />
+      {teste.map((teste: { id: number, nome: string, sexo: string }) => (
+        <div key={teste.id}>
+          <h1>{teste.nome} com o sexo de {teste.sexo}</h1>
+        </div>
+      ))}
 
       <main id="conteudo" className="app">
         <div className="banner banner1">
