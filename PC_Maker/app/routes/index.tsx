@@ -1,13 +1,15 @@
 import { useHookstate } from "@hookstate/core"
-import { LinksFunction, MetaFunction, json } from "@remix-run/node"
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node"
 import { Link, useLoaderData } from "@remix-run/react"
-import { ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react"
+import { useEffect, useState } from "react"
 import { CardBuild } from "~/components/CardBuild"
-import { Footer } from "~/components/Footer"
+import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
 import { themePage } from "~/script/changeTheme"
 //css
 import home from "~/styles/home.css"
+import axios from 'axios';
 
 export const links: LinksFunction = () => {
   return [
@@ -19,24 +21,39 @@ export const meta: MetaFunction = () => ({
   title: "Home"
 });
 
-export async function loader() {
+/* export async function loader() {
   const res = await fetch("http://127.0.0.1:8080/api/v1/clientes");
   return json(await res.json());
+} */
+
+interface Teste {
+  id: number,
+  nome: string,
 }
 
 export default function Home() {
   const changeTheme = useHookstate(themePage)
-  const teste = useLoaderData<typeof loader>();
+  /*   const teste = useLoaderData<typeof loader>(); */
+  const [games, setGames] = useState<Teste[]>([]);
+
+  useEffect(() => {
+    axios('http://127.0.0.1:8080/api/v1/clientes').then(response => {
+      setGames(response.data)
+    })
+  }, [])
+
+  console.log(games)
+
 
   return (
     <div data-theme={changeTheme.get()}>
 
       <Header />
-      {teste.map((teste: { id: number, nome: string, sexo: string }) => (
-        <div key={teste.id}>
-          <h1>{teste.nome} com o sexo de {teste.sexo}</h1>
-        </div>
-      ))}
+      {games.map(game => {
+        return (
+          <h1>{game.nome}</h1>
+        )
+      })}
 
       <main id="conteudo" className="app">
         <div className="banner banner1">
