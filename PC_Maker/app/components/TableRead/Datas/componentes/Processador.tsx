@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "../../../TableRead"
 
 
 interface ProcessadorProps extends Componente {
