@@ -4,6 +4,8 @@ import jakarta.persistence.Id;
 
 import org.joda.time.DateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fatec.sig1.model.Produto.Produto;
 
 import jakarta.persistence.CascadeType;
@@ -14,6 +16,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Entity
 public class ItemBuild {
     @Id
@@ -21,11 +24,12 @@ public class ItemBuild {
     private Long id;
     @NotNull(message = "A Quantidade é requerida")
     private int Quantidade;
-    @ManyToOne(cascade = { CascadeType.MERGE })
+    @ManyToOne
     @JoinColumn(name = "build_id", nullable = false)
-    private Build build;
+    private Build build;    
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)
+    @JsonIgnoreProperties("itens")
     private Produto produto;
 
     public ItemBuild() {

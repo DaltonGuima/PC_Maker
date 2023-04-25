@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fatec.sig1.model.Usuario.Usuario;
 import com.fatec.sig1.model.Usuario.UsuarioDTO;
-import com.fatec.sig1.services.MantemUsuario;
+import com.fatec.sig1.services.MantemUsuario.MantemUsuario;
 
 import jakarta.validation.Valid;
 

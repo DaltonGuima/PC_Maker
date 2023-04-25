@@ -59,35 +59,7 @@ function DashboardComponents() {
                 </div>
                 <div className="container-fluid">
                     <div className="row"></div>
-                    {/* teste */}
-                    <TableRead
-                        tipoCRUD={tipoCRUD}
-                        key={'teste'}
-                        cols={['teste', '']}
-                        id='teste'
-                        insereDados
-                        body={
-                            componentes.filter(componente => componente.categoria == "teste")
-                                .map(componente => {
-
-                                    return (
-                                        <Gabinete
-                                            key={componente.id}
-                                            id={componente.id}
-                                            nome="AMD Ryzen 5 5600"
-                                            fabricante="AMD"
-                                            modelo="100-100000927BOX"
-                                            preco={999.99}
-                                            vendedor={componente.vendedor}
-                                            tipo={componente.especificacoes.tipo}
-                                            linkProduto='https://theuselessweb.com/'
-
-                                        />
-                                    )
-                                })
-                        }
-                    />
-
+                    
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Processador'}
@@ -317,23 +289,29 @@ function DashboardComponents() {
                         id='Gabinete'
                         cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tipo', 'Vendedor', 'Link Produto']}
                         insereDados
-                        body={[<Gabinete
-                            key={'1'}
-                            id={'1'}
-                            nome="Rise Mode Glass 06"
-                            fabricante="Rise"
-                            modelo="RM-WT-06-SF"
-                            preco={199.99}
-                            tipo={'Mid Tower'}
-                            vendedor={'KABUM'}
-                            linkProduto='https://theuselessweb.com/'
-                        />]}
+                        body={componentes.filter(componente => componente.categoria == "Gabinete")
+                            .map(componente => {
+
+                                return (
+                                    <Gabinete
+                                        key={componente.id}
+                                        id={componente.id}
+                                        nome={componente.nome}
+                                        fabricante={componente.fabricante}
+                                        modelo={componente.modelo}
+                                        preco={componente.preco}
+                                        vendedor={componente.vendedor}
+                                        tipo={componente.especificacoes.tipo}
+                                        linkProduto={componente.linkProduto}
+                                    />
+                                )
+                            })}
                     />
 
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Placa De Captura'}
-                        id='Placa de Captura'
+                        id='Placa De Captura'
                         cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Interface', 'Saída', 'Taxa de Bits', 'Maior Resolução Suportada', 'Vendedor', 'Link Produto']}
                         insereDados
                         body={[<PlacaDeCaptura

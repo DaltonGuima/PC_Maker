@@ -8,13 +8,13 @@ export function SelectOption() {
             <option value="MemoriaRam">Memória RAM</option>
             <option value="PlacaMae">Placamãe</option>
             <option value="FonteDeAlimentacao">Fonte de Alimentação</option>
-            <option value="gabinete">Gabinete</option>
+            <option value="Gabinete">Gabinete</option>
             <option value="PlacaDeCaptura">Placa de Captura</option>
-            <option value="mouse">Mouse</option>
-            <option value="teclado">Teclado</option>
+            <option value="Mouse">Mouse</option>
+            <option value="Teclado">Teclado</option>
             <option value="CoolerBox">Cooler Box</option>
-            <option value="ventoinha">Ventoinha</option>
-            <option value="monitor">Monitor</option>
+            <option value="Ventoinha">Ventoinha</option>
+            <option value="Monitor">Monitor</option>
             <option value="PlacaDeSom">Placa de Som</option>
         </>
     )

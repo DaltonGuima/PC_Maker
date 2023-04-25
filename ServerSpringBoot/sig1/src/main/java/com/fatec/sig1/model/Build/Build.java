@@ -1,19 +1,28 @@
 package com.fatec.sig1.model.Build;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+
+
 import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
+@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
 @Entity
 public class Build {
     @Id
@@ -25,6 +34,9 @@ public class Build {
     private float Orcamento;
     @NotBlank(message = "Descrição é requerida")
     private String Descricao;
+    @OneToMany(mappedBy = "build", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("build")
+    private Set<ItemBuild> itens = new HashSet<ItemBuild>(); 
 
     public Build() {
     }
@@ -74,6 +86,14 @@ public class Build {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Set<ItemBuild> getItens() {
+        return itens;
+    }
+
+    public void setItens(Set<ItemBuild> itens) {
+        this.itens = itens;
     }
 
 }

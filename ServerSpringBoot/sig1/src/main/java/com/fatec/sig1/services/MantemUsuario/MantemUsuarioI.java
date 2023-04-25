@@ -1,4 +1,4 @@
-package com.fatec.sig1.services;
+package com.fatec.sig1.services.MantemUsuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Service
-public class MantemUsuario {
+public class MantemUsuarioI implements MantemUsuario {
 
     Logger logger = LogManager.getLogger(this.getClass());
     @Autowired

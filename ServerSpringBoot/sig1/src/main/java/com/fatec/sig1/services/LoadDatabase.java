@@ -49,10 +49,9 @@ class LoadDatabase {
             // Produto
             HashMap<String, String> teste = new HashMap<String, String>();
 
-            teste.put("tipo", "aaaaaaaa");
-            teste.put("aaaaaab", "aaaaaaaa");
+            teste.put("tipo", "Mid Tower");
 
-            Produto produto1 = new Produto("teste", "teste", "teste", 0, "teste", "teste", teste, "teste");
+            Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF", 199.99f, "KABUM", "https://theuselessweb.com/", teste, "Gabinete");
             repository2.save(produto1);
 
             // Build

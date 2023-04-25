@@ -1,9 +1,8 @@
-package com.fatec.sig1.services;
+package com.fatec.sig1.services.MantemItemBuild;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fatec.sig1.model.Build.Build;
 import com.fatec.sig1.model.Build.ItemBuild;
 import com.fatec.sig1.model.Repositorys.MantemItemBuildRepository;
 
@@ -15,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 
 @Service
-public class MantemItemBuild {
+public class MantemItemBuildI implements MantemItemBuild {
 
     Logger logger = LogManager.getLogger(this.getClass());
     @Autowired

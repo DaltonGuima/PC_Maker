@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 import org.joda.time.DateTime;
 
 @Service
-public class MantemProdutoI {
+public class MantemProdutoI implements MantemProduto {
     Logger logger = LogManager.getLogger(this.getClass());
     @Autowired
     MantemProdutoRepository repository;

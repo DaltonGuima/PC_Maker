@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fatec.sig1.model.Produto.Produto;
 import com.fatec.sig1.model.Produto.ProdutoDTO;
-import com.fatec.sig1.services.MantemProduto;
+import com.fatec.sig1.services.MantemProduto.MantemProduto;
 
 import jakarta.validation.Valid;
 
