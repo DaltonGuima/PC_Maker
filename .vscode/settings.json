@@ -1,0 +1,13 @@
+{
+    "editor.defaultFormatter": "vscjava.vscode-spring-boot-dashboard",
+    "java.compile.nullAnalysis.mode": "automatic",
+    "java.format.enabled": true,
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    },
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "java.debug.settings.onBuildFailureProceed": true
+}
