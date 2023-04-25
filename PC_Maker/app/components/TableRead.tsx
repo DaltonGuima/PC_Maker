@@ -11,7 +11,7 @@ export interface Componente {
     modelo: string,
     preco: number,
     vendedor: string,
-    linkProduto: string
+    linkProduto: string,
 }
 
 export interface TableReadProps {

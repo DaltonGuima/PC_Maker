@@ -203,7 +203,7 @@ function MainDashboard() {
                     <div className="row">
                         <div className="col-lg-6">
                             <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                <div className="au-card-title" style={{ backgroundImage: "url('images/bg-title-01.jpg')" }}>
+                                <div className="au-card-title" >
                                     <div className="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i className="fa-solid fa-reply"></i>Feedback do PC Maker
@@ -271,7 +271,7 @@ function MainDashboard() {
                         </div>
                         <div className="col-lg-6 panels-dashboard">
                             <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                <div className="au-card-title" style={{ backgroundImage: "url('images/bg-title-02.jpg')" }}>
+                                <div className="au-card-title">
                                     <div className="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i className="fa-solid fa-comments"></i>Central de perguntas</h3>

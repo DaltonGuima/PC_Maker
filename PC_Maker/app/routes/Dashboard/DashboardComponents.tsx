@@ -1,12 +1,13 @@
+import type { Componente } from "../../components/TableRead";
 import { TableRead } from "../../components/TableRead"
-import { Gabinete } from "../../components/TableRead/Datas/componentes/Gabinete"
+import { Gabinete, GabineteProps } from "../../components/TableRead/Datas/componentes/Gabinete"
 import { Processador } from "../../components/TableRead/Datas/componentes/Processador"
 import { Mouse } from "../../components/TableRead/Datas/componentes/Mouse"
 import { Armazenamento } from "../../components/TableRead/Datas/componentes/Armazenamento"
 import { Ram } from "../../components/TableRead/Datas/componentes/Ram"
 import { Gpu } from "../../components/TableRead/Datas/componentes/Gpu"
 import { Psu } from "../../components/TableRead/Datas/componentes/Psu"
-import { CoolerBox } from "../../components/TableRead/Datas/componentes/CoolerBox"
+import { CoolerBox, CoolerBoxProps } from "../../components/TableRead/Datas/componentes/CoolerBox"
 import { SelectOption } from "../../components/SelectOptionComponent"
 import { Teclado } from "../../components/TableRead/Datas/componentes/Teclado"
 import { PlacaMae } from "../../components/TableRead/Datas/componentes/PlacaMae"
@@ -14,10 +15,26 @@ import { PlacaDeCaptura } from "../../components/TableRead/Datas/componentes/Pla
 import { Monitor } from "../../components/TableRead/Datas/componentes/Monitor"
 import { PlacaDeSom } from "../../components/TableRead/Datas/componentes/PlacaDeSom"
 import { Ventoinha } from "../../components/TableRead/Datas/componentes/Ventoinha"
+import { useEffect, useState } from "react"
+import axios from 'axios';
 
+
+interface ComponentesProdutos extends Componente {
+    categoria: string,
+    especificacoes: GabineteProps & CoolerBoxProps
+}
 
 function DashboardComponents() {
     const tipoCRUD = 'componentes';
+
+    const [componentes, setComponentes] = useState<ComponentesProdutos[]>([]);
+
+    useEffect(() => {
+        axios('http://127.0.0.1:8080/api/v1/produtos').then(response => {
+            setComponentes(response.data);
+        })
+    }, []);
+    console.log(componentes);
 
     function Navegacao() {
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
@@ -42,6 +59,35 @@ function DashboardComponents() {
                 </div>
                 <div className="container-fluid">
                     <div className="row"></div>
+                    {/* teste */}
+                    <TableRead
+                        tipoCRUD={tipoCRUD}
+                        key={'teste'}
+                        cols={['teste', '']}
+                        id='teste'
+                        insereDados
+                        body={
+                            componentes.filter(componente => componente.categoria == "teste")
+                                .map(componente => {
+
+                                    return (
+                                        <Gabinete
+                                            key={componente.id}
+                                            id={componente.id}
+                                            nome="AMD Ryzen 5 5600"
+                                            fabricante="AMD"
+                                            modelo="100-100000927BOX"
+                                            preco={999.99}
+                                            vendedor={componente.vendedor}
+                                            tipo={componente.especificacoes.tipo}
+                                            linkProduto='https://theuselessweb.com/'
+
+                                        />
+                                    )
+                                })
+                        }
+                    />
+
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Processador'}
@@ -90,6 +136,8 @@ function DashboardComponents() {
 
                         />]}
                     />
+
+
                     <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Armazenamento'}
@@ -440,3 +488,4 @@ function DashboardComponents() {
 }
 
 export default DashboardComponents
+

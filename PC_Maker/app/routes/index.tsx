@@ -51,7 +51,7 @@ export default function Home() {
       <Header />
       {games.map(game => {
         return (
-          <h1>{game.nome}</h1>
+          <h3>{game.nome}</h3>
         )
       })}
 

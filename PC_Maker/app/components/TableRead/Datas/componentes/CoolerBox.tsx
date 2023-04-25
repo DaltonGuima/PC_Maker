@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Componente } from "../../../TableRead"
 
 
-interface CoolerBoxProps extends Componente {
+export interface CoolerBoxProps extends Componente {
     potencia: number,
 }
 
