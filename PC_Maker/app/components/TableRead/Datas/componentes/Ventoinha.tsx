@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface VentoinhaProps extends Componente {
-    tamanho: number,
+
+interface VentoinhaProps {
+    tamanho: number | undefined,
 }
 
-export function Ventoinha(props: VentoinhaProps) {
+export function Ventoinha(props: VentoinhaProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

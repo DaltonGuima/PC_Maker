@@ -1,16 +1,15 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
-
-interface GpuProps extends Componente {
-    clock: number,
-    memoria: string,
-    clmemoria: string,
-    barramento: number,
-    conector: string
+interface GpuProps {
+    clock: number | undefined,
+    memoria: string | undefined,
+    clmemoria: string | undefined,
+    barramento: number | undefined,
+    conector: string | undefined
 }
 
-export function Gpu(props: GpuProps) {
+export function Gpu(props: GpuProps & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 

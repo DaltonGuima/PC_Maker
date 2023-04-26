@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface TecladoProps extends Componente {
-    tamanho: string,
-    tipo: string,
+interface TecladoProps {
+    tamanho: string | undefined,
+    tipo: string | undefined,
 }
 
-export function Teclado(props: TecladoProps) {
+export function Teclado(props: TecladoProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

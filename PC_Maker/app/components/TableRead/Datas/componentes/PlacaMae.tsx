@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface PlacaMaeProps extends Componente {
-    tipo: string,
-    chipset: string,
-    soquete: string,
-    fatordeforma: string,
-    tdp: string,
-    tecnologiaram: string,
-    slotsram: number,
-    cmaxram: number,
-    graficoi: string,
-    slotsm2: number,
-    slotspciex16: number,
-    slotspci: number,
+interface PlacaMaeProps {
+    tipo: string | undefined,
+    chipset: string | undefined,
+    soquete: string | undefined,
+    fatordeforma: string | undefined,
+    tdp: string | undefined,
+    tecnologiaram: string | undefined,
+    slotsram: number | undefined,
+    cmaxram: number | undefined,
+    graficoi: string | undefined,
+    slotsm2: number | undefined,
+    slotspciex16: number | undefined,
+    slotspci: number | undefined,
 
 }
 
-export function PlacaMae(props: PlacaMaeProps) {
+export function PlacaMae(props: PlacaMaeProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

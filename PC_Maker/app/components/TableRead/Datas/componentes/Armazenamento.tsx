@@ -1,15 +1,16 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface ArmazenamentoProps extends Componente {
-    tipo: string,
-    capacidade: number,
-    velEscrita: number,
-    velLeitura?: number,
+
+interface ArmazenamentoProps {
+    tipo: string | undefined,
+    capacidade: number | undefined,
+    velEscrita: number | undefined,
+    velLeitura?: number | undefined,
 }
 
-export function Armazenamento(props: ArmazenamentoProps) {
+export function Armazenamento(props: ArmazenamentoProps & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 

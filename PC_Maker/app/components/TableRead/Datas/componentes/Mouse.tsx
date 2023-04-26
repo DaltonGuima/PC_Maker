@@ -1,15 +1,12 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
-
-interface MouseProps extends Componente {
-    nome: string,
-    fabricante: string,
-    ndebotões: number,
-    dpi: number,
+interface MouseProps {
+    ndebotões: number | undefined,
+    dpi: number | undefined,
 }
 
-export function Mouse(props: MouseProps) {
+export function Mouse(props: MouseProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

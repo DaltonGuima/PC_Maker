@@ -4,16 +4,6 @@ import useTable from "../script/useTable"
 import { TableElements } from "./TableRead/TableElements"
 import { TableReadHead } from "./TableRead/TableReadHead"
 
-export interface Componente {
-    id: string,
-    nome: string,
-    fabricante: string,
-    modelo: string,
-    preco: number,
-    vendedor: string,
-    linkProduto: string,
-}
-
 export interface TableReadProps {
     id: string
     tipoCRUD: string

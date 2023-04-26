@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface PlacaDeSomProps extends Componente {
+interface PlacaDeSomProps {
 
 }
 
-export function PlacaDeSom(props: PlacaDeSomProps) {
+export function PlacaDeSom(props: PlacaDeSomProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

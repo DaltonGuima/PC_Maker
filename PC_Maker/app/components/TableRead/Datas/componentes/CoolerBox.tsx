@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
-
-export interface CoolerBoxProps extends Componente {
-    potencia: number,
+export interface CoolerBoxProps {
+    potencia: number | undefined
 }
 
-export function CoolerBox(props: CoolerBoxProps) {
+export function CoolerBox(props: CoolerBoxProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

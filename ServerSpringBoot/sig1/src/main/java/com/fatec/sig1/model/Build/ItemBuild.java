@@ -16,7 +16,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 public class ItemBuild {
     @Id
@@ -26,7 +26,7 @@ public class ItemBuild {
     private int Quantidade;
     @ManyToOne
     @JoinColumn(name = "build_id", nullable = false)
-    private Build build;    
+    private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)
     @JsonIgnoreProperties("itens")

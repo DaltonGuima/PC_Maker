@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
-
-interface MonitorProps extends Componente {
-    resolucaover: string,
-    taxadeatualiz: number,
-    tamanho: number,
+interface MonitorProps {
+    resolucaover: string | undefined,
+    taxadeatualiz: number | undefined,
+    tamanho: number | undefined,
 }
 
-export function Monitor(props: MonitorProps) {
+export function Monitor(props: MonitorProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

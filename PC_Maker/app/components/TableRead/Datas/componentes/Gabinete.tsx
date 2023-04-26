@@ -1,12 +1,13 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-export interface GabineteProps extends Componente {
-    tipo: string
+
+export interface GabineteProps {
+    tipo: string | undefined
 }
 
-export function Gabinete(props: GabineteProps) {
+export function Gabinete(props: GabineteProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

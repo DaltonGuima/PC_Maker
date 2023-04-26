@@ -34,6 +34,11 @@ public class MantemProdutoI implements MantemProduto {
         return repository.findById(id);
     }
 
+    public Optional<Produto> consultaPorCategoria(String categoria) {
+        logger.info(">>>>>> servico consultaPorCategoria chamado");
+        return repository.findByCategoria(categoria);
+    }
+
     public Optional<Produto> atualiza(Long id, Produto produto) {
         logger.info(">>>>>> 1.servico atualiza informações de cliente chamado");
 

@@ -1,20 +1,21 @@
 import { useState } from "react";
-import type { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface ProcessadorProps extends Componente {
-    soquete: string,
-    nNucleos: number,
-    nThreads: number,
-    frequencia: number,
-    freBoost: number,
-    tdp: number,
-    overClock: boolean,
-    graficoIntregado: boolean,
-    tipoMemoria: string
+
+interface ProcessadorProps {
+    soquete: string | undefined,
+    nNucleos: number | undefined,
+    nThreads: number | undefined,
+    frequencia: number | undefined,
+    freBoost: number | undefined,
+    tdp: number | undefined,
+    overClock: boolean | undefined,
+    graficoIntregado: boolean | undefined,
+    tipoMemoria: string | undefined
 }
 
-export function Processador(props: ProcessadorProps) {
+export function Processador(props: ProcessadorProps & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 

@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fatec.sig1.model.Produto.Produto;
 import com.fatec.sig1.model.Produto.ProdutoDTO;
 import com.fatec.sig1.services.MantemProduto.MantemProduto;
+//import com.fatec.sig1.services.MantemProduto.MantemProdutoI;
 
 import jakarta.validation.Valid;
 
@@ -42,7 +43,8 @@ public class APIProdutoController {
 
     @CrossOrigin // desabilita o cors do spring security
     @PostMapping
-    public ResponseEntity<Object> saveCliente(@RequestBody @Valid ProdutoDTO produtoDTO, BindingResult result) {
+    public ResponseEntity<Object> saveProduto(@RequestBody @Valid ProdutoDTO produtoDTO, BindingResult result) {
+        logger.info(">>>>>> chamou");
         if (result.hasErrors()) {
             logger.info(">>>>>> apicontroller validacao da entrada dados invalidos" + result.getFieldError());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Dados inválidos.");
@@ -93,4 +95,16 @@ public class APIProdutoController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(cliente.get());
     }
+
+    @CrossOrigin // desabilita o cors do spring security
+    @GetMapping("/{categoria}")
+    public ResponseEntity<Object> consultaPorCategoria(@PathVariable String categoria) {
+        logger.info(">>>>>> apicontroller consulta por categoria chamada");
+        Optional<Produto> produto = mantemProduto.consultaPorCategoria(categoria);
+        if (produto.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Categoria não encontrada.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(produto.get());
+    }
+
 }

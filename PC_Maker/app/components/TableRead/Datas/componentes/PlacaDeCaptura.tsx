@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface PlacaDeCapturaProps extends Componente {
-    interface: string,
-    saida: string,
-    taxadbit: number,
-    maioresupor: string,
+interface PlacaDeCapturaProps {
+    interface: string | undefined,
+    saida: string | undefined,
+    taxadbit: number | undefined,
+    maioresupor: string | undefined,
 }
 
-export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
+export function PlacaDeCaptura(props: PlacaDeCapturaProps & Componente) {
     const [editable, setEditable] = useState(false);
 
     function handleEdit() {

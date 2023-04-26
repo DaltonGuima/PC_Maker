@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import com.fatec.sig1.model.Produto.Produto;
 
-public interface MantemProduto{
+public interface MantemProduto {
     List<Produto> consultaTodos();
 
     void delete(Long id);
@@ -15,5 +15,7 @@ public interface MantemProduto{
     Optional<Produto> atualiza(Long id, Produto produto);
 
     Optional<Produto> save(Produto produto);
+
+    Optional<Produto> consultaPorCategoria(String categoria);
 
 }

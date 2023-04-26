@@ -1,17 +1,18 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface RamProps extends Componente {
-    capacidade: number,
-    velocidade: number,
-    tecnologia: string,
-    voltagem: string,
-    latencia: string,
-    notebook: boolean
+
+interface RamProps {
+    capacidade: number | undefined,
+    velocidade: number | undefined,
+    tecnologia: string | undefined,
+    voltagem: string | undefined,
+    latencia: string | undefined,
+    notebook: boolean | undefined
 }
 
-export function Ram(props: RamProps) {
+export function Ram(props: RamProps  & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 

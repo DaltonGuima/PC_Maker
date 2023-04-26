@@ -1,19 +1,19 @@
 import { useState } from "react";
-import { Componente } from "../../../TableRead"
+import type { Componente } from "~/Interface/ComponenteInterface";
 
 
-interface PsuProps extends Componente {
-    potencia: number,
-    certificacao: string,
-    pfc: string,
-    ventoinha: number,
-    conPrincipal: string,
-    conCPU: string,
-    conPCIe: string,
-    conSATA: string,
+interface PsuProps {
+    potencia: number | undefined,
+    certificacao: string | undefined,
+    pfc: string | undefined,
+    ventoinha: number | undefined,
+    conPrincipal: string | undefined,
+    conCPU: string | undefined,
+    conPCIe: string | undefined,
+    conSATA: string | undefined,
 }
 
-export function Psu(props: PsuProps) {
+export function Psu(props: PsuProps & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 
