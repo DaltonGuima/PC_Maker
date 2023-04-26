@@ -10,15 +10,9 @@ function DashboardInsercaoVentoinha() {
 
     async function handleCreateProdutoVentoinha(event: FormEvent) {
         event.preventDefault();
-        console.log("a")
 
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
-        console.log(data)
-
-        const map1 = new Map();
-        map1.set("tamanho", "teste")
-
 
         try {
             await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
