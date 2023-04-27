@@ -1,10 +1,36 @@
 import { useEffect } from "react";
 import { changeSelectValue } from "../../../script/changeSelectValue";
+import axios from "axios";
+import type { FormEvent } from "react";
 
 function DashboardInsercaoFonteDeAlimentacao() {
     useEffect(() => {
         changeSelectValue('FonteDeAlimentacao')
     });
+
+    async function handleCreateProdutoFonteDeAlimentacao(event: FormEvent) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target as HTMLFormElement)
+        const data = Object.fromEntries(formData)
+
+        try {
+            await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
+                nome: data.nome,
+                fabricante: data.fabricante,
+                modelo: data.modelo,
+                preco: Number(data.preco),
+                vendedor: data.vendedor,
+                linkProduto: data.linkProduto,
+                categoria: "FonteDeAlimentacao",
+                especificacoes: { "tamanho": data.tamanho }
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div style={{ paddingTop: '7rem' }}>
 
@@ -15,7 +41,7 @@ function DashboardInsercaoFonteDeAlimentacao() {
                         <strong>Fonte de Alimentação</strong>
                     </div>
                     <div className="card-body card-block">
-                        <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                        <form onSubmit={handleCreateProdutoFonteDeAlimentacao} className="form-horizontal">
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>

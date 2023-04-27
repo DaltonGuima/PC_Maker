@@ -1,10 +1,36 @@
+import type { FormEvent } from "react";
 import { useEffect } from "react";
 import { changeSelectValue } from "../../../script/changeSelectValue";
+import axios from "axios";
 
 function DashboardInsercaoArmazenamento() {
     useEffect(() => {
         changeSelectValue('armazenamento')
     });
+
+    async function handleCreateProdutoArmazenamento(event: FormEvent) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target as HTMLFormElement)
+        const data = Object.fromEntries(formData)
+
+        try {
+            await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
+                nome: data.nome,
+                fabricante: data.fabricante,
+                modelo: data.modelo,
+                preco: Number(data.preco),
+                vendedor: data.vendedor,
+                linkProduto: data.linkProduto,
+                categoria: "Armazenamento",
+                especificacoes: { "tamanho": data.tamanho }
+            })
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
     return (
         <div style={{ paddingTop: '7rem' }}>
 
@@ -13,8 +39,8 @@ function DashboardInsercaoArmazenamento() {
                     <div className="card-header">
                         <strong>Armazenamento</strong>
                     </div>
-                    <div className="card-body card-block">
-                        <form action="" method="post" encType="multipart/form-data" className="form-horizontal">
+                    <form onSubmit={handleCreateProdutoArmazenamento} className="form-horizontal">
+                        <div className="card-body card-block">
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="vendedor-produto" className=" form-control-label">Vendedor</label>
@@ -78,20 +104,19 @@ function DashboardInsercaoArmazenamento() {
                                 </div>
                             </div>
 
-
-                        </form>
-                    </div>
-                    <div className="card-footer">
-                        <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
-                            <i className="zmdi zmdi-plus"></i>Adicionar</button>
-                        <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                         </div>
+                    </form>
+                </div>
+                <div className="card-footer">
+                    <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
+                        <i className="zmdi zmdi-plus"></i>Adicionar</button>
+                    <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                     </div>
                 </div>
             </div>
-
-
         </div>
+
+
     )
 }
 export default DashboardInsercaoArmazenamento

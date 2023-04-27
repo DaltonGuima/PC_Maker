@@ -63,7 +63,7 @@ function DashboardInsercaoVentoinha() {
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="preco" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco" id="preco" placeholder="Preço" className="form-control" />
+                                    <input type="number" name="preco" id="preco" placeholder="Preço" className="form-control" />
                                     <small className="help-block form-text">Preço do produto</small>
                                 </div>
                                 <div className="col">
@@ -73,7 +73,7 @@ function DashboardInsercaoVentoinha() {
                                 </div>
                                 <div className="col">
                                     <label htmlFor="linkProduto" className=" form-control-label">Link Produto</label>
-                                    <input type="text" name="linkProduto" id="linkProduto" placeholder="Fabricante" className="form-control" />
+                                    <input type="url" name="linkProduto" id="linkProduto" placeholder="Link Produto" className="form-control" />
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
 

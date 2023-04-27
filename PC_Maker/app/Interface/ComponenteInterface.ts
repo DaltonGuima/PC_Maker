@@ -1,4 +1,5 @@
-import { GabineteProps } from "~/components/TableRead/Datas/componentes/Gabinete";
+import type { GabineteProps } from "~/components/TableRead/Datas/componentes/Gabinete";
+import type { VentoinhaProps } from "~/components/TableRead/Datas/componentes/Ventoinha";
 
 export interface Componente {
     id: string,
@@ -10,4 +11,5 @@ export interface Componente {
     linkProduto: string,
     categoria?: string,
     especificacoes?: GabineteProps
+    & VentoinhaProps
 }

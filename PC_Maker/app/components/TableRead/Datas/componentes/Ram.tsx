@@ -12,7 +12,7 @@ interface RamProps {
     notebook: boolean | undefined
 }
 
-export function Ram(props: RamProps  & Componente) {
+export function Ram(props: RamProps & Componente) {
     const [controls, setControls] = useState(false);
     const [editable, setEditable] = useState(false);
 

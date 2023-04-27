@@ -398,19 +398,24 @@ function DashboardComponents() {
                         id='Ventoinha'
                         tipoCRUD={tipoCRUD}
                         insereDados
-                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Tamanho', 'Vendedor', 'Link Produto']}
-                        body={[<Ventoinha
-                            key={'1'}
-                            id={'1'}
-                            nome="PICHAU GAMING FEATHER"
-                            fabricante="Pichau Gaming"
-                            modelo="PGFEA-WHITE"
-                            preco={19.90}
-                            tamanho={120}
-                            vendedor={'Pichau'}
-                            linkProduto='https://theuselessweb.com/'
+                        cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Vendedor', 'Link Produto', 'Tamanho']}
+                        body={componentes.filter(componente => componente.categoria == "Ventoinha")
+                            .map(componente => {
 
-                        />]}
+                                return (
+                                    <Ventoinha
+                                        key={componente.id}
+                                        id={componente.id}
+                                        nome={componente.nome}
+                                        fabricante={componente.fabricante}
+                                        modelo={componente.modelo}
+                                        preco={componente.preco}
+                                        vendedor={componente.vendedor}
+                                        tamanho={componente?.especificacoes?.tamanho}
+                                        linkProduto={componente.linkProduto}
+                                    />
+                                )
+                            })}
                     />
 
                     <TableRead

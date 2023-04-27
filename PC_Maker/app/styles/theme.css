@@ -60,7 +60,8 @@ p {
   border-bottom: #7042d5 solid 2px;
 }
 
-.has-sub li, .has-sub i{
+.has-sub li,
+.has-sub i {
   color: #fff;
 }
 
@@ -4723,6 +4724,11 @@ section {
   padding: 25px 40px;
   padding-right: 10px;
   border: none;
+}
+
+.inputComponente {
+  all: unset;
+  width: min-content;
 }
 
 .table-data2.table tbody td.desc {
