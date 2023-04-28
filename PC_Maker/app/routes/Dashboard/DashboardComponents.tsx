@@ -16,7 +16,7 @@ import { PlacaDeSom } from "../../components/TableRead/Datas/componentes/PlacaDe
 import { Ventoinha } from "../../components/TableRead/Datas/componentes/Ventoinha"
 import { useEffect, useState } from "react"
 import axios from 'axios';
-import { Componente } from "~/Interface/ComponenteInterface"
+import type { Componente } from "~/Interface/ComponenteInterface"
 
 
 
@@ -30,7 +30,6 @@ function DashboardComponents() {
             setComponentes(response.data);
         })
     }, []);
-    console.log(componentes);
 
     function Navegacao() {
         const localConst = document.getElementById('Navegador') as HTMLSelectElement

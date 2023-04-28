@@ -2,8 +2,10 @@ import type { FormEvent } from "react";
 import { useEffect } from "react";
 import { changeSelectValue } from "../../../script/changeSelectValue";
 import axios from "axios";
+import { redirect } from "@remix-run/node";
 
 function DashboardInsercaoVentoinha() {
+
     useEffect(() => {
         changeSelectValue('Ventoinha')
     });
@@ -24,8 +26,9 @@ function DashboardInsercaoVentoinha() {
                 linkProduto: data.linkProduto,
                 categoria: "Ventoinha",
                 especificacoes: { "tamanho": data.tamanho }
-            })
 
+            })
+            redirect("Dashboard/DashboardComponents#Ventoinha");
         } catch (error) {
             console.log(error)
         }
