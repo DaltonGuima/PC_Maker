@@ -1,15 +1,12 @@
 import { useHookstate } from "@hookstate/core"
 import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { json } from "@remix-run/node"
-import { Link, useLoaderData } from "@remix-run/react"
-import { useEffect, useState } from "react"
+import { Link } from "@remix-run/react"
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
 import { themePage } from "~/script/changeTheme"
 //css
 import home from "~/styles/home.css"
-import axios from 'axios';
 
 export const links: LinksFunction = () => {
   return [
@@ -21,40 +18,14 @@ export const meta: MetaFunction = () => ({
   title: "Home"
 });
 
-/* export async function loader() {
-  const res = await fetch("http://127.0.0.1:8080/api/v1/clientes");
-  return json(await res.json());
-} */
-
-interface Teste {
-  id: number,
-  nome: string,
-}
-
 export default function Home() {
   const changeTheme = useHookstate(themePage)
   /*   const teste = useLoaderData<typeof loader>(); */
-  const [games, setGames] = useState<Teste[]>([]);
-
-  useEffect(() => {
-    axios('http://127.0.0.1:8080/api/v1/clientes').then(response => {
-      setGames(response.data)
-    })
-  }, [])
-
-  console.log(games)
-
 
   return (
     <div data-theme={changeTheme.get()}>
 
       <Header />
-      {games.map(game => {
-        return (
-          <h3>{game.nome}</h3>
-        )
-      })}
-
       <main id="conteudo" className="app">
         <div className="banner banner1">
           <div className="row-fluid rounded">

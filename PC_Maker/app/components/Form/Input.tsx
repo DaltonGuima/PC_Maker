@@ -1,4 +1,5 @@
-import { InputHTMLAttributes, useState } from "react";
+import type { InputHTMLAttributes } from "react";
+
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     id: string;
@@ -9,16 +10,16 @@ export function Input(props: InputProps) {
 
     return (
         <div className="form-outline pt-2">
-            <label className="form-label font-weight-bold" 
+            <label className="form-label font-weight-bold"
                 htmlFor={props.id}>
-                    {textUpper.replace('-',' ')}
+                {textUpper.replace('-', ' ')}
             </label>
             <input
-                className='form-control form-control-plaintext' 
+                className='form-control form-control-plaintext'
                 {...props}
             />
         </div>
     )
 
-    
+
 }
