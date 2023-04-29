@@ -1,20 +1,27 @@
 import type { FormEvent } from "react";
+import { useState } from "react";
 import { useEffect } from "react";
 import { changeSelectValue } from "../../../script/changeSelectValue";
 import axios from "axios";
-import { redirect } from "@remix-run/node";
+import { Button, Modal } from "react-bootstrap";
 
 function DashboardInsercaoVentoinha() {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
     useEffect(() => {
         changeSelectValue('Ventoinha')
     });
 
+
+    //Falta mensagem de que salvou  
     async function handleCreateProdutoVentoinha(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
+
 
         try {
             await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
@@ -26,16 +33,48 @@ function DashboardInsercaoVentoinha() {
                 linkProduto: data.linkProduto,
                 categoria: "Ventoinha",
                 especificacoes: { "tamanho": data.tamanho }
-
-            })
-            redirect("Dashboard/DashboardComponents#Ventoinha");
+            }).then(() => setShow(true));
         } catch (error) {
-            console.log(error)
+            setShow(true)
         }
+
     }
     return (
         <div style={{ paddingTop: '7rem' }}>
 
+            <Modal
+                show={show}
+                onHide={() => setShow(false)}
+                size="lg"
+                aria-labelledby="message-modal"
+                centered
+                dialogClassName="border-dark"
+            >
+                <Modal.Header className="bg-dark border border-dark text-center" closeButton>
+                    <Modal.Title id="message-modal" className="text-center">
+                        Custom Modal Styling
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body className="bg-dark border border-dark">
+                    <p>
+                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
+                        commodi aspernatur enim, consectetur. Cumque deleniti temporibus
+                        ipsam atque a dolores quisquam quisquam adipisci possimus
+                        laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
+                        accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
+                        reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
+                        deleniti rem!
+                    </p>
+                </Modal.Body>
+                <Modal.Footer className="bg-black border border-dark" >
+                    <Button variant="secondary" onClick={handleClose}>
+                        Adicionar +
+                    </Button>
+                    <Button variant="success" onClick={handleClose}>
+                        Visualizar na tabela
+                    </Button>
+                </Modal.Footer>
+            </Modal>
 
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">

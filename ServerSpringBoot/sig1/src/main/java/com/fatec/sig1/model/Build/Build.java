@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-
+import com.fatec.sig1.model.Usuario.Usuario;
 
 import org.joda.time.DateTime;
 
@@ -22,7 +22,10 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-@JsonIgnoreProperties({"hibernateLazyInitializer","handler"})
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 public class Build {
     @Id
@@ -36,7 +39,10 @@ public class Build {
     private String Descricao;
     @OneToMany(mappedBy = "build", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("build")
-    private Set<ItemBuild> itens = new HashSet<ItemBuild>(); 
+    private Set<ItemBuild> itens = new HashSet<ItemBuild>();
+    @ManyToOne
+    @JoinColumn(name = "usuario_id", nullable = false)
+    private Usuario usuario;
 
     public Build() {
     }
@@ -94,6 +100,14 @@ public class Build {
 
     public void setItens(Set<ItemBuild> itens) {
         this.itens = itens;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
 }

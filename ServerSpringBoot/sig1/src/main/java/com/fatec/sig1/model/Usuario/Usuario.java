@@ -1,19 +1,30 @@
 package com.fatec.sig1.model.Usuario;
 
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fatec.sig1.model.Build.Build;
 
 //The JPA was renamed as Jakarta Persistence in 2019 and version 3.0 was released in 2020. This included the renaming of packages and properties
 //from javax. persistence to jakarta. persistence.
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import jakarta.persistence.OneToMany;
 
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 public class Usuario {
     @Id
@@ -29,6 +40,9 @@ public class Usuario {
     private String email;
     @NotBlank(message = "A senha é obrigatória")
     private String senha;
+    @OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("usuario")
+    private Set<Build> builds = new HashSet<Build>();
 
     public Usuario(String nome, String dataNascimento, String email, String senha) {
         this.nome = nome;
@@ -82,6 +96,14 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public Set<Build> getBuilds() {
+        return builds;
+    }
+
+    public void setItens(Set<Build> builds) {
+        this.builds = builds;
     }
 
     public boolean validaData(String data) {

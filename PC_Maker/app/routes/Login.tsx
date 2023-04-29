@@ -75,7 +75,7 @@ function Login() {
                           </div>
                         </div>
                         <div className="container-fluid DontHAveAccount pt-lg-5">
-                          <p> Não tem uma conta? <a href="../Views/cadastro.html"> Cadastre aqui.</a> </p>
+                          <p> Não tem uma conta? <a href="../cadastro"> Cadastre aqui.</a> </p>
                         </div>
                       </form>
 
