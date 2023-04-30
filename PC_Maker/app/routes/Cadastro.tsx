@@ -46,7 +46,7 @@ function Cadastro() {
                         id='confirmar-Email'
                         type='email'
                       />
-
+ 
                       <div className="d-flex align-items-center mb-3 pt-3">
                         <span className="h5 fw-bold mb-0"><i className="fa fa-lock"></i> Senha</span>
                       </div>
