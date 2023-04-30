@@ -6,6 +6,7 @@ import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fatec.sig1.model.Produto.Produto;
 
 import jakarta.persistence.CascadeType;
@@ -29,7 +30,7 @@ public class ItemBuild {
     private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)
-    @JsonIgnoreProperties("itens")
+    @JsonIncludeProperties("id")
     private Produto produto;
 
     public ItemBuild() {
