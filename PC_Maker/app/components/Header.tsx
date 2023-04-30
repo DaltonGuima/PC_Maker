@@ -85,6 +85,15 @@ export function Header() {
 
                             </form>
                         </div>
+
+                        <div className="search-button col-md-4">
+                            <ul className="navbar-nav">
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#">Questionário</a>
+                                </li>
+                            </ul>
+                        </div>
+
                         <div className="profile">
                             <ul className="navbar-nav">
                                 <li className="nav-item dropdown">
