@@ -1,6 +1,10 @@
 package com.fatec.sig1.services;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.mail.FetchProfile.Item;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +21,8 @@ import com.fatec.sig1.model.Repositorys.MantemBuildRepository;
 import com.fatec.sig1.model.Repositorys.MantemClienteRepository;
 import com.fatec.sig1.model.Repositorys.MantemItemBuildRepository;
 import com.fatec.sig1.model.Repositorys.MantemProdutoRepository;
+import com.fatec.sig1.model.Repositorys.MantemUsuarioRepository;
+import com.fatec.sig1.model.Usuario.Usuario;
 
 @Configuration
 class LoadDatabase {
@@ -31,7 +37,8 @@ class LoadDatabase {
      */
     @Bean
     CommandLineRunner initDatabase(MantemClienteRepository repository, MantemProdutoRepository repository2,
-            MantemBuildRepository repository3, MantemItemBuildRepository repository4) {
+            MantemBuildRepository repository3, MantemItemBuildRepository repository4,
+            MantemUsuarioRepository repository5) {
         return args -> {
             repository.deleteAll();
             // Cliente
@@ -51,15 +58,19 @@ class LoadDatabase {
 
             teste.put("tipo", "Mid Tower");
 
-            Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF", 199.99f, "KABUM", "https://theuselessweb.com/", teste, "Gabinete");
+            Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF", 199.99f, "KABUM",
+                    "https://theuselessweb.com/", teste, "Gabinete");
             repository2.save(produto1);
 
+            Usuario usuario = new Usuario("a", "20/12/1223", "a", "a");
+            repository5.save(usuario);
+
             // Build
-            Build build = new Build(0, "teste", "teste");
+            Build build = new Build(1.2f, "disgraça", "a", usuario);
             repository3.save(build);
 
-            // item
             ItemBuild item = new ItemBuild(2, build, produto1);
+            // item
             repository4.save(item);
         };
     }

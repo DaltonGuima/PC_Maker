@@ -10,7 +10,10 @@ import com.fatec.sig1.model.Usuario.Usuario;
 import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
@@ -42,6 +45,7 @@ public class Build {
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
     @ManyToOne
     @JoinColumn(name = "usuario_id", nullable = false)
+    @JsonIncludeProperties("id")
     private Usuario usuario;
 
     public Build() {
@@ -73,10 +77,12 @@ public class Build {
 
     public Build(float orcamento,
             String descricao,
-            String nome) {
+            String nome,
+            Usuario usuario) {
         Orcamento = orcamento;
         Descricao = descricao;
         this.nome = nome;
+        this.usuario = usuario;
 
     }
 
