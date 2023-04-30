@@ -70,7 +70,7 @@ export function Header() {
                                 <a className="nav-link" >Builds</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Guias</a>
+                                <a className="nav-link" href="../Guias/center">Guias</a>
                             </li>
                         </ul>
                         <div className="search-button col-md-4">
