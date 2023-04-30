@@ -4,7 +4,7 @@ interface TableBuilderProps {
     preco: string
 }
 export default function TableBuilder(props: TableBuilderProps) {
-//Testes
+//Teste
     return (
         <tr className="mt-2">
             <td>
