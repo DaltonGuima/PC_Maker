@@ -39,14 +39,9 @@ function Guias() {
                 <div className="container-fluid mt-2 ">
                     <table className="table table-borderless text-light py-2 ">
                         <tbody>
-                            <tr className="mt-1 pt-3">
+                        <tr className="mt-1">
                                 <td>
-                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/processador">Processador</a></button>
-                                </td>
-                            </tr>
-                            <tr className="mt-1">
-                                <td>
-                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/placamae">Placa Mãe</a></button>
+                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/armazenamento">Armazenamento</a></button>
                                 </td>
                             </tr>
                             <tr className="mt-1">
@@ -61,7 +56,12 @@ function Guias() {
                             </tr>
                             <tr className="mt-1">
                                 <td>
-                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/armazenamento">Armazenamento</a></button>
+                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/placamae">Placa Mãe</a></button>
+                                </td>
+                            </tr>
+                            <tr className="mt-1 pt-3">
+                                <td>
+                                    <button className="btn btn-secondary mx-2 p-2 px-4 rounded"><a className="nav-link" href="../Guias/processador">Processador</a></button>
                                 </td>
                             </tr>
                         </tbody>
