@@ -2,6 +2,7 @@ import { useHookstate } from '@hookstate/core';
 import { useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { themePage } from '../script/changeTheme';
+import { Link } from "@remix-run/react"
 
 
 export function Header() {
@@ -70,10 +71,10 @@ export function Header() {
                                 <a className="nav-link" >Builds</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="../Guias/center">Guias</a>
+                                <Link className="nav-link" to="/Guias">Guias</Link>
                             </li>
                         </ul>
-                        <div className="search-button col-md-4">
+                        <div className="search-button col-md-4">    
                             <form className="d-flex" id="barraPesquisa">
 
                                 <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='' />
@@ -84,14 +85,6 @@ export function Header() {
                                 </label>
 
                             </form>
-                        </div>
-
-                        <div className="search-button col-md-4">
-                            <ul className="navbar-nav">
-                                <li className="nav-item">
-                                    <a className="nav-link" href="#">Questionário</a>
-                                </li>
-                            </ul>
                         </div>
 
                         <div className="profile">

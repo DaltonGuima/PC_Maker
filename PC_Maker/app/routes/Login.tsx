@@ -1,7 +1,13 @@
+import { useHookstate } from "@hookstate/core";
+import { useState } from "react";
+import { Header } from "~/components/Header";
+import { themePage } from "~/script/changeTheme";
 import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import login from '../styles/login.css'
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
+
+
 
 export const links: LinksFunction = () => {
   return [
@@ -15,8 +21,10 @@ export const meta: MetaFunction = () => ({
 
 function Login() {
 
+  const changeTheme = useHookstate(themePage)
+
   return (
-    <div className='login-page'>
+    <div className='login-page' data-theme={changeTheme.get()}>
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -50,7 +58,7 @@ function Login() {
                           <div className="row">
                             <div className="col">
                               <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" />
-                              <label className="form-check-label px-2" htmlFor="defaultCheck1">Lembrar Senha</label>
+                              <label className="form-check-label px-2 minorText" htmlFor="defaultCheck1">Lembrar Senha</label>
                             </div>
                             <div className="col col-lg-3">
                               <SubmitForm
@@ -64,7 +72,7 @@ function Login() {
                         </div>
                         <div className="container-fluid">
                           <div className="row">
-                            <span className="h4 mb-0">Ou fazer login com:</span>
+                            <span className="h4 mb-0 minorText">Ou fazer login com:</span>
                             <div className=" col-xl-6 pt-2">
                               <ul className="social-icons">
                                 <li><a className="google" href="#"><i className="fa fa-google"></i></a></li>
@@ -74,7 +82,7 @@ function Login() {
                             </div>
                           </div>
                         </div>
-                        <div className="container-fluid DontHAveAccount pt-lg-5">
+                        <div className="container-fluid DontHAveAccount pt-lg-5 minorText">
                           <p> Não tem uma conta? <a href="../cadastro"> Cadastre aqui.</a> </p>
                         </div>
                       </form>

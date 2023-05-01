@@ -1,3 +1,7 @@
+body {
+  color: var(--text-primary);
+}
+
 .login-page {
   background: rgba(57, 17, 123, 0.844538);
   background: linear-gradient(
@@ -9,10 +13,28 @@
   );
 }
 
+.fw-bold{
+  color: white !important;
+}
+
+.minorText{
+  color: white !important;
+}
+
+.pt-2{
+  color: white !important;
+}
+
+.bg-secondary{
+  background-color: #6610f2 !important;
+  text-align: center;
+  padding-bottom: 0.7rem;
+}
+
 /* Formulário */
 
 .DontHAveAccount {
-  color: #393f81;
+  color: #393f81; 
 }
 
 .social-icons a.apple:hover {
@@ -50,7 +72,7 @@
 #confirmar-Senha {
   background-color: #292b2c;
   color: white;
-  border: 0.2px solid white;
+  border: 0.2px solid #606060;
   height: 2rem;
   border-radius: 10rem;
   padding-left: 1rem;

@@ -1,3 +1,7 @@
+import { useHookstate } from "@hookstate/core";
+import { useState } from "react";
+import { Header } from "~/components/Header";
+import { themePage } from "~/script/changeTheme";
 import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import cadastro from '../styles/cadastro.css'
@@ -17,8 +21,11 @@ export const meta: MetaFunction = () => ({
 });
 
 function Cadastro() {
+
+  const changeTheme = useHookstate(themePage)
+
   return (
-    <section className='login-page'>
+    <section className='login-page' data-theme={changeTheme.get()}>
       <title>Cadastro</title>
       <div className="container py-2 h-100">
         <div className="row align-items-center h-100">
@@ -31,11 +38,11 @@ function Cadastro() {
                     <form>
 
                       <div className="d-flex align-items-center mb-3 pb-1">
-                        <span className="h1 fw-bold mb-0">Cadastro</span>
+                        <span className="h1 fw-bold mb-0 minorText">Cadastro</span>
                       </div>
 
                       <div className="d-flex align-items-center mb-3 pt-3">
-                        <span className="h5 fw-bold mb-0"><i className="fa fa-envelope" aria-hidden="true"></i> E-mail</span>
+                        <span className="h5 fw-bold mb-0"><i className="fa fa-envelope minorText" aria-hidden="true"></i> E-mail</span>
                       </div>
 
                       <Input
@@ -48,7 +55,7 @@ function Cadastro() {
                       />
  
                       <div className="d-flex align-items-center mb-3 pt-3">
-                        <span className="h5 fw-bold mb-0"><i className="fa fa-lock"></i> Senha</span>
+                        <span className="h5 fw-bold mb-0"><i className="fa fa-lock minorText"></i> Senha</span>
                       </div>
 
                       <Input
@@ -61,7 +68,7 @@ function Cadastro() {
                       />
 
                       <div className="d-flex align-items-center mb-3 pt-3">
-                        <span className="h5 fw-bold mb-0"><i className="fa fa-birthday-cake" aria-hidden="true"></i> Data de nascimento</span>
+                        <span className="h5 fw-bold mb-0"><i className="fa fa-birthday-cake minorText" aria-hidden="true"></i> Data de nascimento</span>
                       </div>
 
                       <Input
@@ -73,7 +80,7 @@ function Cadastro() {
                         <div className="row">
                           <div className="col">
                             <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" />
-                            <label className="form-check-label px-1" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
+                            <label className="form-check-label px-1 minorText" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
                           </div>
                           <div className="col col-lg-5">
                             <SubmitForm
@@ -85,17 +92,17 @@ function Cadastro() {
                         </div>
                       </div>
                       <div className="container-fluid">
-                        <div className="row">
-                          <span className="h4 mb-0 pt-3">Continuar com:</span>
-                          <div className="pt-2">
-                            <ul className="social-icons align-items-center m-lg-3">
-                              <li><a className="google" href="#"><i className="fa fa-google"></i></a></li>
-                              <li><a className="facebook" href="#"><i className="fa fa-facebook"></i></a></li>
-                              <li><a className="apple" href="#"><i className="fa fa-apple"></i></a></li>
-                            </ul>
+                          <div className="row">
+                            <span className="h4 mb-0 minorText">Ou fazer login com:</span>
+                            <div className=" col-xl-6 pt-2">
+                              <ul className="social-icons">
+                                <li><a className="google" href="#"><i className="fa fa-google"></i></a></li>
+                                <li><a className="facebook" href="#"><i className="fa fa-facebook"></i></a></li>
+                                <li><a className="apple" href="#"><i className="fa fa-apple"></i></a></li>
+                              </ul>
+                            </div>
                           </div>
                         </div>
-                      </div>
                     </form>
 
                   </div>

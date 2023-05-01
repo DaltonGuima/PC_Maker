@@ -2,16 +2,26 @@ import { useHookstate } from "@hookstate/core";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
 
-function Builder() {
+export const links: LinksFunction = () => {
+    return [
+    ];
+};
+
+export const meta: MetaFunction = () => ({
+    title: "Guias"
+});
+
+function Guias() {
 
     const changeTheme = useHookstate(themePage)
 
     return (
         <div data-theme={changeTheme.get()}>
             <Header />
-            <main id="conteudo">
+            <main id="conteudo" className="container-fluid">
                 <div className="headline text text-white">
                     <h2 className="text-center py-3">Guia</h2>
                     <h3 className="text-center pt-1">O seu PC em pedaços!</h3>
@@ -26,7 +36,7 @@ function Builder() {
                     </h5>
                 </div>
 
-                <div className="container col-md-10 mt-2 col">
+                <div className="container-fluid mt-2 ">
                     <table className="table table-borderless text-light py-2 ">
                         <tbody>
                             <tr className="mt-1 pt-3">
@@ -78,8 +88,8 @@ function Builder() {
           </div>
             </main >
             <Footer />
-        </div >
+        </div>
     );
 }
 
-export default Builder;
+export default Guias;
