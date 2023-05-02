@@ -4,11 +4,11 @@ import { useEffect } from "react";
 import { changeSelectValue } from "../../../script/changeSelectValue";
 import axios from "axios";
 import { Button, Modal } from "react-bootstrap";
+import { Link } from "@remix-run/react";
 
 function DashboardInsercaoVentoinha() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
 
     useEffect(() => {
         changeSelectValue('Ventoinha')
@@ -34,6 +34,7 @@ function DashboardInsercaoVentoinha() {
                 categoria: "Ventoinha",
                 especificacoes: { "tamanho": data.tamanho }
             }).then(() => setShow(true));
+            console.log("foi")
         } catch (error) {
             setShow(true)
         }
@@ -70,9 +71,12 @@ function DashboardInsercaoVentoinha() {
                     <Button variant="secondary" onClick={handleClose}>
                         Adicionar +
                     </Button>
-                    <Button variant="success" onClick={handleClose}>
-                        Visualizar na tabela
-                    </Button>
+
+                    <Link to="/Dashboard/DashboardComponents/ReadVentoinha">
+                        <Button variant="success" onClick={handleClose}>
+                            Visualizar na tabela
+                        </Button>
+                    </Link>
                 </Modal.Footer>
             </Modal>
 

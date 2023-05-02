@@ -17,7 +17,7 @@ interface TableReadFullBodyProps extends TableReadProps {
 
 export function TableRead(props: TableReadFullBodyProps) {
     const [page, setPage] = useState(1);
-    const { slice, range } = useTable(props.body, page, 5);
+    const { slice, range } = useTable(props.body, page, 10);
 
     return (
         <div className="col-md-12 highlight-dashboard" id={arrumaId(props.id)}>

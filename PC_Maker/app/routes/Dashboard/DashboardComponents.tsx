@@ -17,24 +17,27 @@ import { Ventoinha } from "../../components/TableRead/Datas/componentes/Ventoinh
 import { useEffect, useState } from "react"
 import axios from 'axios';
 import type { Componente } from "~/Interface/ComponenteInterface"
+import { Outlet, useNavigate } from "@remix-run/react"
 
 
 
 function DashboardComponents() {
-    const tipoCRUD = 'componentes';
 
-    const [componentes, setComponentes] = useState<Componente[]>([]);
+    const navigate = useNavigate();
+
+    /* const [componentes, setComponentes] = useState<Componente[]>([]);
 
     useEffect(() => {
         axios('http://127.0.0.1:8080/api/v1/produtos').then(response => {
             setComponentes(response.data);
         })
-    }, []);
+    }, []); */
 
     function Navegacao() {
+
         const localConst = document.getElementById('Navegador') as HTMLSelectElement
-        const localId = document.getElementById(localConst.value) as HTMLElement
-        localId.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        navigate(`/Dashboard/DashboardComponents/Read${localConst.value}`)
+
     }
 
     return (
@@ -55,7 +58,9 @@ function DashboardComponents() {
                 <div className="container-fluid">
                     <div className="row"></div>
 
-                    <TableRead
+                    <Outlet />
+
+                    {/*  <TableRead
                         tipoCRUD={tipoCRUD}
                         key={'Processador'}
                         cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Preço', 'Soquete', 'Nº de Núcleos',
@@ -456,7 +461,7 @@ function DashboardComponents() {
                             linkProduto='https://theuselessweb.com/'
                         />]}
                     />
-
+*/}
                 </div>
             </div>
 

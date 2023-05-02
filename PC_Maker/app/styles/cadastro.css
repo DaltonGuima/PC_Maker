@@ -1,63 +1,70 @@
-body {
-    color: var(--text-primary);
-  }
-  
-  .login-page {
-    background: rgba(57, 17, 123, 0.844538);
-    background: linear-gradient(
-      243.38deg,
-      rgba(57, 17, 123, 0.844538),
-      44.97%,
-      rgba(26, 64, 200, 0.85),
-      95.59%
-    );
-  }
-  
-  .fw-bold{
-    color: white !important;
-  }
-  
-  .minorText{
-    color: white !important;
-  }
-  
-  .pt-2{
-    color: white !important;
-  }
-  
-  .bg-secondary{
-    background-color: #6610f2 !important;
-    text-align: center;
-    padding-bottom: 0.7rem;
-  }
-
-
-.card{
-    border-radius: 4%;
+#footer .container .row {
+  padding-bottom: 8px;
 }
 
-input[type=date]{
-    background-color: #292b2c;
-    color: white;
-    border: 0.2px solid #606060;
-    height: 2rem;
-    border-radius: 20px;
-    padding: 10px;
-    padding-bottom: 1rem; /* linha nao esta fazendo diferenca*/
+.fw-bold {
+  color: white !important;
+}
+
+.minorText {
+  color: white !important;
+}
+
+.textTherme {
+  font-size: smaller;
+}
+
+.pt-2 {
+  color: white !important;
+}
+
+.bg-secondary {
+  background-color: #6610f2 !important;
+  text-align: center;
+  padding-bottom: 0.7rem;
+}
+
+.card {
+  border-radius: 4%;
+}
+
+.opcaoLogin {
+  padding-top: 1.5rem;
+}
+
+::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+}
+
+.nomeInput {
+  background-color: #292b2c;
+  color: white;
+  border: 0.2px solid #606060;
+  border-radius: 20px;
+}
+
+input[type="date"] {
+  background-color: #292b2c;
+  color: white;
+  border: 0.2px solid #606060;
+  height: 2rem;
+  border-radius: 20px;
+  padding: 10px;
+  padding-bottom: 1rem; /* linha nao esta fazendo diferenca*/
 }
 
 .social-icons a.apple:hover {
-    background-color: gray;
-  }
-  .social-icons a.google:hover {
-    background-color: #db4437;
-  }
-  
-  .social-icons a {
-    background-color: rgb(57, 17, 123);
-    width: 43px;
-    height: 43px;
-  }
+  background-color: gray;
+}
+.social-icons a.google:hover {
+  background-color: #db4437;
+}
+
+.social-icons a {
+  background-color: rgb(57, 17, 123);
+  width: 43px;
+  height: 43px;
+}
 
 /* .social-icons a{
     display: flex;
@@ -67,7 +74,7 @@ input[type=date]{
     height: 80px;
 } */
 
-.social-icons i{
-    position: relative;
-    font-size: larger;
+.social-icons i {
+  position: relative;
+  font-size: larger;
 }

@@ -62,21 +62,11 @@ export function TableElements(props: TableElementsProps) {
 
             </div>
             <div className="table-data__tool-right">
-                {props.insereDados ?
+                {props.insereDados &&
                     <button style={{ textDecoration: 'none' }} onClick={Navigate} className="au-btn au-btn-icon au-btn--purple au-btn--small mx-3" >
                         <i className="zmdi zmdi-plus"></i>Adicionar item
                     </button>
-                    :
-                    null
                 }
-                <div className="rs-select2--dark rs-select2--sm rs-select2--dark2">
-                    <select className="js-select2 selectFilter col-10" name="type" defaultValue={''}>
-                        <option value=''> Export</option>
-                        <option value="">Excel</option>
-                        <option value="">Google Sheets</option>
-                    </select>
-                    <div className="dropDownSelect2"></div>
-                </div>
             </div>
         </div >
     )

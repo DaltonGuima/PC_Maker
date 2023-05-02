@@ -16,6 +16,6 @@ public interface MantemProduto {
 
     Optional<Produto> save(Produto produto);
 
-    Optional<Produto> consultaPorCategoria(String categoria);
+    List<Produto> consultaPorCategoria(String categoria);
 
 }

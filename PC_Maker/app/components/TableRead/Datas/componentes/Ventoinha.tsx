@@ -1,11 +1,10 @@
-import { redirect } from "@remix-run/node";
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
 import type { Componente } from "~/Interface/ComponenteInterface";
 import { ControlsTable } from "~/components/Form/ControlsTable";
 
-export interface VentoinhaProps {
+export interface VentoinhaProps extends Componente{
     tamanho: string | undefined,
 }
 

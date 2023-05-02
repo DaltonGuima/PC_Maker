@@ -47,7 +47,6 @@ public class MantemBuildI implements MantemBuild {
     public Optional<Build> save(Build build) {
         logger.info(">>>>>> servico save chamado ");
         Build.setDataCadastro(new DateTime());
-        build.setItens(null);
         return Optional.ofNullable(repository.save(build));
     }
 

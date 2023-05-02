@@ -97,14 +97,13 @@ public class APIProdutoController {
     }
 
     @CrossOrigin // desabilita o cors do spring security
-    @GetMapping("/{categoria}")
+    @GetMapping("/categoria/{categoria}")
     public ResponseEntity<Object> consultaPorCategoria(@PathVariable String categoria) {
         logger.info(">>>>>> apicontroller consulta por categoria chamada");
-        Optional<Produto> produto = mantemProduto.consultaPorCategoria(categoria);
+        List<Produto> produto = mantemProduto.consultaPorCategoria(categoria);
         if (produto.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Categoria não encontrada.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(produto.get());
+        return ResponseEntity.status(HttpStatus.OK).body(mantemProduto.consultaPorCategoria(categoria));
     }
-
 }

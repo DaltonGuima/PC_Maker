@@ -8,13 +8,15 @@ interface ButtonProps {
 
 export function SubmitForm(props: ButtonProps) {
     return (
-        <button
-            id={props.id}
-            name={props.id}
-            className="btn text-light btn-block bg-secondary btn-login mt-5"
-            type="submit"
-        >
-            {props.text}
-        </button>
+        <div className="col col-lg-2 px-3 d-block">
+            <button
+                id={props.id}
+                name={props.id}
+                className="btn text-light bg-secondary btn-login px-lg-4"
+                type="submit"
+            >
+                {props.text}
+            </button>
+        </div>
     )
 }

@@ -1,8 +1,4 @@
 body {
-  color: var(--text-primary);
-}
-
-.login-page {
   background: rgba(57, 17, 123, 0.844538);
   background: linear-gradient(
     243.38deg,
@@ -13,19 +9,19 @@ body {
   );
 }
 
-.fw-bold{
+.fw-bold {
   color: white !important;
 }
 
-.minorText{
+.minorText {
   color: white !important;
 }
 
-.pt-2{
+.pt-2 {
   color: white !important;
 }
 
-.bg-secondary{
+.bg-secondary {
   background-color: #6610f2 !important;
   text-align: center;
   padding-bottom: 0.7rem;
@@ -34,7 +30,7 @@ body {
 /* Formulário */
 
 .DontHAveAccount {
-  color: #393f81; 
+  color: #393f81;
 }
 
 .social-icons a.apple:hover {
@@ -69,7 +65,8 @@ body {
 #email,
 #senha,
 #confirmar-Email,
-#confirmar-Senha {
+#confirmar-Senha,
+#nome {
   background-color: #292b2c;
   color: white;
   border: 0.2px solid #606060;
