@@ -5,10 +5,12 @@ import type { Componente } from "~/Interface/ComponenteInterface";
 import { ControlsTable } from "~/components/Form/ControlsTable";
 
 export interface VentoinhaProps extends Componente{
-    tamanho: string | undefined,
+    especificacoes:{
+        tamanho: string | undefined,
+    }
 }
 
-export function Ventoinha(props: VentoinhaProps & Componente) {
+export function Ventoinha(props: VentoinhaProps) {
     const [editable, setEditable] = useState(false);
     const [operation, setOperation] = useState<string>("");
 
@@ -65,7 +67,7 @@ export function Ventoinha(props: VentoinhaProps & Componente) {
                 <input form={`formVentoinha${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
             </td>
             <td>
-                <input form={`formVentoinha${props.id}`} type="text" name="tamanho" id="tamanho" defaultValue={props.tamanho} className="inputComponente" readOnly={!editable} />
+                <input form={`formVentoinha${props.id}`} type="text" name="tamanho" id="tamanho" defaultValue={props.especificacoes.tamanho} className="inputComponente" readOnly={!editable} />
             </td>
             <td>
                 <ControlsTable

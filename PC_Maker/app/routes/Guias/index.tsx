@@ -2,11 +2,13 @@ import { useHookstate } from "@hookstate/core";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
+import guias from '../../styles/guias.css'
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
 
 export const links: LinksFunction = () => {
     return [
+        { rel: "stylesheet", href: guias },
     ];
 };
 
@@ -35,6 +37,73 @@ function Guias() {
                         Clique nos botões abaixo e descubra a funcionalidade de cada peça.
                     </h5>
                 </div>
+
+                
+
+                <ul className="cards">
+  <li>
+    <a href="" className="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+      <div className="card__overlay">
+        <div className="card__header">
+          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div className="card__header-text">
+            <h3 className="card__title">Armazenamento</h3>            
+          </div>
+        </div>
+        <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>      
+  </li>
+  <li>
+    <a href="" className="card">
+      <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+      <div className="card__overlay">        
+        <div className="card__header">
+          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+          <div className="card__header-text">
+            <h3 className="card__title">Memória RAM</h3>
+          </div>
+        </div>
+        <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="" className="card">
+      <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+      <div className="card__overlay">
+        <div className="card__header">
+          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
+          <div className="card__header-text">
+            <h3 className="card__title">Placa de Vídeo</h3>
+            <span className="card__tagline">Lorem ipsum dolor sit amet consectetur</span>            
+          </div>
+        </div>
+        <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>
+  <li>
+    <a href="" className="card">
+      <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+      <div className="card__overlay">
+        <div className="card__header">
+          <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                 
+          <div className="card__header-text">
+            <h3 className="card__title">Placa Mãe</h3>
+          </div>          
+        </div>
+        <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+      </div>
+    </a>
+  </li>    
+</ul>
+
+
+
+
+
 
                 <div className="container-fluid mt-2 ">
                     <table className="table table-borderless text-light py-2 ">

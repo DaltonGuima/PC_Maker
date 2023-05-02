@@ -34,7 +34,7 @@ function ReadVentoinha() {
                         modelo={componente.modelo}
                         preco={componente.preco}
                         vendedor={componente.vendedor}
-                        tamanho={componente.tamanho}
+                        especificacoes = {{tamanho:`${componente.especificacoes.tamanho}`}}
                         linkProduto={componente.linkProduto}
                     />
                 )
