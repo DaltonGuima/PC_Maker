@@ -1,8 +1,9 @@
-import type { Dispatch } from 'react';
+import type { ChangeEvent, Dispatch } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { arrumaId } from '../../script/arrumaId';
 import type { TableReadProps } from '../TableRead';
+import { hookstate, useHookstate } from '@hookstate/core';
 interface TableElementsProps extends TableReadProps {
     page: number,
     setPage: Dispatch<number>,
@@ -10,7 +11,15 @@ interface TableElementsProps extends TableReadProps {
     range: number[]
 }
 
+export const SearchByNome = hookstate("");
+
 export function TableElements(props: TableElementsProps) {
+    const SearchByNomeInput = useHookstate(SearchByNome)
+
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+        SearchByNomeInput.set(event.target.value);
+        console.log(SearchByNomeInput.get())
+    };
 
     const navigate = useNavigate();
 
@@ -49,12 +58,11 @@ export function TableElements(props: TableElementsProps) {
                 </button>
                 <ul className="dropdown-menu dropdown-menu-dark">
                     <li><a className="dropdown-item text-light" href="#">A ~ Z</a></li>
-                    <li><a className="dropdown-item text-light" href="#">Data Criação</a></li>
-                    <li><a className="dropdown-item text-light" href="#">Data de Modificação</a></li>
+                    <li><a className="dropdown-item text-light" href="#">Data Cadastro</a></li>
                 </ul>
                 <form className='input-search-dashboard d-inline'>
-                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Search" name='' id={props.id} />
-                    <label className='text-white' htmlFor={props.id}>
+                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Procurar por nome" name={props.id} id={props.id} onChange={handleChange} value={SearchByNomeInput.get()} />
+                    <label className='text-light' htmlFor={props.id}>
                         <i className="fa fa-search"></i>
                     </label>
                 </form>

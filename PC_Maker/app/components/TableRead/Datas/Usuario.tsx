@@ -1,6 +1,9 @@
 import { useState } from "react";
+import type { FormEvent } from "react";
+import axios from "axios";
 
-interface UsuarioProps {
+
+export interface UsuarioProps {
     id: string,
     nome: string,
     dataNascimento: string,
@@ -10,6 +13,7 @@ interface UsuarioProps {
 
 export function Usuario(props: UsuarioProps) {
     const [editable, setEditable] = useState(false);
+    const [operation, setOperation] = useState<string>("");
 
     function handleEdit() {
         if (editable)
@@ -18,13 +22,36 @@ export function Usuario(props: UsuarioProps) {
             setEditable(true);
     };
 
+    function handleWithPutAndDelete(event: FormEvent) {
+        const formData = new FormData(event.target as HTMLFormElement)
+        const data = Object.fromEntries(formData)
+
+        if (operation == "Delete") {
+            axios.delete(`http://127.0.0.1:8080/api/v1/usuarios/${props.id}`).then(() => {
+                console.log("apagou");
+            })
+        } else {
+            event.preventDefault()
+            try {
+                axios.put(`http://127.0.0.1:8080/api/v1/usuarios/${props.id}`, {
+                    nome: data.nome,
+                    dataNascimento: data.dataNascimento,
+                    email: data.email,
+                    senha: data.senha
+                })
+            } catch (error) {
+                console.log(error)
+            }
+        }
+    }
+
     return (
         <tr className="tr-shadow" contentEditable={editable}>
             <td className="text-nowrap" >{props.id}</td>
             <td>{props.nome}</td>
             <td>{props.dataNascimento}</td>
             <td>{props.email}</td>
-            <td className="desc">{props.senha}</td>
+            <td>{props.senha}</td>
             <td>
                 {editable ?
                     <div className="table-data-feature">
@@ -50,3 +77,4 @@ export function Usuario(props: UsuarioProps) {
         </tr>
     )
 }
+

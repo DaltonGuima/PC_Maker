@@ -2,6 +2,7 @@
   --background-primary: white;
   --background-secondary: rgb(223, 223, 223);
   --background-tertiary: rgb(154, 154, 154); /* precisa ser trocado */
+  --background-quaternary: #f0f0f0;
   --background-primary-transparent: rgba(255, 255, 255, 0.4);
   --background-secondary-transparent: rgba(
     102,
@@ -13,12 +14,14 @@
   --text-primary: black;
   --text-secondary: rgb(29, 29, 29);
   --text-tertiary: white;
+  --text-quaternary: #9529c6;
   --accent: purple;
 }
 [data-theme="dark"] {
   --background-primary: #212425;
   --background-secondary: #353a3c;
   --background-tertiary: #333333;
+  --background-quaternary: #15151585;
   --background-primary-transparent: rgba(33, 36, 37, 0.9);
   --background-secondary-transparent: rgba(
     102,
@@ -30,6 +33,7 @@
   --text-primary: white;
   --text-secondary: aliceblue;
   --text-tertiary: black;
+  --text-quaternary: #d7bdca;
   --accent: darkred;
 }
 
@@ -40,6 +44,15 @@ main {
 
 body {
   background-color: var(--background-primary);
+}
+
+.texto {
+  color: var(--text-primary) !important;
+}
+
+.cardLateral {
+  background-color: var(--background-quaternary) !important;
+  color: var(--text-primary) !important;
 }
 
 .texto-temoso {

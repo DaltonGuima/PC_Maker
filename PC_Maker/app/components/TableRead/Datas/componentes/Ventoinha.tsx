@@ -4,8 +4,8 @@ import { useState } from "react";
 import type { Componente } from "~/Interface/ComponenteInterface";
 import { ControlsTable } from "~/components/Form/ControlsTable";
 
-export interface VentoinhaProps extends Componente{
-    especificacoes:{
+export interface VentoinhaProps extends Componente {
+    especificacoes: {
         tamanho: string | undefined,
     }
 }

@@ -1,6 +1,5 @@
 import { Usuario } from "~/components/TableRead/Datas/Usuario";
 import { TableRead } from "../../components/TableRead"
-import { Feedback } from "../../components/TableRead/Datas/Feedback"
 
 
 function DashboardUsuario() {
@@ -26,13 +25,13 @@ function DashboardUsuario() {
                                     senha="Queriavoar2.0"
                                 />,
                                 <Usuario
-                                key={'2'}
-                                id={'2'}
-                                nome={'Nome'}
-                                dataNascimento='11/09/2001'
-                                email='Astolfo.joao@gmail.com'
-                                senha="Queriavoar"
-                                />
+                                    key={'2'}
+                                    id={'2'}
+                                    nome={'Nome'}
+                                    dataNascimento='11/09/2001'
+                                    email='Astolfo.joao@gmail.com'
+                                    senha="Queriavoar"
+                                />,
                             ]}
                         />
 
