@@ -86,7 +86,7 @@ function Guiateste() {
                                 </div>
                             </div> */}
 
-                            <div className="card mb-4 cardLateral">
+                            {/* <div className="card mb-4 cardLateral">
                                 <div className="card-header">Categories</div>
                                 <div className="card-body">
                                     <div className="row">
@@ -106,12 +106,12 @@ function Guiateste() {
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </div>  */}
 
-                            <div className="card mb-4 cardLateral">
+                            {/* <div className="card mb-4 cardLateral">
                                 <div className="card-header">Side Widget</div>
                                 <div className="card-body">You can put anything you want inside of these side widgets. They are easy to use, and feature the Bootstrap 5 card component!</div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

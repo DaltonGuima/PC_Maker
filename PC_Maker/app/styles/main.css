@@ -1,41 +1,44 @@
 :root {
   --background-primary: white;
   --background-secondary: rgb(223, 223, 223);
-  --background-tertiary: rgb(154, 154, 154); /* precisa ser trocado */
+  --background-tertiary:  rgb(196, 196, 208);                          /*rgb(154, 154, 154);*/ /* precisa ser trocado */
   --background-quaternary: #f0f0f0;
+  --background-quinary: rgb(84, 82, 115);
   --background-primary-transparent: rgba(255, 255, 255, 0.4);
-  --background-secondary-transparent: rgba(
-    102,
-    16,
-    242,
-    0.9
-  ); /* rgba(223, 223, 223, 0.2)  */
+  --background-secondary-transparent: rgba(102, 16, 242, 0.9); /* rgba(223, 223, 223, 0.2)  */
   --background-tertiary-transparent: rgba(111, 66, 193, 0.4);
   --text-primary: black;
   --text-secondary: rgb(29, 29, 29);
   --text-tertiary: white;
   --text-quaternary: #9529c6;
+  --text-quinary: #e3dfdf;
+  --text-senary: #8d24f2;
+  --social-icons: #e3dfdf;
   --accent: purple;
+  --background-gradient-primary: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 35%, rgba(217,217,217,1) 100%);
 }
 [data-theme="dark"] {
   --background-primary: #212425;
   --background-secondary: #353a3c;
   --background-tertiary: #333333;
   --background-quaternary: #15151585;
+  --background-quinary: #1d0f37; /* teste */
   --background-primary-transparent: rgba(33, 36, 37, 0.9);
-  --background-secondary-transparent: rgba(
-    102,
-    16,
-    242,
-    0.9
-  ); /* rgba(247, 255, 255, 0.5) */
+  --background-secondary-transparent: rgba(102, 16, 242,0.9); /* rgba(247, 255, 255, 0.5) */
   --background-tertiary-transparent: rgba(111, 66, 193, 0.4);
   --text-primary: white;
   --text-secondary: aliceblue;
   --text-tertiary: black;
   --text-quaternary: #d7bdca;
+  --text-quinary: #e3dfdf;
+  --text-senary: #c68bff;
+  --social-icons: #1e1e1e;
   --accent: darkred;
+  --background-gradient-primary: linear-gradient(180deg, rgba(33,36,37,1) 0%, rgba(46,50,51,1) 35%, rgba(63,65,66,1) 100%);
+  --background-gradient-secondary: linear-gradient(180deg, rgb(62, 64, 65) 0%, rgb(6, 6, 6) 100%);
 }
+
+/* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
 
 main {
   background-color: var(--background-primary);
@@ -47,6 +50,11 @@ body {
 }
 
 .texto {
+  color: var(--text-primary) !important;
+  background: var(--background-gradient-primary) !important;
+}
+
+.textoCor {
   color: var(--text-primary) !important;
 }
 
@@ -63,6 +71,14 @@ body {
 
 li {
   color: var(--text-primary);
+}
+
+.buildOrigin{
+  color: var(--text-quaternary) !important
+}
+
+.cardBold{
+  font-weight: bold !important;
 }
 
 .imagemPerfil {
@@ -93,6 +109,7 @@ li {
   background-color: var(--background-tertiary);
   display: inline-block;
   margin-left: 20px;
+  border-radius: 0.7rem;
 }
 
 .search-button input {
@@ -143,7 +160,8 @@ li {
 /* Site footer */
 
 .site-footer {
-  background-color: var(--background-tertiary);
+  /* background-color: var(--background-tertiary); */
+  background-color: var(--background-quinary);
   padding: 45px;
   font-size: 15px;
   line-height: 24px;
@@ -160,7 +178,8 @@ li {
 }
 
 .site-footer h6 {
-  color: var(--text-primary);
+  /* color: var(--text-primary); */
+  color: var(--text-quinary) !important;
   font-size: 16px;
   text-transform: uppercase;
   margin-top: 5px;
@@ -168,11 +187,11 @@ li {
 }
 
 .site-footer a {
-  color: var(--text-primary);
+  color: var(--text-quinary);
 }
 
 .site-footer a:hover {
-  color: #3366cc;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -186,14 +205,15 @@ li {
 }
 
 .footer-links a {
-  color: var(--text-primary);
+  /* color: var(--text-primary); */
+  color: var(--text-quinary);
   opacity: 0.9;
 }
 
 .footer-links a:active,
 .footer-links a:focus,
 .footer-links a:hover {
-  color: #3366cc;
+  color: #fff;
   text-decoration: none;
 }
 
@@ -219,7 +239,7 @@ li {
   margin-left: 6px;
   margin-right: 0;
   border-radius: 100%;
-  background-color: #f9f9f9;
+  background-color: var(--social-icons); /* #9e9cb4 */
   position: relative;
   top: 7px;
   right: 3px;
@@ -228,7 +248,7 @@ li {
 
 .copyright-text {
   margin: 0;
-  color: var(--text-primary);
+  color: var(--text-quinary);
 }
 
 @media (max-width: 1200px) {
@@ -270,7 +290,7 @@ li {
 }
 
 .social-icons a {
-  background-color: #eceeef;
+  background-color: #312b8e;  /*#341688*/  /* trocar dps com o tema escuro*/
   color: #818a91;
   font-size: 16px;
   display: inline-block;
@@ -300,15 +320,15 @@ li {
 }
 
 .social-icons a.facebook:hover {
-  background-color: #3b5998;
+  background-color: #7b67db;
 }
 
 .social-icons a.twitter:hover {
-  background-color: #00aced;
+  background-color: #7b67db;
 }
 
 .social-icons a.linkedin:hover {
-  background-color: #007bb6;
+  background-color: #7b67db;
 }
 
 .social-icons a.dribbble:hover {

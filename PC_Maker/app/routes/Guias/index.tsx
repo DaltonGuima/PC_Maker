@@ -23,17 +23,17 @@ function Guias() {
   return (
     <div data-theme={changeTheme.get()}>
       <Header />
-      <main id="conteudo" className="container-fluid">
-        <div className="headline text text-white">
+      <main id="conteudo" className="container-fluid texto">
+        <div className="headline text">
           <h2 className="text-center py-3">Guia</h2>
           <h3 className="text-center pt-1">O seu PC em pedaços!</h3>
         </div>
 
         <div>
-          <h4 className="text-center py-3 text-white">
+          <h4 className="text-center py-3">
             Quer conhecer um pouco mais sobre as peças que compõem o seu PC?
           </h4>
-          <h5 className="text-center pb-2 text-info">
+          <h5 className="text-center pb-2 informativoTopo">
             Clique nos botões abaixo e descubra a funcionalidade de cada peça.
           </h5>
         </div>
@@ -56,7 +56,7 @@ function Guias() {
             </a>
           </li>
           <li>
-            <a href="../Guias/RAM" className="card">
+            <a href="../Guias/MemoriaRAM" className="card">
               <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
@@ -70,7 +70,7 @@ function Guias() {
             </a>
           </li>
           <li>
-            <a href="../Guias/placadevideo" className="card">
+            <a href="../Guias/PlacaDeVideo" className="card">
               <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
@@ -85,7 +85,7 @@ function Guias() {
             </a>
           </li>
           <li>
-            <a href="../Guias/placamae" className="card">
+            <a href="../Guias/PlacaMae" className="card">
               <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
@@ -99,7 +99,7 @@ function Guias() {
             </a>
           </li>
           <li>
-            <a href="../Guias/processador" className="card">
+            <a href="../Guias/Processador" className="card">
               <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">

@@ -43,7 +43,7 @@ body {
   right: 0;
   z-index: 1;
   border-radius: calc(var(--curve) * 1px);
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
   transform: translateY(100%);
   transition: 0.2s ease-in-out;
 }
@@ -60,7 +60,7 @@ body {
   padding: 2em;
   border-radius: calc(var(--curve) * 1px) 0 0 0;
   /* background-color: var(--surface-color); */
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
   transform: translateY(-100%);
   transition: 0.2s ease-in-out;
   /*
@@ -78,7 +78,7 @@ body {
 }
 
 .card__arc path {
-  fill: var(--background-secondary);
+  fill: var(--background-primary);
   d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
 }
 
@@ -118,5 +118,10 @@ body {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
   overflow: hidden;
-  background-color: var(--background-secondary);
+  background-color: var(--background-primary);
+}
+
+
+.informativoTopo{
+  color: var(--text-senary);
 }

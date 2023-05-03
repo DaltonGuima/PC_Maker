@@ -26,7 +26,7 @@ export default function Home() {
     <div data-theme={changeTheme.get()}>
 
       <Header />
-      <main id="conteudo" className="app">
+      <main id="conteudo" className="app texto">
         <div className="banner banner1">
           <div className="row-fluid rounded">
             <div className="cardbanner">
@@ -41,7 +41,7 @@ export default function Home() {
         </div>
 
         <div className="container cards">
-          <h1 className="text-center text-light title">Builds mais votadas</h1>
+          <h1 className="text-center title">Builds mais votadas</h1>
           <div className="row pt-2 m-auto">
 
             <CardBuild

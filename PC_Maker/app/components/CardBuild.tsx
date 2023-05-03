@@ -18,11 +18,11 @@ export function CardBuild(props: CardBuildProps) {
                 </div>
                 <div className="card-body" style={{ overflowY: 'auto' }}>
 
-                    <h4 className="card-title">{props.title}</h4>
+                    <h4 className="card-title cardBold">{props.title}</h4>
                     <ul className="card-text pt-3">
                         {props.Itens.map(itens => <li key="a">{itens}</li>)}
                     </ul>
-                    <h6 className="text-secondary">Feito por {props.criador}</h6>
+                    <h6 className="buildOrigin">Feito por {props.criador}</h6>
                 </div>
             </Link>
         </div>
