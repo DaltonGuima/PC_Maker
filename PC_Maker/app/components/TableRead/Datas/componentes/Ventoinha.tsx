@@ -1,14 +1,10 @@
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
-import type { Componente } from "~/Interface/ComponenteInterface";
+import type { VentoinhaProps } from "~/Interface/ComponenteInterface";
+
 import { ControlsTable } from "~/components/Form/ControlsTable";
 
-export interface VentoinhaProps extends Componente {
-    especificacoes: {
-        tamanho: string | undefined,
-    }
-}
 
 export function Ventoinha(props: VentoinhaProps) {
     const [editable, setEditable] = useState(false);
@@ -22,7 +18,7 @@ export function Ventoinha(props: VentoinhaProps) {
         if (operation == "Delete") {
             axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
                 console.log("apagou");
-            })
+            }).catch(error => alert(error))
         } else {
             event.preventDefault()
             try {
@@ -37,7 +33,7 @@ export function Ventoinha(props: VentoinhaProps) {
                     especificacoes: { "tamanho": data.tamanho }
                 })
             } catch (error) {
-                console.log(error)
+                alert(error)
             }
         }
     }

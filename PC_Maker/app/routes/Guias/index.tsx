@@ -43,7 +43,7 @@ function Guias() {
         <ul className="cards">
           <li>
             <a href="../Guias/armazenamento" className="card">
-              <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+              <img src="/hdd_ssd_generic2.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
                   <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -51,13 +51,13 @@ function Guias() {
                     <h3 className="card__title">Armazenamento</h3>
                   </div>
                 </div>
-                <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p className="card__description">O componente do seu computador que permite que você armazene e acesse dados no longo prazo</p>
               </div>
             </a>
           </li>
           <li>
             <a href="../Guias/MemoriaRAM" className="card">
-              <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+              <img src="/ram_generic2.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
                   <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -65,13 +65,13 @@ function Guias() {
                     <h3 className="card__title">Memória RAM</h3>
                   </div>
                 </div>
-                <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p className="card__description">O componente responsável por dar mais agilidade e velocidade no funcionamento geral do sistema</p>
               </div>
             </a>
           </li>
           <li>
             <a href="../Guias/PlacaDeVideo" className="card">
-              <img src="https://i.imgur.com/oYiTqum.jpg" className="card__image" alt="" />
+              <img src="/gpu_generic2.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
                   <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -80,13 +80,13 @@ function Guias() {
                     {/* <span className="card__tagline">Lorem ipsum dolor sit amet consectetur</span> */}
                   </div>
                 </div>
-                <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p className="card__description">O componente responsável por exibir imagens na tela.</p>
               </div>
             </a>
           </li>
           <li>
             <a href="../Guias/PlacaMae" className="card">
-              <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+              <img src="/mobo_generic2.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
                   <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -94,13 +94,13 @@ function Guias() {
                     <h3 className="card__title">Placa Mãe</h3>
                   </div>
                 </div>
-                <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p className="card__description">O componente central responsável por conectar e interligar todos os componentes.</p>
               </div>
             </a>
           </li>
           <li>
             <a href="../Guias/Processador" className="card">
-              <img src="https://i.imgur.com/2DhmtJ4.jpg" className="card__image" alt="" />
+              <img src="/cpu_generic2.jpg" className="card__image" alt="" />
               <div className="card__overlay">
                 <div className="card__header">
                   <svg className="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
@@ -108,7 +108,7 @@ function Guias() {
                     <h3 className="card__title">Processador</h3>
                   </div>
                 </div>
-                <p className="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                <p className="card__description">O componente com a função é acelerar, endereçar, resolver ou preparar dados.</p>
               </div>
             </a>
           </li>

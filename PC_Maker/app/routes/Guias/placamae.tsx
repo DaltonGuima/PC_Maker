@@ -5,6 +5,12 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
+import type { MetaFunction } from '@remix-run/node';
+
+
+export const meta: MetaFunction = () => ({
+    title: "Placa Mãe"
+});
 
 
 function PlacaMae() {
@@ -25,7 +31,7 @@ function PlacaMae() {
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Hardware</a>
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Newbies</a>
                                 </header>
-                                <figure className="mb-4"><img className="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure className="mb-4"><img className="img-fluid rounded" src="/mobo_generic.jpg" alt="..." /></figure>
                                 <section className="mb-5">
                                     <p className="fs-5 mb-4">É uma peça central responsável por conectar e interligar todos os componentes (processador com memória RAM, disco rígido, placa gráfica). A placa une todas as partes do sistema numa só rede de fios, porque dispõe de caminhos que permitem a troca de informação entre processadores, memórias, placas e etc.</p>
                                     <p className="fs-5 mb-4">Além de permitir o tráfego de informação, a placa-mãe serve também para alimentar alguns periféricos com a energia elétrica que recebe da fonte do gabinete. Todas essas funções tornam o nome “mãe” algo bem lógico: sem ela, o computador é apenas um amontoado de chips e placas independentes. É importante ressaltar que, para funcionar adequadamente, os PCs necessitam de uma placa-mãe confiável.</p>
@@ -33,8 +39,8 @@ function PlacaMae() {
                                     <p className="fs-5 mb-4">É o slot horizontal onde é instalado o processador de seu sistema. Evidente que toda placa-mãe possui um. Entretanto, cada geração de processadores, independentemente do fabricante, exige um tipo específico de soquete. Então, é possível ter uma ideia da capacidade da placa e do seu compasso com as novas tecnologias a partir do tipo de soquete oferecido no modelo.</p>
                                 </section>
                             </article>
-                           
-                            <div className="headline text">
+
+                            {/* <div className="headline text">
                                 <a className="text-justify py-2 px-5 guiaFonte" href="https://www.techtudo.com.br/dicas-e-tutoriais/2023/01/o-que-e-placa-mae-e-qual-sua-funcao.ghtml">Fonte</a>
                             </div>
 
@@ -51,7 +57,7 @@ function PlacaMae() {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
+                            </div> */}
 
 
 
@@ -80,7 +86,7 @@ function PlacaMae() {
                                         </div>
                                     </div>
                             </div> */}
-                            
+
 
                         </div>
                     </div>

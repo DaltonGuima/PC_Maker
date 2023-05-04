@@ -4,12 +4,12 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
-import type {MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from '@remix-run/node';
 
 
 export const meta: MetaFunction = () => ({
     title: "Memória RAM"
-  });
+});
 
 
 function MemoriaRAM() {
@@ -30,7 +30,7 @@ function MemoriaRAM() {
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Hardware</a>
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Newbies</a>
                                 </header>
-                                <figure className="mb-4"><img className="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure className="mb-4"><img className="img-fluid rounded" src="/ram_generica.png" alt="..." /></figure>
                                 <section className="mb-5">
                                     <p className="fs-5 mb-4">A memória RAM é uma tecnologia que permite o acesso aos arquivos armazenados no celular, PC ou notebook. Diferentemente da memória do HD, a RAM não armazena conteúdos permanentemente. O componente é responsável pela leitura dos conteúdos quando requeridos.</p>
                                     <p className="fs-5 mb-4">Para simplificar a lógica por trás da função da memória RAM, é possível fazer uma analogia com uma mesa de estudos. Nela, há todo o material necessário para realizar os deveres de casa, como canetas, lápis, caderno e livros. Os materiais seriam os arquivos, enquanto a memória RAM seria a mesa, onde tudo se reúne e o trabalho é feito.</p>
@@ -38,7 +38,7 @@ function MemoriaRAM() {
                                 </section>
                             </article>
 
-                            <div className="headline text text-white">
+                            {/* <div className="headline text text-white">
                                 <a className="text-justify py-2 px-5 guiaFonte" href="https://www.techtudo.com.br/noticias/2022/11/o-que-e-memoria-ram-descubra-qual-e-a-sua-funcao.ghtml">Créditos</a>
                             </div>
 
@@ -52,8 +52,8 @@ function MemoriaRAM() {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                           
+                            </div> */}
+
                         </div>
 
                         <div className="col-lg-4">
@@ -79,7 +79,7 @@ function MemoriaRAM() {
                                         </div>
                                     </div>
                             </div> */}
-                            
+
 
                         </div>
                     </div>

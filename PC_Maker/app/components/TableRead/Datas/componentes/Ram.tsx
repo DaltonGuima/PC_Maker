@@ -1,66 +1,103 @@
+import axios from "axios";
+import type { FormEvent } from "react";
 import { useState } from "react";
-import type { Componente } from "~/Interface/ComponenteInterface";
+import type { RamProps } from "~/Interface/ComponenteInterface";
+import { ControlsTable } from "~/components/Form/ControlsTable";
 
 
-
-interface RamProps {
-    capacidade: number | undefined,
-    velocidade: number | undefined,
-    tecnologia: string | undefined,
-    voltagem: string | undefined,
-    latencia: string | undefined,
-    notebook: boolean | undefined
-}
-
-export function Ram(props: RamProps & Componente) {
-    const [controls, setControls] = useState(false);
+export function Ram(props: RamProps) {
     const [editable, setEditable] = useState(false);
+    const [operation, setOperation] = useState<string>("");
 
-    function handleControls(typeControl: string) {
 
-        if (typeControl == 'Edit') {
-            setEditable(true)
+    function handleWithPutAndDelete(event: FormEvent) {
+        const formData = new FormData(event.target as HTMLFormElement)
+        const data = Object.fromEntries(formData)
+
+        if (operation == "Delete") {
+            axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
+                console.log("apagou");
+            }).catch(error => alert(error))
+        } else {
+            event.preventDefault()
+            try {
+                axios.put(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`, {
+                    nome: data.nome,
+                    fabricante: data.fabricante,
+                    modelo: data.modelo,
+                    preco: Number(data.preco),
+                    vendedor: data.vendedor,
+                    linkProduto: data.linkProduto,
+                    categoria: "Ram",
+                    especificacoes: {
+                        capacidade: data.capacidade,
+                        velocidade: data.velocidade,
+                        tecnologia: data.tecnologia,
+                        voltagem: data.voltagem,
+                        latencia: data.latencia,
+                        notebook: data.notebook
+                    }
+                })
+            } catch (error) {
+                alert(error)
+            }
         }
-        setControls(true)
-
-    };
-
+    }
     return (
         <tr className="tr-shadow" contentEditable={editable}>
-            <td className="text-nowrap py-5">{props.id}</td>
-            <td className="text-nowrap py-5">{props.nome}</td>
-            <td>{props.fabricante}</td>
-            <td className="desc">{props.modelo}</td>
-            <td>R${props.preco}</td>
-            <td>{props.capacidade}</td>
-            <td>{props.velocidade} Mhz</td>
-            <td>{props.tecnologia}</td>
-            <td>{props.voltagem} V</td>
-            <td>{props.latencia} Ghz</td>
-            <td>{props.notebook ? 'True' : 'False'}</td>
-            <td>{props.vendedor}</td>
-            <td><a href={props.linkProduto}>{props.linkProduto}</a></td>
+            <td className="text-nowrap"><form id={`formRam${props.id}`} onSubmit={handleWithPutAndDelete}>{props.id}</form></td>
+            <td className="text-nowrap">
+                <input form={`formRam${props.id}`} type="text" name="nome" id="nome" defaultValue={props.nome} className="inputComponente" readOnly={!editable} />
+            </td>
             <td>
-                {controls ?
-                    <div className="table-data-feature">
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Confirmar" onClick={() => setControls(false)}>
-                            <i className="fa-solid fa-xmark text-danger"></i>
-                        </button>
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Cancelar" onClick={() => setControls(false)}>
-                            <i className="fa-solid fa-check text-success"></i>
-                        </button>
-                    </div>
-                    :
-                    <div className="table-data-feature">
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Edit" onClick={() => handleControls('Edit')}>
-                            <i className='zmdi zmdi-edit'></i>
-                        </button>
+                <input form={`formRam${props.id}`} type="text" name="fabricante" id="fabricante" defaultValue={props.fabricante} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td className="desc">
+                <input form={`formRam${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <div className="d-inline-flex">
+                    R$<input form={`formRam${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
+                </div>
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
+            </td>
+            {/* especficações */}
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="capacidade" id="capacidade" defaultValue={props.especificacoes.capacidade} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="velocidade" id="velocidade" defaultValue={props.especificacoes.velocidade} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="tecnologia" id="tecnologia" defaultValue={props.especificacoes.tecnologia} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="voltagem" id="voltagem" defaultValue={props.especificacoes.voltagem} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="latencia" id="latencia" defaultValue={props.especificacoes.latencia} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <input form={`formRam${props.id}`} type="text" name="notebook" id="notebook" defaultValue={props.especificacoes.notebook} className="inputComponente" readOnly={!editable} />
+            </td>
 
-                        <button className="item" data-toggle="tooltip" data-placement="top" title="Delete" onClick={() => handleControls('Delete')}>
-                            <i className="zmdi zmdi-delete"></i>
-                        </button>
-                    </div>
-                }
+            <td>
+                <ControlsTable
+                    id={props.id}
+                    setEditable={setEditable}
+                    setOperation={setOperation}
+                    operation={operation}
+                    editable={editable}
+                    componente="Ram"
+                />
             </td>
         </tr>
     )

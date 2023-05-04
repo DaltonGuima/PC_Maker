@@ -1277,7 +1277,8 @@ section {
 }
 
 .form-control {
-  color: #94999d;
+  /* color: #94999d; */
+  color: #c6c6c6;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -4719,7 +4720,7 @@ section {
 
 .table-data2.table tbody td {
   font-size: 14px;
-  color: #808080;
+  color: white;
   vertical-align: middle;
   padding: 25px 40px;
   padding-right: 10px;
@@ -4732,7 +4733,8 @@ section {
 }
 
 .table-data2.table tbody td.desc {
-  color: mediumorchid;
+  /* color: mediumorchid; */
+  color: #efadff;
 }
 
 .table-data2 .spacer {

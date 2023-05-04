@@ -8,7 +8,7 @@ import { SearchByNome } from "~/components/TableRead/TableElements";
 import { changeSelectValue } from "~/script/changeSelectValue";
 import { getComponents } from "~/script/getComponents";
 
-function ReadVentoinha() {
+function ReadProcessador() {
     const [ventoinha, setVentoinha] = useState<VentoinhaProps[]>([]);
     const SearchByNomeInput = useHookstate(SearchByNome)
 
@@ -49,4 +49,4 @@ function ReadVentoinha() {
     )
 }
 
-export default ReadVentoinha
+export default ReadProcessador

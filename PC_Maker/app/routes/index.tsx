@@ -69,11 +69,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="banner banner2">
-
-          <h1 className="text-center text-light" id="GuiaBlocoCentral">Guias</h1>
-
-        </div>
+        <Link to="/Guias">
+          <div className="banner banner2">
+            <h1 className="text-center text-light" id="GuiaBlocoCentral">Guias</h1>
+          </div>
+        </Link>
 
       </main>
       <Footer />

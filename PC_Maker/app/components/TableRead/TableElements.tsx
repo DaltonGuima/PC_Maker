@@ -53,17 +53,10 @@ export function TableElements(props: TableElementsProps) {
                     </select>
                     <div className="dropDownSelect2"></div>
                 </div>
-                <button className="au-btn-filter" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i className="zmdi zmdi-filter-list"></i>filtros
-                </button>
-                <ul className="dropdown-menu dropdown-menu-dark">
-                    <li><a className="dropdown-item text-light" href="#">A ~ Z</a></li>
-                    <li><a className="dropdown-item text-light" href="#">Data Cadastro</a></li>
-                </ul>
                 <form className='input-search-dashboard d-inline'>
                     <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Procurar por nome" name={props.id} id={props.id} onChange={handleChange} value={SearchByNomeInput.get()} />
                     <label className='text-light' htmlFor={props.id}>
-                        <i className="fa fa-search"></i>
+                        <i className="fa fa-search text-light"></i>
                     </label>
                 </form>
 

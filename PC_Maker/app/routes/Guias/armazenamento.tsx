@@ -4,12 +4,12 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
-import type {MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from '@remix-run/node';
 
 
 export const meta: MetaFunction = () => ({
     title: "Armazenamento"
-  });
+});
 
 function Armazenamento() {
 
@@ -29,9 +29,9 @@ function Armazenamento() {
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Hardware</a>
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Newbies</a>
                                 </header>
-                                <figure className="mb-4"><img className="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure className="mb-4"><img className="img-fluid rounded" src="/hdd_ssd_generico.jpg" alt="..." /></figure>
                                 <section className="mb-5">
-                                    <p className="fs-5 mb-4">Quando você comprar o seu PC, irá baixar diversos programas e aplicativos, no entanto, você precisará armazenar esses softwares em algum lugar. Atualmente, os dois dispositivos de armazenamento mais famosos são: o HD e o SSD.</p>                                    
+                                    <p className="fs-5 mb-4">Quando você comprar o seu PC, irá baixar diversos programas e aplicativos, no entanto, você precisará armazenar esses softwares em algum lugar. Atualmente, os dois dispositivos de armazenamento mais famosos são: o HD e o SSD.</p>
                                     <h2 className="fw-bolder mb-4 mt-5">HDD (Disco Rígido)</h2>
                                     <p className="fs-5 mb-4">Um HDD (também conhecido como HD) é um dispositivo de armazenamento tradicional que usa discos giratórios mecânicos e um cabeçote móvel de leitura/gravação para acessar dados.</p>
                                     <h2 className="fw-bolder mb-4 mt-5">SSD</h2>
@@ -43,7 +43,7 @@ function Armazenamento() {
                                 </section>
                             </article>
 
-                            <div className="headline text">
+                            {/* <div className="headline text">
                                 <a className="text-justify py-2 px-5 guiaFonte" href="https://www.avast.com/pt-br/c-ssd-vs-hdd#:~:text=Uma%20HDD%20%C3%A9%20um%20dispositivo,chips%20de%20mem%C3%B3ria%20acess%C3%ADveis%20instantaneamente.">Fonte</a>
                             </div>
 
@@ -60,29 +60,29 @@ function Armazenamento() {
                                         </tr>
                                     </tbody>
                                 </table>
-                            </div>
-                           
+                            </div> */}
+
                         </div>
 
                         <div className="col-lg-4">
 
-                        
-                        <div className="card mb-4 cardLateral">
+
+                            <div className="card mb-4 cardLateral">
                                 <div className="card-header">Categorias</div>
                                 <div className="card-body">
                                     <div className="row">
                                         <div className="col-sm-6">
                                             <ul className="list-unstyled mb-0">
-                                                <li><a href="../Guias/MemoriaRAM">Memória RAM</a></li>
-                                                <li><a href="../Guias/PlacaDeVideo">Placa de Vídeo</a></li>
-                                                <li><a href="../Guias/PlacaMae">Placa Mãe</a></li>
+                                                <li><a href="../Guias/MemoriaRAM" className="linkCategoria">Memória RAM</a></li>
+                                                <li><a href="../Guias/PlacaDeVideo" className="linkCategoria">Placa de Vídeo</a></li>
+                                                <li><a href="../Guias/PlacaMae" className="linkCategoria">Placa Mãe</a></li>
                                             </ul>
                                         </div>
                                         <div className="col-sm-6">
                                             <ul className="list-unstyled mb-0">
-                                                <li><a href="../Guias/Processador">Processador</a></li>
-                                                <li><a href="#!">Lorem</a></li>
-                                                <li><a href="#!">Lorem</a></li>
+                                                <li><a href="../Guias/Processador" className="linkCategoria">Processador</a></li>
+                                                <li><a href="#!" className="linkCategoria">Lorem</a></li>
+                                                <li><a href="#!" className="linkCategoria">Lorem</a></li>
                                             </ul>
                                         </div>
                                     </div>

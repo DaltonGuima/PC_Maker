@@ -5,12 +5,12 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
-import type {MetaFunction } from '@remix-run/node';
+import type { MetaFunction } from '@remix-run/node';
 
 
 export const meta: MetaFunction = () => ({
     title: "Placa de Vídeo"
-  });
+});
 
 
 function PlacaDeVideo() {
@@ -31,7 +31,7 @@ function PlacaDeVideo() {
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Hardware</a>
                                     <a className="badge bg-secondary text-decoration-none link-light" href="#!">Newbies</a>
                                 </header>
-                                <figure className="mb-4"><img className="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg" alt="..." /></figure>
+                                <figure className="mb-4"><img className="img-fluid rounded" src="/gpu_generic.jpg" alt="..." /></figure>
                                 <section className="mb-5">
                                     <p className="fs-5 mb-4">A placa de vídeo decide qual será a qualidade da imagem que vai para a tela. Ela trabalha como um computador próprio, com processador e memória, sendo responsável pelo processamento gráfico completo. É seguro falar que quanto mais potente a placa de vídeo, mais fps (ou frames por segundo) poderão ser vistos em maiores resoluções.</p>
                                     <h2 className="fw-bolder mb-4 mt-5">Placa integrada ou dedicada? Qual é a melhor?</h2>
@@ -39,8 +39,8 @@ function PlacaDeVideo() {
                                     <p className="fs-5 mb-4">A placa de vídeo dedicada conta com uma memória própria para tarefas, deixando a memória RAM livre para outras ações, acelerando a performance gráfica da sua máquina para visualizar imagens mais vívidas e menos pixeladas. Ela é projetada para quem quer assistir filmes em alta definição, aplicativos que fazem uso intenso de vídeo, uso de softwares gráficos e para jogos mais poderosos.</p>
                                 </section>
                             </article>
-                           
-                            <div className="headline text">
+
+                            {/* <div className="headline text">
                                 <a className="text-justify py-2 px-5 guiaFonte" href="https://www.dell.com/pt-br/lp/o-que-e-uma-placa-de-video#:~:text=Para%20o%20que%20serve%20uma%20placa%20de%20v%C3%ADdeo%3F,-Como%20escolher%20uma&text=A%20placa%20de%20v%C3%ADdeo%20decide,respons%C3%A1vel%20pelo%20processamento%20gr%C3%A1fico%20completo.">Fonte</a>
                             </div>
 
@@ -58,7 +58,7 @@ function PlacaDeVideo() {
                                     </tbody>
                                 </table>
                             </div>
-
+ */}
 
 
                         </div>
@@ -86,7 +86,7 @@ function PlacaDeVideo() {
                                         </div>
                                     </div>
                             </div> */}
-                            
+
 
                         </div>
                     </div>

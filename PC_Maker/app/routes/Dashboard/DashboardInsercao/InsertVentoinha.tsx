@@ -38,7 +38,6 @@ function DashboardInsercaoVentoinha() {
             especificacoes: { "tamanho": data.tamanho }
         }).then((response) => {
             setResponse(response);
-            console.log(response)
         }).catch(error => {
             setError(error)
         })

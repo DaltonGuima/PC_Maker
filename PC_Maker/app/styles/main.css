@@ -1,11 +1,20 @@
 :root {
   --background-primary: white;
   --background-secondary: rgb(223, 223, 223);
-  --background-tertiary:  rgb(196, 196, 208);                          /*rgb(154, 154, 154);*/ /* precisa ser trocado */
+  --background-tertiary: rgb(
+    196,
+    196,
+    208
+  ); /*rgb(154, 154, 154);*/ /* precisa ser trocado */
   --background-quaternary: #f0f0f0;
   --background-quinary: rgb(84, 82, 115);
   --background-primary-transparent: rgba(255, 255, 255, 0.4);
-  --background-secondary-transparent: rgba(102, 16, 242, 0.9); /* rgba(223, 223, 223, 0.2)  */
+  --background-secondary-transparent: rgba(
+    102,
+    16,
+    242,
+    0.9
+  ); /* rgba(223, 223, 223, 0.2)  */
   --background-tertiary-transparent: rgba(111, 66, 193, 0.4);
   --text-primary: black;
   --text-secondary: rgb(29, 29, 29);
@@ -15,7 +24,12 @@
   --text-senary: #8d24f2;
   --social-icons: #e3dfdf;
   --accent: purple;
-  --background-gradient-primary: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(222,222,222,1) 35%, rgba(217,217,217,1) 100%);
+  --background-gradient-primary: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(222, 222, 222, 1) 35%,
+    rgba(217, 217, 217, 1) 100%
+  );
 }
 [data-theme="dark"] {
   --background-primary: #212425;
@@ -24,7 +38,12 @@
   --background-quaternary: #15151585;
   --background-quinary: #1d0f37; /* teste */
   --background-primary-transparent: rgba(33, 36, 37, 0.9);
-  --background-secondary-transparent: rgba(102, 16, 242,0.9); /* rgba(247, 255, 255, 0.5) */
+  --background-secondary-transparent: rgba(
+    102,
+    16,
+    242,
+    0.9
+  ); /* rgba(247, 255, 255, 0.5) */
   --background-tertiary-transparent: rgba(111, 66, 193, 0.4);
   --text-primary: white;
   --text-secondary: aliceblue;
@@ -34,8 +53,17 @@
   --text-senary: #c68bff;
   --social-icons: #1e1e1e;
   --accent: darkred;
-  --background-gradient-primary: linear-gradient(180deg, rgba(33,36,37,1) 0%, rgba(46,50,51,1) 35%, rgba(63,65,66,1) 100%);
-  --background-gradient-secondary: linear-gradient(180deg, rgb(62, 64, 65) 0%, rgb(6, 6, 6) 100%);
+  --background-gradient-primary: linear-gradient(
+    180deg,
+    rgba(33, 36, 37, 1) 0%,
+    rgba(46, 50, 51, 1) 35%,
+    rgba(63, 65, 66, 1) 100%
+  );
+  --background-gradient-secondary: linear-gradient(
+    180deg,
+    rgb(62, 64, 65) 0%,
+    rgb(6, 6, 6) 100%
+  );
 }
 
 /* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
@@ -67,17 +95,21 @@ body {
   color: var(--text-primary) !important;
 }
 
+.linkCategoria {
+  text-decoration: none !important;
+}
+
 /* Navbar */
 
 li {
   color: var(--text-primary);
 }
 
-.buildOrigin{
-  color: var(--text-quaternary) !important
+.buildOrigin {
+  color: var(--text-quaternary) !important;
 }
 
-.cardBold{
+.cardBold {
   font-weight: bold !important;
 }
 
@@ -290,7 +322,7 @@ li {
 }
 
 .social-icons a {
-  background-color: #312b8e;  /*#341688*/  /* trocar dps com o tema escuro*/
+  background-color: #312b8e; /*#341688*/ /* trocar dps com o tema escuro*/
   color: #818a91;
   font-size: 16px;
   display: inline-block;
