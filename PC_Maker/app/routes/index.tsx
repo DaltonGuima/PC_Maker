@@ -8,6 +8,10 @@ import { themePage } from "~/script/changeTheme"
 //css
 import home from "~/styles/home.css"
 
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: home },
@@ -22,6 +26,12 @@ export default function Home() {
   const changeTheme = useHookstate(themePage)
   /*   const teste = useLoaderData<typeof loader>(); */
 
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+
   return (
     <div data-theme={changeTheme.get()}>
 
@@ -34,11 +44,29 @@ export default function Home() {
                 <h2 className="card-title text-light text-bold">Monte seu Computador</h2>
                 <p className="card-text text-light">Utilize nossas mais recentes ferramentas para
                   montar o seu PC do seu jeito.</p>
-                <Link to="#" className="btn text-light montarButton">Montar</Link>
+                {/* <Link to="#" className="btn text-light montarButton" >Montar</Link> */}
+                <Button className="btn text-light montarButton" variant="primary" onClick={handleShow}>Montar</Button>
               </div>
             </div>
           </div>
         </div>
+
+        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()}>
+          <Modal.Header closeButton className="modal-exp-header">
+            <Modal.Title>Precisa de ajuda?</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Quanto de experiência você tem montando computadores?</Modal.Body>
+          <Modal.Footer className="modal-exp-footer">
+            <Button variant="primary" className="btn-modal-primary" onClick={handleClose}>
+              Pouca experiência
+            </Button>
+            <Button variant="secondary" className="btn-modal-secondary" onClick={handleClose}>
+              Alguma experiência
+            </Button>
+          </Modal.Footer>
+        </Modal>
+
+
 
         <div className="container cards">
           <h1 className="text-center title">Builds mais votadas</h1>

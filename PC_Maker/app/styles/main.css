@@ -30,6 +30,7 @@
     rgba(222, 222, 222, 1) 35%,
     rgba(217, 217, 217, 1) 100%
   );
+  --button-back: #8d24f2;
 }
 [data-theme="dark"] {
   --background-primary: #212425;
@@ -64,6 +65,7 @@
     rgb(62, 64, 65) 0%,
     rgb(6, 6, 6) 100%
   );
+  --button-back: #ae306f;
 }
 
 /* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
@@ -97,6 +99,26 @@ body {
 
 .linkCategoria {
   text-decoration: none !important;
+}
+
+.modal-content {
+  background-color: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+}
+
+.btn-modal-primary {
+  background-color: var(--button-back) !important;
+  border: none;
+}
+
+.btn-modal-secondary {
+  background-color: var(--background-quinary) !important;
+  border: none;
+}
+
+.modal-exp-header,
+.modal-exp-footer {
+  border-color: var(--background-secondary-transparent);
 }
 
 /* Navbar */

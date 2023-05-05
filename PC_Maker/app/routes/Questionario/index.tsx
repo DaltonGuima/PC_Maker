@@ -2,8 +2,8 @@ import type { LinksFunction } from "@remix-run/node";
 import questoes from '../../styles/questoes.css';
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-
-
+import { useState } from "react";
+import { DivQuestoes } from "~/components/DIvQuestoes";
 
 
 export const links: LinksFunction = () => {
@@ -13,7 +13,7 @@ export const links: LinksFunction = () => {
 };
 
 export default function Questoes() {
-
+    const [questionNumber, setQuestionNumber] = useState(0);
     return (
 
         <>
@@ -26,8 +26,15 @@ export default function Questoes() {
                         <br></br>
                         <h2>Security Survey</h2>
                         <div id="progress_bar"></div>
-                        <form className="questions_box">
-                            <div id="question-1">
+                        <div className="questions_box">
+                            <DivQuestoes
+                                questionNumber={questionNumber}
+                                setQuestionNumber={setQuestionNumber}
+                            />
+
+
+
+                            {/* <div id="question-1">
                                 <h2>Questão 1</h2>
                                 <h3>Você se preocupa em se tornar uma vítima de fraude?</h3>
                                 <input type="radio" id="question-1-answer-a" name="favelang" value={1} /> O que é Fraude?<br></br>
@@ -83,14 +90,13 @@ export default function Questoes() {
                                 <h3>Seu score de segurança é: </h3>
                                 <h1 id="printtotalscore"></h1>
                                 <p id="printscoreinfo"></p>
-                            </div>
-                        </form>
+                            </div> */}
+                        </div>
                     </div>
                 </div>
             </div>
-            <script src="../../script/questao.js"></script>
             <Footer />
         </>
     );
-
 }
+
