@@ -24,7 +24,7 @@ export default function Questoes() {
                     <div className="two-thirds column">
                         <h1></h1><br></br>
                         <br></br>
-                        <h2>Security Survey</h2>
+                        <h2>Conhecendo Você</h2>
                         <div id="progress_bar"></div>
                         <div className="questions_box">
                             <DivQuestoes
@@ -32,6 +32,9 @@ export default function Questoes() {
                                 setQuestionNumber={setQuestionNumber}
                             />
 
+
+
+                            
 
 
                             {/* <div id="question-1">
