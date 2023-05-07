@@ -22,6 +22,8 @@ function DashboardInsercaoVentoinha() {
     async function handleCreateProdutoVentoinha(event: FormEvent) {
         event.preventDefault();
 
+        //se quiser bota um loader aqui
+
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
 

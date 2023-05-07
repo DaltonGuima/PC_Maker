@@ -22,10 +22,8 @@ export function SideComponent(props: SideComponentProps) {
                 <div className="col-7">
                     <h3>{props.nome}</h3>
                 </div>
-                <div className="col">
-                    <button>
-                        <i className={`fa-solid fa-${iconState} bg-transparent`}></i>
-                    </button>
+                <div className="col text-end">
+                <i className={`fa-solid fa-${iconState} bg-transparent`}></i>
                 </div>
             </div>
             <form className={`d-${display} side-component`}>

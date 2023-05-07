@@ -6,7 +6,7 @@
 
 @media screen and (min-width: 768px) {
   .first-column-build {
-    border-right: 0.5rem solid #212425;
+    border-right: 0.5rem solid #212422;
   }
 }
 
@@ -15,8 +15,8 @@
 }
 
 .btn-builder {
-  background-color: blueviolet;
-  color: white;
+  background-color: var(--background-quinary) !important;
+  color: var(--text-quaternary) !important;
   font-size: medium;
   font-weight: bold;
   border: none;
@@ -44,4 +44,16 @@
   background-color: green;
   text-align: center;
   height: 2rem;
+}
+
+.first-column-build{
+  border-right: 2px solid var(--background-quaternary);
+}
+
+.barra-compatibilidade{
+  background-color: green;
+}
+
+.barra-potencia{
+  background-color: #037bc4;
 }
