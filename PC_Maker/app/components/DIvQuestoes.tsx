@@ -89,8 +89,6 @@ export function DivQuestoes(props: DivQuestoesProps) {
         ]
         ),
 
-
-
     ]
 
     function handleQuestionario(event: FormEvent) {
@@ -103,9 +101,12 @@ export function DivQuestoes(props: DivQuestoesProps) {
         if (props.questionNumber < 6)
             props.setQuestionNumber(props.questionNumber + 1)
         console.log(score)
+    
     }
+    
 
-
+    if (props.questionNumber < 6)
+    {
     return (
         <form id={`question${props.questionNumber}`} action="post" onSubmit={handleQuestionario}>
             <h2>Questão {props.questionNumber + 1}</h2>
@@ -117,9 +118,29 @@ export function DivQuestoes(props: DivQuestoesProps) {
                     )
                 })
             }
-            {/* <div id="submit1" className="button">Enviar Resposta</div> */}
+
+            <br></br>
             <input type="submit" value="Enviar Resposta" />
             <div className="clearfix"></div>
         </form >
     )
+    } else if(props.questionNumber > 6){
+            return(
+            
+            <div id="question-6">
+                <h2>Obrigado por responder a pesquisa!</h2>
+                <h3>Seu score de segurança é: </h3>
+                <h1 id="printtotalscore">{score}</h1>
+            </div>
+            )
+        }
+        else {
+            return(
+                <div>
+                <h2>Sua Pontuação é:</h2>
+                <h2 id="printtotalscore">{score}</h2>
+                </div>
+                )
+        
+        }
 }
