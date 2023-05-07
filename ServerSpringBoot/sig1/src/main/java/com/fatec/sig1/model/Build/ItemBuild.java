@@ -27,6 +27,7 @@ public class ItemBuild {
     private int Quantidade;
     @ManyToOne
     @JoinColumn(name = "build_id", nullable = false)
+    @JsonIncludeProperties({ "id", "nome" })
     private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)

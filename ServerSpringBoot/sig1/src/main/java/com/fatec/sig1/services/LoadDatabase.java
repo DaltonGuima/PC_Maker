@@ -58,9 +58,11 @@ class LoadDatabase {
 
             teste.put("tipo", "Mid Tower");
 
-            Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF", 199.99f, "KABUM",
-                    "https://theuselessweb.com/", teste, "Gabinete");
-            repository2.save(produto1);
+            /*
+             * Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF",
+             * teste, "Gabinete");
+             * repository2.save(produto1);
+             */
 
             Usuario usuario = new Usuario("a", "20/12/1223", "a", "a");
             repository5.save(usuario);
@@ -69,9 +71,11 @@ class LoadDatabase {
             Build build = new Build(1.2f, "disgraça", "a", usuario);
             repository3.save(build);
 
-            ItemBuild item = new ItemBuild(2, build, produto1);
-            // item
-            repository4.save(item);
+            /*
+             * ItemBuild item = new ItemBuild(2, build, produto1);
+             * // item
+             * repository4.save(item);
+             */
         };
     }
 
