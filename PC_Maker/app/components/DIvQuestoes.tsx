@@ -101,46 +101,45 @@ export function DivQuestoes(props: DivQuestoesProps) {
         if (props.questionNumber < 6)
             props.setQuestionNumber(props.questionNumber + 1)
         console.log(score)
-    
+
     }
-    
 
-    if (props.questionNumber < 6)
-    {
-    return (
-        <form id={`question${props.questionNumber}`} action="post" onSubmit={handleQuestionario}>
-            <h2>Questão {props.questionNumber + 1}</h2>
-            <h3>{question[props.questionNumber].questionTitle}</h3>
-            {
-                question[props.questionNumber].questions.map(question => {
-                    return (
-                        <><input key={`radio${question}`} type="radio" id="question-1-questions-a" name="favelang" value={question.score} required /> {question.content}<br></br></>
-                    )
-                })
-            }
 
-            <br></br>
-            <input type="submit" value="Enviar Resposta" />
-            <div className="clearfix"></div>
-        </form >
-    )
-    } else if(props.questionNumber > 6){
-            return(
-            
+    if (props.questionNumber < 6) {
+        return (
+            <form id={`question${props.questionNumber}`} action="post" onSubmit={handleQuestionario}>
+                <h2>Questão {props.questionNumber + 1}</h2>
+                <h3>{question[props.questionNumber].questionTitle}</h3>
+                {
+                    question[props.questionNumber].questions.map(question => {
+                        return (
+                            <><input key={`radio${question}`} type="radio" id="question-1-questions-a" name="favelang" value={question.score} required /> {question.content}<br></br></>
+                        )
+                    })
+                }
+
+                <br></br>
+                <input type="submit" value="Enviar Resposta" />
+                <div className="clearfix"></div>
+            </form >
+        )
+    } else if (props.questionNumber > 6) {
+        return (
+
             <div id="question-6">
                 <h2>Obrigado por responder a pesquisa!</h2>
                 <h3>Seu score de segurança é: </h3>
                 <h1 id="printtotalscore">{score}</h1>
             </div>
-            )
-        }
-        else {
-            return(
-                <div>
+        )
+    }
+    else {
+        return (
+            <div>
                 <h2>Sua Pontuação é:</h2>
                 <h2 id="printtotalscore">{score}</h2>
-                </div>
-                )
-        
-        }
+            </div>
+        )
+
+    }
 }
