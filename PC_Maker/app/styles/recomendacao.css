@@ -1,0 +1,160 @@
+main {
+    background-color: var(--background-primary); /* #212425 */
+    margin: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    /*  Talvez não deixar transparente, remover completamente  */
+    /*  background-color: var(--background-primary-transparent);*/
+    color: var(--text-primary) !important;
+  }
+  
+  #GuiaBlocoCentral {
+    color: white !important;
+  }
+  
+  .montarButton {
+    background-color: var(--background-tertiary-transparent) !important;
+  }
+  
+  .montarButton:hover {
+    background-color: var(--background-secondary-transparent) !important;
+  }
+  
+  #temaSwitcher {
+    color: var(--text-primary);
+    background-color: var(--background-primary);
+    float: right;
+    transition: all 0.5s;
+  }
+  
+  /* *Banner */
+  
+  .banner1 {
+    background-image: url("/banner1.png");
+    background-size: cover;
+    font-weight: bold;
+  }
+  
+  .banner2 {
+    background-image: url("/banner2.png");
+    background-size: cover;
+    height: 200px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .banner1 {
+      height: 663px;
+      font-weight: unset;
+    }
+    .banner2 {
+      height: 450px;
+      padding-top: 8rem;
+    }
+  }
+  
+  .banner2 .text-center {
+    padding-top: 5rem;
+    font-weight: bold;
+    color: var(--text-primary) !important;
+  }
+  
+  .banner {
+    width: 100%;
+  }
+  
+  .cardbanner {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+  }
+  
+  .cardbanner .card-body-h a {
+    /* background-color: var(--background-secondary); */
+    margin-bottom: 1rem;
+    position: relative;
+    top: 0.8rem;
+  }
+  
+  .card-body,
+  .card-build {
+    background-color: var(--background-secondary) !important;
+    color: var(--text-primary) !important;
+  }
+  
+  .card-title {
+    color: var(--text-primary);
+  }
+  
+  .cardbanner .card-body-h a:fa-close {
+    background-color: rgba(112, 66, 213, 0.6);
+  }
+  
+  @media screen and (min-width: 768px) {
+    .banner .row-fluid {
+      position: relative;
+      top: 20rem;
+      left: 4rem;
+      width: 25rem;
+    }
+    .banner .row-fluid p {
+      background-color: transparent;
+      padding: 0;
+    }
+    .cardbanner {
+      border-radius: 1rem;
+    }
+  }
+  
+  .banner p {
+    margin-top: 20px;
+  }
+  
+  .banner .btn {
+    background-color: rgba(112, 66, 213, 0.8);
+    border: 2px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .cards {
+    margin-bottom: 10rem;
+  }
+  
+  .title {
+    margin: 4rem;
+  }
+  
+  .card-custom {
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  }
+  
+  .card-custom-img {
+    height: 400px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+  main {
+    padding-bottom: 1rem;
+  }
+  
+  .card-custom-avatar img {
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+    width: 100px;
+    height: 100px;
+  }
+  
+  .card-custom-avatar {
+    align-self: left;
+    position: absolute;
+    top: 290px;
+    left: 10px;
+  }
+  

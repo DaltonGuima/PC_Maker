@@ -27,8 +27,63 @@ main {
   color: aliceblue;
   font-weight: bold;
   width: fit-content;
-  height: fit-content;
+  height: fit-content !important;
 }
+
+/* Builder*/
+
+/* .menu-line {
+  background-color: var(--background-secondary); 
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  color: var(--text-primary) !important;
+}
+
+@media screen and (min-width: 768px) {
+  .first-column-build {
+    border-right: 0.5rem solid #212422;
+  }
+}
+
+.menu-info-medio {
+  color: var(--text-primary) !important;
+}
+
+.btn-builder {
+  background-color: var(--background-quinary) !important;
+  color: var(--text-quaternary) !important;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+}
+
+.btn-menu-line {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+.obsComp {
+  color: var(--text-primary);
+}
+
+.nvlComp {
+  margin-bottom: 5 rem;
+}
+
+.notes-builder {
+  border-bottom: #7042d5 solid 2px;
+}
+
+.state-note {
+  background-color: green;
+  text-align: center;
+  height: 2rem;
+} */
+
+
+
+/*Builder*/
+
 
 .otherProfile a:hover {
   color: #f10cad;

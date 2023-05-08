@@ -1,5 +1,6 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
+import { ProgressBar } from "react-bootstrap";
 
 interface DivQuestoesProps {
     questionNumber: number
@@ -8,6 +9,7 @@ interface DivQuestoesProps {
 
 export function DivQuestoes(props: DivQuestoesProps) {
     const [score, setScore] = useState<number>(0)
+    const [perProgressBar, setPerProgressBar] = useState<number>(0)
 
     class QuestionScore {
         score: number;
@@ -95,19 +97,25 @@ export function DivQuestoes(props: DivQuestoesProps) {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
-        /* console.log(data.favelang) */
         setScore(score + Number(data.favelang))
+        const per = (1 / question.length) * 100
 
-        if (props.questionNumber < 6)
+        if (props.questionNumber < question.length) {
             props.setQuestionNumber(props.questionNumber + 1)
+        }
         console.log(score)
+
+        setPerProgressBar(per * (props.questionNumber + 1))
+        //
 
     }
 
 
-    if (props.questionNumber < 6) {
+    if (props.questionNumber < question.length) {
         return (
             <form id={`question${props.questionNumber}`} action="post" onSubmit={handleQuestionario}>
+                <h2>Barra de progresso</h2>
+                <ProgressBar animated now={perProgressBar} variant="info" />
                 <h2>Questão {props.questionNumber + 1}</h2>
                 <h3>{question[props.questionNumber].questionTitle}</h3>
                 {
@@ -123,23 +131,48 @@ export function DivQuestoes(props: DivQuestoesProps) {
                 <div className="clearfix"></div>
             </form >
         )
-    } else if (props.questionNumber > 6) {
-        return (
-
-            <div id="question-6">
-                <h2>Obrigado por responder a pesquisa!</h2>
-                <h3>Seu score de segurança é: </h3>
-                <h1 id="printtotalscore">{score}</h1>
-            </div>
-        )
     }
     else {
         return (
             <div>
                 <h2>Sua Pontuação é:</h2>
                 <h2 id="printtotalscore">{score}</h2>
+
+
+                {/* <Pontuacao/>  */}
+
             </div>
         )
-
     }
+
+    //    function Pontuacao() 
+    //    {
+    //     if(score < 10 ){
+    //         return(
+    //             <a href="https://www.kabum.com.br/produto/448296/pc-gamer-facil-computadores-amd-ryzen-5-5600g-16gb-ssd-480gb-linux-preto-21045?gclid=EAIaIQobChMIsvWN_6rh_gIVpyZMCh0ocw9nEAQYAyABEgIPi_D_BwE">
+    //                 <button>Básico</button>
+    //             </a>  
+    //         )
+    //     }
+    //    else if(score >=10 && score < 14){
+    //         return(
+    //             <a href="https://www.pichau.com.br/computador-mancer-gamer-amd-ryzen-5-3600-geforce-rtx-3050-8gb-8gb-ddr4-ssd-240gb-32950?gclid=EAIaIQobChMIqLfsoazh_gIVGxXUAR2XMgquEAQYDCABEgK8wPD_BwE">
+    //                 <button>Médio</button>
+    //             </a>  
+
+    //          )      
+    //     } 
+    //     else{
+    //         return(
+    //             <a href="-https://www.magazineluiza.com.br/notebook-gamer-dell-g15-a0506-m30p-15-6-fhd-amd-ryzen-5-6600h-16gb-512gb-ssd-nvidia-rtx-3050-windows-11/p/aa69a6bb1e/in/dg15/">
+    //             <button>Alta</button>
+    //         </a> 
+
+    //         )
+    //     }
+    //    }
+
+
+
+
 }

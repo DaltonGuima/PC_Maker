@@ -8,12 +8,14 @@ import { Header } from "~/components/Header";
 import TableBuild from "~/components/TableBuild";
 import { carousel } from "~/script/carousel";
 import { themePage } from "~/script/changeTheme";
-import build from '../../styles/build.css'
+import builder_PC from '../../styles/builder_PC.css';
+import build from '../../styles/build.css';
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
 export const links: LinksFunction = () => {
     return [
         { rel: "stylesheet", href: build },
+        { rel: "stylesheet", href: builder_PC },
     ];
 };
 

@@ -57,12 +57,11 @@ export default function Home() {
           </Modal.Header>
           <Modal.Body>Quanto de experiência você tem montando computadores?</Modal.Body>
           <Modal.Footer className="modal-exp-footer">
-            <a href="../Questionario" className="text-decoration-none">
-              <Button variant="primary" className="btn-modal-primary" onClick={handleClose}>
-                Pouca experiência
-               </Button>
-            </a>
-            <Button variant="secondary" className="btn-modal-secondary" onClick={handleClose}>
+            <Button href="../Questionario" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+              Pouca experiência
+            </Button>
+         
+            <Button variant="secondary" className="btn-modal-secondary" href="/Build/Builder" onClick={handleClose}>
               Alguma experiência
             </Button>
           </Modal.Footer>

@@ -10,6 +10,11 @@ import type { FormEvent } from "react";
 import { handleDate } from "~/script/handleDate";
 
 
+import React, { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+
+
 export const links: LinksFunction = () => {
   return [
     { rel: "stylesheet", href: cadastro },
@@ -22,6 +27,11 @@ export const meta: MetaFunction = () => ({
 });
 
 function Cadastro() {
+  
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   async function handleCreateUsuario(event: FormEvent) {
     event.preventDefault();
@@ -102,20 +112,37 @@ function Cadastro() {
                         />
                         <div className="container-fluid pt-5">
                           <div className="row">
-                            <div className="col col-lg-10 text-wrap">
+                            <div className="col col-lg-9 text-wrap pt-3">
                               <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" />
                               <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
                             </div>
-                            <SubmitForm
-                              text='Cadastrar'
-                              id='submit'
-                              name='submit'
-                            />
+                             <div className="col col-lg-3 text-wrap">
+                              <Button onClick={handleShow} className="btn bg-transparent border-0 " > 
+                                <SubmitForm
+                                  text='Cadastrar'
+                                  id='submit'
+                                  name='submit'
+                                />
+                               </Button>
+                             </div> 
+                             
                           </div>
                         </div>
+
+                        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()}>
+                          <Modal.Header closeButton className="modal-exp-header">
+                            <Modal.Title>Parabéns, o seu Cadastro foi realizado!</Modal.Title>
+                          </Modal.Header>
+                          <Modal.Footer className="modal-exp-footer">
+                            <Button href="../" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+                              Ok!
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
+
                         <div className="container-fluid">
                           <div className="row">
-                            <span className="h4 mb-0 minorText opcaoLogin">Ou fazer login com:</span>
+                            <span className="h4 mb-0 minorText">Ou fazer login com:</span>
                             <div className=" col-xl-6 pt-2">
                               <ul className="social-icons">
                                 <li><a className="google" href="#"><i className="fa fa-google"></i></a></li>

@@ -1,9 +1,17 @@
 import { useHookstate } from "@hookstate/core";
+import { LinksFunction } from "@remix-run/node";
 import { useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { SideComponent } from "~/components/SideComponent";
 import { themePage } from "~/script/changeTheme";
+import search from "~/styles/search.css"
+
+export const links: LinksFunction = () => {
+    return [
+      { rel: "stylesheet", href: search},
+    ];
+  };
 
 function Search() {
     const changeTheme = useHookstate(themePage);
