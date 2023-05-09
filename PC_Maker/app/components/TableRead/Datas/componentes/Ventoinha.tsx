@@ -53,7 +53,8 @@ export function Ventoinha(props: VentoinhaProps) {
             </td>
             <td>
                 <div className="d-inline-flex">
-                    R$<input form={`formVentoinha${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
+                    {props.locaisvendas[0].preco}
+                    R$<input form={`formVentoinha${props.id}`} type="number" name="preco" id="preco" defaultValue={""} className="inputComponente" readOnly={!editable} />
                 </div>
             </td>
             <td>

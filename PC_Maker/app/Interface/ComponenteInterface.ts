@@ -1,11 +1,19 @@
+interface LocaisVendas{
+    id: number,
+    preco: number,
+    vendedor: string,
+    linkProduto: string
+}
+
 export interface Componente {
     id: string,
     nome: string,
     fabricante: string,
     modelo: string,
-    preco: number,
+/*     preco: number,
     vendedor: string,
-    linkProduto: string,
+    linkProduto: string, */
+    locaisvendas?: LocaisVendas[]
 }
 
 export interface VentoinhaProps extends Componente {

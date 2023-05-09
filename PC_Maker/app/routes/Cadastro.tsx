@@ -45,6 +45,7 @@ function Cadastro() {
         dataNascimento: handleDate(data.dataNascimento.toString()),
         email: data.email,
         senha: data.senha,
+        builds: []
       })
     } catch (error) {
       console.log(error)

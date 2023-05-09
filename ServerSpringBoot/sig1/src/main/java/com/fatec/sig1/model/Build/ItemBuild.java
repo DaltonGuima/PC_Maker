@@ -25,7 +25,7 @@ public class ItemBuild {
     @NotNull(message = "A Quantidade é requerida")
     private int Quantidade;
     @ManyToOne
-    @JoinColumn(name = "build_id", nullable = false)
+    @JoinColumn(name = "build_id")
     @JsonIncludeProperties({ "id", "nome" })
     private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })

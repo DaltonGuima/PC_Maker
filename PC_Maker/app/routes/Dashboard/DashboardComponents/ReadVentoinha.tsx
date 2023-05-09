@@ -19,8 +19,9 @@ function ReadVentoinha() {
     useEffect(() => {
         handleAxios();
         changeSelectValue('Ventoinha')
-    }, [])
+    }, [])  
 
+    console.log(ventoinha)
 
     return (
         <TableRead
@@ -38,10 +39,8 @@ function ReadVentoinha() {
                             nome={componente.nome}
                             fabricante={componente.fabricante}
                             modelo={componente.modelo}
-                            preco={componente.preco}
-                            vendedor={componente.vendedor}
+                            locaisvendas={}
                             especificacoes={{ tamanho: `${componente.especificacoes.tamanho}` }}
-                            linkProduto={componente.linkProduto}
                         />
                     )
                 })}

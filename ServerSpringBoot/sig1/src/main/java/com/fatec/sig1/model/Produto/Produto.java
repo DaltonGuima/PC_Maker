@@ -48,7 +48,6 @@ public class Produto {
     @Column(name = "especificacao_detalhes")
     private Map<String, String> especificacoes;
     @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("produto")
     private Set<LocalVenda> locaisVendas = new HashSet<LocalVenda>();
 
     public Produto() {

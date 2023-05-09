@@ -54,7 +54,7 @@ public class MantemBuildI implements MantemBuild {
     public Optional<Build> atualiza(Long id, Build build) {
         logger.info(">>>>>> 1.servico atualiza informações de cliente chamado");
         Build buildModificado = new Build(build.getOrcamento(), build.getDescricao(), build.getNome(),
-                build.getUsuario());
+                build.getUsuario(), build.getItens());
         buildModificado.setId(id);
         buildModificado.obtemDataAtual(new DateTime());
         logger.info(buildModificado.getId());

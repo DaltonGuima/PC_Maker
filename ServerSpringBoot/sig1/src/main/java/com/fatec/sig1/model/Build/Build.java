@@ -91,6 +91,7 @@ public class Build {
         Descricao = descricao;
         this.nome = nome;
         this.usuario = usuario;
+        this.itens = itens;
     }
 
     public static void setDataCadastro(DateTime dateTime) {

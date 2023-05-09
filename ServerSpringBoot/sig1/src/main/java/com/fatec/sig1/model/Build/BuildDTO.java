@@ -56,7 +56,7 @@ public class BuildDTO {
     }
 
     public Build retornaUmaBuild() {
-        return new Build(Orcamento, Descricao, nome, usuario);
+        return new Build(Orcamento, Descricao, nome, usuario, itens);
     }
 
     public Usuario getUsuario() {
