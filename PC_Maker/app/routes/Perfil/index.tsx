@@ -1,9 +1,21 @@
 import { useHookstate } from "@hookstate/core";
+import { LinksFunction, MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 import { Footer } from "~/components/Footer";
 import { FormControl } from "~/components/FormControl";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
+import perfil from '../styles/profile.css'
+
+export const links: LinksFunction = () => {
+    return [
+      { rel: "stylesheet", href: perfil },
+    ];
+  };
+  
+  export const meta: MetaFunction = () => ({
+    title: "Perfil"
+  });
 
 
 function Perfil() {

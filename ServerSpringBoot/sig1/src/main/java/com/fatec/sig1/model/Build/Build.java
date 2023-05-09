@@ -80,7 +80,17 @@ public class Build {
         Descricao = descricao;
         this.nome = nome;
         this.usuario = usuario;
+    }
 
+    public Build(float orcamento,
+            String descricao,
+            String nome,
+            Usuario usuario,
+            Set<ItemBuild> itens) {
+        Orcamento = orcamento;
+        Descricao = descricao;
+        this.nome = nome;
+        this.usuario = usuario;
     }
 
     public static void setDataCadastro(DateTime dateTime) {

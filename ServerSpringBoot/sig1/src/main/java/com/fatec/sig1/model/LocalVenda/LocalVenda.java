@@ -26,7 +26,7 @@ public class LocalVenda {
     @NotBlank(message = "Link do Produto é requerido")
     private String linkProduto;
     @ManyToOne(cascade = { CascadeType.MERGE })
-    @JoinColumn(name = "local_venda_id", nullable = false)
+    @JoinColumn(name = "local_venda_id")
     @JsonIgnore
     private Produto produto;
 
