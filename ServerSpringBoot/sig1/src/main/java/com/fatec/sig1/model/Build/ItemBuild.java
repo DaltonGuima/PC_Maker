@@ -4,7 +4,6 @@ import jakarta.persistence.Id;
 
 import org.joda.time.DateTime;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fatec.sig1.model.Produto.Produto;

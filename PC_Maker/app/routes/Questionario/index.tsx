@@ -19,30 +19,30 @@ export default function Questoes() {
     const changeTheme = useHookstate(themePage)
 
     return (
-
-        <>
+        <div data-theme={changeTheme.get()}>  {/* a */}
+            {/* <> */}
             <Header />
+            <main id="conteudo" className="container-fluid texto">
+                <div className="container" /* data-theme={changeTheme.get()} */>
+                    <div className="row">
+                        <div className="two-thirds column">
+                            <h1></h1><br></br>
+                            <br></br>
+                            <h2>Conhecendo Você</h2>
+                            <div className="questions_box">
+                                <DivQuestoes
+                                    questionNumber={questionNumber}
+                                    setQuestionNumber={setQuestionNumber}
+                                />
 
-            <div className="container" data-theme={changeTheme.get()}>
-                <div className="row">
-                    <div className="two-thirds column">
-                        <h1></h1><br></br>
-                        <br></br>
-                        <h2>Conhecendo Você</h2>
-                        <div className="questions_box">
-                            <DivQuestoes
-                                questionNumber={questionNumber}
-                                setQuestionNumber={setQuestionNumber}
-                            />
-
-
-
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
             <Footer />
-        </>
+            {/* </> */}
+        </div>
     );
 }
 

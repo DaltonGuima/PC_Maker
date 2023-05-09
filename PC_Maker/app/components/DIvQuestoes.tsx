@@ -127,7 +127,8 @@ export function DivQuestoes(props: DivQuestoesProps) {
                 }
 
                 <br></br>
-                <input type="submit" value="Enviar Resposta" />
+                {/* <input type="submit" value="Enviar Resposta" /> */}
+                <button type="submit" className="btn text-light subButton">Enviar Resposta</button>
                 <div className="clearfix"></div>
             </form >
         )

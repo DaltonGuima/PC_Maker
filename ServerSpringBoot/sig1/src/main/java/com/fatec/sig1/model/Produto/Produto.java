@@ -47,11 +47,21 @@ public class Produto {
     @MapKeyColumn(name = "especificacao_nome")
     @Column(name = "especificacao_detalhes")
     private Map<String, String> especificacoes;
-    @OneToMany(mappedBy = "LocalVenda", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("LocalVenda")
+    @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("produto")
     private Set<LocalVenda> locaisVendas = new HashSet<LocalVenda>();
 
     public Produto() {
+    }
+
+    public Produto(String nome, String fabricante, String modelo, Map<String, String> especificacoes,
+            String categoria) {
+        this.nome = nome;
+        this.fabricante = fabricante;
+        this.modelo = modelo;
+        setDataCadastro(new DateTime());
+        this.especificacoes = especificacoes;
+        this.categoria = categoria;
     }
 
     public Produto(String nome, String fabricante, String modelo, Map<String, String> especificacoes, String categoria,

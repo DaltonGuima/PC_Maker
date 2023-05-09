@@ -35,7 +35,7 @@
 [data-theme="dark"] {
   --background-primary: #212425;
   --background-secondary: #353a3c;
-  --background-tertiary: #333333;
+  --background-tertiary: #1f1b24;
   --background-quaternary: #15151585;
   --background-quinary: #1d0f37; /* teste */
   --background-primary-transparent: rgba(33, 36, 37, 0.9);

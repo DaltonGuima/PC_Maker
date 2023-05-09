@@ -64,4 +64,28 @@ public class ProdutoDTO {
         return new Produto(nome, fabricante, modelo, especificacoes, categoria, locaisVendas);
     }
 
+    public Map<String, String> getEspecificacoes() {
+        return especificacoes;
+    }
+
+    public void setEspecificacoes(Map<String, String> especificacoes) {
+        this.especificacoes = especificacoes;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public Set<LocalVenda> getLocaisVendas() {
+        return locaisVendas;
+    }
+
+    public void setLocaisVendas(Set<LocalVenda> locaisVendas) {
+        this.locaisVendas = locaisVendas;
+    }
+
 }

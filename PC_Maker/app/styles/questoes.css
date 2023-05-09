@@ -93,7 +93,7 @@ h2 {
 }
 
 h3 {
-  color: #5224a0;
+  color: var(--text-senary);
   font-size: 26px;
 }
 
@@ -102,10 +102,18 @@ h3 {
 }
 
 .questions_box {
-  background-color: #ffffff;
+  background-color: var(--background-tertiary);
   padding: 60px;
   text-align: left;
   max-width: 960px;
+}
+
+.subButton {
+  background-color: var(--background-tertiary-transparent) !important;
+}
+
+.subButton:hover {
+  background-color: var(--background-secondary-transparent) !important;
 }
 
 .button {
@@ -148,7 +156,7 @@ h3 {
 }
 
 #progress_bar {
-  background-color: #018fd0;
+  background-color: #018fd1;
   width: 20%;
   height: 10px;
   transition: all 100ms ease-in-out;
