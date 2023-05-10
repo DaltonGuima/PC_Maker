@@ -6,21 +6,20 @@ import { changeSelectValue } from "~/script/changeSelectValue";
 import { useHookstate } from "@hookstate/core";
 import { SearchByNome } from "~/components/TableRead/TableElements";
 import { getUsuario } from "~/script/getUsuario";
+import axios from "axios";
+
 
 
 function ReadUsuario() {
     const [usuario, setUsuario] = useState<UsuarioProps[]>([]);
-    const SearchByNomeInput = useHookstate(SearchByNome)
-
-    async function handleAxios() {
-        setUsuario(await getUsuario("Nome"));
-    }
-
+    
     useEffect(() => {
-        handleAxios();
-        changeSelectValue('Usuario')
-    }, [])
-
+        axios(`http://127.0.0.1:8080/api/v1/usuarios`).then(response => {
+           setUsuario(response.data);
+        })
+    })
+    
+    console.log(usuario)
     return (
 
         <div className="main-content">
