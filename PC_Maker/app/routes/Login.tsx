@@ -1,13 +1,11 @@
 import { useHookstate } from "@hookstate/core";
-import { useState } from "react";
-import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import login from '../styles/login.css'
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
- 
+
 
 export const links: LinksFunction = () => {
   return [

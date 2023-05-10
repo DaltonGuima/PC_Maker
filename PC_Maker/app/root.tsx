@@ -12,7 +12,7 @@ import {
 } from "@remix-run/react";
 import { useHydrated } from "remix-utils";
 import { themePage } from "./script/changeTheme";
-import main from "~/styles/main.css";
+import main from "./styles/main.css";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",

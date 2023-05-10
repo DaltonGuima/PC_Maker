@@ -4,7 +4,7 @@ import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import cadastro from '../styles/cadastro.css'
 import login from '../styles/login.css'
-import axios from "axios";
+import axios from 'axios';
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
 import type { FormEvent } from "react";
 import { handleDate } from "~/script/handleDate";
@@ -27,7 +27,7 @@ export const meta: MetaFunction = () => ({
 });
 
 function Cadastro() {
-  
+
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -46,7 +46,7 @@ function Cadastro() {
         email: data.email,
         senha: data.senha,
         builds: []
-      })
+      }).then(response => console.log(response))
     } catch (error) {
       console.log(error)
     }
@@ -117,16 +117,17 @@ function Cadastro() {
                               <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" />
                               <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
                             </div>
-                             <div className="col col-lg-3 text-wrap">
-                              <Button onClick={handleShow} className="btn bg-transparent border-0 " > 
+                            <div className="col col-lg-3 text-wrap">
+                              {/* tirei o evento on click para testar um bglh */}
+                              <Button className="btn bg-transparent border-0 " >
                                 <SubmitForm
                                   text='Cadastrar'
                                   id='submit'
                                   name='submit'
                                 />
-                               </Button>
-                             </div> 
-                             
+                              </Button>
+                            </div>
+
                           </div>
                         </div>
 

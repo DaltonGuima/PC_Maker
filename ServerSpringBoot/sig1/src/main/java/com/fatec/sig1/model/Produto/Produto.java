@@ -1,6 +1,8 @@
 package com.fatec.sig1.model.Produto;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,6 +28,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 public class Produto {
     @Id
@@ -48,7 +51,8 @@ public class Produto {
     @Column(name = "especificacao_detalhes")
     private Map<String, String> especificacoes;
     @OneToMany(mappedBy = "produto", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<LocalVenda> locaisVendas = new HashSet<LocalVenda>();
+    @JsonIgnoreProperties("produto")
+    private List<LocalVenda> locaisVendas = new ArrayList<LocalVenda>();
 
     public Produto() {
     }
@@ -64,7 +68,7 @@ public class Produto {
     }
 
     public Produto(String nome, String fabricante, String modelo, Map<String, String> especificacoes, String categoria,
-            Set<LocalVenda> locaisVendas) {
+            List<LocalVenda> locaisVendas) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -139,11 +143,11 @@ public class Produto {
         this.especificacoes = especificacoes;
     }
 
-    public Set<LocalVenda> getLocaisVendas() {
+    public List<LocalVenda> getLocaisVendas() {
         return locaisVendas;
     }
 
-    public void setLocaisVendas(Set<LocalVenda> locaisVendas) {
+    public void setLocaisVendas(List<LocalVenda> locaisVendas) {
         this.locaisVendas = locaisVendas;
     }
 

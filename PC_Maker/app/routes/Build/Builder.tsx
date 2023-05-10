@@ -10,8 +10,8 @@ import builder_PC from '../../styles/builder_PC.css';
 
 export const links: LinksFunction = () => {
   return [
-      { rel: "stylesheet", href: build },
-      { rel: "stylesheet", href: builder_PC },
+    { rel: "stylesheet", href: build },
+    { rel: "stylesheet", href: builder_PC },
   ];
 };
 
@@ -32,7 +32,7 @@ function Builder() {
           <h2 className="text-center py-3">Escolha suas peças</h2>
         </div>
 
-        
+
 
 
         <div className="menu-line col-9 container-fluid my-3 rounded text-white">
@@ -41,7 +41,7 @@ function Builder() {
               <i className="fa-solid fa-link mx-1"></i>
               https://pcmaker.com.br/lista/dpGwc
             </div>
-            
+
             <div className="col-sm-2 py-3">
               <button className="btn-menu-line menu-info-medio">
                 <i className="fa-solid fa-floppy-disk mx-1"></i>Salvar
@@ -69,7 +69,7 @@ function Builder() {
           </div>
         </div>
 
-        
+
         <div className="container col-md-10 mt-2 col">
           <table className="table table-borderless text-light ">
             <thead>
@@ -81,14 +81,14 @@ function Builder() {
               </tr>
             </thead>
             <tbody>
-               {/* <TableBuilder
+              {/* <TableBuilder
                 img="https://via.placeholder.com/50x50/"
                 nome="Astroloptecus"
                 preco="R$ 345,00"
               />  */}
               <tr className="mt-1">
                 <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa Mãe</button>
+                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
                 </td>
               </tr>
               <tr className="mt-1">
@@ -130,7 +130,7 @@ function Builder() {
 
         <div className="container col-md-10 nvlComp">
 
-          
+
           <div className="row">
             <div>
               <div className="my-2">
@@ -152,9 +152,6 @@ function Builder() {
           </div>
 
         </div>
-        
-        
-
 
       </main >
       <Footer />

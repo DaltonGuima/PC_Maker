@@ -53,7 +53,7 @@ public class APIProdutoController {
         try {
             return ResponseEntity.status(HttpStatus.CREATED).body(mantemProduto.save(produtoDTO.returnOneProduto()));
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro não esperado ");
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e);
         }
     }
 

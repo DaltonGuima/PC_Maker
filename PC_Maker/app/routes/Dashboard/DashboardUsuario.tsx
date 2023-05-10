@@ -32,6 +32,14 @@ function DashboardUsuario() {
                                     email='Astolfo.joao@gmail.com'
                                     senha="Queriavoar"
                                 />,
+                                <Usuario
+                                    key={'2'}
+                                    id={'2'}
+                                    nome={'Nome'}
+                                    dataNascimento='11/09/2001'
+                                    email='Astolfo.joao@gmail.com'
+                                    senha="Queriavoar"
+                                />,
                             ]}
                         />
 

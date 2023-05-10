@@ -18,7 +18,7 @@ export function Ventoinha(props: VentoinhaProps) {
         if (operation == "Delete") {
             axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
                 console.log("apagou");
-            }).catch(error => alert(error))
+            }).catch((error: any) => alert(error))
         } else {
             event.preventDefault()
             try {

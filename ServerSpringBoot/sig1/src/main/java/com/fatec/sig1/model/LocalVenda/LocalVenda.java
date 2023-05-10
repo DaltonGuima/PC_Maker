@@ -1,5 +1,7 @@
 package com.fatec.sig1.model.LocalVenda;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fatec.sig1.model.Produto.Produto;
 
@@ -10,12 +12,14 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
 @Entity
 public class LocalVenda {
-    // campos iD, vender, likproduto,preco
+    // campos iD, vender, linkproduto,preco
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -25,9 +29,9 @@ public class LocalVenda {
     private String vendedor;
     @NotBlank(message = "Link do Produto é requerido")
     private String linkProduto;
-    @ManyToOne(cascade = { CascadeType.MERGE })
-    @JoinColumn(name = "local_venda_id", nullable = false)
-    @JsonIncludeProperties("id")
+    @OneToOne(cascade = { CascadeType.MERGE })
+    @JoinColumn(name = "local_venda_id")
+    @JsonIgnoreProperties("local_venda")
     private Produto produto;
 
     public LocalVenda() {

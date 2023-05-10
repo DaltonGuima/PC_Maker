@@ -1,6 +1,8 @@
 package com.fatec.sig1.model.Produto;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -20,14 +22,14 @@ public class ProdutoDTO {
     @NotBlank(message = "categoria do Produto é requerido")
     private String categoria;
     @JsonIgnoreProperties("LocalVenda")
-    private Set<LocalVenda> locaisVendas = new HashSet<LocalVenda>();
+    private List<LocalVenda> locaisVendas = new ArrayList<LocalVenda>();
 
     public ProdutoDTO(String nome,
             String fabricante,
             String modelo,
             String categoria,
             Map<String, String> especificacoes,
-            Set<LocalVenda> locaisVendas) {
+            List<LocalVenda> locaisVendas) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -61,7 +63,7 @@ public class ProdutoDTO {
     }
 
     public Produto returnOneProduto() {
-        return new Produto(nome, fabricante, modelo, especificacoes, categoria, locaisVendas);
+        return new Produto(nome, fabricante, modelo, especificacoes, categoria);
     }
 
     public Map<String, String> getEspecificacoes() {
@@ -80,11 +82,11 @@ public class ProdutoDTO {
         this.categoria = categoria;
     }
 
-    public Set<LocalVenda> getLocaisVendas() {
+    public List<LocalVenda> getLocaisVendas() {
         return locaisVendas;
     }
 
-    public void setLocaisVendas(Set<LocalVenda> locaisVendas) {
+    public void setLocaisVendas(List<LocalVenda> locaisVendas) {
         this.locaisVendas = locaisVendas;
     }
 

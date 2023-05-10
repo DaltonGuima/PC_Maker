@@ -19,7 +19,7 @@ function ReadVentoinha() {
     useEffect(() => {
         handleAxios();
         changeSelectValue('Ventoinha')
-    }, [])  
+    }, [])
 
     console.log(ventoinha)
 
@@ -39,7 +39,6 @@ function ReadVentoinha() {
                             nome={componente.nome}
                             fabricante={componente.fabricante}
                             modelo={componente.modelo}
-                            locaisvendas={}
                             especificacoes={{ tamanho: `${componente.especificacoes.tamanho}` }}
                         />
                     )

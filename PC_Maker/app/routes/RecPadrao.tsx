@@ -8,9 +8,9 @@ import { themePage } from "~/script/changeTheme"
 import recomendacao from "~/styles/recomendacao.css"
 
 export const links: LinksFunction = () => {
-  return [
-    { rel: "stylesheet", href: recomendacao },
-  ];
+    return [
+        { rel: "stylesheet", href: recomendacao },
+    ];
 };
 
 
