@@ -31,7 +31,6 @@ function Cadastro() {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
 
   async function handleCreateUsuario(event: FormEvent) {
     event.preventDefault();
@@ -52,6 +51,7 @@ function Cadastro() {
     }
   }
 
+
   return (
 
     <div className="login-page">
@@ -64,7 +64,7 @@ function Cadastro() {
                   <div className="align-items-center">
                     <div className="card-body p-1 p-md-5 text-black">
 
-                      <form onSubmit={handleCreateUsuario} className="form-horizontal">
+                      <form onSubmit={handleCreateUsuario} className="form-horizontal" action="post">
                         <div className="d-flex align-items-center mb-3 pb-1">
                           <span className="h1 fw-bold mb-0 minorText">Cadastro</span>
                         </div>
@@ -117,13 +117,14 @@ function Cadastro() {
                             </div>
                             <div className="col col-lg-3 text-wrap">
                               {/* tirei o evento on click para testar um bglh */}
-                              <Button className="btn bg-transparent border-0 " >
-                                <SubmitForm
-                                  text='Cadastrar'
-                                  id='submit'
-                                  name='submit'
-                                />
-                              </Button>
+
+                              <SubmitForm
+                                text='Cadastrar'
+                                id='submit'
+                                name='submit'
+                              />
+
+
                             </div>
 
                           </div>

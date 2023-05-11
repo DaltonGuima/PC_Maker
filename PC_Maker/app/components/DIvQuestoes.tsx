@@ -9,6 +9,8 @@ interface DivQuestoesProps {
     setQuestionNumber: React.Dispatch<number>
 }
 
+
+//Trocar cores e modificar o questionário
 export function DivQuestoes(props: DivQuestoesProps) {
     const [score, setScore] = useState<number>(0)
     const [perProgressBar, setPerProgressBar] = useState<number>(0)
