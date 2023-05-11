@@ -22,7 +22,7 @@
     padding: 0;
   }
   .column {
-    margin-left: 4%;
+    margin-left: 15%;
   }
   .column:first-child {
     margin-left: 0;
@@ -80,7 +80,7 @@ h2,
 h3,
 h4 {
   font-family: "Barclaycard Co Lt", sans-serif;
-  color: #018fd0;
+  color: var(--text-quaternary);
   margin-top: 0;
 }
 
@@ -110,6 +110,7 @@ h3 {
 
 .subButton {
   background-color: var(--background-tertiary-transparent) !important;
+  color: var(--text-primary) !important;
 }
 
 .subButton:hover {
@@ -160,4 +161,14 @@ h3 {
   width: 20%;
   height: 10px;
   transition: all 100ms ease-in-out;
+}
+
+.rowQuest {
+  margin-right: calc(0 * var(--bs-gutter-x)) !important;
+  margin-left: calc(8 * var(--bs-gutter-x)) !important;
+  margin-bottom: 7rem !important;
+}
+
+.barrita {
+  margin-bottom: 2rem !important;
 }

@@ -46,8 +46,8 @@ export function Header() {
                                 <li className="tema" id="temaSwitcher" onClick={switchTheme}><a ><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
-                                <li className="fonte"><a href="" id="aumentar"><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
-                                <li className="fonte"><a href="" id="diminuir"><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
+                                <li className="fonte"><a href="" id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
+                                <li className="fonte"><a href="" id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -74,7 +74,7 @@ export function Header() {
                                 <Link className="nav-link" to="/Guias">Guias</Link>
                             </li>
                         </ul>
-                        <div className="search-button col-md-4">    
+                        <div className="search-button col-md-4">
                             <form className="d-flex" id="barraPesquisa">
 
                                 <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='' />

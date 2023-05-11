@@ -67,7 +67,7 @@ class LoadDatabase {
             LocalVenda local1 = new LocalVenda(0, "a", "a", produto1);
             repository6.save(local1);
 
-            Usuario usuario = new Usuario("a", "20/12/1223", "a", "a");
+            Usuario usuario = new Usuario("a", "20/12/1223", "a@a", "a");
             repository5.save(usuario);
 
             // Build

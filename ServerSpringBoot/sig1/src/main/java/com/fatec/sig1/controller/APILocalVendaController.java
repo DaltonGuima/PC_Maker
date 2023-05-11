@@ -1,7 +1,9 @@
+
 package com.fatec.sig1.controller;
 
 import java.util.List;
 import java.util.Optional;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,42 +20,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.fatec.sig1.model.Usuario.Usuario;
-import com.fatec.sig1.model.Usuario.UsuarioDTO;
-import com.fatec.sig1.services.MantemUsuario.MantemUsuario;
+import com.fatec.sig1.model.LocalVenda.LocalVenda;
+import com.fatec.sig1.model.LocalVenda.LocalVendaDTO;
+import com.fatec.sig1.services.MantemLocalVenda.MantemLocalVenda;
 
 import jakarta.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1/usuarios")
-/*
- * Trata as requisicoes HTTP enviadas pelo usuario do servico
- */
-public class APIUsuarioController {
+
+@RequestMapping("/api/v1/localvendas")
+public class APILocalVendaController {
+
     @Autowired
-    MantemUsuario mantemUsuario;
-    Usuario usuario;
+    MantemLocalVenda mantemLocalVenda;
+    LocalVenda localVenda;
     Logger logger = LogManager.getLogger(this.getClass());
 
     @CrossOrigin // desabilita o cors do spring security
 
     @PostMapping
-    public ResponseEntity<Object> saveUsuario(@RequestBody @Valid UsuarioDTO usuarioDTO, BindingResult result) {
-        usuario = new Usuario();
+    public ResponseEntity<Object> saveLocalVenda(@RequestBody @Valid LocalVendaDTO localVendaDTO,
+            BindingResult result) {
         if (result.hasErrors()) {
             logger.info(">>>>>> apicontroller validacao da entrada dados invalidos" +
                     result.getFieldError());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Dados inválidos.");
         }
-
         try {
-            usuario.setDataNascimento(usuarioDTO.getDataNascimento());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(e.getMessage());
-        }
-
-        try {
-            return ResponseEntity.status(HttpStatus.CREATED).body(mantemUsuario.save(usuarioDTO.retornaUmUsuario()));
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(mantemLocalVenda.save(localVendaDTO.retornaUmaLocalVenda()));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Erro não esperado ");
         }
@@ -62,52 +57,49 @@ public class APIUsuarioController {
     @CrossOrigin // desabilita o cors do spring security
 
     @GetMapping
-    public ResponseEntity<List<Usuario>> consultaTodos() {
-        return ResponseEntity.status(HttpStatus.OK).body(mantemUsuario.consultaTodos());
+    public ResponseEntity<List<LocalVenda>> consultaTodos() {
+        return ResponseEntity.status(HttpStatus.OK).body(mantemLocalVenda.consultaTodos());
     }
 
     @CrossOrigin // desabilita o cors do spring security
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deletePorId(@PathVariable(value = "id") Long id) {
-        Optional<Usuario> usuario = mantemUsuario.consultaPorId(id);
-        if (usuario.isEmpty()) {
+        Optional<LocalVenda> localVenda = mantemLocalVenda.consultaPorId(id);
+        if (localVenda.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado.");
         }
-        mantemUsuario.delete(usuario.get().getId());
-        return ResponseEntity.status(HttpStatus.OK).body("Usuário excluido");
+        mantemLocalVenda.delete(localVenda.get().getId());
+        return ResponseEntity.status(HttpStatus.OK).body("LocalVenda excluido");
     }
 
     @CrossOrigin // desabilita o cors do spring security
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> atualiza(@PathVariable long id, @RequestBody @Valid UsuarioDTO usuarioDTO,
+    public ResponseEntity<Object> atualiza(@PathVariable long id, @RequestBody @Valid LocalVendaDTO localVendaDTO,
             BindingResult result) {
-        logger.info(">>>>>> api atualiza informações de usuário chamado");
+        logger.info(">>>>>> api atualiza informações de localVenda chamado");
         if (result.hasErrors()) {
-            logger.info(">>>>>> apicontroller atualiza informações de usuário chamado dados invalidos");
+            logger.info(">>>>>> apicontroller atualiza informações de localVenda chamado dados invalidos");
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Dados inválidos.");
         }
-        Optional<Usuario> u = mantemUsuario.consultaPorId(id);
-        if (u.isEmpty()) {
+        Optional<LocalVenda> k = mantemLocalVenda.consultaPorId(id);
+        if (k.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado.");
         }
-
-        Optional<Usuario> usuario = mantemUsuario.atualiza(id,
-                usuarioDTO.retornaUmUsuario());
-        return ResponseEntity.status(HttpStatus.OK).body(usuario.get());
+        Optional<LocalVenda> localVenda = mantemLocalVenda.atualiza(id, localVendaDTO.retornaUmaLocalVenda());
+        return ResponseEntity.status(HttpStatus.OK).body(localVenda.get());
     }
 
     @CrossOrigin // desabilita o cors do spring security
 
-    @GetMapping("/{email}")
-    public ResponseEntity<Object> consultaPorEmail(@PathVariable String email) {
+    @GetMapping("/{id}")
+    public ResponseEntity<Object> consultaPorId(@PathVariable Long id) {
         logger.info(">>>>>> apicontroller consulta por id chamado");
-        Optional<Usuario> usuario = mantemUsuario.consultaPorEmail(email);
-        if (usuario.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email não encontrado.");
+        Optional<LocalVenda> localVenda = mantemLocalVenda.consultaPorId(id);
+        if (localVenda.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Id não encontrado.");
         }
-        return ResponseEntity.status(HttpStatus.OK).body(usuario.get());
+        return ResponseEntity.status(HttpStatus.OK).body(localVenda.get());
     }
-
 }

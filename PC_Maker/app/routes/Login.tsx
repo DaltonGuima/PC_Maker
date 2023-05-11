@@ -1,11 +1,11 @@
-import { useHookstate } from "@hookstate/core";
-import { themePage } from "~/script/changeTheme";
 import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import login from '../styles/login.css'
 import type { LinksFunction, MetaFunction } from '@remix-run/node';
-
-
+import type { FormEvent } from "react";
+import { useState } from "react";
+import axios from "axios";
+/* import { badRequest } from "remix-utils"; */
 
 export const links: LinksFunction = () => {
   return [
@@ -17,12 +17,41 @@ export const meta: MetaFunction = () => ({
   title: "Login"
 });
 
-function Login() {
+type User = {
+  id: number,
+  email: string,
+  senha: string,
+}
 
-  const changeTheme = useHookstate(themePage)
+
+function Login() {
+  const [user, setUser] = useState<User>();
+
+  async function useHandleLogin(event: FormEvent) {
+    event.preventDefault();
+    const formData = new FormData(event.target as HTMLFormElement)
+    const data = Object.fromEntries(formData)
+
+
+    axios(`http://127.0.0.1:8080/api/v1/usuarios/${data.email}`)
+      .then(response => { setUser(response.data) })
+      .catch(() => { return null })
+
+    if (user?.senha != data.senha)
+      return null
+
+    console.log(user)
+
+    /* if (!user) {
+
+      console.log("deu erro")
+    }*/
+
+    //validações ocorrem aqui
+  }
 
   return (
-    <div className='login-page' data-theme={changeTheme.get()}>
+    <div className='login-page'>
       <section className="vh-100">
         <div className="container py-5 h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -36,20 +65,22 @@ function Login() {
                   <div className="col-md-4 col-lg-5 d-flex align-items-center">
                     <div className="card-body p-1 p-lg-4 text-black">
 
-                      <form>
+                      <form action="post" onSubmit={useHandleLogin}>
 
                         <div className="d-flex align-items-center mb-3 pb-1">
-                          <span className="h1 fw-bold mb-0">Login</span>
+                          <span className="h1 fw-bold mb-0s">Login</span>
                         </div>
 
                         <Input
                           id="email"
                           type='email'
+                          name="email"
                         />
 
                         <Input
                           id="senha"
                           type='password'
+                          name="senha"
                         />
 
                         <div className="container-fluid pt-5">
@@ -88,12 +119,12 @@ function Login() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </div>
+              </div >
+            </div >
+          </div >
+        </div >
+      </section >
+    </div >
   )
 }
 

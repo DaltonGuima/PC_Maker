@@ -28,25 +28,26 @@ function RecPadrao() {
                     <div className="row pt-2 m-auto">
 
                         <CardBuild
-                            title='Build 1'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            title='Asus AMD Ryzen'
+                            Itens={['AMD Ryzen 5 3500U', '8GB RAM', 'SSD 256GB']}
                             perfilImg='http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg'
                             buildImg='/Build_1.png'
-                            criador='Zezão extreme'
+                            criador='Kabum'
                         />
+
                         <CardBuild
-                            title='Build 2'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            title='IdeaPad 3i'
+                            Itens={['Intel Core i3-1115G4', 'Linux', 'SSD 128GB']}
                             perfilImg='/among_us2.png'
                             buildImg='./Build_2.png'
-                            criador='xxx_EnzoG4mer_xxx'
+                            criador='Lenovo'
                         />
                         <CardBuild
-                            title='Build 3'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            title='Inspiron 15 3000'
+                            Itens={['11ª geração Intel Core i3-1115G4', '8GB DDR4', 'SSD 512GB']}
                             perfilImg='http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg'
                             buildImg='/Build_3.png'
-                            criador='Zezão extreme'
+                            criador='Dell'
                         />
                     </div>
                 </div>
@@ -56,25 +57,25 @@ function RecPadrao() {
                     <div className="row pt-2 m-auto">
 
                         <CardBuild
-                            title='Build 1'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            title='Família'
+                            Itens={['Intel I5-8500', 'RADEON RX 550 4GB', 'SSD 240GB']}
                             perfilImg='http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg'
                             buildImg='/Build_1.png'
-                            criador='Zezão extreme'
+                            criador='Dominic Toretto'
                         />
                         <CardBuild
                             title='Build 2'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            Itens={['Intel Core I5-8500T', '8GB RAM', 'SSD 240GB']}
                             perfilImg='/among_us2.png'
                             buildImg='./Build_2.png'
-                            criador='xxx_EnzoG4mer_xxx'
+                            criador='Neymar Junior Junior'
                         />
                         <CardBuild
-                            title='Build 3'
-                            Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
+                            title='É o Naldo'
+                            Itens={['Intel Core I5-10400F', '16GB RAM', 'HD 2TB + SSD 240GB']}
                             perfilImg='http://res.cloudinary.com/d3/image/upload/c_pad,g_center,h_200,q_auto:eco,w_200/bootstrap-logo_u3c8dx.jpg'
                             buildImg='/Build_3.png'
-                            criador='Zezão extreme'
+                            criador='Naldo'
                         />
                     </div>
                 </div>

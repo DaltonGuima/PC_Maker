@@ -46,14 +46,14 @@
   height: 2rem;
 }
 
-.first-column-build{
+.first-column-build {
   border-right: 2px solid var(--background-quaternary);
 }
 
-.barra-compatibilidade{
+.barra-compatibilidade {
   background-color: green;
 }
 
-.barra-potencia{
+.barra-potencia {
   background-color: #037bc4;
 }

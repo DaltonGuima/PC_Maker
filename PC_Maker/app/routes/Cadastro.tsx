@@ -52,11 +52,9 @@ function Cadastro() {
     }
   }
 
-  const changeTheme = useHookstate(themePage)
-
   return (
 
-    <div className="login-page" data-theme={changeTheme.get()}>
+    <div className="login-page">
       <section className='vh-100'>
         <div className="container py-2 h-100">
           <div className="row align-items-center h-100">
@@ -131,7 +129,7 @@ function Cadastro() {
                           </div>
                         </div>
 
-                        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()}>
+                        <Modal show={show} onHide={handleClose}>
                           <Modal.Header closeButton className="modal-exp-header">
                             <Modal.Title>Parabéns, o seu Cadastro foi realizado!</Modal.Title>
                           </Modal.Header>

@@ -15,7 +15,7 @@ import com.fatec.sig1.model.Usuario.Usuario;
  * @author
  */
 public interface MantemUsuarioRepository extends JpaRepository<Usuario, Long> {
-    Optional<Usuario> findByNome(String nome);
+    Optional<Usuario> findByEmail(String email);
 
     List<Usuario> findAllByNomeIgnoreCaseContaining(String nome);
 }

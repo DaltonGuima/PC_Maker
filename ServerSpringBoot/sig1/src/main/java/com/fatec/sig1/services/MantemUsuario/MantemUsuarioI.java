@@ -34,9 +34,9 @@ public class MantemUsuarioI implements MantemUsuario {
         repository.deleteById(id);
     }
 
-    public Optional<Usuario> consultaPorNome(String Nome) {
-        logger.info(">>>>>> servico consultaPorNome chamado");
-        return repository.findByNome(Nome);
+    public Optional<Usuario> consultaPorEmail(String email) {
+        logger.info(">>>>>> servico consultaPorEmail chamado");
+        return repository.findByEmail(email);
     }
 
     public Optional<Usuario> save(Usuario usuario) {

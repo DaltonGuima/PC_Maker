@@ -1,6 +1,8 @@
 import type { FormEvent } from "react";
 import { useState } from "react";
 import { ProgressBar } from "react-bootstrap";
+import { Link } from "@remix-run/react"
+
 
 interface DivQuestoesProps {
     questionNumber: number
@@ -114,8 +116,7 @@ export function DivQuestoes(props: DivQuestoesProps) {
     if (props.questionNumber < question.length) {
         return (
             <form id={`question${props.questionNumber}`} action="post" onSubmit={handleQuestionario}>
-                <h2>Barra de progresso</h2>
-                <ProgressBar animated now={perProgressBar} variant="info" />
+                <ProgressBar animated now={perProgressBar} variant="info" className="barrita" />
                 <h2>Questão {props.questionNumber + 1}</h2>
                 <h3>{question[props.questionNumber].questionTitle}</h3>
                 {
@@ -136,42 +137,41 @@ export function DivQuestoes(props: DivQuestoesProps) {
     else {
         return (
             <div>
-                <h2>Sua Pontuação é:</h2>
+                <h3>Sua Pontuação é:</h3>
                 <h2 id="printtotalscore">{score}</h2>
 
 
-                {/* <Pontuacao/>  */}
+                <Pontuacao />
 
             </div>
         )
     }
 
-    //    function Pontuacao() 
-    //    {
-    //     if(score < 10 ){
-    //         return(
-    //             <a href="https://www.kabum.com.br/produto/448296/pc-gamer-facil-computadores-amd-ryzen-5-5600g-16gb-ssd-480gb-linux-preto-21045?gclid=EAIaIQobChMIsvWN_6rh_gIVpyZMCh0ocw9nEAQYAyABEgIPi_D_BwE">
-    //                 <button>Básico</button>
-    //             </a>  
-    //         )
-    //     }
-    //    else if(score >=10 && score < 14){
-    //         return(
-    //             <a href="https://www.pichau.com.br/computador-mancer-gamer-amd-ryzen-5-3600-geforce-rtx-3050-8gb-8gb-ddr4-ssd-240gb-32950?gclid=EAIaIQobChMIqLfsoazh_gIVGxXUAR2XMgquEAQYDCABEgK8wPD_BwE">
-    //                 <button>Médio</button>
-    //             </a>  
+    function Pontuacao() {
+        if (score < 10) {
+            return (
+                <Link to="/RecPadrao">
+                    <button className="btn btn-lg btn-success">Básico</button>
+                </Link>
+            )
+        }
+        else if (score >= 10 && score < 14) {
+            return (
+                <Link to="/RecPadrao">
+                    <button className="btn btn-lg btn-success">Médio</button>
+                </Link>
 
-    //          )      
-    //     } 
-    //     else{
-    //         return(
-    //             <a href="-https://www.magazineluiza.com.br/notebook-gamer-dell-g15-a0506-m30p-15-6-fhd-amd-ryzen-5-6600h-16gb-512gb-ssd-nvidia-rtx-3050-windows-11/p/aa69a6bb1e/in/dg15/">
-    //             <button>Alta</button>
-    //         </a> 
+            )
+        }
+        else {
+            return (
+                <Link to="/RecPadrao">
+                    <button className="btn btn-lg btn-success">Alta</button>
+                </Link>
 
-    //         )
-    //     }
-    //    }
+            )
+        }
+    }
 
 
 

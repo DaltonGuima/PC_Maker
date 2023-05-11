@@ -58,4 +58,7 @@ public class LocalVendaDTO {
         this.produto = produto;
     }
 
+    public LocalVenda retornaUmaLocalVenda() {
+        return new LocalVenda(preco, vendedor, linkProduto, produto);
+    }
 }

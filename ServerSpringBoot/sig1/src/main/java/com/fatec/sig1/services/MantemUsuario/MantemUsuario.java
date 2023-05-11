@@ -13,7 +13,7 @@ public interface MantemUsuario {
 
     public void delete(Long id);
 
-    public Optional<Usuario> consultaPorNome(String Nome);
+    public Optional<Usuario> consultaPorEmail(String email);
 
     public Optional<Usuario> save(Usuario usuario);
 

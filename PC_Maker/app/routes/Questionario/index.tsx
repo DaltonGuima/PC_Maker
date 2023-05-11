@@ -1,4 +1,4 @@
-import type { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, MetaFunction } from "@remix-run/node";
 import questoes from '../../styles/questoes.css';
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
@@ -14,6 +14,11 @@ export const links: LinksFunction = () => {
     ];
 };
 
+export const meta: MetaFunction = () => ({
+    title: "Questionario"
+});
+
+
 export default function Questoes() {
     const [questionNumber, setQuestionNumber] = useState(0);
     const changeTheme = useHookstate(themePage)
@@ -24,7 +29,7 @@ export default function Questoes() {
             <Header />
             <main id="conteudo" className="container-fluid texto">
                 <div className="container" /* data-theme={changeTheme.get()} */>
-                    <div className="row">
+                    <div className="row rowQuest">
                         <div className="two-thirds column">
                             <h1></h1><br></br>
                             <br></br>
