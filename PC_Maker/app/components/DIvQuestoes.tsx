@@ -137,9 +137,6 @@ export function DivQuestoes(props: DivQuestoesProps) {
     else {
         return (
             <div>
-                <h3>Sua Pontuação é:</h3>
-                <h2 id="printtotalscore">{score}</h2>
-
 
                 <Pontuacao />
 
@@ -148,29 +145,25 @@ export function DivQuestoes(props: DivQuestoesProps) {
     }
 
     function Pontuacao() {
+        let tipoBuilds;
         if (score < 10) {
-            return (
-                <Link to="/RecPadrao">
-                    <button className="btn btn-lg btn-success">Básico</button>
-                </Link>
-            )
+            tipoBuilds = "Básicas"
         }
         else if (score >= 10 && score < 14) {
-            return (
-                <Link to="/RecPadrao">
-                    <button className="btn btn-lg btn-success">Médio</button>
-                </Link>
-
-            )
+            tipoBuilds = "Médias"
         }
         else {
-            return (
-                <Link to="/RecPadrao">
-                    <button className="btn btn-lg btn-success">Alta</button>
-                </Link>
-
-            )
+            tipoBuilds = "Alta"
         }
+        return (
+            <>
+                <h3>O seu tipo de builds é:</h3>
+                <h2 id="printtotalscore">{tipoBuilds}</h2>
+                <Link to={`/RecPadrao/${tipoBuilds}`}>
+                    <button className="btn btn-lg btn-success">Ver Builds recomendadas</button>
+                </Link>
+            </>
+        )
     }
 
 

@@ -1,6 +1,6 @@
 import { useHookstate } from "@hookstate/core"
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
-import { Link } from "@remix-run/react"
+import type { LinksFunction } from "@remix-run/node";
+import { useParams } from "@remix-run/react"
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
@@ -15,7 +15,7 @@ export const links: LinksFunction = () => {
 
 
 function RecPadrao() {
-
+    const params = useParams();
     const changeTheme = useHookstate(themePage)
 
     return (
@@ -23,7 +23,7 @@ function RecPadrao() {
             <Header />
             <main id="conteudo" className="container-fluid texto">
                 <div className="container cards">
-                    <h1 className="text-center">Básicas</h1>
+                    <h1 className="text-center">{params.index}</h1>
                     <h3 className="text-center title">Notebook</h3>
                     <div className="row pt-2 m-auto">
 
@@ -39,7 +39,7 @@ function RecPadrao() {
                             title='IdeaPad 3i'
                             Itens={['Intel Core i3-1115G4', 'Linux', 'SSD 128GB']}
                             perfilImg='/among_us2.png'
-                            buildImg='./Build_2.png'
+                            buildImg='/Build_2.png'
                             criador='Lenovo'
                         />
                         <CardBuild
@@ -67,7 +67,7 @@ function RecPadrao() {
                             title='Build 2'
                             Itens={['Intel Core I5-8500T', '8GB RAM', 'SSD 240GB']}
                             perfilImg='/among_us2.png'
-                            buildImg='./Build_2.png'
+                            buildImg='/Build_2.png'
                             criador='Neymar Junior Junior'
                         />
                         <CardBuild

@@ -120,6 +120,27 @@ function Build() {
                                     <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
                                 </button>
                             </div>
+                            <div className="slide">
+                                <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
+                                >
+                                    <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
+                                </button>
+                            </div>
+                            <div className="slide">
+                                <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
+                                >
+                                    <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
+                                </button>
+                            </div>
+                            <div className="slide">
+                                <button data-bs-toggle="modal" data-bs-target="#ModalFoto"
+                                    onFocus={() => Modaltext('https://via.placeholder.com/300x150/?text=Foto de build', 'Foto da build')}
+                                >
+                                    <img src="https://via.placeholder.com/300x150/?text=Foto de build" height="300px" width="150px" alt="Foto da build" />
+                                </button>
+                            </div>
 
                         </div>
                     </div>
