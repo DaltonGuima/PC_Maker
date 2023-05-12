@@ -8,4 +8,7 @@ module.exports = {
   serverDependenciesToBundle: [
     /^axios.*/,
 ],
+future: {
+  v2_errorBoundary: true,
+},
 };

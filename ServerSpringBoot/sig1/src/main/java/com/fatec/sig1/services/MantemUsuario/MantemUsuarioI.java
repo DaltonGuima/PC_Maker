@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.joda.time.DateTime;
 
 @Service
 public class MantemUsuarioI implements MantemUsuario {
@@ -41,6 +42,7 @@ public class MantemUsuarioI implements MantemUsuario {
 
     public Optional<Usuario> save(Usuario usuario) {
         logger.info(">>>>>> servico save chamado ");
+        Usuario.setDataCadastro(new DateTime());
         return Optional.ofNullable(repository.save(usuario));
     }
 
@@ -49,6 +51,7 @@ public class MantemUsuarioI implements MantemUsuario {
         Usuario usuarioModificado = new Usuario(usuario.getNome(), usuario.getDataNascimento(), usuario.getEmail(),
                 usuario.getSenha());
         usuarioModificado.setId(id);
+        usuarioModificado.obtemDataAtual(new DateTime());
         logger.info(usuarioModificado.getId());
         return Optional.ofNullable(repository.save(usuarioModificado));
     }

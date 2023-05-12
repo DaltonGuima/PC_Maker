@@ -11,7 +11,6 @@ import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.joda.time.DateTime;
 
 @Service
 public class MantemLocalVendaI implements MantemLocalVenda {
@@ -44,13 +43,13 @@ public class MantemLocalVendaI implements MantemLocalVenda {
         return Optional.ofNullable(repository.save(localVenda));
     }
 
-  @Override
-  public Optional<LocalVenda> atualiza(Long id, LocalVenda localVenda) {
-  logger.info(">>>>>> 1.servico atualiza informações de LocalVenda chamado");
-  LocalVenda localVendaModificado = new LocalVenda(localVenda.getPreco(), localVenda.getVendedor(),
-  localVenda.getLinkProduto(), localVenda.getProduto());
-  localVendaModificado.setId(id);
-  logger.info(localVendaModificado.getId());
-  return Optional.ofNullable(repository.save(localVendaModificado));
-  }
+    @Override
+    public Optional<LocalVenda> atualiza(Long id, LocalVenda localVenda) {
+        logger.info(">>>>>> 1.servico atualiza informações de LocalVenda chamado");
+        LocalVenda localVendaModificado = new LocalVenda(localVenda.getPreco(), localVenda.getVendedor(),
+                localVenda.getLinkProduto(), localVenda.getProduto());
+        localVendaModificado.setId(id);
+        logger.info(localVendaModificado.getId());
+        return Optional.ofNullable(repository.save(localVendaModificado));
+    }
 }

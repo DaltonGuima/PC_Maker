@@ -26,7 +26,8 @@
 
 
     */
-export const changeTextSize = (type: string) =>
+
+/* export const changeTextSize = (type: string) =>
 
   $(document).ready(function () {
     $(".increaseFont,.decreaseFont").click(function () {
@@ -39,5 +40,26 @@ export const changeTextSize = (type: string) =>
       }
       // alert($('.data').css('font-size'));
     });
-  });
+  }); */
 
+
+
+/* Tentativa 02 */
+
+
+$(document).ready(function () {
+  let fonte = 1
+  $('#aumentar').click(function () {
+    if (fonte < 10) {
+      fonte++
+      $('body').css({ 'font-size': fonte + 'rem' })
+    }
+  })
+
+  $('#diminuir').click(function () {
+    if (fonte > 1) {
+      fonte--
+      $('body').css({ 'font-size': fonte + 'rem' })
+    }
+  })
+})

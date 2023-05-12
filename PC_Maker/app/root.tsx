@@ -8,7 +8,8 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  useCatch,
+  isRouteErrorResponse,
+  useRouteError,
 } from "@remix-run/react";
 import { useHydrated } from "remix-utils";
 import { themePage } from "./script/changeTheme";
@@ -71,10 +72,10 @@ export default function App() {
   );
 }
 
-export function CatchBoundary() {
-  const caught = useCatch();
+export function ErrorBoundary() {
+  const error = useRouteError();
 
-  return (
+  /* return (
     <Document>
       <title> {`${caught.status} - ${caught.statusText}`} </title>
       <div id='oopss'>
@@ -84,6 +85,42 @@ export function CatchBoundary() {
           <p className='hmpg'><Link to='/' className="back">Back To Home</Link></p>
         </div>
       </div>
+
     </Document>
-  );
+  ); */
+
+  return (
+    <Document>
+      <div id='oopss'>
+        <div id="error-text">
+          <ErrorHandle />
+          <p className='hmpg'>
+            <Link to='/' className="back">Back To Home</Link>
+          </p>
+        </div>
+      </div>
+    </Document>
+  )
+  function ErrorHandle() {
+    if (isRouteErrorResponse(error)) {
+      return (
+        <>
+          <span> {error.status} </span>
+          <p>
+            {error.statusText}
+          </p>
+          <p>{error.data}</p>
+        </>
+      );
+    } else if (error instanceof Error) {
+      return (
+        <>
+          <span>Error</span>
+          <p>{error.message}</p>
+        </>
+      );
+    } else {
+      return <p>Unknown Error</p>;
+    }
+  }
 } 

@@ -1,9 +1,12 @@
 import { useHookstate } from "@hookstate/core"
-import type { LinksFunction } from "@remix-run/node";
+import { errorBoundaryWarning } from "@remix-run/dev/dist/config";
+import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { useParams } from "@remix-run/react"
+import { RemixRouteError } from "@remix-run/react/dist/components";
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
+import { ErrorBoundary } from "~/root";
 import { themePage } from "~/script/changeTheme"
 import recomendacao from "~/styles/recomendacao.css"
 
@@ -14,9 +17,23 @@ export const links: LinksFunction = () => {
 };
 
 
+/* export async function loader({ params }: LoaderArgs) {
+    var tipoBuild = ["Altas", "Médias", "Básicas"]
+    if (tipoBuild.indexOf(params.index?.toString())) {
+
+    }
+} */
+
 function RecPadrao() {
     const params = useParams();
     const changeTheme = useHookstate(themePage)
+
+    var tipoBuild = ["Altas", "Médias", "Básicas"]
+    if (params.index?.valueOf != undefined) {
+        if (tipoBuild.indexOf(params.index?.toString()))
+            throw new Error("Valor não válido");
+    }
+
 
     return (
         <div data-theme={changeTheme.get()}>

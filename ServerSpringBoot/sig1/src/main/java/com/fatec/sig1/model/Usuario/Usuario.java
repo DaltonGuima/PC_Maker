@@ -7,6 +7,7 @@ import java.util.Set;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import org.joda.time.DateTime;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fatec.sig1.model.Build.Build;
@@ -104,6 +105,12 @@ public class Usuario {
 
     public void setItens(Set<Build> builds) {
         this.builds = builds;
+    }
+
+    public static void setDataCadastro(DateTime dateTime) {
+    }
+
+    public void obtemDataAtual(DateTime dateTime) {
     }
 
     public boolean validaData(String data) {

@@ -155,7 +155,7 @@ export function DivQuestoes(props: DivQuestoesProps) {
             tipoBuilds = "Médias"
         }
         else {
-            tipoBuilds = "Alta"
+            tipoBuilds = "Altas"
         }
         return (
             <>
