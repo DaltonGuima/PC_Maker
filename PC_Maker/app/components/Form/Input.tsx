@@ -1,12 +1,23 @@
-import type { InputHTMLAttributes } from "react";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import type { Dispatch, InputHTMLAttributes } from "react";
 
 
-interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
+interface InputProps {
     id: string;
+    setHide?: Dispatch<boolean>
+    hide?: boolean
+    inputProperties: InputHTMLAttributes<HTMLInputElement>
 }
 
 export function Input(props: InputProps) {
     const textUpper = props.id.charAt(0).toUpperCase() + props.id.slice(1)
+
+    function handleHide() {
+        if (props.hide != null && props.setHide != null)
+            props.setHide(!props.hide)
+    }
 
     return (
         <div className="form-outline pt-2">
@@ -14,12 +25,26 @@ export function Input(props: InputProps) {
                 htmlFor={props.id}>
                 {textUpper.replace('-', ' ')}
             </label>
-            <input
-                className='form-control form-control-plaintext'
-                {...props}
-            />
+
+            <div className="form-control form-control-plaintext">
+                <input
+                    {...props}
+                />
+                {props.inputProperties.name == "senha" ?
+                    <button type="button" onClick={handleHide} className="btn btn-outline-info rounded-circle mx-1">
+                        {props.hide ?
+                            <FontAwesomeIcon icon={faEye} />
+                            :
+                            <FontAwesomeIcon icon={faEyeSlash} />
+                        }
+                    </button>
+                    :
+                    null
+                }
+            </div>
         </div>
     )
 
 
 }
+

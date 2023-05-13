@@ -22,7 +22,7 @@ export const meta: MetaFunction = () => ({
 
 export const links: LinksFunction = () => {
   return [
-    { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css", integrity: "sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT", crossOrigin: "anonymous" },
+    { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css", integrity: "sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ", crossOrigin: "anonymous" },
     { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" },
     { rel: "shortcut icon", href: "/IconeLogo.png", type: "image/x-icon" },
     { rel: "stylesheet", href: main }
@@ -40,7 +40,7 @@ function Document({
       <head>
         <Meta />
         <Links />
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossOrigin="anonymous"></script>
+
         <script src="https://kit.fontawesome.com/6c49cfa42c.js" crossOrigin="anonymous"></script>
 
       </head>
@@ -49,6 +49,7 @@ function Document({
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossOrigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/6c49cfa42c.js" crossOrigin="anonymous"></script>
       </body>
     </html>
@@ -74,21 +75,6 @@ export default function App() {
 
 export function ErrorBoundary() {
   const error = useRouteError();
-
-  /* return (
-    <Document>
-      <title> {`${caught.status} - ${caught.statusText}`} </title>
-      <div id='oopss'>
-        <div id='error-text'>
-          <span>{caught.status}</span>
-          <p>{caught.statusText}</p>
-          <p className='hmpg'><Link to='/' className="back">Back To Home</Link></p>
-        </div>
-      </div>
-
-    </Document>
-  ); */
-
   return (
     <Document>
       <div id='oopss'>
