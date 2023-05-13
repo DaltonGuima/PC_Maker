@@ -1,12 +1,11 @@
+import { createUserSession, loginSession } from '~/utils/session.server';
 import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import login from '../styles/login.css'
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
-import type { FormEvent } from "react";
-import { useState } from "react";
-import axios from "axios";
-import { createUserSession } from '~/utils/session';
-/* import { badRequest } from "remix-utils"; */
+import type { ActionArgs, LinksFunction, MetaFunction } from '@remix-run/node';
+import { useActionData } from '@remix-run/react';
+import { useState } from 'react';
+import { badRequest } from 'remix-utils';
 
 export const links: LinksFunction = () => {
   return [
@@ -18,44 +17,29 @@ export const meta: MetaFunction = () => ({
   title: "Login"
 });
 
-type User = {
-  id: string,
-  email: string,
-  senha: string,
+export const action = async ({ request }: ActionArgs) => {
+  const form = await request.formData();
+  const password = form.get("senha")?.toString();
+  const email = form.get("email")?.toString();
+
+  const fields = { email, password };
+
+  const user = await loginSession({ email, password });
+  console.log({ user });
+  if (!user)
+    return badRequest({
+      fields,
+      formError: `A combinação Email/Senha está incorreta`,
+    });
+
+  return createUserSession(user.id, "/");
 }
 
+
+
 function Login() {
-  const [user, setUser] = useState<User>();
-
-  async function HandleLogin(event: FormEvent) {
-    event.preventDefault();
-    const formData = new FormData(event.target as HTMLFormElement)
-    const data = Object.fromEntries(formData)
-
-    axios(`http://127.0.0.1:8080/api/v1/usuarios/${data.email}`)
-      .then(response => { setUser(response.data) })
-      .catch(() => { return null })
-
-    if (user?.senha != data.senha)
-      return null
-
-    console.log(user)
-
-    await createUserSession(user.id, "/")
-
-    /* if (!user) {
-
-      console.log("deu erro")
-    }
-
-    //validações ocorrem aqui
-
-    const teste = axios(`http://127.0.0.1:8080/api/v1/usuarios/a@a`)
-    console.log(teste)
-    */
-  }
-
-
+  const actionData = useActionData<typeof action>();
+  const [hide, setHide] = useState(true)
 
   return (
     <div className='login-page'>
@@ -72,7 +56,7 @@ function Login() {
                   <div className="col-md-4 col-lg-5 d-flex align-items-center">
                     <div className="card-body p-1 p-lg-4 text-black">
 
-                      <form action="post" method='post' onSubmit={HandleLogin}>
+                      <form method="post">
 
                         <div className="d-flex align-items-center mb-3 pb-1">
                           <span className="h1 fw-bold mb-0s">Login</span>
@@ -82,13 +66,30 @@ function Login() {
                           id="email"
                           type='email'
                           name="email"
+                          required
+                          defaultValue={actionData?.fields?.email}
                         />
 
                         <Input
                           id="senha"
-                          type='password'
-                          name="senha"
+                          inputProperties={{
+                            type: `${hide ? "password" : "text"}`,
+                            name: "senha",
+                            defaultValue: actionData?.fields?.password,
+                            required: true
+                          }}
+                          setHide={setHide}
+                          hide={hide}
                         />
+
+                        {actionData?.formError ?
+                          <p className='text-danger'>{actionData?.formError}</p>
+                          :
+                          null
+
+                        }
+
+
 
                         <div className="container-fluid pt-5">
                           <div className="row">
