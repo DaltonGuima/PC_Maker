@@ -63,11 +63,14 @@ function Login() {
                         </div>
 
                         <Input
-                          id="email"
-                          type='email'
-                          name="email"
-                          required
-                          defaultValue={actionData?.fields?.email}
+                          id='email'
+                          inputProperties={{
+                            type: "email",
+                            name: "email",
+                            required: true,
+                            defaultValue: actionData?.fields?.email,
+                            id: "email"
+                          }}
                         />
 
                         <Input
@@ -76,17 +79,16 @@ function Login() {
                             type: `${hide ? "password" : "text"}`,
                             name: "senha",
                             defaultValue: actionData?.fields?.password,
-                            required: true
+                            required: true,
+                            id: "senha"
                           }}
                           setHide={setHide}
                           hide={hide}
                         />
+                        {/* botar um esqueci a senha depois aqui */}
 
-                        {actionData?.formError ?
+                        {actionData?.formError &&
                           <p className='text-danger'>{actionData?.formError}</p>
-                          :
-                          null
-
                         }
 
 

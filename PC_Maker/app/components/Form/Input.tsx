@@ -28,14 +28,14 @@ export function Input(props: InputProps) {
 
             <div className="form-control form-control-plaintext">
                 <input
-                    {...props}
+                    {...props.inputProperties}
                 />
                 {props.inputProperties.name == "senha" ?
                     <button type="button" onClick={handleHide} className="btn btn-outline-info rounded-circle mx-1">
                         {props.hide ?
-                            <FontAwesomeIcon icon={faEye} />
+                            <FontAwesomeIcon title="Mostrar Senha" icon={faEyeSlash} />
                             :
-                            <FontAwesomeIcon icon={faEyeSlash} />
+                            <FontAwesomeIcon title="Ocultar Senha" icon={faEye} />
                         }
                     </button>
                     :
