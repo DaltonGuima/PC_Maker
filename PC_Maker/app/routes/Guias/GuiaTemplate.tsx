@@ -3,8 +3,16 @@ import { useHookstate } from "@hookstate/core";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
-import guias from '../../styles/guias.css'
-import guiaConteudo from '../../styles/guiaConteudo.css'
+import type { LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { getUser } from "~/utils/session.server";
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 
 function GuiaTemplate() {
@@ -32,7 +40,7 @@ function GuiaTemplate() {
                                     <p className="fs-5 mb-4"></p>
                                 </section>
                             </article>
-                           
+
                             <div className="headline text">
                                 <a className="text-justify py-2 px-5 guiaFonte" href="">Fonte</a>
                             </div>
@@ -79,7 +87,7 @@ function GuiaTemplate() {
                                         </div>
                                     </div>
                             </div> */}
-                            
+
 
                         </div>
                     </div>

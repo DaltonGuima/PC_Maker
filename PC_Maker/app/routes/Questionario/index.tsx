@@ -1,4 +1,4 @@
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { LinksFunction, LoaderArgs, MetaFunction, json } from "@remix-run/node";
 import questoes from '../../styles/questoes.css';
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
@@ -6,6 +6,7 @@ import { useState } from "react";
 import { DivQuestoes } from "~/components/DIvQuestoes";
 import { useHookstate } from "@hookstate/core";
 import { themePage } from "~/script/changeTheme";
+import { getUser } from "~/utils/session.server";
 
 
 export const links: LinksFunction = () => {
@@ -18,6 +19,13 @@ export const meta: MetaFunction = () => ({
     title: "Questionario"
 });
 
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 export default function Questoes() {
     const [questionNumber, setQuestionNumber] = useState(0);

@@ -5,14 +5,19 @@ import type { Dispatch, InputHTMLAttributes } from "react";
 
 
 interface InputProps {
-    id: string;
     setHide?: Dispatch<boolean>
     hide?: boolean
     inputProperties: InputHTMLAttributes<HTMLInputElement>
 }
 
 export function Input(props: InputProps) {
-    const textUpper = props.id.charAt(0).toUpperCase() + props.id.slice(1)
+
+    const textUpper = () => {
+        if (props.inputProperties.id != undefined)
+            return (props.inputProperties.id.charAt(0).toUpperCase() + props.inputProperties.id.slice(1)).replace('-', ' ')
+        else
+            return ""
+    }
 
     function handleHide() {
         if (props.hide != null && props.setHide != null)
@@ -22,8 +27,8 @@ export function Input(props: InputProps) {
     return (
         <div className="form-outline pt-2">
             <label className="form-label font-weight-bold"
-                htmlFor={props.id}>
-                {textUpper.replace('-', ' ')}
+                htmlFor={props.inputProperties.id}>
+                {textUpper()}
             </label>
 
             <div className="form-control form-control-plaintext">

@@ -9,7 +9,9 @@ import TableBuild from "~/components/TableBuild";
 import { carousel } from "~/script/carousel";
 import { themePage } from "~/script/changeTheme";
 import build from '../../styles/build.css';
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
     return [
@@ -20,6 +22,13 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => ({
     title: "Build"
 });
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 function Build() {
 

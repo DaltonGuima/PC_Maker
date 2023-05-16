@@ -102,8 +102,18 @@ public class APIUsuarioController {
 
     @GetMapping("/{email}")
     public ResponseEntity<Object> consultaPorEmail(@PathVariable String email) {
-        logger.info(">>>>>> apicontroller consulta por id chamado");
+        logger.info(">>>>>> apicontroller consulta por email chamado");
         Optional<Usuario> usuario = mantemUsuario.consultaPorEmail(email);
+        if (usuario.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email não encontrado.");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(usuario.get());
+    }
+
+    @GetMapping("id/{id}")
+    public ResponseEntity<Object> consultaPorId(@PathVariable Long id) {
+        logger.info(">>>>>> apicontroller consulta por id chamado");
+        Optional<Usuario> usuario = mantemUsuario.consultaPorId(id);
         if (usuario.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Email não encontrado.");
         }

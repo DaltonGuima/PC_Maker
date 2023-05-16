@@ -26,6 +26,24 @@ h6 {
   background-color: var(--background-secondary-transparent) !important;
 }
 
+.loginButton {
+  background-color: var(--background-tertiary-transparent) !important;
+  margin-right: 2rem;
+}
+
+.loginButton:hover {
+  background-color: var(--accent) !important;
+}
+
+.cadButton {
+  background-color: var(--background-secondary-transparent) !important;
+  margin-right: 2rem;
+}
+
+.cadButton:hover {
+  background-color: var(--accent) !important;
+}
+
 #temaSwitcher {
   color: var(--text-primary);
   background-color: var(--background-primary);

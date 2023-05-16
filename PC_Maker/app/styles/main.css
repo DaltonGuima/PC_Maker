@@ -31,6 +31,7 @@
     rgba(217, 217, 217, 1) 100%
   );
   --button-back: #8d24f2;
+  --button-front: #3e1291;
 }
 [data-theme="dark"] {
   --background-primary: #212425;
@@ -53,7 +54,7 @@
   --text-quinary: #e3dfdf;
   --text-senary: #c68bff;
   --social-icons: #1e1e1e;
-  --accent: darkred;
+  --accent: #811e4f;
   --background-gradient-primary: linear-gradient(
     180deg,
     rgba(33, 36, 37, 1) 0%,
@@ -66,6 +67,7 @@
     rgb(6, 6, 6) 100%
   );
   --button-back: #ae306f;
+  --button-front: #3e1291;
 }
 
 /* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
@@ -111,7 +113,17 @@ body {
   border: none;
 }
 
+.btn-modal-primary:hover {
+  background-color: var(--accent) !important;
+  border: none;
+}
+
 .btn-modal-secondary {
+  background-color: var(--button-front) !important;
+  border: none;
+}
+
+.btn-modal-secondary:hover {
   background-color: var(--background-quinary) !important;
   border: none;
 }
@@ -363,7 +375,6 @@ li {
 .social-icons a:focus,
 .social-icons a:hover {
   color: #fff;
-  background-color: #29aafe;
 }
 
 .social-icons.size-sm a {
@@ -374,7 +385,7 @@ li {
 }
 
 .social-icons a.facebook:hover {
-  background-color: #7b67db;
+  background-color: rgba(26, 64, 200, 0.85);
 }
 
 .social-icons a.twitter:hover {

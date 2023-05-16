@@ -1,5 +1,5 @@
 import { useHookstate } from "@hookstate/core"
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { LinksFunction, LoaderArgs, MetaFunction, json } from "@remix-run/node";
 import { Link } from "@remix-run/react"
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
@@ -8,6 +8,7 @@ import acessibilidade from '~/styles/acessibilidade.css'
 
 
 import React, { useState } from 'react';
+import { getUser } from "~/utils/session.server";
 
 
 export const meta: MetaFunction = () => ({
@@ -20,6 +21,13 @@ export const links: LinksFunction = () => {
     ];
 };
 
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 export default function Acessibilidade() {
     const changeTheme = useHookstate(themePage)

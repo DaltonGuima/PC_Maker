@@ -1,14 +1,13 @@
 import { useHookstate } from "@hookstate/core"
-import { errorBoundaryWarning } from "@remix-run/dev/dist/config";
 import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useParams } from "@remix-run/react"
-import { RemixRouteError } from "@remix-run/react/dist/components";
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header"
-import { ErrorBoundary } from "~/root";
 import { themePage } from "~/script/changeTheme"
 import recomendacao from "~/styles/recomendacao.css"
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
     return [
@@ -17,12 +16,13 @@ export const links: LinksFunction = () => {
 };
 
 
-/* export async function loader({ params }: LoaderArgs) {
-    var tipoBuild = ["Altas", "Médias", "Básicas"]
-    if (tipoBuild.indexOf(params.index?.toString())) {
+export const loader = async ({ request }: LoaderArgs) => {
 
-    }
-} */
+    const user = await getUser(request);
+
+    return json({ user })
+};
+
 
 function RecPadrao() {
     const params = useParams();

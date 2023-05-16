@@ -2,10 +2,15 @@ import { useHookstate } from '@hookstate/core';
 import { useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { themePage } from '../script/changeTheme';
-import { Link } from "@remix-run/react"
+import { Link, useLoaderData } from "@remix-run/react"
+import { loader } from '~/routes';
+
+
+
 
 
 export function Header() {
+    const data = useLoaderData<typeof loader>();
 
     const changeTheme = useHookstate(themePage)
     const [theme, setTheme] = useLocalStorage('theme', changeTheme.get() ? 'dark' : 'light');
@@ -46,8 +51,8 @@ export function Header() {
                                 <li className="tema" id="temaSwitcher" onClick={switchTheme}><a ><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
-                                <li className="fonte"><a href="javascript:void(0);" id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
-                                <li className="fonte"><a href="javascript:void(0);" id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
+                                <li className="fonte"><a id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
+                                <li className="fonte"><a id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,21 +93,35 @@ export function Header() {
                         </div>
 
                         <div className="profile">
-                            <ul className="navbar-nav">
-                                <li className="nav-item dropdown">
-                                    <a className="nav-link dropleft dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                                        <img src="/among_us.jpg" alt="Foto de Perfil" className="imagemPerfil" />Perfil
-                                    </a>
-                                    <div className="dropdown-menu dropdown-menu-end perfilDropdown">
-                                        <button className="dropdown-item disabled">
-                                            <i className="fa fa-user-o"></i> Perfil
-                                        </button>
-                                        <a className="dropdown-item" href="/perfil">Meu Perfil</a>
-                                        <a className="dropdown-item"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
-                                        <a className="dropdown-item"><i className="fa fa-sign-out" aria-hidden="true"></i> Logout</a>
-                                    </div>
-                                </li>
-                            </ul>
+                            {data.user ?
+                                <ul className="navbar-nav">
+                                    <li className="nav-item dropdown">
+                                        <a className="nav-link dropleft dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                            <img src="/among_us.jpg" alt="Foto de Perfil" className="imagemPerfil" /> {data.user?.nome}
+                                        </a>
+                                        <div className="dropdown-menu dropdown-menu-end perfilDropdown">
+                                            <button className="dropdown-item disabled"> Perfil
+                                                <i className="fa fa-user-o"></i>
+                                            </button>
+                                            <Link className="dropdown-item" to="/perfil">Meu Perfil</Link>  {/* vou ter que parametizar depois */}
+                                            <a className="dropdown-item"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
+                                            <form action="/logout" method="post">
+                                                <button className="dropdown-item">
+                                                    <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </li>
+                                </ul>
+                                :
+                                <div>
+
+                                    <Link to="/Login"><button className="btn text-light loginButton">Entrar</button></Link>
+
+                                    <Link to="/Cadastro"><button className="btn text-light cadButton" >Cadastre-se</button></Link>
+
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

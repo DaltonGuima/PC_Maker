@@ -1,5 +1,5 @@
 import { useHookstate } from "@hookstate/core"
-import type { LinksFunction, MetaFunction } from "@remix-run/node";
+import { LinksFunction, LoaderArgs, MetaFunction, json } from "@remix-run/node";
 import { Link } from "@remix-run/react"
 import { CardBuild } from "~/components/CardBuild"
 import { Footer } from "~/components/Footer";
@@ -11,6 +11,7 @@ import home from "~/styles/home.css"
 import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
   return [
@@ -22,7 +23,17 @@ export const meta: MetaFunction = () => ({
   title: "Home"
 });
 
+export const loader = async ({ request }: LoaderArgs) => {
+
+  const user = await getUser(request);
+
+  return json({ user })
+};
+
+
 export default function Home() {
+
+
   const changeTheme = useHookstate(themePage)
   /*   const teste = useLoaderData<typeof loader>(); */
 
@@ -60,7 +71,7 @@ export default function Home() {
             <Button href="../Questionario" variant="primary" className="btn-modal-primary" onClick={handleClose}>
               Pouca experiência
             </Button>
-         
+
             <Button variant="secondary" className="btn-modal-secondary" href="/Build/Builder" onClick={handleClose}>
               Alguma experiência
             </Button>

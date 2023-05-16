@@ -3,10 +3,11 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import TableBuilder from "~/components/TableBuilder";
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import { LinksFunction, LoaderArgs, MetaFunction, json } from '@remix-run/node';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
   return [
@@ -18,6 +19,13 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => ({
   title: "Builder"
 });
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+  const user = await getUser(request);
+
+  return json({ user })
+};
 
 
 function Builder() {

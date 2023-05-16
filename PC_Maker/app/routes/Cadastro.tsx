@@ -10,7 +10,7 @@ import type { FormEvent } from "react";
 import { handleDate } from "~/script/handleDate";
 
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 
@@ -29,8 +29,11 @@ export const meta: MetaFunction = () => ({
 function Cadastro() {
 
   const [show, setShow] = useState(false);
+  const [hide, setHide] = useState(true)
 
   const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   async function handleCreateUsuario(event: FormEvent) {
     event.preventDefault();
@@ -44,7 +47,6 @@ function Cadastro() {
         dataNascimento: handleDate(data.dataNascimento.toString()),
         email: data.email,
         senha: data.senha,
-        builds: []
       }).then(response => console.log(response))
     } catch (error) {
       console.log(error)
@@ -58,14 +60,14 @@ function Cadastro() {
       <section className='vh-100'>
         <div className="container py-2 h-100">
           <div className="row align-items-center h-100">
-            <div className="col col-xl-12 d-flex justify-content-center">
-              <div className="card bg-dark text-light col-md-5">{/* <!-- Aqui arrendoda --> */}
-                <div className="row g-0 d-flex justify-content-center" >
-                  <div className="align-items-center">
-                    <div className="card-body p-1 p-md-5 text-black">
+            <div className=" d-flex justify-content-center">
+              <div className="card bg-dark text-light col-md-6">{/* <!-- Aqui arrendoda --> */}
+                <div className="row d-flex justify-content-center" >
+                  <div className="justify-content-center">
+                    <div className="card-body p-2 p-md-4 text-light d-flex justify-content-center">
 
                       <form onSubmit={handleCreateUsuario} className="form-horizontal" action="post">
-                        <div className="d-flex align-items-center mb-3 pb-1">
+                        <div className="d-flex justify-content-center mb-3 pb-1">
                           <span className="h1 fw-bold mb-0 minorText">Cadastro</span>
                         </div>
 
@@ -73,58 +75,92 @@ function Cadastro() {
                           <span className="h5 fw-bold mb-0"><i className="fa fa-person minorText" aria-hidden="true"></i> Nome</span>
                         </div>
                         <Input
-                          id='nome'
-                          type='text'
-                          name="nome"
+                          inputProperties={{
+                            id: "nome",
+                            type: "text",
+                            name: "nome",
+                            required: true,
+                          }}
                         />
+
                         <div className="d-flex align-items-center mb-3 pt-3">
                           <span className="h5 fw-bold mb-0"><i className="fa fa-envelope minorText" aria-hidden="true"></i> E-mail</span>
                         </div>
-                        <Input
-                          id='email'
-                          type='email'
-                          name="email"
-                        />
-                        <Input
-                          id='confirmar-Email'
-                          type='email'
-                        />
+                        <div className="row">
+                          <div className="col">
+                            <Input
+                              inputProperties={{
+                                type: "email",
+                                name: "email",
+                                id: "email",
+                                required: true,
+                              }}
+                            />
+                          </div>
+                          <div className="col">
+                            <Input
+                              inputProperties={{
+                                id: "confirmar-Email",
+                                type: "email",
+                                name: "confirmar-Email",
+                                required: true,
+                              }}
+                            />
+                          </div>
+                        </div>
                         <div className="d-flex align-items-center mb-3 pt-3">
                           <span className="h5 fw-bold mb-0"><i className="fa fa-lock minorText"></i> Senha</span>
                         </div>
-                        <Input
-                          id='senha'
-                          type='password'
-                          name="senha"
-                        />
-                        <Input
-                          id='confirmar-Senha'
-                          type='password'
-                        />
+                        <div className="row px-6">
+                          <div className="col">
+                            <Input
+                              inputProperties={{
+                                id: 'senha',
+                                type: `${hide ? "password" : "text"}`,
+                                name: 'senha',
+                                required: true,
+                              }}
+                              setHide={setHide}
+                              hide={hide}
+                            />
+                          </div>
+                          <div className="col">
+                            <Input
+                              inputProperties={{
+                                id: 'confirmar-Senha',
+                                type: 'password',
+                                name: 'confirmar-Senha',
+                                required: true,
+                              }}
+                            />
+                          </div>
+                        </div>
                         <div className="d-flex align-items-center mb-3 pt-3 ">
                           <span className="h5 fw-bold mb-0 "><i className="fa fa-birthday-cake minorText" aria-hidden="true"></i> Data de nascimento</span>
                         </div>
                         <Input
-                          id='dataNascimento'
-                          type='date'
-                          name="dataNascimento"
+                          inputProperties={{
+                            id: 'dataNascimento',
+                            type: 'date',
+                            required: true,
+                            name: 'dataNascimento'
+                          }}
                         />
                         <div className="container-fluid pt-5">
                           <div className="row">
-                            <div className="col col-lg-9 text-wrap pt-3">
-                              <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" />
+                            <div className="col col-lg-9 text-wrap pt-1">
+                              <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" required />
                               <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
                             </div>
                             <div className="col col-lg-3 text-wrap">
                               {/* tirei o evento on click para testar um bglh */}
-
-                              <SubmitForm
-                                text='Cadastrar'
-                                id='submit'
-                                name='submit'
-                              />
-
-
+                              <Button className="btn bg-transparent border-0" variant="primary" onClick={handleShow}>
+                                <SubmitForm
+                                  text='Cadastrar'
+                                  id='submit'
+                                  name='submit'
+                                />
+                              </Button>
                             </div>
 
                           </div>

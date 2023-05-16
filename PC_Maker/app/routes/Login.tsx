@@ -3,7 +3,7 @@ import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import login from '../styles/login.css'
 import type { ActionArgs, LinksFunction, MetaFunction } from '@remix-run/node';
-import { useActionData } from '@remix-run/react';
+import { Link, useActionData } from '@remix-run/react';
 import { useState } from 'react';
 import { badRequest } from 'remix-utils';
 
@@ -31,6 +31,8 @@ export const action = async ({ request }: ActionArgs) => {
       fields,
       formError: `A combinação Email/Senha está incorreta`,
     });
+
+  console.log(user.id)
 
   return createUserSession(user.id, "/");
 }
@@ -62,19 +64,19 @@ function Login() {
                           <span className="h1 fw-bold mb-0s">Login</span>
                         </div>
 
-                        <Input
-                          id='email'
-                          inputProperties={{
-                            type: "email",
-                            name: "email",
-                            required: true,
-                            defaultValue: actionData?.fields?.email,
-                            id: "email"
-                          }}
-                        />
+                        <div className="col-9">
+                          <Input
+                            inputProperties={{
+                              type: "email",
+                              name: "email",
+                              required: true,
+                              defaultValue: actionData?.fields?.email,
+                              id: "email",
+                            }}
+                          />
+                        </div>
 
                         <Input
-                          id="senha"
                           inputProperties={{
                             type: `${hide ? "password" : "text"}`,
                             name: "senha",
@@ -122,7 +124,7 @@ function Login() {
                           </div>
                         </div>
                         <div className="container-fluid DontHAveAccount pt-lg-5 minorText">
-                          <p> Não tem uma conta? <a href="../cadastro"> Cadastre aqui.</a> </p>
+                          <p> Não tem uma conta? <Link to="/cadastro" className="cadastrese"> Cadastre aqui.</Link> </p>
                         </div>
                       </form>
 

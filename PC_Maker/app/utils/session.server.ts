@@ -7,9 +7,10 @@ type LoginForm = {
 };
 
 type User = {
-  id: string | undefined;
+  id: number | undefined;
   senha: string | undefined;
   email: string | undefined;
+  nome: string | undefined,
 };
 
 
@@ -53,7 +54,7 @@ const storage = createCookieSessionStorage({
 });
 
 export async function createUserSession(
-  userId: string | undefined,
+  userId: number | undefined,
   redirectTo: string
 ) {
   const session = await storage.getSession();
@@ -64,24 +65,71 @@ export async function createUserSession(
     },
   });
 }
-    /* export async function login({
-password,
-username,
-}: LoginForm) {
-const user = await db.user.findUnique({
-where: { username },
-});
-if (!user) {
-return null;
+
+function getUserSession(request: Request) {
+  return storage.getSession(request.headers.get("Cookie"));
 }
- 
-const isCorrectPassword = await bcrypt.compare(
-password,
-user.passwordHash
-);
-if (!isCorrectPassword) {
-return null;
+
+export async function getUserId(request: Request) {
+  const session = await getUserSession(request);
+  const userId = session.get("userId");
+  if (!userId) {
+    return null;
+  }
+  return userId;
+  // return storage.getSession(request.headers.get("Cookie"));
 }
+
+export async function requireUserId(
+  request: Request,
+  redirectTo: string = new URL(request.url).pathname
+) {
+  const session = await getUserSession(request);
+  const userId = session.get("userId");
+  if (!userId || typeof userId !== "string") {
+    const searchParams = new URLSearchParams([
+      ["redirectTo", redirectTo],
+    ]);
+    throw redirect(`/login?${searchParams}`);
+  }
+  return userId;
+}
+
+export async function getUser(request: Request) {
+  const userId = await getUserId(request);
+  /*  if (typeof userId !== "string") {
+     return null;
+   }
  
-return { id: user.id, username };
-} */
+   try {
+     const user = await db.user.findUnique({
+       select: { id: true, username: true },
+       where: { id: userId },
+     });
+     return user;
+   } catch {
+     throw logout(request);
+   } */
+  return axios(`http://127.0.0.1:8080/api/v1/usuarios/id/${userId}`)
+    .catch(() => { return null })
+    .then((response) => {
+      const user: User = response?.data
+
+      if (typeof userId !== "number") {
+        return null;
+      }
+
+      return user;
+    }
+
+    )
+}
+
+export async function logout(request: Request) {
+  const session = await getUserSession(request);
+  return redirect("/", {
+    headers: {
+      "Set-Cookie": await storage.destroySession(session),
+    },
+  });
+}
