@@ -27,8 +27,7 @@ function DashboardInsercaoVentoinha() {
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
 
-        setShow(true);
-
+        
         await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
             nome: data.nome,
             fabricante: data.fabricante,
@@ -43,7 +42,8 @@ function DashboardInsercaoVentoinha() {
         }).catch(error => {
             setError(error)
         })
-
+        
+        setShow(true);
     }
     return (
         <div style={{ paddingTop: '7rem' }}>

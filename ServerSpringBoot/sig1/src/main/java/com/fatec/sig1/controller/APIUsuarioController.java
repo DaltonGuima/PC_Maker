@@ -45,6 +45,10 @@ public class APIUsuarioController {
                     result.getFieldError());
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Dados inválidos.");
         }
+        if (mantemUsuario.consultaPorEmail(usuario.getEmail()).isPresent()) {
+            logger.info(">>>>>> apicontroller consultaporEmail email ja cadastrado");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Email já cadastrado");
+        }
 
         try {
             usuario.setDataNascimento(usuarioDTO.getDataNascimento());
