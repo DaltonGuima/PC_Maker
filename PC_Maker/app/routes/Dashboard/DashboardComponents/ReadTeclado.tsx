@@ -1,4 +1,4 @@
-import { useHookstate } from "@hookstate/core";
+/* import { useHookstate } from "@hookstate/core";
 import { useEffect, useState } from "react";
 import type { VentoinhaProps } from "~/Interface/ComponenteInterface";
 import { TableRead } from "~/components/TableRead"
@@ -47,4 +47,4 @@ function ReadVentoinha() {
     )
 }
 
-export default ReadVentoinha
+export default ReadVentoinha */

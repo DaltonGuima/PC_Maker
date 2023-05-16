@@ -26,9 +26,6 @@ export function Ventoinha(props: VentoinhaProps) {
                     nome: data.nome,
                     fabricante: data.fabricante,
                     modelo: data.modelo,
-                    preco: Number(data.preco),
-                    vendedor: data.vendedor,
-                    linkProduto: data.linkProduto,
                     categoria: "Ventoinha",
                     especificacoes: { "tamanho": data.tamanho }
                 })
@@ -51,7 +48,7 @@ export function Ventoinha(props: VentoinhaProps) {
             <td className="desc">
                 <input form={`formVentoinha${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-            <td>
+           {/*  <td>
                 <div className="d-inline-flex">
                     {props.locaisvendas[0].preco}
                     R$<input form={`formVentoinha${props.id}`} type="number" name="preco" id="preco" defaultValue={""} className="inputComponente" readOnly={!editable} />
@@ -62,7 +59,7 @@ export function Ventoinha(props: VentoinhaProps) {
             </td>
             <td>
                 <input form={`formVentoinha${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
-            </td>
+            </td> */}
             <td>
                 <input form={`formVentoinha${props.id}`} type="text" name="tamanho" id="tamanho" defaultValue={props.especificacoes.tamanho} className="inputComponente" readOnly={!editable} />
             </td>
