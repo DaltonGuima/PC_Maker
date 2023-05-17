@@ -1278,7 +1278,7 @@ section {
 
 .form-control {
   /* color: #94999d; */
-  color: #ededed;
+  color: #c9c8c8;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
@@ -1289,35 +1289,35 @@ section {
 
 .form-control:focus {
   background-color: #353a3c;
-  color: #6c757d;
+  color: #c9c8c8; /*   6c757d   */
 }
 
 ::-webkit-input-placeholder {
   /* WebKit, Blink, Edge */
-  color: #909;
+  color: #bb6fcd; /* 909 */
 }
 :-moz-placeholder {
   /* Mozilla Firefox 4 to 18 */
-  color: #909;
+  color: #bb6fcd;
   opacity: 1;
 }
 ::-moz-placeholder {
   /* Mozilla Firefox 19+ */
-  color: #909;
+  color: #bb6fcd;
   opacity: 1;
 }
 :-ms-input-placeholder {
   /* Internet Explorer 10-11 */
-  color: #909;
+  color: #bb6fcd;
 }
 ::-ms-input-placeholder {
   /* Microsoft Edge */
-  color: #909;
+  color: #bb6fcd;
 }
 
 ::placeholder {
   /* Most modern browsers support this now. */
-  color: #909;
+  color: #bb6fcd;
 }
 
 .card-dash {
@@ -14820,4 +14820,9 @@ section {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #858585;
   opacity: 1; /* Firefox */
+}
+
+.btnDirectionarNaTable {
+  background-color: #1d0f37 !important;
+  border: none !important;
 }

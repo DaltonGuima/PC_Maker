@@ -47,7 +47,7 @@ function LocaisVendas() {
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
-                <h3 className="text-center text-light m-5 ">{produto?.categoria}: {produto?.nome}</h3>
+                <h3 className="text-center text-light m-5 ">{produto?.categoria ? produto?.categoria : "Vazio"}: {produto?.nome}</h3>
                 <div className="container-fluid">
                     <div className="row">
                         <TableRead

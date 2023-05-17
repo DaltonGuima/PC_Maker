@@ -12,6 +12,8 @@ function DashboardPerguntas() {
                 <div className="container-fluid">
                     <div className="row">
                         <TableRead
+                            title="Perguntas"
+                            tipoPesquisa="Pergunta *Obs ainda não funciona"
                             tipoCRUD={tipoCRUD}
                             key={'Perguntas'}
                             cols={['ID', 'Pergunta', 'Somente uma resposta?', 'Alternativas']}

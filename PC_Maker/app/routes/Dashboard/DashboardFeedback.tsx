@@ -15,6 +15,7 @@ function DashboardFeedback() {
                             cols={['ID Usuario', 'ID Build', 'Build nome', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes']}
                             id='Feedbacks'
                             title="Feedbacks"
+                            tipoPesquisa="Id Build *Obs"
                             insereDados={false}
                             body={[
                                 <Feedback

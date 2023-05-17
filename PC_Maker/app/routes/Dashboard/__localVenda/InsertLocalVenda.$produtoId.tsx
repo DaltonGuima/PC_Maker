@@ -20,7 +20,11 @@ function DashboardInsercaoLocalVenda() {
     }, [params.produtoId])
 
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
+    const handleClose = () => {
+        setShow(false)
+
+        location.reload()
+    };
     const [response, setResponse] = useState<AxiosResponse<any, any>>();
     const [error, setError] = useState<AxiosError<any, any>>();
 
@@ -53,7 +57,7 @@ function DashboardInsercaoLocalVenda() {
             <div className="section__content section__content--p30">
                 <div className="container-fluid">
                     <div className="row">
-                        <h3 className="title-5 m-b-35 text-light table-h3">Insert do {produto?.categoria}: {produto?.nome}</h3>
+                        <h3 className="title-5 m-b-35 text-light table-h3">Insert do componente: {produto?.categoria}: {produto?.nome}</h3>
                         <div style={{ paddingTop: '7rem' }}>
 
                             <Modal
@@ -89,7 +93,7 @@ function DashboardInsercaoLocalVenda() {
                                         Voltar para inserção
                                     </Button>
 
-                                    <Link to="/Dashboard/DashboardComponents/ReadVentoinha">
+                                    <Link to={`/Dashboard/LocaisVendas/${params.produtoId}`}>
                                         <Button variant="success">
                                             Visualizar a tabela
                                         </Button>
@@ -110,7 +114,7 @@ function DashboardInsercaoLocalVenda() {
                                             <div className="row">
                                                 <div className="col">
                                                     <label htmlFor="preco" className=" form-control-label">Preço</label>
-                                                    <input type="number" name="preco" id="preco" placeholder="Preço" className="form-control" required />
+                                                    <input type="number" step="0.01" name="preco" id="preco" placeholder="Preço" className="form-control" required />
                                                     <small className="help-block form-text">Preço do produto</small>
                                                 </div>
                                                 <div className="col">

@@ -34,7 +34,7 @@ export function LocalVendas(props: LocaisVendasProps) {
                 axios.put(`http://127.0.0.1:8080/api/v1/localvendas/${props.id}`, {
                     preco: Number(data.preco),
                     vendedor: data.vendedor,
-                    linkProduto: data.linkProduto,
+                    linkProduto: data.linkProduto
                 })
             } catch (error) {
                 alert(error)
@@ -50,7 +50,7 @@ export function LocalVendas(props: LocaisVendasProps) {
                 <input form={`formLocaisVendas${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
             </td>
             <td>
-                <input form={`formLocaisVendas${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
+                <input form={`formLocaisVendas${props.id}`} type="number" step="0,01" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
             </td>
             <td>
                 <input form={`formLocaisVendas${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />

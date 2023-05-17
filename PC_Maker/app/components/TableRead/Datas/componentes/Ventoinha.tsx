@@ -54,7 +54,7 @@ export function Ventoinha(props: VentoinhaProps) {
             </td>
             <td>
                 <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
-                    <button className="btn btn-secondary"> Ver Locais</button>
+                    <button className="btn btn-secondary btnDirectionarNaTable"> Ver Locais</button>
                 </Link>
             </td>
             <td>

@@ -29,11 +29,12 @@ function Dashboard() {
                                 </Link>
                                 <div className='navbar-nav bg-dark'>
                                     <div className="hamburger hamburger--slider dropdown nav-item">
-                                        <Link className="dropleft" to="#" role="button" data-bs-toggle="dropdown">
+                                        {/* Precisa arrumar essa parte */}
+                                        <a className="dropleft" role="button" data-bs-toggle="dropdown">
                                             <span className="hamburger-box">
                                                 <span className="hamburger-inner bg-dark"></span>
                                             </span>
-                                        </Link>
+                                        </a>
                                         <div className="dropdown-menu dropdown-menu-end bg-dark">
                                             <Link to="/Dashboard" className='dropdown-item text-light'>
                                                 <i className="fas fa-chart-bar"></i> Dashboard

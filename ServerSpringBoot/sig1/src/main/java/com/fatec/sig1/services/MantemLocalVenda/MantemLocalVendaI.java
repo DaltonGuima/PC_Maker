@@ -46,8 +46,9 @@ public class MantemLocalVendaI implements MantemLocalVenda {
     @Override
     public Optional<LocalVenda> atualiza(Long id, LocalVenda localVenda) {
         logger.info(">>>>>> 1.servico atualiza informações de LocalVenda chamado");
+        Optional<LocalVenda> produtoSalvo = repository.findById(id);
         LocalVenda localVendaModificado = new LocalVenda(localVenda.getPreco(), localVenda.getVendedor(),
-                localVenda.getLinkProduto(), localVenda.getProduto());
+                localVenda.getLinkProduto(), produtoSalvo.get().getProduto());
         localVendaModificado.setId(id);
         logger.info(localVendaModificado.getId());
         return Optional.ofNullable(repository.save(localVendaModificado));

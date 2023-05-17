@@ -1,17 +1,26 @@
 import { useHookstate } from "@hookstate/core";
-import { LinksFunction } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import { json } from "@remix-run/node";
 import { useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { SideComponent } from "~/components/SideComponent";
 import { themePage } from "~/script/changeTheme";
 import search from "~/styles/search.css"
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
     return [
-      { rel: "stylesheet", href: search},
+        { rel: "stylesheet", href: search },
     ];
-  };
+};
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 function Search() {
     const changeTheme = useHookstate(themePage);
@@ -211,6 +220,7 @@ function Search() {
                         <div className="container-fluid">
                             <div className="row border-bottom border-secondary-subtle pb-3">
                                 <div className="col text-white fs-4 text-start">986 Resultados Encontrados</div>
+                                {/* não sei a utilidade dessa barra 
                                 <div className="col search-button">
                                     <form className="d-flex" id="barraPesquisa">
                                         <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='' />
@@ -220,7 +230,7 @@ function Search() {
                                             </a>
                                         </label>
                                     </form>
-                                </div>
+                                </div> */}
                             </div>
 
 
