@@ -2,9 +2,11 @@ import { useHookstate } from "@hookstate/core";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
-import guias from '../../styles/guias.css'
-import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import guias from '../../styles/guias.css';
 
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { getUser } from "~/utils/session.server";
 
 export const links: LinksFunction = () => {
   return [
@@ -15,6 +17,14 @@ export const links: LinksFunction = () => {
 export const meta: MetaFunction = () => ({
   title: "Guias"
 });
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+  const user = await getUser(request);
+
+  return json({ user })
+};
+
 
 function Guias() {
 

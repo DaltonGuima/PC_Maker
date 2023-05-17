@@ -33,6 +33,7 @@ function Cadastro() {
 
   const [show, setShow] = useState(false);
   const [hide, setHide] = useState(true)
+  const [errorValidate, setErrorValidate] = useState(false);
 
   // email
   const [email, setEmail] = useState("")
@@ -43,7 +44,6 @@ function Cadastro() {
   // senha
   const [senha, setSenha] = useState("")
   const [confirmaSenha, setConfirmaSenha] = useState("")
-  const [carregandoSenhaMenssagem, setCarregandoSenhaMessagem] = useState(false);
   const [carregandoConfirmaSenhaMenssagem, setCarregandoConfirmaSenhaMessagem] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -55,17 +55,20 @@ function Cadastro() {
     const data = Object.fromEntries(formData)
     console.log(data)
 
+    if (data.senha != data.confirmarSenha || data.email != data.confirmarEmail) {
+      setErrorValidate(true)
+    } else {
+      await axios.post("http://127.0.0.1:8080/api/v1/usuarios", {
+        nome: data.nome,
+        dataNascimento: handleDate(data.dataNascimento.toString()),
+        email: data.email,
+        senha: data.senha,
+      })
+        .then(response => setResponse(response))
+        .catch(error => setError(error))
 
-    await axios.post("http://127.0.0.1:8080/api/v1/usuarios", {
-      nome: data.nome,
-      dataNascimento: handleDate(data.dataNascimento.toString()),
-      email: data.email,
-      senha: data.senha,
-    })
-      .then(response => setResponse(response))
-      .catch(error => setError(error))
-
-    setShow(true)
+      setShow(true)
+    }
 
   }
 
@@ -126,9 +129,9 @@ function Cadastro() {
 
 
                       <form
-                        onSubmit={() => {
+                        onSubmit={
                           handleCreateUsuario
-                        }}
+                        }
                         className="form-horizontal"
                         method='post'>
 
@@ -235,9 +238,8 @@ function Cadastro() {
                               <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" required />
                               <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
                             </div>
-                            <div className="col col-lg-3 text-wrap">
+                            <div className="col col-lg-3 ">
                               {/* Depois eu faço o disabled pro botão */}
-
                               <SubmitForm
                                 text='Cadastrar'
                                 id='submit'
@@ -245,53 +247,13 @@ function Cadastro() {
                               />
 
                             </div>
-
+                            {errorValidate && (
+                              <p className='text-danger text-end'>Email ou Senha não conferem</p>
+                            )
+                            }
                           </div>
                         </div>
-                        {/* <Modal
-                          show={show}
-                          onHide={
-                            () => {
-                              if (error == null) {
-                                redirect("/login")
-                              }
-                              setShow(false)
-                            }}
-                          size="lg"
-                          aria-labelledby="message-modal"
-                          centered
-                          dialogClassName="border-dark"
-                        >
-                          <Modal.Header className="bg-dark border border-dark text-center" closeButton>
-                            <Modal.Title id="message-modal" className="text-center">
-                              Código: {error?.response?.status || response?.status}
 
-                            </Modal.Title>
-                          </Modal.Header>
-                          <Modal.Body className="bg-dark border border-dark">
-                            <p>
-                              {(error?.message || (response && "Cadastro relizado com sucesso"))
-                                ||
-                                <Spinner animation="border" role="status">
-                                  <span className="visually-hidden">Loading...</span>
-                                </Spinner>}
-                            </p>
-                          </Modal.Body>
-                          <Modal.Footer className="bg-black border border-dark" >
-
-                            {error ?
-                              <Button variant="secondary" onClick={handleClose}>
-                                Refazer o cadastro
-                              </Button>
-                              :
-                              <Link to="/login">
-                                <Button variant="success">
-                                  Ir para a página de Login
-                                </Button>
-                              </Link>
-                            }
-                          </Modal.Footer>
-                        </Modal> */}
 
                         <Modal show={show} onHide={handleClose} centered size="sm" dialogClassName="text-light">
                           <Modal.Header closeButton className="bg-dark border border-dark text-center text-light">
@@ -299,11 +261,13 @@ function Cadastro() {
                           </Modal.Header>
                           <Modal.Body className="bg-dark border border-dark text-light">
                             <p>
-                              {(error?.message || (response && "Cadastro relizado com sucesso"))
+                              {
+                                (error?.message || (response && "Cadastro relizado com sucesso"))
                                 ||
                                 <Spinner animation="border" role="status">
                                   <span className="visually-hidden">Loading...</span>
-                                </Spinner>}
+                                </Spinner>
+                              }
                             </p>
                           </Modal.Body>
                           <Modal.Footer className="modal-exp-footer">

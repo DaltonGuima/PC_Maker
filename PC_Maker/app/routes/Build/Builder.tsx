@@ -3,11 +3,12 @@ import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import TableBuilder from "~/components/TableBuilder";
-import { LinksFunction, LoaderArgs, MetaFunction, json } from '@remix-run/node';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
 import { getUser } from "~/utils/session.server";
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
 
 export const links: LinksFunction = () => {
   return [
@@ -139,8 +140,8 @@ function Builder() {
         <div className="container col-md-10 nvlComp">
 
 
-          <div className="row">
-            <div>
+          <div className="row ">
+            <div className="bottonB">
               <div className="my-2">
 
                 <div className="row">

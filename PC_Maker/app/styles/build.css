@@ -13,6 +13,7 @@ main {
   position: relative;
   width: 100%;
   height: 100%;
+  margin-bottom: 5rem;
 }
 
 .otherProfile img {
@@ -80,10 +81,7 @@ main {
   height: 2rem;
 } */
 
-
-
 /*Builder*/
-
 
 .otherProfile a:hover {
   color: #f10cad;

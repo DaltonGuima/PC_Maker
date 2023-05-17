@@ -27,14 +27,11 @@ function DashboardInsercaoVentoinha() {
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
 
-        
+
         await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "Ventoinha",
             especificacoes: { "tamanho": data.tamanho }
         }).then((response) => {
@@ -42,7 +39,9 @@ function DashboardInsercaoVentoinha() {
         }).catch(error => {
             setError(error)
         })
-        
+
+
+
         setShow(true);
     }
     return (
@@ -81,12 +80,20 @@ function DashboardInsercaoVentoinha() {
                     <Button variant="secondary" onClick={handleClose}>
                         Voltar para inserção
                     </Button>
-
-                    <Link to="/Dashboard/DashboardComponents/ReadVentoinha">
-                        <Button variant="success">
-                            Visualizar a tabela
-                        </Button>
-                    </Link>
+                    {!error &&
+                        <>
+                            <Link to={`/Dashboard/InsertLocalVenda/${response?.data.id}`}>
+                                <Button variant="warning">
+                                    Adicionar os locais de venda
+                                </Button>
+                            </Link>
+                            <Link to="/Dashboard/DashboardComponents/ReadVentoinha">
+                                <Button variant="success">
+                                    Visualizar a tabela
+                                </Button>
+                            </Link>
+                        </>
+                    }
                 </Modal.Footer>
             </Modal>
 
@@ -102,12 +109,12 @@ function DashboardInsercaoVentoinha() {
                                 <div className="col">
                                     <label htmlFor="nome" className=" form-control-label">Nome</label>
                                     <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
+                                    <small className="help-block form-text">Nome da empresa que vende o produto</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante" className="form-control-label">Fabricante</label>
                                     <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required />
-                                    <small className="help-block form-text text-muted">Nome do fabricante</small>
+                                    <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
                                     <label htmlFor="modelo" className=" form-control-label">Modelo</label>
@@ -117,22 +124,6 @@ function DashboardInsercaoVentoinha() {
 
                             </div>
                             <div className="row">
-                                <div className="col">
-                                    <label htmlFor="preco" className=" form-control-label">Preço</label>
-                                    <input type="number" name="preco" id="preco" placeholder="Preço" className="form-control" required />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="vendedor" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="vendedor" id="vendedor" placeholder="Nome" className="form-control" required />
-                                    <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="linkProduto" className=" form-control-label">Link Produto</label>
-                                    <input type="url" name="linkProduto" id="linkProduto" placeholder="Link Produto" className="form-control" required />
-                                    <small className="help-block form-text">Nome do fabricante</small>
-                                </div>
-
                                 <div className="col">
                                     <label htmlFor="tamanho" className=" form-control-label">Tamanho</label>
                                     <select name="tamanho" id="tamanho" className="form-control-sm form-control" defaultValue={""} required>

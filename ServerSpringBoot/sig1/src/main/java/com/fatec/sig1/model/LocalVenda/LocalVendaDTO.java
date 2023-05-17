@@ -15,13 +15,11 @@ public class LocalVendaDTO {
     @NotBlank(message = "Link do Produto é requerido")
     private String linkProduto;
     @JsonIncludeProperties("id")
-    private LocalVenda localvenda;
-    @JsonIncludeProperties("id")
     private Produto produto;
 
-    public LocalVendaDTO(float Preco, String Vendedor, String LinkProduto, Produto produto) {
-        this.preco = Preco;
-        this.vendedor = Vendedor;
+    public LocalVendaDTO(float preco, String vendedor, String LinkProduto, Produto produto) {
+        this.preco = preco;
+        this.vendedor = vendedor;
         this.linkProduto = LinkProduto;
         this.produto = produto;
     }

@@ -4,12 +4,23 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
-import type { MetaFunction } from '@remix-run/node';
 
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { getUser } from "~/utils/session.server";
+
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
 
 export const meta: MetaFunction = () => ({
     title: "Memória RAM"
 });
+
 
 
 function MemoriaRAM() {

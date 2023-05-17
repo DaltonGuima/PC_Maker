@@ -7,6 +7,8 @@ import type { LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { getUser } from "~/utils/session.server";
 
+
+
 export const loader = async ({ request }: LoaderArgs) => {
 
     const user = await getUser(request);

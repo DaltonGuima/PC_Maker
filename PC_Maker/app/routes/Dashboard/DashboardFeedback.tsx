@@ -3,7 +3,7 @@ import { Feedback } from "../../components/TableRead/Datas/Feedback"
 
 
 function DashboardFeedback() {
-    const tipoCRUD = 'feedback';
+    const tipoCRUD = 'feedbacks';
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
@@ -14,6 +14,7 @@ function DashboardFeedback() {
                             key={'Feedbacks'}
                             cols={['ID Usuario', 'ID Build', 'Build nome', 'Nome Usuario', 'Comentário', 'Up votes', 'Down votes']}
                             id='Feedbacks'
+                            title="Feedbacks"
                             insereDados={false}
                             body={[
                                 <Feedback

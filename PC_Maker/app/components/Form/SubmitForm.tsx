@@ -9,6 +9,7 @@ interface ButtonProps {
 export function SubmitForm(props: ButtonProps) {
     return (
         <div className="col col-lg-2 px-3 d-block">
+
             <button
                 id={props.id}
                 name={props.id}

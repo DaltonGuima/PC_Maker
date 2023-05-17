@@ -6,6 +6,18 @@ import { themePage } from "~/script/changeTheme";
 import guias from '../../styles/guias.css'
 import guiaConteudo from '../../styles/guiaConteudo.css'
 
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
+import { json } from "@remix-run/node";
+import { getUser } from "~/utils/session.server";
+
+
+export const loader = async ({ request }: LoaderArgs) => {
+
+    const user = await getUser(request);
+
+    return json({ user })
+};
+
 
 function Guiateste() {
 

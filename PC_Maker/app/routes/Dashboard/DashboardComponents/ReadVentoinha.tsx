@@ -4,13 +4,15 @@ import type { VentoinhaProps } from "~/Interface/ComponenteInterface";
 import { TableRead } from "~/components/TableRead"
 
 import { Ventoinha } from "~/components/TableRead/Datas/componentes/Ventoinha"
-import { SearchByNome } from "~/components/TableRead/TableElements";
+import { SearchTable } from "~/components/TableRead/TableElements";
+
+
 import { changeSelectValue } from "~/script/changeSelectValue";
 import { getComponents } from "~/script/getComponents";
 
 function ReadVentoinha() {
     const [ventoinha, setVentoinha] = useState<VentoinhaProps[]>([]);
-    const SearchByNomeInput = useHookstate(SearchByNome)
+    const SearchByNomeInput = useHookstate(SearchTable)
 
     async function handleAxios() {
         setVentoinha(await getComponents("Ventoinha"))
@@ -27,9 +29,11 @@ function ReadVentoinha() {
         <TableRead
             key={'Ventoinha'}
             id='Ventoinha'
+            title="Ventoinha"
             tipoCRUD={'componentes'}
             insereDados
-            cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Tamanho']}
+            tipoPesquisa="Nome"
+            cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Tamanho', 'Locais Vendas']}
             body={ventoinha.filter(teste => teste.nome.includes(SearchByNomeInput.get()))
                 .map(componente => {
                     return (

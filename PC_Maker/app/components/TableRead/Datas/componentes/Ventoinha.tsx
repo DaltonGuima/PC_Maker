@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
@@ -38,7 +39,7 @@ export function Ventoinha(props: VentoinhaProps) {
     return (
 
         <tr className="tr-shadow">
-            <td className="text-nowrap"><form id={`formVentoinha${props.id}`} onSubmit={handleWithPutAndDelete}>{props.id}</form></td>
+            <td className="text-nowrap"><form id={`formVentoinha${props.id}`} onSubmit={handleWithPutAndDelete} action="post">{props.id}</form></td>
             <td className="text-nowrap">
                 <input form={`formVentoinha${props.id}`} type="text" name="nome" id="nome" defaultValue={props.nome} className="inputComponente" readOnly={!editable} />
             </td>
@@ -48,20 +49,13 @@ export function Ventoinha(props: VentoinhaProps) {
             <td className="desc">
                 <input form={`formVentoinha${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-           {/*  <td>
-                <div className="d-inline-flex">
-                    {props.locaisvendas[0].preco}
-                    R$<input form={`formVentoinha${props.id}`} type="number" name="preco" id="preco" defaultValue={""} className="inputComponente" readOnly={!editable} />
-                </div>
-            </td>
-            <td>
-                <input form={`formVentoinha${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formVentoinha${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
-            </td> */}
             <td>
                 <input form={`formVentoinha${props.id}`} type="text" name="tamanho" id="tamanho" defaultValue={props.especificacoes.tamanho} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
+                    <button className="btn btn-secondary"> Ver Locais</button>
+                </Link>
             </td>
             <td>
                 <ControlsTable

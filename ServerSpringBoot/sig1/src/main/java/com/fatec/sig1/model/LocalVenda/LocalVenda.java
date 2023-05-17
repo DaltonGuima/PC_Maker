@@ -1,12 +1,12 @@
 package com.fatec.sig1.model.LocalVenda;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fatec.sig1.model.Produto.Produto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -29,9 +29,9 @@ public class LocalVenda {
     private String vendedor;
     @NotBlank(message = "Link do Produto é requerido")
     private String linkProduto;
-    @OneToOne(cascade = { CascadeType.MERGE })
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "local_venda_id")
-    @JsonIgnoreProperties("local_venda")
+    @JsonIncludeProperties({ "id", "nome", "fabricante" })
     private Produto produto;
 
     public LocalVenda() {

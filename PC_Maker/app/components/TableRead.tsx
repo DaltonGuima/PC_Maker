@@ -8,11 +8,14 @@ export interface TableReadProps {
     id: string
     tipoCRUD: string
     insereDados: boolean,
+    produtoId?: number,
+    tipoPesquisa: string
 }
 
 interface TableReadFullBodyProps extends TableReadProps {
     body: React.ReactNode[],
     cols: string[]
+    title: string
 }
 
 export function TableRead(props: TableReadFullBodyProps) {
@@ -21,7 +24,7 @@ export function TableRead(props: TableReadFullBodyProps) {
 
     return (
         <div className="col-md-12 highlight-dashboard" id={arrumaId(props.id)}>
-            <h3 className="title-5 m-b-35 text-light table-h3">{props.id}</h3>
+            <h3 className="title-5 m-b-35 text-light table-h3">{props.title}</h3>
             <TableElements
                 slice={slice}
                 range={range}
@@ -30,6 +33,8 @@ export function TableRead(props: TableReadFullBodyProps) {
                 insereDados={props.insereDados}
                 tipoCRUD={props.tipoCRUD}
                 id={props.id}
+                produtoId={props?.produtoId}
+                tipoPesquisa={props.tipoPesquisa}
             />
             <div className="table-responsive">
                 <table className="table table-data2">

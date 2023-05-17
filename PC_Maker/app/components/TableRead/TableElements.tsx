@@ -11,14 +11,13 @@ interface TableElementsProps extends TableReadProps {
     range: number[]
 }
 
-export const SearchByNome = hookstate("");
+export const SearchTable = hookstate("");
 
 export function TableElements(props: TableElementsProps) {
-    const SearchByNomeInput = useHookstate(SearchByNome)
+    const SearchByNomeInput = useHookstate(SearchTable)
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         SearchByNomeInput.set(event.target.value);
-        console.log(SearchByNomeInput.get())
     };
 
     const navigate = useNavigate();
@@ -27,9 +26,14 @@ export function TableElements(props: TableElementsProps) {
         if (props.tipoCRUD == arrumaId(props.id)) {
             navigate(`/Dashboard/Insert${arrumaId(props.id)}`)
         } else {
-            navigate(`/Dashboard/DashboardInsercao/Insert${arrumaId(props.id)}`)
+            if (props.id == "LocalVenda") {
+                navigate(`/Dashboard/Insert${arrumaId(props.id)}/${props.produtoId}`)
+            } else {
+                navigate(`/Dashboard/DashboardInsercao/Insert${arrumaId(props.id)}`)
+            }
         }
     }
+
 
     function Paginacao(event: React.ChangeEvent<HTMLSelectElement>) {
         const value = event.target.value;
@@ -54,7 +58,7 @@ export function TableElements(props: TableElementsProps) {
                     <div className="dropDownSelect2"></div>
                 </div>
                 <form className='input-search-dashboard d-inline'>
-                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder="Procurar por nome" name={props.id} id={props.id} onChange={handleChange} value={SearchByNomeInput.get()} />
+                    <input className='mx-4 bg-dark rounded px-2 my-2' type="text" placeholder={`Procurar por ${props.tipoPesquisa}`} name={props.id} id={props.id} onChange={handleChange} value={SearchByNomeInput.get()} />
                     <label className='text-light' htmlFor={props.id}>
                         <i className="fa fa-search text-light"></i>
                     </label>
