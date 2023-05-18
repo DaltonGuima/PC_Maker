@@ -1,5 +1,5 @@
 ### Fatec ZL - Centro Paula Souza
-## Projeto - Junta Peça (nome novo)
+## Projeto - Junta Peça
 ##### Disciplina - Programação Web III
 Grupo 6
 - Gabriel Magalhães de Oliveira
