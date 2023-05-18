@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
@@ -17,7 +18,7 @@ export function Ram(props: RamProps) {
         if (operation == "Delete") {
             axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
                 console.log("apagou");
-            }).catch(error => alert(error))
+            }).catch((error: any) => alert(error))
         } else {
             event.preventDefault()
             try {
@@ -25,9 +26,6 @@ export function Ram(props: RamProps) {
                     nome: data.nome,
                     fabricante: data.fabricante,
                     modelo: data.modelo,
-                    preco: Number(data.preco),
-                    vendedor: data.vendedor,
-                    linkProduto: data.linkProduto,
                     categoria: "Ram",
                     especificacoes: {
                         capacidade: data.capacidade,
@@ -55,20 +53,7 @@ export function Ram(props: RamProps) {
             <td className="desc">
                 <input form={`formRam${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-            <td>
-                <div className="d-inline-flex">
-                    R$<input form={`formRam${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
-                </div>
-            </td>
-            <td>
-                <input form={`formRam${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formRam${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formRam${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
+            
             {/* especficações */}
             <td>
                 <input form={`formRam${props.id}`} type="text" name="capacidade" id="capacidade" defaultValue={props.especificacoes.capacidade} className="inputComponente" readOnly={!editable} />
@@ -88,7 +73,11 @@ export function Ram(props: RamProps) {
             <td>
                 <input form={`formRam${props.id}`} type="text" name="notebook" id="notebook" defaultValue={props.especificacoes.notebook} className="inputComponente" readOnly={!editable} />
             </td>
-
+            <td>
+                <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
+                    <button className="btn btn-secondary btnDirectionarNaTable"> Ver Locais</button>
+                </Link>
+            </td>
             <td>
                 <ControlsTable
                     id={props.id}

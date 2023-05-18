@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
@@ -18,7 +19,7 @@ export function PlacaDeSom(props: PlacaDeSomProps) {
         if (operation == "Delete") {
             axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
                 console.log("apagou");
-            }).catch(error => alert(error))
+            }).catch((error: any) => alert(error))
         } else {
             event.preventDefault()
             try {
@@ -26,9 +27,6 @@ export function PlacaDeSom(props: PlacaDeSomProps) {
                     nome: data.nome,
                     fabricante: data.fabricante,
                     modelo: data.modelo,
-                    preco: Number(data.preco),
-                    vendedor: data.vendedor,
-                    linkProduto: data.linkProduto,
                     categoria: "PlacaDeSom",
                     especificacoes: {
                     }
@@ -50,21 +48,14 @@ export function PlacaDeSom(props: PlacaDeSomProps) {
             <td className="desc">
                 <input form={`formPlacaDeSom${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-            <td>
-                <div className="d-inline-flex">
-                    R$<input form={`formPlacaDeSom${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
-                </div>
-            </td>
-            <td>
-                <input form={`formPlacaDeSom${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formPlacaDeSom${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formPlacaDeSom${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
+            
             {/* especficações */}
+
+            <td>
+                <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
+                    <button className="btn btn-secondary btnDirectionarNaTable"> Ver Locais</button>
+                </Link>
+            </td>
             <td>
                 <ControlsTable
                     id={props.id}

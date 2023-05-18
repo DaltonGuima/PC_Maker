@@ -57,7 +57,11 @@ export function Teclado(props: TecladoProps) {
             <td>
                 <input form={`formArmazenamento${props.id}`} type="text" name="tipo" id="tipo" defaultValue={props.especificacoes.tipo} className="inputComponente" readOnly={!editable} />
             </td>
-
+            <td>
+                <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
+                    <button className="btn btn-secondary btnDirectionarNaTable"> Ver Locais</button>
+                </Link>
+            </td>
             <td>
                 <ControlsTable
                     id={props.id}

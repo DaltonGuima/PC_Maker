@@ -14826,3 +14826,7 @@ section {
   background-color: #1d0f37 !important;
   border: none !important;
 }
+
+.fa-solid, .fas{
+  color: #e5e5e5 !important;
+}

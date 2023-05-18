@@ -57,7 +57,7 @@ $(document).ready(function () {
   })
 
   $('#diminuir').click(function () {
-    if (fonte > 1) {
+    if (fonte > 0) {
       fonte--
       $('body').css({ 'font-size': fonte + 'rem' })
     }

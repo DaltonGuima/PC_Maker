@@ -1,3 +1,4 @@
+import { Link } from "@remix-run/react";
 import axios from "axios";
 import type { FormEvent } from "react";
 import { useState } from "react";
@@ -16,7 +17,7 @@ export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
         if (operation == "Delete") {
             axios.delete(`http://127.0.0.1:8080/api/v1/produtos/${props.id}`).then(() => {
                 console.log("apagou");
-            }).catch(error => alert(error))
+            }).catch((error: any) => alert(error))
         } else {
             event.preventDefault()
             try {
@@ -24,9 +25,6 @@ export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
                     nome: data.nome,
                     fabricante: data.fabricante,
                     modelo: data.modelo,
-                    preco: Number(data.preco),
-                    vendedor: data.vendedor,
-                    linkProduto: data.linkProduto,
                     categoria: "PlacaDeCaptura",
                     especificacoes: {
                         "interface": data.interface,
@@ -52,20 +50,7 @@ export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
             <td className="desc">
                 <input form={`formPlacaDeCaptura${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-            <td>
-                <div className="d-inline-flex">
-                    R$<input form={`formPlacaDeCaptura${props.id}`} type="number" name="preco" id="preco" defaultValue={props.preco} className="inputComponente" readOnly={!editable} />
-                </div>
-            </td>
-            <td>
-                <input form={`formPlacaDeCaptura${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formPlacaDeCaptura${props.id}`} type="url" name="linkProduto" id="linkProduto" defaultValue={props.linkProduto} className="inputComponente" readOnly={!editable} />
-            </td>
-            <td>
-                <input form={`formPlacaDeCaptura${props.id}`} type="text" name="vendedor" id="vendedor" defaultValue={props.vendedor} className="inputComponente" readOnly={!editable} />
-            </td>
+            
             {/* especficações */}
             <td>
                 <input form={`formPlacaDeCaptura${props.id}`} type="text" name="interface" id="interface" defaultValue={props.especificacoes.interface} className="inputComponente" readOnly={!editable} />
@@ -78,6 +63,11 @@ export function PlacaDeCaptura(props: PlacaDeCapturaProps) {
             </td>
             <td>
                 <input form={`formPlacaDeCaptura${props.id}`} type="text" name="maioresupor" id="maioresupor" defaultValue={props.especificacoes.maioresupor} className="inputComponente" readOnly={!editable} />
+            </td>
+            <td>
+                <Link to={`/Dashboard/LocaisVendas/${props.id}`}>
+                    <button className="btn btn-secondary btnDirectionarNaTable"> Ver Locais</button>
+                </Link>
             </td>
             <td>
                 <ControlsTable

@@ -24,7 +24,7 @@ export function Footer(){
                 <div className="col-xs-6 col-md">
                     <ul className="footer-links">
                         <h6>Sobre nós</h6>
-                        <li><a href="#">Equipe</a></li>
+                        <li><a href="../QuemSomos">Equipe</a></li>
                         <li><a href="#">Contato</a></li>
                         <li><a href="#">Políticas de Privacidade</a></li>
                         <li><a href="#">Código de Defesa do Consumidor</a></li>
