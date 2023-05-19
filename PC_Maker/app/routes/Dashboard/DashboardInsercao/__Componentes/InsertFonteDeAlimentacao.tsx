@@ -1,15 +1,14 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 import type { FormEvent } from "react";
 
-function DashboardInsercaoMemoriaRam() {
-
+function DashboardInsercaoFonteDeAlimentacao() {
     useEffect(() => {
-        changeSelectValue('MemoriaRam')
+        changeSelectValue('FonteDeAlimentacao')
     });
 
-    async function handleCreateProdutoMemoriaRam(event: FormEvent) {
+    async function handleCreateProdutoFonteDeAlimentacao(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -23,12 +22,8 @@ function DashboardInsercaoMemoriaRam() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "MemoriaRam",
-                especificacoes: {
-                    "capacidade": data.capacidade, "velocidade": data.velocidade,
-                    "tecnologia": data.tecnologia, "voltagem": data.voltagem,
-                    "latencia": data.latencia, "notebook": data.notebook
-                }
+                categoria: "FonteDeAlimentacao",
+                especificacoes: { "tamanho": data.tamanho }
             })
 
         } catch (error) {
@@ -43,10 +38,10 @@ function DashboardInsercaoMemoriaRam() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Memória RAM</strong>
+                        <strong>Fonte de Alimentação</strong>
                     </div>
                     <div className="card-body card-block">
-                        <form onSubmit={handleCreateProdutoMemoriaRam} className="form-horizontal">
+                        <form onSubmit={handleCreateProdutoFonteDeAlimentacao} className="form-horizontal">
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
@@ -82,48 +77,42 @@ function DashboardInsercaoMemoriaRam() {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col ">
-                                    <label htmlFor="email-input" className=" form-control-label">Capacidade</label>
-                                    <input type="email" name="email-input" placeholder="Capacidade" className="form-control" />
-                                    <small className="help-block form-text">Capacidade da memória</small>
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">Potência</label>
+                                    <input type="text" name="preco-input" placeholder="Potência" className="form-control" />
+                                    <small className="help-block form-text">Potência</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Velocidade</label>
-                                    <input type="email" name="email-input" placeholder="Velocidade" className="form-control" />
-                                    <small className="help-block form-text">Frequência padrão em que opera</small>
-                                </div>
-                                <div className="col">
-                                    <label className=" form-control-label">Tecnologia RAM</label>
-                                    <div className="form-check">
-                                        <div className="radio">
-                                            <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="radio1" name="radios" value="DDR3" className="form-check-input" />DDR3
-                                            </label>
-                                        </div>
-                                        <div className="radio">
-                                            <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="DDR4" className="form-check-input" />DDR4
-                                            </label>
-                                        </div>
-                                        <div className="radio">
-                                            <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="DDR5" className="form-check-input" />DDR5
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Voltagem</label>
-                                    <input type="email" name="email-input" placeholder="Voltagem" className="form-control" />
-                                    <small className="help-block form-text">Voltagem padrão em que opera</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Latência</label>
-                                    <input type="email" name="email-input" placeholder="Latência" className="form-control" />
-                                    <small className="help-block form-text">Latência padrão em que opera</small>
+                                    <label htmlFor="selectSm" className=" form-control-label">Certificação</label>
+                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
+                                        <option value="0" disabled className='text-secondary'>Selecione</option>
+                                        <option value="1">Nenhuma</option>
+                                        <option value="2">80 Plus White</option>
+                                        <option value="3">80 Plus Bronze</option>
+                                        <option value="4">80 Plus Silver</option>
+                                        <option value="5">80 Plus Gold</option>
+                                        <option value="5">80 Plus Platinum</option>
+                                        <option value="5">80 Plus Titanium</option>
+                                    </select>
                                 </div>
                             </div>
-
+                            <div className="row">
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">Conector Principal</label>
+                                    <input type="text" name="preco-input" placeholder="Conector Principal" className="form-control" />
+                                    <small className="help-block form-text">Conector Principal (20 + 4 Pin, etc) </small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">Conector da CPU</label>
+                                    <input type="text" name="preco-input" placeholder="Conector da CPU" className="form-control" />
+                                    <small className="help-block form-text">Conector da CPU (4 + 4 Pin, etc)</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="preco-input" className=" form-control-label">Conector PCIe</label>
+                                    <input type="text" name="preco-input" placeholder="Conector PCIe" className="form-control" />
+                                    <small className="help-block form-text">Quantidade e tipo do conector PCIe (6 + 2 Pin, etc)</small>
+                                </div>
+                            </div>
                             <div className="row form-group">
                                 <div className="col col-md-9">
                                     <div className="form-check">
@@ -150,4 +139,4 @@ function DashboardInsercaoMemoriaRam() {
         </div>
     )
 }
-export default DashboardInsercaoMemoriaRam
+export default DashboardInsercaoFonteDeAlimentacao;

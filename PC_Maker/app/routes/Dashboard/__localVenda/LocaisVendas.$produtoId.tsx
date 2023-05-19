@@ -33,7 +33,10 @@ function LocaisVendas() {
     useEffect(() => {
         axios.get("http://127.0.0.1:8080/api/v1/localvendas")
             .catch(() => { return null })
-            .then(response => setLocaisVendas(response?.data))
+            .then(response => {
+                setLocaisVendas(response?.data)
+            })
+
     }, [])
 
     useEffect(() => {
@@ -42,6 +45,7 @@ function LocaisVendas() {
             .then(response => setProduto(response?.data))
 
     }, [params.produtoId])
+
 
 
     return (

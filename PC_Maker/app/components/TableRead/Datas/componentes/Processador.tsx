@@ -38,7 +38,7 @@ export function Processador(props: ProcessadorProps & Componente) {
                         freBoost: data.freBoost,
                         tdp: data.tdp,
                         overClock: data.overClock,
-                        graficoIntregado: data.graficoIntregado,
+                        graficoIntegrado: data.graficoIntegrado,
                         tipoMemoria: data.tipoMemoria
                     }
                 })
@@ -59,7 +59,7 @@ export function Processador(props: ProcessadorProps & Componente) {
             <td className="desc">
                 <input form={`formProcessador${props.id}`} type="text" name="modelo" id="modelo" defaultValue={props.modelo} className="inputComponente" readOnly={!editable} />
             </td>
-            
+
             {/* especficações */}
             <td>
                 <input form={`formProcessador${props.id}`} type="text" name="soquete" id="soquete" defaultValue={props.especificacoes.soquete} className="inputComponente" readOnly={!editable} />

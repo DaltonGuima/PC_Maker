@@ -4,6 +4,10 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import TableBuilder from "~/components/TableBuilder";
 
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import React, { useState } from 'react';
+
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
 import { getUser } from "~/utils/session.server";
@@ -31,7 +35,11 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 function Builder() {
 
-  const changeTheme = useHookstate(themePage)
+  const changeTheme = useHookstate(themePage);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div data-theme={changeTheme.get()}>
@@ -41,9 +49,6 @@ function Builder() {
           <h2 className="text-center py-3">Escolha suas peças</h2>
         </div>
 
-
-
-
         <div className="menu-line col-9 container-fluid my-3 rounded text-white">
           <div className="row">
             <div className="col-6 text-decoration-underline first-column-build py-3 p-3 menu-info-medio">
@@ -52,8 +57,8 @@ function Builder() {
             </div>
 
             <div className="col-sm-2 py-3">
-              <button className="btn-menu-line menu-info-medio">
-                <i className="fa-solid fa-floppy-disk mx-1"></i>Salvar
+              <button className="btn-menu-line menu-info-medio" onClick={handleShow}>
+                <i className="fa-solid fa-floppy-disk mx-1" ></i>Salvar
               </button>
             </div>
             <div className="col-sm-2 py-3">
@@ -77,6 +82,25 @@ function Builder() {
             </div>
           </div>
         </div>
+
+        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()}>
+          <Modal.Header closeButton className="modal-exp-header">
+            <Modal.Title>Salvar Build</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>Lorem Ipsum</Modal.Body>
+          <Modal.Footer className="modal-exp-footer">
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Aplicar CSS nessa textArea</label>
+              <textarea className="form-control" id="exampleFormControlTextarea1" rows={3} ></textarea>
+            </div>
+
+            <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+              Lorem Ipsum
+            </Button>
+
+          </Modal.Footer>
+        </Modal>
+
 
 
         <div className="container col-md-10 mt-2 col">

@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 import type { FormEvent } from "react";
 
-function DashboardInsercaoFonteDeAlimentacao() {
+function DashboardInsercaoPlacaDeVideo() {
+
     useEffect(() => {
-        changeSelectValue('FonteDeAlimentacao')
+        changeSelectValue('PlacaDeVideo')
     });
 
-    async function handleCreateProdutoFonteDeAlimentacao(event: FormEvent) {
+    async function handleCreateProdutoPlacaDeVideo(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -22,8 +23,11 @@ function DashboardInsercaoFonteDeAlimentacao() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "FonteDeAlimentacao",
-                especificacoes: { "tamanho": data.tamanho }
+                categoria: "PlacaDeVideo",
+                especificacoes: {
+                    "clock": data.clock, "memoria": data.memoria, "clmemoria": data.clmemoria,
+                    "barramento": data.barramento, "conector": data.conector
+                }
             })
 
         } catch (error) {
@@ -38,10 +42,11 @@ function DashboardInsercaoFonteDeAlimentacao() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Fonte de Alimentação</strong>
+                        <strong>Placa de Video</strong>
                     </div>
                     <div className="card-body card-block">
-                        <form onSubmit={handleCreateProdutoFonteDeAlimentacao} className="form-horizontal">
+                        <form onSubmit={handleCreateProdutoPlacaDeVideo} className="form-horizontal">
+
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
@@ -78,52 +83,28 @@ function DashboardInsercaoFonteDeAlimentacao() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Potência</label>
-                                    <input type="text" name="preco-input" placeholder="Potência" className="form-control" />
-                                    <small className="help-block form-text">Potência</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
+                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
+                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Certificação</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0" disabled className='text-secondary'>Selecione</option>
-                                        <option value="1">Nenhuma</option>
-                                        <option value="2">80 Plus White</option>
-                                        <option value="3">80 Plus Bronze</option>
-                                        <option value="4">80 Plus Silver</option>
-                                        <option value="5">80 Plus Gold</option>
-                                        <option value="5">80 Plus Platinum</option>
-                                        <option value="5">80 Plus Titanium</option>
-                                    </select>
+                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
+                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
+                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
+                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
+                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
+                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
+                                    <small className="help-block form-text">Conectores de alimentação</small>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector Principal</label>
-                                    <input type="text" name="preco-input" placeholder="Conector Principal" className="form-control" />
-                                    <small className="help-block form-text">Conector Principal (20 + 4 Pin, etc) </small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector da CPU</label>
-                                    <input type="text" name="preco-input" placeholder="Conector da CPU" className="form-control" />
-                                    <small className="help-block form-text">Conector da CPU (4 + 4 Pin, etc)</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector PCIe</label>
-                                    <input type="text" name="preco-input" placeholder="Conector PCIe" className="form-control" />
-                                    <small className="help-block form-text">Quantidade e tipo do conector PCIe (6 + 2 Pin, etc)</small>
-                                </div>
-                            </div>
-                            <div className="row form-group">
-                                <div className="col col-md-9">
-                                    <div className="form-check">
-                                        <div className="checkbox">
-                                            <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </form>
                     </div>
                     <div className="card-footer">
@@ -139,4 +120,4 @@ function DashboardInsercaoFonteDeAlimentacao() {
         </div>
     )
 }
-export default DashboardInsercaoFonteDeAlimentacao;
+export default DashboardInsercaoPlacaDeVideo;

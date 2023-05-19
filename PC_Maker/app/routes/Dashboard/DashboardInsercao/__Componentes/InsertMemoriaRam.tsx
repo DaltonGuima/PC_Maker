@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 import type { FormEvent } from "react";
 
+function DashboardInsercaoMemoriaRam() {
 
-function DashboardInsercaoPlacaCaptura() {
     useEffect(() => {
-        changeSelectValue('PlacaDeCaptura')
+        changeSelectValue('MemoriaRam')
     });
 
-    async function handleCreateProdutoPlacaDeCaptura(event: FormEvent) {
+    async function handleCreateProdutoMemoriaRam(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -23,10 +23,11 @@ function DashboardInsercaoPlacaCaptura() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "PlacaDeCaptura",
+                categoria: "MemoriaRam",
                 especificacoes: {
-                    "interface": data.interface, "saida": data.saida,
-                    "taxadbit": data.taxadbit, "maioresupor": data.maioresupor
+                    "capacidade": data.capacidade, "velocidade": data.velocidade,
+                    "tecnologia": data.tecnologia, "voltagem": data.voltagem,
+                    "latencia": data.latencia, "notebook": data.notebook
                 }
             })
 
@@ -42,10 +43,10 @@ function DashboardInsercaoPlacaCaptura() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Captura</strong>
+                        <strong>Memória RAM</strong>
                     </div>
                     <div className="card-body card-block">
-                        <form onSubmit={handleCreateProdutoPlacaDeCaptura} className="form-horizontal">
+                        <form onSubmit={handleCreateProdutoMemoriaRam} className="form-horizontal">
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
@@ -81,28 +82,59 @@ function DashboardInsercaoPlacaCaptura() {
                                 </div>
                             </div>
                             <div className="row">
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Interface</label>
-                                    <input type="text" name="preco-input" placeholder="Interface" className="form-control" />
-                                    <small className="help-block form-text">Interface</small>
+                                <div className="col ">
+                                    <label htmlFor="email-input" className=" form-control-label">Capacidade</label>
+                                    <input type="email" name="email-input" placeholder="Capacidade" className="form-control" />
+                                    <small className="help-block form-text">Capacidade da memória</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Saida</label>
-                                    <input type="text" name="preco-input" placeholder="Saida" className="form-control" />
-                                    <small className="help-block form-text">Saida</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Velocidade</label>
+                                    <input type="email" name="email-input" placeholder="Velocidade" className="form-control" />
+                                    <small className="help-block form-text">Frequência padrão em que opera</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Taxa de bits</label>
-                                    <input type="text" name="preco-input" placeholder="Taxa de bits" className="form-control" />
-                                    <small className="help-block form-text">Taxa de bits</small>
+                                    <label className=" form-control-label">Tecnologia RAM</label>
+                                    <div className="form-check">
+                                        <div className="radio">
+                                            <label htmlFor="radio1" className="form-check-label ">
+                                                <input type="radio" id="radio1" name="radios" value="DDR3" className="form-check-input" />DDR3
+                                            </label>
+                                        </div>
+                                        <div className="radio">
+                                            <label htmlFor="radio2" className="form-check-label ">
+                                                <input type="radio" id="radio2" name="radios" value="DDR4" className="form-check-input" />DDR4
+                                            </label>
+                                        </div>
+                                        <div className="radio">
+                                            <label htmlFor="radio2" className="form-check-label ">
+                                                <input type="radio" id="radio2" name="radios" value="DDR5" className="form-check-input" />DDR5
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Maior resolução suportada</label>
-                                    <input type="text" name="preco-input" placeholder="Maior resolução suportada" className="form-control" />
-                                    <small className="help-block form-text">Maior resolução suportada</small>
+                                    <label htmlFor="email-input" className=" form-control-label">Voltagem</label>
+                                    <input type="email" name="email-input" placeholder="Voltagem" className="form-control" />
+                                    <small className="help-block form-text">Voltagem padrão em que opera</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="email-input" className=" form-control-label">Latência</label>
+                                    <input type="email" name="email-input" placeholder="Latência" className="form-control" />
+                                    <small className="help-block form-text">Latência padrão em que opera</small>
                                 </div>
                             </div>
 
+                            <div className="row form-group">
+                                <div className="col col-md-9">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="checkbox1" className="form-check-label ">
+                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
                     </div>
                     <div className="card-footer">
@@ -118,4 +150,4 @@ function DashboardInsercaoPlacaCaptura() {
         </div>
     )
 }
-export default DashboardInsercaoPlacaCaptura;
+export default DashboardInsercaoMemoriaRam

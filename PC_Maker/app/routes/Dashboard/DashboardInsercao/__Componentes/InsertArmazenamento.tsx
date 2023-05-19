@@ -1,6 +1,6 @@
 import type { FormEvent } from "react";
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "../../../../script/changeSelectValue";
 import axios from "axios";
 
 function DashboardInsercaoArmazenamento() {

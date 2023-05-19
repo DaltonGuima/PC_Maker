@@ -1,6 +1,7 @@
 import { useHookstate } from "@hookstate/core";
 import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
+import { useParams } from "@remix-run/react";
 import { useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
@@ -23,6 +24,22 @@ export const loader = async ({ request }: LoaderArgs) => {
 };
 
 function Search() {
+
+    const params = useParams();
+
+    const searchType = ["Componente", "CategoriaProduto"]
+    if (params.searchType?.valueOf != undefined && !searchType.includes(params.searchType?.toString()))
+        throw new Error("Tipo de pesquisa inválido");
+
+    const categoriaProduto =
+        [
+            "Placa-Mãe", "Memória RAM", "Armazenamento",
+            "Placa de Vídeo", "Gabinete", "Fonte de Alimentação"
+        ]
+    if (params.searchType?.valueOf != undefined && searchType.includes("CategoriaProduto"))
+        if (params.searchContent?.valueOf != undefined && !categoriaProduto.includes(params.searchContent?.toString()))
+            throw new Error("Componente Inexistente");
+
     const changeTheme = useHookstate(themePage);
 
     const [hide, setHide] = useState(false);
@@ -38,7 +55,11 @@ function Search() {
 
             <main id="conteudo" className="app" >
                 <div className="headline text text-white">
-                    <h2 className="text-center py-3 pt-4">Pesquisar</h2>
+                    <h2 className="text-center py-3 pt-4">
+                        {params.searchType == "CategoriaProduto" ?
+                            `Escolha 👉 ${params.searchContent}` : "Pesquisar"
+                        }
+                    </h2>
                     <button type="button" id="sidebarCollapse" className="btn btn-info m-0 p-2 d-lg-none" onClick={sidebarCollapse}>
                         <i className="fas fa-align-left"></i>
                         <span>Toggle Sidebar</span>
@@ -214,8 +235,6 @@ function Search() {
 
                     </nav>
 
-
-
                     <div id="content" className="w-100 d-block">
                         <div className="container-fluid">
                             <div className="row border-bottom border-secondary-subtle pb-3">
@@ -357,5 +376,6 @@ function Search() {
         </div >
     );
 }
+
 
 export default Search;

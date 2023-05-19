@@ -28,10 +28,10 @@ function RecPadrao() {
     const params = useParams();
     const changeTheme = useHookstate(themePage)
 
-    var tipoBuild = ["Altas", "Médias", "Básicas"]
+    const tipoBuild = ["Altas", "Médias", "Básicas"]
     if (params.index?.valueOf != undefined) {
-        if (tipoBuild.indexOf(params.index?.toString()))
-            throw new Error("Valor não válido");
+        if (!tipoBuild.includes(params.index?.toString()))
+            throw new Error("Valor não esperado");
     }
 
 
@@ -39,7 +39,7 @@ function RecPadrao() {
         <div data-theme={changeTheme.get()}>
             <Header />
             <main id="conteudo" className="container-fluid texto">
-                <div className="container cards">
+                <div className="container cards pt-3">
                     <h1 className="text-center">{params.index}</h1>
                     <h3 className="text-center title">Notebook</h3>
                     <div className="row pt-2 m-auto">

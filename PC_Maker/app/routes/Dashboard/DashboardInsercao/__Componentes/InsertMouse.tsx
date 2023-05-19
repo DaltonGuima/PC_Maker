@@ -1,13 +1,14 @@
-import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
 import type { FormEvent } from "react";
+import { useEffect } from "react";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 
-function DashboardInsercaoCoolerBox() {
+function DashboardInsercaoMouse() {
     useEffect(() => {
-        changeSelectValue('CoolerBox')
+        changeSelectValue('mouse')
     });
-    async function handleCreateProdutoCoolerBox(event: FormEvent) {
+
+    async function handleCreateProdutoMouse(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -21,24 +22,24 @@ function DashboardInsercaoCoolerBox() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "CoolerBox",
-                especificacoes: { "potencia": data.potencia }
+                categoria: "Mouse",
+                especificacoes: { "nbotoes": data.nbotoes, "sensibilidade": data.sensiblidade, "fio": data.fio }
             })
 
         } catch (error) {
             console.log(error)
         }
     }
-
     return (
         <div style={{ paddingTop: '7rem' }}>
+
 
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Cooler Box</strong>
+                        <strong>Mouse</strong>
                     </div>
-                    <form onSubmit={handleCreateProdutoCoolerBox} className="form-horizontal">
+                    <form onSubmit={handleCreateProdutoMouse} className="form-horizontal">
                         <div className="card-body card-block">
                             <div className="row">
                                 <div className="col">
@@ -56,7 +57,6 @@ function DashboardInsercaoCoolerBox() {
                                     <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
-
                             </div>
                             <div className="row">
                                 <div className="col">
@@ -74,10 +74,28 @@ function DashboardInsercaoCoolerBox() {
                                     <input type="text" name="linkProduto" id="linkProduto" placeholder="Fabricante" className="form-control" />
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
+                            </div>
+                            <div className="row">
                                 <div className="col">
-                                    <label htmlFor="potencia" className=" form-control-label">Potência</label>
-                                    <input type="text" name="potencia" id="potencia" placeholder="Potência" className="form-control" />
-                                    <small className="help-block form-text text-muted">Potência máxima em Watts (W)</small>
+                                    <label htmlFor="nbotoes" className=" form-control-label">Nº de botões</label>
+                                    <input type="text" name="nbotoes" id="nbotoes" placeholder="Nº de botões" className="form-control" />
+                                    <small className="help-block form-text">Número de botões</small>
+                                </div>
+                                <div className="col">
+                                    <label htmlFor="sensibilidade" className=" form-control-label">DPI</label>
+                                    <input type="text" name="sensibilidade" id="sensibilidade" placeholder="DPI" className="form-control" />
+                                    <small className="help-block form-text">Sensibilidade do mouse</small>
+                                </div>
+                            </div>
+                            <div className="row form-group">
+                                <div className="col">
+                                    <div className="form-check">
+                                        <div className="checkbox">
+                                            <label htmlFor="fio" className="form-check-label ">
+                                                <input type="fio" id="fio" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
+                                            </label>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -91,6 +109,7 @@ function DashboardInsercaoCoolerBox() {
                 </div>
             </div>
         </div>
+
     )
 }
-export default DashboardInsercaoCoolerBox
+export default DashboardInsercaoMouse

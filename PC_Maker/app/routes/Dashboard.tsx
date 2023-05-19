@@ -61,7 +61,7 @@ function Dashboard() {
                 <aside className="menu-sidebar d-none d-lg-block">
                     <div className="logo">
                         <a href="/Dashboard">
-                            <img src="/logo.png" alt="Cool Admin" className='logo' />
+                            <img src="/logoJuntaPecaRoxoV2.png" alt="Cool Admin" className='logo' />
                         </a>
                     </div>
                     <div className="menu-sidebar__content js-scrollbar1">

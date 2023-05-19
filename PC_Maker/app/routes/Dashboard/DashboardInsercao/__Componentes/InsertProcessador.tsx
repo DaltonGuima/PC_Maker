@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 import type { FormEvent } from "react";
 

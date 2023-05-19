@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import type { FormEvent } from "react";
 import axios from "axios";
 
-function DashboardInsercaoPlacaDeSom() {
+function DashboardInsercaoCoolerBox() {
     useEffect(() => {
-        changeSelectValue('PlacaDeSom')
+        changeSelectValue('CoolerBox')
     });
-
-    async function handleCreateProdutoPlacaDeSom(event: FormEvent) {
+    async function handleCreateProdutoCoolerBox(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -22,22 +21,24 @@ function DashboardInsercaoPlacaDeSom() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "PlacaDeSom",
-            }).then(response => console.log("foi"))
-
+                categoria: "CoolerBox",
+                especificacoes: { "potencia": data.potencia }
+            })
 
         } catch (error) {
             console.log(error)
         }
     }
+
     return (
         <div style={{ paddingTop: '7rem' }}>
+
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Som</strong>
+                        <strong>Cooler Box</strong>
                     </div>
-                    <form onSubmit={handleCreateProdutoPlacaDeSom} className="form-horizontal">
+                    <form onSubmit={handleCreateProdutoCoolerBox} className="form-horizontal">
                         <div className="card-body card-block">
                             <div className="row">
                                 <div className="col">
@@ -73,9 +74,13 @@ function DashboardInsercaoPlacaDeSom() {
                                     <input type="text" name="linkProduto" id="linkProduto" placeholder="Fabricante" className="form-control" />
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
+                                <div className="col">
+                                    <label htmlFor="potencia" className=" form-control-label">Potência</label>
+                                    <input type="text" name="potencia" id="potencia" placeholder="Potência" className="form-control" />
+                                    <small className="help-block form-text text-muted">Potência máxima em Watts (W)</small>
+                                </div>
                             </div>
                         </div>
-
                     </form>
                 </div>
                 <div className="card-footer">
@@ -88,4 +93,4 @@ function DashboardInsercaoPlacaDeSom() {
         </div>
     )
 }
-export default DashboardInsercaoPlacaDeSom
+export default DashboardInsercaoCoolerBox

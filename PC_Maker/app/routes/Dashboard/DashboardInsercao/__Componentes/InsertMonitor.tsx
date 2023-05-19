@@ -1,15 +1,15 @@
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import axios from "axios";
 import type { FormEvent } from "react";
 
-function DashboardInsercaoPlacaDeVideo() {
 
+function DashboardInsercaoMonitor() {
     useEffect(() => {
-        changeSelectValue('PlacaDeVideo')
+        changeSelectValue('monitor')
     });
 
-    async function handleCreateProdutoPlacaDeVideo(event: FormEvent) {
+    async function handleCreateProdutoMonitor(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -23,10 +23,10 @@ function DashboardInsercaoPlacaDeVideo() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "PlacaDeVideo",
+                categoria: "Monitor",
                 especificacoes: {
-                    "clock": data.clock, "memoria": data.memoria, "clmemoria": data.clmemoria,
-                    "barramento": data.barramento, "conector": data.conector
+                    "tamanho": data.tamanho, "resolucaover": data.resolucaover,
+                    "taxadeatualiz": data.taxadeatualiz
                 }
             })
 
@@ -42,10 +42,10 @@ function DashboardInsercaoPlacaDeVideo() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Placa de Video</strong>
+                        <strong>Gabinete</strong>
                     </div>
                     <div className="card-body card-block">
-                        <form onSubmit={handleCreateProdutoPlacaDeVideo} className="form-horizontal">
+                        <form onSubmit={handleCreateProdutoMonitor} className="form-horizontal">
 
                             <div className="row">
                                 <div className="col">
@@ -83,28 +83,21 @@ function DashboardInsercaoPlacaDeVideo() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
-                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
-                                    <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
+                                    <label htmlFor="nome-produto" className=" form-control-label">Resolução vertical</label>
+                                    <input type="text" name="nome-produto" placeholder="resolucao" className="form-control" />
+                                    <small className="help-block form-text text-muted">Resolução horizontal e vertical do monitor em pixels (1920x1080p, etc)</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
-                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
-                                    <small className="help-block form-text">Capacidade de Memória da GPU</small>
+                                    <label htmlFor="nome-produto" className=" form-control-label">Taxa de Atualização</label>
+                                    <input type="text" name="nome-produto" placeholder="taxaatualizacao" className="form-control" />
+                                    <small className="help-block form-text text-muted">Taxa de atualização de imagem do monitor em Hertz (Hz)</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
-                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
-                                    <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
-                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
-                                    <small className="help-block form-text">Conectores de alimentação</small>
+                                    <label htmlFor="nome-produto" className=" form-control-label">Tamanho</label>
+                                    <input type="text" name="nome-produto" placeholder="tamanho" className="form-control" />
+                                    <small className="help-block form-text text-muted">Tamanho em polegadas (")</small>
                                 </div>
                             </div>
-
-
                         </form>
                     </div>
                     <div className="card-footer">
@@ -120,4 +113,4 @@ function DashboardInsercaoPlacaDeVideo() {
         </div>
     )
 }
-export default DashboardInsercaoPlacaDeVideo;
+export default DashboardInsercaoMonitor

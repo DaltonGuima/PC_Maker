@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 import { useState, useEffect } from "react";
 /* import { useEffect } from "react"; */
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import type { AxiosError, AxiosResponse } from "axios";
 import axios from "axios";
 import { Button, Modal, Spinner } from "react-bootstrap";
@@ -23,30 +23,30 @@ function DashboardInsercaoTeclado() {
 
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
-        
+
         setShow(true);
 
-            await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
-                nome: data.nome,
-                fabricante: data.fabricante,
-                modelo: data.modelo,
-                preco: Number(data.preco),
-                vendedor: data.vendedor,
-                linkProduto: data.linkProduto,
-                categoria: "Teclado",
-                especificacoes: { "tamanho": data.tamanho, "tipo": data.tipo, "fio": data.fio }
-            }).then((response) => {
-                setResponse(response);
-            }).catch(error => {
-                setError(error)
-            })
+        await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
+            nome: data.nome,
+            fabricante: data.fabricante,
+            modelo: data.modelo,
+            preco: Number(data.preco),
+            vendedor: data.vendedor,
+            linkProduto: data.linkProduto,
+            categoria: "Teclado",
+            especificacoes: { "tamanho": data.tamanho, "tipo": data.tipo, "fio": data.fio }
+        }).then((response) => {
+            setResponse(response);
+        }).catch(error => {
+            setError(error)
+        })
 
-        
+
     }
 
     return (
         <div style={{ paddingTop: '7rem' }}>
-            
+
             <Modal
                 show={show}
                 onHide={
@@ -171,14 +171,14 @@ function DashboardInsercaoTeclado() {
                             </div>
                         </div>
                         <div className="card-footer">
-                    <button type="submit" className="au-btn au-btn-icon au-btn--purple au-btn--small">
-                        <i className="zmdi zmdi-plus"></i>Adicionar</button>
-                    <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
-                    </div>
-                </div>
+                            <button type="submit" className="au-btn au-btn-icon au-btn--purple au-btn--small">
+                                <i className="zmdi zmdi-plus"></i>Adicionar</button>
+                            <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
+                            </div>
+                        </div>
                     </form>
                 </div>
-                
+
             </div>
         </div>
 

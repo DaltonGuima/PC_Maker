@@ -1,14 +1,15 @@
-import type { FormEvent } from "react";
 import { useEffect } from "react";
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
+import type { FormEvent } from "react";
 import axios from "axios";
+import React from "react";
 
-function DashboardInsercaoMouse() {
+function DashboardInsercaoPlacaDeSom() {
     useEffect(() => {
-        changeSelectValue('mouse')
+        changeSelectValue('PlacaDeSom')
     });
 
-    async function handleCreateProdutoMouse(event: FormEvent) {
+    async function handleCreateProdutoPlacaDeSom(event: FormEvent) {
         event.preventDefault();
 
         const formData = new FormData(event.target as HTMLFormElement)
@@ -22,9 +23,9 @@ function DashboardInsercaoMouse() {
                 preco: Number(data.preco),
                 vendedor: data.vendedor,
                 linkProduto: data.linkProduto,
-                categoria: "Mouse",
-                especificacoes: { "nbotoes": data.nbotoes, "sensibilidade": data.sensiblidade, "fio": data.fio }
-            })
+                categoria: "PlacaDeSom",
+            }).then(response => console.log("foi"))
+
 
         } catch (error) {
             console.log(error)
@@ -32,14 +33,12 @@ function DashboardInsercaoMouse() {
     }
     return (
         <div style={{ paddingTop: '7rem' }}>
-
-
             <div className="col-lg-6 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Mouse</strong>
+                        <strong>Placa de Som</strong>
                     </div>
-                    <form onSubmit={handleCreateProdutoMouse} className="form-horizontal">
+                    <form onSubmit={handleCreateProdutoPlacaDeSom} className="form-horizontal">
                         <div className="card-body card-block">
                             <div className="row">
                                 <div className="col">
@@ -57,6 +56,7 @@ function DashboardInsercaoMouse() {
                                     <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
+
                             </div>
                             <div className="row">
                                 <div className="col">
@@ -75,30 +75,8 @@ function DashboardInsercaoMouse() {
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                             </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nbotoes" className=" form-control-label">Nº de botões</label>
-                                    <input type="text" name="nbotoes" id="nbotoes" placeholder="Nº de botões" className="form-control" />
-                                    <small className="help-block form-text">Número de botões</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="sensibilidade" className=" form-control-label">DPI</label>
-                                    <input type="text" name="sensibilidade" id="sensibilidade" placeholder="DPI" className="form-control" />
-                                    <small className="help-block form-text">Sensibilidade do mouse</small>
-                                </div>
-                            </div>
-                            <div className="row form-group">
-                                <div className="col">
-                                    <div className="form-check">
-                                        <div className="checkbox">
-                                            <label htmlFor="fio" className="form-check-label ">
-                                                <input type="fio" id="fio" name="checkbox1" value="semfio" className="form-check-input check" />Sem fio
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
+
                     </form>
                 </div>
                 <div className="card-footer">
@@ -109,7 +87,6 @@ function DashboardInsercaoMouse() {
                 </div>
             </div>
         </div>
-
     )
 }
-export default DashboardInsercaoMouse
+export default DashboardInsercaoPlacaDeSom

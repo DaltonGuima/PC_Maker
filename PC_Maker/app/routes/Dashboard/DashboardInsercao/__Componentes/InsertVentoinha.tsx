@@ -1,7 +1,7 @@
 import type { FormEvent } from "react";
 import { useState, useEffect } from "react";
 /* import { useEffect } from "react"; */
-import { changeSelectValue } from "../../../script/changeSelectValue";
+import { changeSelectValue } from "~/script/changeSelectValue";
 import type { AxiosError, AxiosResponse } from "axios";
 import axios from "axios";
 import { Button, Modal, Spinner } from "react-bootstrap";
