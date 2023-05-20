@@ -1,16 +1,15 @@
 import { useHookstate } from "@hookstate/core";
-import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useParams } from "@remix-run/react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import type { Componente } from "~/Interface/ComponenteInterface";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
-import { SideComponent } from "~/components/SideComponent";
 import { themePage } from "~/script/changeTheme";
 import search from "~/styles/search.css"
 import { getUser } from "~/utils/session.server";
-import type { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
 
 export const links: LinksFunction = () => {
     return [
@@ -25,18 +24,31 @@ export const loader = async ({ request }: LoaderArgs) => {
     return json({ user })
 };
 
+export const meta: MetaFunction = () => {
+    return ({
+        title: "Componente"
+    })
+}
+
 function Product() {
-
+    const params = useParams();
     const changeTheme = useHookstate(themePage);
+    const [produto, setProduto] = useState<Componente>()
 
-    /*
-        https://www.bootdey.com/snippets/view/Filter-search-result-page
-    */
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:8080/api/v1/produtos/${params.produtoId}`)
+            .catch(() => { return null })
+            .then(response => setProduto(response?.data))
+
+    }, [params.produtoId])
+
+    console.log(produto)
     return (
         <div data-theme={changeTheme.get()}>
             <Header />
 
             <main id="conteudo" className="app" >
+                {/* Vou fazer sem estilo pq, quero ir logo pro build */}
 
 
 

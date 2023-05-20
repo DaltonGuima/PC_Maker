@@ -50,7 +50,7 @@ export function Header() {
                                 <li id="pgacess"><a href="../Acessibilidade"><i className="fa-solid fa-circle-info"></i></a></li>
                                 <li className="tema" id="temaSwitcher" onClick={switchTheme}><a ><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
-                                <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li>
+                                {/* <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li> */}
                                 <li className="fonte"><a id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
                                 <li className="fonte"><a id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                             </ul>
@@ -69,9 +69,9 @@ export function Header() {
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav">
-                            <li className="nav-item">
+                            {/*                             <li className="nav-item">
                                 <a className="nav-link" href="#">Monte seu Computador</a>
-                            </li>
+                            </li> */}
                             <li className="nav-item">
                                 <a className="nav-link" >Builds</a>
                             </li>

@@ -112,6 +112,10 @@ function Builder() {
         </Modal>
 
 
+        {/* Teste */}
+
+
+
 
         <div className="container col-md-10 mt-2 col">
           <table className="table table-borderless text-light ">
@@ -120,16 +124,39 @@ function Builder() {
 
                 <th className="col-md-8">Componente</th>
                 <th className="col-md-2">Preço</th>
+                <th className="col-md-2">Quantidade</th>
                 <th className="col-md-1">Origem</th>
               </tr>
             </thead>
             <tbody>
 
-              <TableBuilder
+              {/* <TableBuilder
                 img="https://via.placeholder.com/50x50/"
                 nome="Teste"
                 preco="R$ 100,00"
-              />
+              /> */}
+
+              <tr className="mt-2">
+                <td>
+                  <div className="d-sm-inline-flex p-2">
+                    <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
+                      <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
+                      <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
+                    </button>
+                  </div>
+                  <div className="d-sm-inline-flex p-2 text-white">
+                    <span className="DescricaoProduto p-2 cont">
+                      <p>Teste</p>
+                    </span>
+                  </div>
+                </td>
+                <td><input type="number" name="qtdItem" id="qtdItem" /></td>
+                <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
+                <td className="d-flex justify-content-center p-sm-2">
+                  <p className="d-block d-md-none cont">Kabum</p>
+                  <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
+                </td>
+              </tr>
 
               <tr className="mt-1">
                 <td>

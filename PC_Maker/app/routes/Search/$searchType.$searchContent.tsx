@@ -1,9 +1,9 @@
 import { useHookstate } from "@hookstate/core";
-import type { LinksFunction, LoaderArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useParams } from "@remix-run/react";
+import { Link, useParams } from "@remix-run/react";
 import axios from "axios";
-import { JSXElementConstructor, Key, ReactElement, ReactFragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { SideComponent } from "~/components/SideComponent";
@@ -25,6 +25,13 @@ export const loader = async ({ request }: LoaderArgs) => {
 
     return json({ user })
 };
+
+export const meta: MetaFunction = ({ params }) => {
+    return ({
+        title: `Pesquisa ${params.searchContent}`
+    })
+}
+
 
 function Search() {
 
@@ -53,17 +60,12 @@ function Search() {
         console.log(hide)
     }
 
-
-
-
     const [produtos, setProdutos] = useState<Produto[]>([])
     useEffect(() => {
         axios("http://127.0.0.1:8080/api/v1/produtos")
             .catch(error => { throw new Error(error.message) })
             .then(response => setProdutos(response.data))
     }, [])
-
-
 
     const FilterSearch = () => {
         let filter = produtos
@@ -87,6 +89,7 @@ function Search() {
                 }
 
                 const menorPreco = getLowest()
+
                 return (
                     <tr className="mt-2 my-3" key={componente.id}>
                         <th className="py-3" >
@@ -103,7 +106,9 @@ function Search() {
                         <th>R$ {menorPreco?.preco}</th>
                         <th>{menorPreco?.vendedor}</th>
                         <th>
-                            <button className="btn-details rounded p-2"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Ver mais detalhes</button>
+                            <Link to={`/Search/Product/${componente.id}`}>
+                                <button className="btn-details rounded p-2"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Ver mais detalhes</button>
+                            </Link>
                         </th>
 
                     </tr>
@@ -315,7 +320,7 @@ function Search() {
                             <div className="row border-bottom border-secondary-subtle pb-3">
                                 <div className="col text-white fs-4 text-start">{getCountResult(FilterSearch())} Resultados Encontrados</div>
                                 {/* Adcionar algum estilo aqui */}
-                                <div className="col d-flex justify-content-end bg-dark">
+                                <div className="col d-flex justify-content-end">
 
                                     <div className="form-floating text-light col-md-3">
                                         <select onChange={Paginacao} className="form-select form-select-dark bg-transparent text-light py-2" name="property" id='paginas'>
@@ -327,9 +332,6 @@ function Search() {
                                     </div>
                                 </div>
                             </div>
-
-
-
 
                             <table className="table-search text-light mt-5 w-100">
                                 <thead>
@@ -349,9 +351,6 @@ function Search() {
                                 </tbody>
 
                             </table>
-
-
-
                         </div>
                     </div>
                 </div>

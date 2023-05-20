@@ -1,4 +1,4 @@
-interface LocaisVendas{
+interface LocaisVendas {
     id: number,
     preco: number,
     vendedor: string,
@@ -10,9 +10,6 @@ export interface Componente {
     nome: string,
     fabricante: string,
     modelo: string,
-/*     preco: number,
-    vendedor: string,
-    linkProduto: string, */
     locaisvendas?: LocaisVendas[]
 }
 
