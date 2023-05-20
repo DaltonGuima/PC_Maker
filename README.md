@@ -58,7 +58,7 @@ O modelo Canva do Projeto:
 
 ##### Definição de pronto
 > O sprint será considerado concluido quando:
-> 1) Os Testes de sistema concluídos com 100% de assertividade;
+> 1) Todos os Testes de sistema concluídos com 100% de assertividade;
 > 2) Código Revisado e Identado;
 > 3) Checkout no github, após o projeto ser concluído e submetido a rotina de Testes, o mesmo deve ser atualizado no Github;
 > 4) Revisão do Relatório do Sonarlint, análise minuciosa do relatório gerado pelo detector. Todos os erros e sugestões totalmente analisados e caso necessário, corrigidos;
