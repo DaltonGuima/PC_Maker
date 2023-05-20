@@ -7,8 +7,6 @@ Grupo 6
 - Lucas Albuquerque Paradella
 - Matheus de Carvalho Simões
 
-O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  responsável  por  realizar  a montagem de Hardware de acordo com a necessidade do cliente. Ademais,  os  usuários  da  plataforma  poderão  realizar  a  montagem  de  computadores  por  conta própria e salvar na aba Builds.
-
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 
@@ -60,9 +58,12 @@ O modelo Canva do Projeto:
 
 ##### Definição de pronto
 > O sprint será considerado concluido quando:
-> 1) Os casos de teste de aceitação forem executados e obtiverem 100% de satisfatorios. Os casos de teste (CT) são rastreáveis para os requisiitos (REQ). O elo de rastreabilidade
-é estabelecido pelo identificador do caso de teste.
-> 2) Depois de executado os casos de teste com 100% de satisfatorios o código deve ser armazenado no github (commit).
+> 1) Todos os Testes de sistema concluídos com 100% de assertividade;
+> 2) Código Revisado e Identado;
+> 3) Checkout no github, após o projeto ser concluído e submetido a rotina de Testes, o mesmo deve ser atualizado no Github;
+> 4) Revisão do Relatório do Sonarlint, análise minuciosa do relatório gerado pelo detector. Todos os erros e sugestões totalmente analisados e caso necessário, corrigidos;
+> 5) Aceitação do projeto por parte dos Orientadores.
+
 
 ### Modelo de domínio
 
