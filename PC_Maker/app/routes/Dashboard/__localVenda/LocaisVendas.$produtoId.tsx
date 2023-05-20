@@ -18,7 +18,13 @@ export interface LocaisVendasTypes extends LocaisVendasProps {
 export interface Produto {
     id: number,
     nome: string,
-    categoria: string
+    categoria: string,
+    locaisVendas: [{
+        id: number,
+        preco: number,
+        vendedor: string,
+        linkProduto: string
+    }]
 }
 
 function LocaisVendas() {

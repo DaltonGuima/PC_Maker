@@ -2,13 +2,16 @@ import { useHookstate } from "@hookstate/core";
 import type { LinksFunction, LoaderArgs } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useParams } from "@remix-run/react";
-import { useState } from "react";
+import axios from "axios";
+import { JSXElementConstructor, Key, ReactElement, ReactFragment, useEffect, useState } from "react";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { SideComponent } from "~/components/SideComponent";
 import { themePage } from "~/script/changeTheme";
 import search from "~/styles/search.css"
 import { getUser } from "~/utils/session.server";
+import type { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
+import useTable from "~/script/useTable";
 
 export const links: LinksFunction = () => {
     return [
@@ -26,8 +29,9 @@ export const loader = async ({ request }: LoaderArgs) => {
 function Search() {
 
     const params = useParams();
-
     const searchType = ["Componente", "CategoriaProduto"]
+
+
     if (params.searchType?.valueOf != undefined && !searchType.includes(params.searchType?.toString()))
         throw new Error("Tipo de pesquisa inválido");
 
@@ -36,7 +40,7 @@ function Search() {
             "Placa-Mãe", "Memória RAM", "Armazenamento",
             "Placa de Vídeo", "Gabinete", "Fonte de Alimentação"
         ]
-    if (params.searchType?.valueOf != undefined && searchType.includes("CategoriaProduto"))
+    if (params.searchType?.valueOf != undefined && params.searchType == "CategoriaProduto")
         if (params.searchContent?.valueOf != undefined && !categoriaProduto.includes(params.searchContent?.toString()))
             throw new Error("Componente Inexistente");
 
@@ -47,6 +51,77 @@ function Search() {
     function sidebarCollapse() {
         setHide(!hide)
         console.log(hide)
+    }
+
+
+
+
+    const [produtos, setProdutos] = useState<Produto[]>([])
+    useEffect(() => {
+        axios("http://127.0.0.1:8080/api/v1/produtos")
+            .catch(error => { throw new Error(error.message) })
+            .then(response => setProdutos(response.data))
+    }, [])
+
+
+
+    const FilterSearch = () => {
+        let filter = produtos
+
+        if (params.searchType == "CategoriaProduto") {
+            filter = produtos.filter(categoriaProduto => categoriaProduto.categoria == params.searchContent?.toString())
+        }
+
+        if (params.searchType == "Componente" && params.searchContent?.valueOf != undefined) {
+            filter = produtos.filter(categoriaProduto => categoriaProduto.nome.includes(params.searchContent ? params.searchContent : ""))
+        }
+
+        return (
+            filter.map(componente => {
+
+                function getLowest() {
+                    if (componente.locaisVendas.length >= 1)
+                        return componente.locaisVendas.reduce((previous, current) => { return current.preco < previous.preco ? current : previous })
+                    else
+                        return null
+                }
+
+                const menorPreco = getLowest()
+                return (
+                    <tr className="mt-2 my-3" key={componente.id}>
+                        <th className="py-3" >
+                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
+                            &emsp;{componente.nome}
+                        </th>
+                        <th className="col-md-2">
+                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
+                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
+                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
+                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
+                            <label className="form-check-label fa fa-star text-muted" htmlFor="defaultCheck1"></label>
+                        </th>
+                        <th>R$ {menorPreco?.preco}</th>
+                        <th>{menorPreco?.vendedor}</th>
+                        <th>
+                            <button className="btn-details rounded p-2"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Ver mais detalhes</button>
+                        </th>
+
+                    </tr>
+                )
+            }))
+    }
+
+    function getCountResult(data: JSX.Element[]) {
+        return data.length
+    }
+
+    // paginação
+    const [page, setPage] = useState(1);
+    const { slice, range } = useTable(FilterSearch(), page, 5);
+
+    function Paginacao(event: React.ChangeEvent<HTMLSelectElement>) {
+        const value = event.target.value;
+        setPage(parseInt(value))
     }
 
     return (
@@ -238,18 +313,19 @@ function Search() {
                     <div id="content" className="w-100 d-block">
                         <div className="container-fluid">
                             <div className="row border-bottom border-secondary-subtle pb-3">
-                                <div className="col text-white fs-4 text-start">986 Resultados Encontrados</div>
-                                {/* não sei a utilidade dessa barra 
-                                <div className="col search-button">
-                                    <form className="d-flex" id="barraPesquisa">
-                                        <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='' />
-                                        <label id="search-field" htmlFor='itemPesquisa'>
-                                            <a className='text-white'>
-                                                <i className="fa-solid fa-search"></i>
-                                            </a>
-                                        </label>
-                                    </form>
-                                </div> */}
+                                <div className="col text-white fs-4 text-start">{getCountResult(FilterSearch())} Resultados Encontrados</div>
+                                {/* Adcionar algum estilo aqui */}
+                                <div className="col d-flex justify-content-end bg-dark">
+
+                                    <div className="form-floating text-light col-md-3">
+                                        <select onChange={Paginacao} className="form-select form-select-dark bg-transparent text-light py-2" name="property" id='paginas'>
+                                            {
+                                                range.map((el: number) =>
+                                                    (<option key={el} value={el} className="bg-dark text-light">Página {el} </option>))
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
 
 
@@ -258,107 +334,18 @@ function Search() {
                             <table className="table-search text-light mt-5 w-100">
                                 <thead>
                                     <tr className="p-2">
-                                        <th className="col-md-8 pb-3">Nome</th>
+                                        <th className="col-md-7 pb-3">Nome</th>
                                         <th className="col-md-2">Avaliação</th>
-                                        <th className="col-md-1">Preço</th>
+                                        <th className="col-md-1">Menor Preço</th>
+                                        <th className="col-md-1">Vendedor</th>
                                     </tr>
                                 </thead>
 
 
                                 <tbody>
-                                    <tr className="mt-2 my-3">
-                                        <th className="col-md-8 py-3" >
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            Asus TUF GAMING X570 </th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-muted" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 989,75</th>
-                                    </tr>
-                                    <tr className="mt-2">
-
-                                        <th className="col-md-8">
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            Ryzen 5 5600 3.7GHz 6 Núcleos </th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-muted" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 1200,60</th>
-                                    </tr>
-
-
-                                    <tr className="mt-2">
-
-                                        <th className="col-md-8">
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            Ryzen 5 5700 3.4GHz (4.6GHz Max Turbo) </th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 2971,2</th>
-                                    </tr>
-
-                                    <tr className="mt-2">
-
-                                        <th className="col-md-8">
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            GYGABYTE B550 DS3H</th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-muted" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 635,00</th>
-                                    </tr>
-
-
-
-                                    <tr className="mt-2">
-
-                                        <th className="col-md-8">
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            ASRock B450M Steel Legend </th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 527,80</th>
-                                    </tr>
-
-
-
-                                    <tr className="mt-2">
-
-                                        <th className="col-md-8">
-                                            <img src="/among_us2.png" className="img-fluid" alt="Imagem responsiva" style={{ width: '100px', height: '100px', }} />
-                                            Asus Prime B450M-A/CSM </th>
-                                        <th className="col-md-2">
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
-                                            <label className="form-check-label fa fa-star text-muted" htmlFor="defaultCheck1"></label>
-                                        </th>
-                                        <th className="col-md-1">R$ 499,99</th>
-                                    </tr>
-
+                                    {
+                                        slice
+                                    }
                                 </tbody>
 
                             </table>

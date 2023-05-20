@@ -116,3 +116,11 @@ a[data-toggle="collapse"] {
 .table-search tr {
   border-bottom: 0.1rem solid #686868;
 }
+
+.btn-details {
+  background-color: var(--background-senary) !important;
+  color: var(--text-quaternary) !important;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+}

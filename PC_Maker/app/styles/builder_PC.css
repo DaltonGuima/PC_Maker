@@ -1,3 +1,9 @@
+main {
+  background-color: var(--background-primary) !important; /* #212425 */
+  margin: 0;
+  padding: 0;
+}
+
 .menu-line {
   background-color: var(--background-secondary); /* rgb(53, 58, 60) */
   box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
@@ -15,7 +21,7 @@
 }
 
 .btn-builder {
-  background-color: var(--background-quinary) !important;
+  background-color: var(--background-senary) !important;
   color: var(--text-quaternary) !important;
   font-size: medium;
   font-weight: bold;
@@ -26,6 +32,7 @@
   background-color: transparent;
   border: none;
   color: white;
+  font-weight: bold;
 }
 
 .obsComp {
@@ -52,12 +59,56 @@
 
 .barra-compatibilidade {
   background-color: green;
+  color: white !important;
 }
 
 .barra-potencia {
   background-color: #037bc4;
+  color: white !important;
 }
 
 .bottonB {
   margin-bottom: 3rem;
+}
+
+.descBuild {
+  background: var(--background-primary) !important;
+  border-color: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+  max-height: 20rem;
+}
+
+.nomeBuild {
+  background: var(--background-primary) !important;
+  border-color: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+  max-height: 2rem;
+  resize: none;
+}
+
+.texto {
+  color: var(--text-primary) !important;
+  background: var(--background-gradient-primary) !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-primary) !important;
+}
+
+.cont {
+  color: var(--text-primary) !important;
+}
+
+.totalBuilder {
+  padding-right: 9rem !important;
+  color: rgba(var(--bs-secondary-rgb), var(--bs-text-opacity)) !important;
+}
+
+.valorTotalBuilder {
+  color: var(--text-primary) !important;
 }

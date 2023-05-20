@@ -25,7 +25,7 @@ function Dashboard() {
                         <div className="container-fluid">
                             <div className="header-mobile-inner">
                                 <Link className="logo" to="/dashboard">
-                                    <img src="/Logo.png" alt="CoolAdmin" className='logo' />
+                                    <img src="/logoJuntaPecaRoxoV2.png" alt="CoolAdmin" className='logo' />
                                 </Link>
                                 <div className='navbar-nav bg-dark'>
                                     <div className="hamburger hamburger--slider dropdown nav-item">
@@ -61,7 +61,7 @@ function Dashboard() {
                 <aside className="menu-sidebar d-none d-lg-block">
                     <div className="logo">
                         <a href="/Dashboard">
-                            <img src="/logoJuntaPecaRoxoV2.png" alt="Cool Admin" className='logo' />
+                            <img src="/logoJuntaPecaRoxoV2.png" alt="Cool Admin Pic" className='logo' style={{ width: '240px', height: '60px', }} />
                         </a>
                     </div>
                     <div className="menu-sidebar__content js-scrollbar1">

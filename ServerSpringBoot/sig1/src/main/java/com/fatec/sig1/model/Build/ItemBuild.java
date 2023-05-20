@@ -30,7 +30,7 @@ public class ItemBuild {
     private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)
-    @JsonIncludeProperties("id")
+    @JsonIncludeProperties({ "id", "categoria" })
     private Produto produto;
 
     public ItemBuild() {

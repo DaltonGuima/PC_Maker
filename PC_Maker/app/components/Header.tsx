@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { themePage } from '../script/changeTheme';
 import { Link, useLoaderData } from "@remix-run/react"
-import { loader } from '~/routes';
+import type { loader } from '~/routes';
 
 
 
@@ -62,7 +62,7 @@ export function Header() {
             <nav className="navbar navbar-expand-sm navbar-dark" id="topo">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '240px', height: '80px', }} />
+                        <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} />
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>

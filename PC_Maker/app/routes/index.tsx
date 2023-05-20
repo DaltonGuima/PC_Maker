@@ -12,6 +12,7 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { getUser } from "~/utils/session.server";
+import useLocalStorage from "use-local-storage";
 
 export const links: LinksFunction = () => {
   return [
@@ -33,7 +34,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 export default function Home() {
 
-
+  // const [teste, setTeste] = useLocalStorage('teste', ['a', 'b']);
   const changeTheme = useHookstate(themePage)
   /*   const teste = useLoaderData<typeof loader>(); */
 

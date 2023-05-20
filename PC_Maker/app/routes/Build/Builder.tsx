@@ -34,6 +34,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 
 function Builder() {
+  // const [teste, setTeste] = useLocalStorage('teste', ['a', 'b']);
 
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
@@ -44,7 +45,7 @@ function Builder() {
   return (
     <div data-theme={changeTheme.get()}>
       <Header />
-      <main id="conteudo">
+      <main id="conteudo texto">
         <div className="headline text text-white">
           <h2 className="text-center py-3">Escolha suas peças</h2>
         </div>
@@ -72,7 +73,7 @@ function Builder() {
               </button>
             </div>
           </div>
-          <div className="row">
+          <div className="row compWattInferior tes">
             <div className="col-6 first-column-build w-75 p-3 py-3 menu-info-medio barra-compatibilidade">
               <i className="fa-solid fa-check mx-1"></i>
               Compatibilidade: Nenhum problema foi encontrado
@@ -83,19 +84,28 @@ function Builder() {
           </div>
         </div>
 
-        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()}>
+        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
           </Modal.Header>
-          <Modal.Body>Lorem Ipsum</Modal.Body>
-          <Modal.Footer className="modal-exp-footer">
+          <Modal.Body>
+
             <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Aplicar CSS nessa textArea</label>
-              <textarea className="form-control" id="exampleFormControlTextarea1" rows={3} ></textarea>
+              <label htmlFor="exampleFormControlTextarea1">Nome</label>
+              <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
             </div>
 
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Descrição</label>
+              <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
+            </div>
+
+          </Modal.Body>
+          <Modal.Footer className="modal-exp-footer">
+
+
             <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
-              Lorem Ipsum
+              Salvar
             </Button>
 
           </Modal.Footer>
@@ -106,7 +116,7 @@ function Builder() {
         <div className="container col-md-10 mt-2 col">
           <table className="table table-borderless text-light ">
             <thead>
-              <tr className="mt-2">
+              <tr className="mt-2 cont">
 
                 <th className="col-md-8">Componente</th>
                 <th className="col-md-2">Preço</th>
@@ -114,11 +124,13 @@ function Builder() {
               </tr>
             </thead>
             <tbody>
-              {/* <TableBuilder
+
+              <TableBuilder
                 img="https://via.placeholder.com/50x50/"
-                nome="Astroloptecus"
-                preco="R$ 345,00"
-              />  */}
+                nome="Teste"
+                preco="R$ 100,00"
+              />
+
               <tr className="mt-1">
                 <td>
                   <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
@@ -156,7 +168,7 @@ function Builder() {
           <div className="row">
             <div className="col">
               {/* <h3>Potência Estimada: <small className="text-secondary">315W</small></h3> */}
-              <h3>Total: <small className="text-secondary">R$ 4137,21</small></h3>
+              <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$ 4137,21</small></h3>
             </div>
           </div>
         </div>

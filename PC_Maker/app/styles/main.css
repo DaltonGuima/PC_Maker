@@ -8,6 +8,7 @@
   ); /*rgb(154, 154, 154);*/ /* precisa ser trocado */
   --background-quaternary: #f0f0f0;
   --background-quinary: rgb(84, 82, 115);
+  --background-senary: rgb(213 213 212);
   --background-primary-transparent: rgba(255, 255, 255, 0.4);
   --background-secondary-transparent: rgba(
     102,
@@ -39,6 +40,7 @@
   --background-tertiary: #1f1b24;
   --background-quaternary: #15151585;
   --background-quinary: #1d0f37; /* teste */
+  --background-senary: #1d0f37;
   --background-primary-transparent: rgba(33, 36, 37, 0.9);
   --background-secondary-transparent: rgba(
     102,
@@ -592,3 +594,30 @@ li {
   transform: scale(1);
   transition: all 0.5s ease-out;
 }
+
+.btnBuilderImg {
+  border-color: var(--text-primary) !important;
+}
+
+.loginButton,
+.cadButton {
+  background-color: var(--background-secondary-transparent) !important;
+  margin-right: 2rem;
+}
+
+.loginButton:hover,
+.cadButton:hover {
+  background-color: var(--button-front) !important;
+}
+
+/* 
+
+.cadButton {
+  background-color: var(--background-secondary-transparent) !important;
+  margin-right: 2rem;
+}
+
+.cadButton:hover {
+  background-color: var(--button-front) !important;
+} 
+*/

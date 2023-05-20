@@ -1,9 +1,3 @@
-main {
-  background-color: var(--background-primary); /* #212425 */
-  margin: 0;
-  padding: 0;
-}
-
 .contraste {
   background-color: var(--background-primary);
 }
