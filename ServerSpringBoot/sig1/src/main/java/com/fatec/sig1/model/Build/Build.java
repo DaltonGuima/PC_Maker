@@ -6,6 +6,8 @@ import java.util.Set;
 import com.fatec.sig1.model.Usuario.Usuario;
 
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
@@ -19,6 +21,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
@@ -35,6 +38,8 @@ public class Build {
     private float Orcamento;
     @NotBlank(message = "Descrição é requerida")
     private String Descricao;
+    @Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])[\\/-](0?[1-9]|1[012])[\\/-]\\d{4}$", message = "A data de cadastro deve estar no formato dd/MM/YYYY")
+    private String dataCadastro;
     @OneToMany(mappedBy = "build", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("build")
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
@@ -76,8 +81,10 @@ public class Build {
             Usuario usuario) {
         Orcamento = orcamento;
         Descricao = descricao;
+        setDataCadastro(new DateTime());
         this.nome = nome;
         this.usuario = usuario;
+        
     }
 
     public Build(float orcamento,
@@ -87,15 +94,24 @@ public class Build {
             Set<ItemBuild> itens) {
         Orcamento = orcamento;
         Descricao = descricao;
+        setDataCadastro(new DateTime());
         this.nome = nome;
         this.usuario = usuario;
         this.itens = itens;
     }
 
-    public static void setDataCadastro(DateTime dateTime) {
+
+    public String getDataCadastro(){
+        return dataCadastro;
     }
 
-    public void obtemDataAtual(DateTime dateTime) {
+    public String obtemDataAtual(DateTime dataAtual) {
+        DateTimeFormatter fmt = DateTimeFormat.forPattern("dd/MM/YYYY");
+        return dataAtual.toString(fmt);
+    }
+
+    public void setDataCadastro(DateTime dataAtual) {
+        this.dataCadastro = obtemDataAtual(dataAtual);
     }
 
     public String getNome() {

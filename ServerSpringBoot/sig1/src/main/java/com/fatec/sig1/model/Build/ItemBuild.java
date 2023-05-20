@@ -23,7 +23,9 @@ public class ItemBuild {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @NotNull(message = "A Quantidade é requerida")
-    private int Quantidade;
+    private int quantidade;
+    @NotNull(message = "O SubTotal é requerida")
+    private float subtotal;
     @ManyToOne
     @JoinColumn(name = "build_id")
     @JsonIncludeProperties({ "id", "nome" })
@@ -36,8 +38,9 @@ public class ItemBuild {
     public ItemBuild() {
     }
 
-    public ItemBuild(int quantidade, Build build, Produto produto) {
-        Quantidade = quantidade;
+    public ItemBuild(int quantidade, float subtotal, Build build, Produto produto) {
+        this.quantidade = quantidade;
+        this.subtotal = subtotal;
         this.build = build;
         this.produto = produto;
     }
@@ -51,11 +54,19 @@ public class ItemBuild {
     }
 
     public int getQuantidade() {
-        return Quantidade;
+        return quantidade;
     }
 
     public void setQuantidade(int quantidade) {
-        Quantidade = quantidade;
+        this.quantidade = quantidade;
+    }
+
+    public float getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(float subtotal) {
+        this.subtotal = subtotal;
     }
 
     public Build getBuild() {

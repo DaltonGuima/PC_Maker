@@ -6,23 +6,35 @@ import jakarta.validation.constraints.NotNull;
 
 public class ItemBuildDTO {
     @NotNull(message = "A Quantidade é requerida")
-    private int Quantidade;
+    private int quantidade;
+    @NotNull(message = "O Subtotal é requerida")
+    private float subtotal;
     private Build build;
     private Produto produto;
 
-    public ItemBuildDTO(int Quantidade, Build build, Produto produto) {
-        this.Quantidade = Quantidade;
+    public ItemBuildDTO(int quantidade, float subtotal, Build build, Produto produto) {
+        this.quantidade = quantidade;
+        this.subtotal = subtotal;
         this.build = build;
         this.produto = produto;
     }
 
     public int getQuantidade() {
-        return Quantidade;
+        return quantidade;
     }
 
     public void setQuantidade(int quantidade) {
-        Quantidade = quantidade;
+        this.quantidade = quantidade;
     }
+
+    public float getSubtotal() {
+        return subtotal;
+    }
+
+    public void setSubtotal(float subtotal) {
+        this.subtotal = subtotal;
+    }
+
 
     public Build getBuild() {
         return build;
@@ -41,7 +53,7 @@ public class ItemBuildDTO {
     }
 
     public ItemBuild retornaItensBuild() {
-        return new ItemBuild(Quantidade, build, produto);
+        return new ItemBuild(quantidade, subtotal, build, produto);
     }
 
 }
