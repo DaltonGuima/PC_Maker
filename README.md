@@ -7,8 +7,6 @@ Grupo 6
 - Lucas Albuquerque Paradella
 - Matheus de Carvalho Simões
 
-O  nosso  projeto  foi  batizado  de  PCMaker.  Ele  será  uma  plataforma  responsável  por  realizar  a montagem de Hardware de acordo com a necessidade do cliente. Ademais,  os  usuários  da  plataforma  poderão  realizar  a  montagem  de  computadores  por  conta própria e salvar na aba Builds.
-
 ##### Processo de Desenvolvimento de Software - PDS
 > O PDS segue uma abordagem interativa incremental adaptada do Scrum. Cada interação tem uma definição de pronto estabelecida com objetivo de controlar a qualidade.
 
