@@ -14,6 +14,7 @@ export function Header() {
 
     const changeTheme = useHookstate(themePage)
     const [theme, setTheme] = useLocalStorage('theme', changeTheme.get() ? 'dark' : 'light');
+
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme)

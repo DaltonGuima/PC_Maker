@@ -35,6 +35,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 function Builder() {
   // const [teste, setTeste] = useLocalStorage('teste', ['a', 'b']);
+  // console.log(formData.getAll("modelo"))
 
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
@@ -84,113 +85,100 @@ function Builder() {
           </div>
         </div>
 
-        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
-          <Modal.Header closeButton className="modal-exp-header">
-            <Modal.Title>Salvar Build</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
 
-            <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Nome</label>
-              <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Descrição</label>
-              <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
-            </div>
-
-          </Modal.Body>
-          <Modal.Footer className="modal-exp-footer">
-
-
-            <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
-              Salvar
-            </Button>
-
-          </Modal.Footer>
-        </Modal>
-
-
-        {/* Teste */}
-
-
-
-
-        <div className="container col-md-10 mt-2 col">
-          <table className="table table-borderless text-light ">
-            <thead>
-              <tr className="mt-2 cont">
-
-                <th className="col-md-8">Componente</th>
-                <th className="col-md-2">Preço</th>
-                <th className="col-md-2">Quantidade</th>
-                <th className="col-md-1">Origem</th>
-              </tr>
-            </thead>
-            <tbody>
-
-              {/* <TableBuilder
-                img="https://via.placeholder.com/50x50/"
-                nome="Teste"
-                preco="R$ 100,00"
-              /> */}
-
-              <tr className="mt-2">
-                <td>
-                  <div className="d-sm-inline-flex p-2">
-                    <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
-                      <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
-                      <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
-                    </button>
-                  </div>
-                  <div className="d-sm-inline-flex p-2 text-white">
-                    <span className="DescricaoProduto p-2 cont">
-                      <p>Teste</p>
-                    </span>
-                  </div>
-                </td>
-                <td><input type="number" name="qtdItem" id="qtdItem" /></td>
-                <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
-                <td className="d-flex justify-content-center p-sm-2">
-                  <p className="d-block d-md-none cont">Kabum</p>
-                  <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                </td>
-              </tr>
-
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
-                </td>
-              </tr>
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Memória RAM</button>
-                </td>
-              </tr>
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Armazenamento</button>
-                </td>
-              </tr>
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Placa de Vídeo</button>
-                </td>
-              </tr>
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Gabinete</button>
-                </td>
-              </tr>
-              <tr className="mt-1">
-                <td>
-                  <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Fonte de Alimentação</button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <form action="">
+          <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
+            <Modal.Header closeButton className="modal-exp-header">
+              <Modal.Title>Salvar Build</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="form-group">
+                <label htmlFor="exampleFormControlTextarea1">Nome</label>
+                <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleFormControlTextarea1">Descrição</label>
+                <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
+              </div>
+            </Modal.Body>
+            <Modal.Footer className="modal-exp-footer">
+              <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+                Salvar
+              </Button>
+            </Modal.Footer>
+          </Modal>
+          {/* Teste */}
+          <div className="container col-md-10 mt-2 col">
+            <table className="table table-borderless text-light ">
+              <thead>
+                <tr className="mt-2 cont">
+                  <th className="col-md-8">Componente</th>
+                  <th className="col-md-2">Preço</th>
+                  <th className="col-md-2">Quantidade</th>
+                  <th className="col-md-1">Origem</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* <TableBuilder
+                  img="https://via.placeholder.com/50x50/"
+                  nome="Teste"
+                  preco="R$ 100,00"
+                /> */}
+                <tr className="mt-2">
+                  <td>
+                    <div className="d-sm-inline-flex p-2">
+                      <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
+                        <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
+                        <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
+                      </button>
+                    </div>
+                    <div className="d-sm-inline-flex p-2 text-white">
+                      <span className="DescricaoProduto p-2 cont">
+                        <p>Teste</p>
+                      </span>
+                    </div>
+                  </td>
+                  <td><input type="number" name="qtdItem" id="qtdItem" /></td>
+                  <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
+                  <td className="d-flex justify-content-center p-sm-2">
+                    <p className="d-block d-md-none cont">Kabum</p>
+                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Memória RAM</button>
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Armazenamento</button>
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Placa de Vídeo</button>
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Gabinete</button>
+                  </td>
+                </tr>
+                <tr className="mt-1">
+                  <td>
+                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Fonte de Alimentação</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </form>
         <div className="container-fluid text-light text-right TextAfterTable" >
           <div className="row">
             <div className="col">
