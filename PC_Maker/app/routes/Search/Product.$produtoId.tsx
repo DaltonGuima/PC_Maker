@@ -46,7 +46,7 @@ function Product() {
         console.log(hide)
     }
 
-
+    // eu tenho que botar local venda aqui
     useEffect(() => {
         axios.get(`http://127.0.0.1:8080/api/v1/produtos/${params.produtoId}`)
             .catch(() => { return null })
