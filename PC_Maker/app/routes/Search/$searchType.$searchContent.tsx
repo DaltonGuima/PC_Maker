@@ -11,7 +11,7 @@ import { themePage } from "~/script/changeTheme";
 import search from "~/styles/search.css"
 import { getUser } from "~/utils/session.server";
 import type { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
-import useTable from "~/script/useTable";
+import TableSearch from "~/components/TableSearch";
 
 export const links: LinksFunction = () => {
     return [
@@ -45,7 +45,8 @@ function Search() {
     const categoriaProduto =
         [
             "Placa-Mãe", "Memória RAM", "Armazenamento",
-            "Placa de Vídeo", "Gabinete", "Fonte de Alimentação"
+            "Placa de Vídeo", "Gabinete", "Fonte de Alimentação",
+            "Ventoinha"
         ]
     if (params.searchType?.valueOf != undefined && params.searchType == "CategoriaProduto")
         if (params.searchContent?.valueOf != undefined && !categoriaProduto.includes(params.searchContent?.toString()))
@@ -60,14 +61,14 @@ function Search() {
         console.log(hide)
     }
 
-    const [produtos, setProdutos] = useState<Produto[]>([])
-    useEffect(() => {
-        axios("http://127.0.0.1:8080/api/v1/produtos")
-            .catch(error => { throw new Error(error.message) })
-            .then(response => setProdutos(response.data))
-    }, [])
 
     const FilterSearch = () => {
+        const [produtos, setProdutos] = useState<Produto[]>([])
+        useEffect(() => {
+            axios("http://127.0.0.1:8080/api/v1/produtos")
+                .catch(error => { throw new Error(error.message) })
+                .then(response => setProdutos(response.data))
+        }, [])
         let filter = produtos
 
         if (params.searchType == "CategoriaProduto") {
@@ -116,18 +117,6 @@ function Search() {
             }))
     }
 
-    function getCountResult(data: JSX.Element[]) {
-        return data.length
-    }
-
-    // paginação
-    const [page, setPage] = useState(1);
-    const { slice, range } = useTable(FilterSearch(), page, 5);
-
-    function Paginacao(event: React.ChangeEvent<HTMLSelectElement>) {
-        const value = event.target.value;
-        setPage(parseInt(value))
-    }
 
     return (
         <div data-theme={changeTheme.get()}>
@@ -315,44 +304,10 @@ function Search() {
 
                     </nav>
 
-                    <div id="content" className="w-100 d-block">
-                        <div className="container-fluid">
-                            <div className="row border-bottom border-secondary-subtle pb-3">
-                                <div className="col text-white fs-4 text-start">{getCountResult(FilterSearch())} Resultados Encontrados</div>
-                                {/* Adcionar algum estilo aqui */}
-                                <div className="col d-flex justify-content-end">
-
-                                    <div className="form-floating text-light col-md-3">
-                                        <select onChange={Paginacao} className="form-select form-select-dark bg-transparent text-light py-2" name="property" id='paginas'>
-                                            {
-                                                range.map((el: number) =>
-                                                    (<option key={el} value={el} className="bg-dark text-light">Página {el} </option>))
-                                            }
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <table className="table-search text-light mt-5 w-100">
-                                <thead>
-                                    <tr className="p-2">
-                                        <th className="col-md-7 pb-3">Nome</th>
-                                        <th className="col-md-2">Avaliação</th>
-                                        <th className="col-md-1">Menor Preço</th>
-                                        <th className="col-md-1">Vendedor</th>
-                                    </tr>
-                                </thead>
-
-
-                                <tbody>
-                                    {
-                                        slice
-                                    }
-                                </tbody>
-
-                            </table>
-                        </div>
-                    </div>
+                    {/* deixa aqui */}
+                    <TableSearch
+                        body={FilterSearch()}
+                    />
                 </div>
 
 
