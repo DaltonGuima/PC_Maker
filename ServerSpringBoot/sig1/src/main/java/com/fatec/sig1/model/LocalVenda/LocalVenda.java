@@ -30,7 +30,7 @@ public class LocalVenda {
     private String linkProduto;
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "local_venda_id")
-    @JsonIncludeProperties({ "id", "nome", "fabricante" })
+    @JsonIncludeProperties({ "id", "nome", "fabricante", "categoria" })
     private Produto produto;
 
     public LocalVenda() {

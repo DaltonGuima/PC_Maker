@@ -128,13 +128,14 @@ function Product() {
                                                     <th>R$ {localVenda.preco}</th>
                                                     <th>R$ 5</th>
                                                     <th>
+                                                        {/* Adicionar uma verificação se o componente é algum que compoê a build */}
 
                                                         <button className="btn-details rounded p-2" onClick={() => addBuild(localVenda.id)}>
                                                             <i className="fa-sharp fa-solid fa-plus mx-1"></i>
                                                             Adicionar na Build {/* Redireciona para a Loja Externa */}
                                                         </button>
 
-                                                        {/* vc pode fazer outra coluna para ir comprar direto */}
+                                                        {/* vc pode fazer outra coluna para ir comprar direto na loja */}
                                                     </th>
                                                 </tr>
                                             )
