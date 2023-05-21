@@ -12,7 +12,9 @@ import { themePage } from "~/script/changeTheme";
 import search from "~/styles/search.css"
 import { getUser } from "~/utils/session.server";
 import type { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
-import { SideComponent } from "~/components/SideComponent";
+import { Componente } from "~/Interface/ComponenteInterface";
+import { GabineteProps } from "~/Interface/ComponenteInterface";
+
 
 
 export const links: LinksFunction = () => {
@@ -20,6 +22,11 @@ export const links: LinksFunction = () => {
         { rel: "stylesheet", href: search },
     ];
 };
+export const meta: MetaFunction = () => {
+    return ({
+        title: "Componente"
+    })
+}
 
 export const loader = async ({ request }: LoaderArgs) => {
 
@@ -28,23 +35,18 @@ export const loader = async ({ request }: LoaderArgs) => {
     return json({ user })
 };
 
-export const meta: MetaFunction = () => {
-    return ({
-        title: "Componente"
-    })
+interface ProdEsp extends Produto {
+
+
+
 }
+
 
 function Product() {
     const params = useParams();
     const changeTheme = useHookstate(themePage);
-    const [produto, setProduto] = useState<Produto>()
+    const [produto, setProduto] = useState<GabineteProps>()
 
-    const [hide, setHide] = useState(false);
-
-    function sidebarCollapse() {
-        setHide(!hide)
-        console.log(hide)
-    }
 
     // eu tenho que botar local venda aqui
     useEffect(() => {
@@ -56,7 +58,7 @@ function Product() {
 
     const hydrated = useHydrated();
     function AlguemMeAjuda() {
-        if (hydrated && produto != null) {
+        if (hydrated && produto != null && produto.categoria != null) {
             localStorage.setItem(produto?.categoria, produto?.id.toString())
         }
     }
@@ -70,9 +72,10 @@ function Product() {
 
                 <div id="content">
                     <div className="wrapper">
-                        <nav id="sidebar" className={`px-3`}>
+                        <nav id="sidebar" className="px-3">
                             <div className="col-sm-12 col-md-3 specsBarraLatProduct">
                                 <img src="/among_us.jpg" className="col-sm-12" alt="Logo da empresa" style={{ width: '12rem', height: '12rem' }} />
+                                <p>{produto?.nome}</p>
                                 <Link to="/Build/Builder">
                                     <Button variant="primary" onClick={AlguemMeAjuda} className="buttonAddNaBuild">
                                         Adicionar {/* Adiciona na Build */}
@@ -80,30 +83,15 @@ function Product() {
                                 </Link>
                             </div>
                             <table>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorems</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorem</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorem</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorem</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorem</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
-                                <tr className="specsBarraLatLinha">
-                                    <th className="specsBarraLatTh">Lorem</th>
-                                    <td className="specsBarraLatTd">Ipsum</td>
-                                </tr>
+                                <tbody>
+
+                                    {produto?.especificacoes.tipo}
+                                    <tr className="specsBarraLatLinha">
+                                        <th className="specsBarraLatTh">Lorems</th>
+                                        <td className="specsBarraLatTd">Ipsum</td>
+                                    </tr>
+
+                                </tbody>
                             </table>
 
                         </nav>
@@ -123,6 +111,7 @@ function Product() {
                                             <th className="col-md-7 pb-3">Nome</th>
                                             <th className="col-md-2">Disponibilidade</th>
                                             <th className="col-md-1">Preço</th>
+                                            {/* Precisa? ti */}
                                             <th className="col-md-1">Frete</th>
                                         </tr>
                                     </thead>
@@ -136,7 +125,7 @@ function Product() {
                                                     alt="Imagem responsiva"
                                                     style={{ width: "100px", height: "100px" }}
                                                 />
-
+                                                &emsp;Kabum
                                             </th>
                                             <th className="col-md-2">
                                                 Disponível
@@ -146,7 +135,7 @@ function Product() {
                                             <th>
                                                 <Link to="#">
                                                     <button className="btn-details rounded p-2">
-                                                        <i className="fa-sharp fa-solid fa-plus mx-1"></i>{" "}
+                                                        <i className="fa-sharp fa-solid fa-plus mx-1"></i>
                                                         Comprar {/* Redireciona para a Loja Externa */}
                                                     </button>
                                                 </Link>
@@ -158,9 +147,9 @@ function Product() {
                         </div>
                     </div>
                 </div>
-            </main>
+            </main >
             <Footer />
-        </div>
+        </div >
     );
 }
 

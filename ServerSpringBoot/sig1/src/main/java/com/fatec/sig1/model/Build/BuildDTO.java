@@ -19,16 +19,16 @@ public class BuildDTO {
     @NotNull(message = "Preço é requerido")
     private List<ItemBuild> item = new ArrayList<>();
     @NotBlank(message = "Descrição é requerido")
-    private String Descricao;
+    private String descricao;
     @JsonIncludeProperties("id")
     private Usuario usuario;
     @JsonIgnoreProperties("build")
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
 
-    public BuildDTO(String Nome, List<ItemBuild> item, String Descricao, Usuario usuario, Set<ItemBuild> itens) {
+    public BuildDTO(String Nome, List<ItemBuild> item, String descricao, Usuario usuario, Set<ItemBuild> itens) {
         this.nome = Nome;
         this.item = item;
-        this.Descricao = Descricao;
+        this.descricao = descricao;
         this.usuario = usuario;
         this.itens = itens;
     }
@@ -41,24 +41,16 @@ public class BuildDTO {
         nome = Nome;
     }
 
-    // public float getOrcamento() {
-    // return Orcamento;
-    // }
-
-    // public void setOrcamento(float orcamento) {
-    // Orcamento = orcamento;
-    // }
-
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        Descricao = descricao;
+        this.descricao = descricao;
     }
 
     public Build retornaUmaBuild() {
-        return new Build(Descricao, nome, usuario, itens, item);
+        return new Build(nome, descricao, itens, usuario);
     }
 
     public Usuario getUsuario() {

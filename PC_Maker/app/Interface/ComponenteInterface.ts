@@ -10,6 +10,7 @@ export interface Componente {
     nome: string,
     fabricante: string,
     modelo: string,
+    categoria?: string,
     locaisvendas?: LocaisVendas[]
 }
 

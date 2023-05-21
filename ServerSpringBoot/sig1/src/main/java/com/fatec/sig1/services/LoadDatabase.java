@@ -56,20 +56,20 @@ class LoadDatabase {
             teste.put("tipo", "Mid Tower");
 
             Produto produto1 = new Produto("Rise Mode Glass 06", "Rise", "RM-WT-06-SF",
-                    teste, "Gabinete", 12.30);
+                    teste, "Gabinete");
             repository2.save(produto1);
 
-            LocalVenda local1 = new LocalVenda(0, "a", "a", produto1);
+            LocalVenda local1 = new LocalVenda(2, "a", "a", produto1);
             repository6.save(local1);
 
             Usuario usuario = new Usuario("a", "20/12/1223", "a@a", "a");
             repository5.save(usuario);
 
             // Build
-            Build build = new Build();
+            Build build = new Build("build1", "sla", usuario);
             repository3.save(build);
 
-            ItemBuild item = new ItemBuild(2, build, produto1, 2);
+            ItemBuild item = new ItemBuild(2, build, local1);
             // item
             repository4.save(item);
 

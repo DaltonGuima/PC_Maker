@@ -37,16 +37,15 @@ public class MantemItemBuildI implements MantemItemBuild {
 
     public Optional<ItemBuild> save(ItemBuild itemBuild) {
         logger.info(">>>>>> servico save chamado ");
-        ItemBuild.setDataCadastro(new DateTime());
         return Optional.ofNullable(repository.save(itemBuild));
     }
 
     public Optional<ItemBuild> atualiza(Long id, ItemBuild itemBuild) {
         logger.info(">>>>>> 1.servico   atualiza informações de cliente chamado");
+        Optional<ItemBuild> ItemSalvo = repository.findById(id);
         ItemBuild itemBuildModificado = new ItemBuild(itemBuild.getQuantidade(), itemBuild.getBuild(),
-                itemBuild.getProduto(), itemBuild.getSubtotal());
+                ItemSalvo.get().getLocalVenda());
         itemBuildModificado.setId(id);
-        itemBuildModificado.obtemDataAtual(new DateTime());
         logger.info(itemBuildModificado.getId());
         return Optional.ofNullable(repository.save(itemBuildModificado));
     }

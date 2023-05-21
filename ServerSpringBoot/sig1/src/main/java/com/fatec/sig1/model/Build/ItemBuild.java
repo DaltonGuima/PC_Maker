@@ -2,10 +2,9 @@ package com.fatec.sig1.model.Build;
 
 import jakarta.persistence.Id;
 
-import org.joda.time.DateTime;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
+import com.fatec.sig1.model.LocalVenda.LocalVenda;
 import com.fatec.sig1.model.Produto.Produto;
 
 import jakarta.persistence.CascadeType;
@@ -25,24 +24,24 @@ public class ItemBuild {
     @NotNull(message = "A Quantidade é requerida")
     private int quantidade;
     @NotNull(message = "O SubTotal é requerida")
-    private double subtotal;
+    private float subtotal;
     @ManyToOne
     @JoinColumn(name = "build_id")
     @JsonIncludeProperties({ "id", "nome" })
     private Build build;
     @ManyToOne(cascade = { CascadeType.MERGE })
     @JoinColumn(name = "produto_id", nullable = false)
-    @JsonIncludeProperties({ "id", "categoria" })
-    private Produto produto;
+    @JsonIncludeProperties({ "id", "produto" })
+    private LocalVenda localVenda;
 
     public ItemBuild() {
     }
 
-    public ItemBuild(int quantidade, Build build, Produto produto, double subtotal) {
+    public ItemBuild(int quantidade, Build build, LocalVenda localVenda) {
         this.quantidade = quantidade;
         this.build = build;
-        this.produto = produto;
-        this.subtotal = subtotal;
+        this.localVenda = localVenda;
+        setSubtotal(getSubtotal());
     }
 
     public Long getId() {
@@ -61,11 +60,11 @@ public class ItemBuild {
         this.quantidade = quantidade;
     }
 
-    public double getSubtotal() {
-        return quantidade * getProduto().getCusto();
+    public float getSubtotal() {
+        return quantidade * getLocalVenda().getPreco();
     }
 
-    public void setSubtotal(double subtotal) {
+    public void setSubtotal(float subtotal) {
         this.subtotal = subtotal;
     }
 
@@ -77,18 +76,12 @@ public class ItemBuild {
         this.build = build;
     }
 
-    public Produto getProduto() {
-        return produto;
+    public LocalVenda getLocalVenda() {
+        return localVenda;
     }
 
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
-    public void obtemDataAtual(DateTime dateTime) {
-    }
-
-    public static void setDataCadastro(DateTime dateTime) {
+    public void setLocalVenda(LocalVenda localVenda) {
+        this.localVenda = localVenda;
     }
 
 }

@@ -1,22 +1,19 @@
 package com.fatec.sig1.model.Build;
 
-import com.fatec.sig1.model.Produto.Produto;
+import com.fatec.sig1.model.LocalVenda.LocalVenda;
 
 import jakarta.validation.constraints.NotNull;
 
 public class ItemBuildDTO {
     @NotNull(message = "A Quantidade é requerida")
     private int quantidade;
-    @NotNull(message = "O Subtotal é requerida")
-    private double subtotal;
     private Build build;
-    private Produto produto;
+    private LocalVenda localVenda;
 
-    public ItemBuildDTO(int quantidade, Build build, Produto produto, double subtotal) {
+    public ItemBuildDTO(int quantidade, Build build, LocalVenda localVenda) {
         this.quantidade = quantidade;
         this.build = build;
-        this.produto = produto;
-        this.subtotal = subtotal;
+        this.localVenda = localVenda;
     }
 
     public int getQuantidade() {
@@ -27,14 +24,6 @@ public class ItemBuildDTO {
         this.quantidade = quantidade;
     }
 
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(double subtotal) {
-        this.subtotal = subtotal;
-    }
-
     public Build getBuild() {
         return build;
     }
@@ -43,16 +32,16 @@ public class ItemBuildDTO {
         this.build = build;
     }
 
-    public Produto getProduto() {
-        return produto;
-    }
-
-    public void setProduto(Produto produto) {
-        this.produto = produto;
-    }
-
     public ItemBuild retornaItensBuild() {
-        return new ItemBuild(quantidade, build, produto, subtotal);
+        return new ItemBuild(quantidade, build, localVenda);
+    }
+
+    public LocalVenda getLocalVenda() {
+        return localVenda;
+    }
+
+    public void setLocalVenda(LocalVenda localVenda) {
+        this.localVenda = localVenda;
     }
 
 }

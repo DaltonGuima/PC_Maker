@@ -37,9 +37,9 @@ public class Build {
     @NotBlank(message = "Nome é requerido")
     private String nome;
     @NotNull(message = "Preço é requerido")
-    private List<ItemBuild> item = new ArrayList<>();
+    private float total;
     @NotBlank(message = "Descrição é requerida")
-    private String Descricao;
+    private String descricao;
     @Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])[\\/-](0?[1-9]|1[012])[\\/-]\\d{4}$", message = "A data de cadastro deve estar no formato dd/MM/YYYY")
     private String dataCadastro;
     @OneToMany(mappedBy = "build", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
@@ -57,71 +57,41 @@ public class Build {
         return id;
     }
 
+    public Build(
+            String nome,
+            String descricao,
+            Set<ItemBuild> itens,
+            Usuario usuario) {
+        this.nome = nome;
+        setTotal(getValorTotal());
+        this.descricao = descricao;
+        setDataCadastro(new DateTime());
+        this.itens = itens;
+        this.usuario = usuario;
+    }
+
+    public Build(
+            String nome,
+            String descricao,
+            Usuario usuario) {
+        this.nome = nome;
+        setTotal(getValorTotal());
+        this.descricao = descricao;
+        setDataCadastro(new DateTime());
+
+        this.usuario = usuario;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    // public float getOrcamento() {
-    // return Orcamento;
-    // }
-
-    // public void setOrcamento(float orcamento) {
-    // Orcamento = orcamento;
-    // }
-
-    public String getDescricao() {
-        return Descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        Descricao = descricao;
-    }
-
-    public Build(
-            // float orcamento,
-            String descricao,
-            String nome,
-            Usuario usuario,
-            List<ItemBuild> item) {
-        // Orcamento = orcamento;
-        this.Descricao = descricao;
-        setDataCadastro(new DateTime());
-        this.nome = nome;
-        this.usuario = usuario;
-        this.item = item;
-
-    }
-
-    public Build(
-            // float orcamento,
-            String descricao,
-            String nome,
-            Usuario usuario,
-            Set<ItemBuild> itens,
-            List<ItemBuild> item) {
-        // Orcamento = orcamento;
-        this.Descricao = Descricao;
-        setDataCadastro(new DateTime());
-        this.nome = nome;
-        this.usuario = usuario;
-        this.itens = itens;
-        this.item = item;
-    }
-
-    public double getValorTotal() {
-        double soma = 0.0;
-        for (ItemBuild ip : item) {
-            soma = soma + ip.getSubtotal();
+    public float getValorTotal() {
+        float soma = 0f;
+        for (ItemBuild ip : itens) {
+            soma += ip.getSubtotal();
         }
         return soma;
-    }
-
-    public List<ItemBuild> getItem() {
-        return item;
-    }
-
-    public void setItem(List<ItemBuild> item) {
-        this.item = item;
     }
 
     public String getDataCadastro() {
@@ -159,6 +129,18 @@ public class Build {
 
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
 
 }
