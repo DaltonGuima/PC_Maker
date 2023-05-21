@@ -112,3 +112,8 @@ h6 {
 .valorTotalBuilder {
   color: var(--text-primary) !important;
 }
+
+.inputQtdItem {
+  background: var(--background-tertiary) !important;
+  color: var(--text-primary) !important;
+}

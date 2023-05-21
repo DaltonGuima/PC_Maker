@@ -111,7 +111,8 @@ a[data-toggle="collapse"] {
 }
 
 .table-search thead {
-  border-bottom: 0.3rem solid #686868;
+  border-bottom: 0.1rem solid #686868;
+  color: var(--text-quaternary);
 }
 .table-search tr {
   border-bottom: 0.1rem solid #686868;
@@ -123,4 +124,31 @@ a[data-toggle="collapse"] {
   font-size: medium;
   font-weight: bold;
   border: none;
+}
+
+.specsBarraLatTd {
+  padding-left: 4rem;
+  font-size: 0.8rem;
+}
+
+.specsBarraLatTh {
+  font-size: 0.8rem;
+}
+
+.specsBarraLatLinha {
+  border-bottom: 0.1rem solid #686868;
+}
+
+.specsBarraLatProduct {
+  margin-bottom: 4rem;
+}
+
+.buttonAddNaBuild {
+  background-color: var(--background-senary) !important;
+  color: var(--text-quaternary) !important;
+  font-size: medium;
+  font-weight: bold;
+  border: none;
+  margin-top: 1rem;
+  margin-left: 3rem;
 }

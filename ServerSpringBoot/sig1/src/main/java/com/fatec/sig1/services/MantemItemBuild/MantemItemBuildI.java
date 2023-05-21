@@ -43,8 +43,8 @@ public class MantemItemBuildI implements MantemItemBuild {
 
     public Optional<ItemBuild> atualiza(Long id, ItemBuild itemBuild) {
         logger.info(">>>>>> 1.servico   atualiza informações de cliente chamado");
-        ItemBuild itemBuildModificado = new ItemBuild(itemBuild.getQuantidade(), itemBuild.getSubtotal(), itemBuild.getBuild(),
-                itemBuild.getProduto());
+        ItemBuild itemBuildModificado = new ItemBuild(itemBuild.getQuantidade(), itemBuild.getBuild(),
+                itemBuild.getProduto(), itemBuild.getSubtotal());
         itemBuildModificado.setId(id);
         itemBuildModificado.obtemDataAtual(new DateTime());
         logger.info(itemBuildModificado.getId());

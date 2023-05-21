@@ -2,6 +2,8 @@ package com.fatec.sig1.model.Build;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
@@ -14,18 +16,18 @@ public class BuildDTO {
 
     @NotBlank(message = "Nome é requerido")
     private String nome;
-    @NotNull(message = "Modelo é requerido")
-    private float Orcamento;
-    @NotBlank(message = "Preço é requerido")
+    @NotNull(message = "Preço é requerido")
+    private List<ItemBuild> item = new ArrayList<>();
+    @NotBlank(message = "Descrição é requerido")
     private String Descricao;
     @JsonIncludeProperties("id")
     private Usuario usuario;
     @JsonIgnoreProperties("build")
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
 
-    public BuildDTO(String Nome, float Orcamento, String Descricao, Usuario usuario, Set<ItemBuild> itens) {
+    public BuildDTO(String Nome, List<ItemBuild> item, String Descricao, Usuario usuario, Set<ItemBuild> itens) {
         this.nome = Nome;
-        this.Orcamento = Orcamento;
+        this.item = item;
         this.Descricao = Descricao;
         this.usuario = usuario;
         this.itens = itens;
@@ -39,13 +41,13 @@ public class BuildDTO {
         nome = Nome;
     }
 
-    public float getOrcamento() {
-        return Orcamento;
-    }
+    // public float getOrcamento() {
+    // return Orcamento;
+    // }
 
-    public void setOrcamento(float orcamento) {
-        Orcamento = orcamento;
-    }
+    // public void setOrcamento(float orcamento) {
+    // Orcamento = orcamento;
+    // }
 
     public String getDescricao() {
         return Descricao;
@@ -56,7 +58,7 @@ public class BuildDTO {
     }
 
     public Build retornaUmaBuild() {
-        return new Build(Orcamento, Descricao, nome, usuario, itens);
+        return new Build(Descricao, nome, usuario, itens, item);
     }
 
     public Usuario getUsuario() {

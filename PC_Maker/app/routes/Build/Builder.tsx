@@ -2,17 +2,20 @@ import { useHookstate } from "@hookstate/core";
 import { Footer } from "~/components/Footer";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
-import TableBuilder from "~/components/TableBuilder";
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
 import { getUser } from "~/utils/session.server";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
+import { useHydrated } from "remix-utils";
+import { Link } from "@remix-run/react";
+import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
+import axios from "axios";
 
 export const links: LinksFunction = () => {
   return [
@@ -42,6 +45,56 @@ function Builder() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const hydrated = useHydrated();
+
+  function TrBuilder(props: { categoryProduct: string }) {
+    const [produto, setProduto] = useState<Produto>()
+
+
+    useEffect(() => {
+      if (localStorage.getItem(props.categoryProduct))
+        axios.get(`http://127.0.0.1:8080/api/v1/produtos/${localStorage.getItem(props.categoryProduct)}`)
+          .catch(() => { return null })
+          .then(response => setProduto(response?.data))
+    }, [props.categoryProduct])
+
+    if (hydrated && localStorage.getItem(props.categoryProduct)) {
+      return (
+        <tr className="mt-2">
+          <td>
+            <div className="d-sm-inline-flex p-2">
+              <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
+                <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
+                <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
+              </button>
+            </div>
+            <div className="d-sm-inline-flex p-2 text-white">
+              <span className="DescricaoProduto p-2 cont">
+                <p>{produto?.nome}</p>
+              </span>
+            </div>
+          </td>
+          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" /></td>
+          <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
+          <td className="d-flex justify-content-center p-sm-2">
+            <p className="d-block d-md-none cont">Kabum</p>
+            <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
+          </td>
+        </tr>
+      )
+    }
+    else
+      return (
+        <tr className="mt-1">
+          <td>
+            <Link to={`/Search/CategoriaProduto/${props.categoryProduct}`}>
+              <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Gabinete</button>
+            </Link>
+          </td>
+        </tr>
+      )
+  }
 
   return (
     <div data-theme={changeTheme.get()}>
@@ -86,7 +139,7 @@ function Builder() {
         </div>
 
 
-        <form action="">
+        <form action="post">
           <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
             <Modal.Header closeButton className="modal-exp-header">
               <Modal.Title>Salvar Build</Modal.Title>
@@ -124,27 +177,7 @@ function Builder() {
                   nome="Teste"
                   preco="R$ 100,00"
                 /> */}
-                <tr className="mt-2">
-                  <td>
-                    <div className="d-sm-inline-flex p-2">
-                      <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
-                        <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
-                        <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
-                      </button>
-                    </div>
-                    <div className="d-sm-inline-flex p-2 text-white">
-                      <span className="DescricaoProduto p-2 cont">
-                        <p>Teste</p>
-                      </span>
-                    </div>
-                  </td>
-                  <td><input type="number" name="qtdItem" id="qtdItem" /></td>
-                  <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
-                  <td className="d-flex justify-content-center p-sm-2">
-                    <p className="d-block d-md-none cont">Kabum</p>
-                    <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
-                  </td>
-                </tr>
+
                 <tr className="mt-1">
                   <td>
                     <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
@@ -165,11 +198,12 @@ function Builder() {
                     <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Placa de Vídeo</button>
                   </td>
                 </tr>
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Gabinete</button>
-                  </td>
-                </tr>
+                {/* gabinete era para estar aqui */}
+
+                <TrBuilder
+                  categoryProduct="Gabinete"
+                />
+
                 <tr className="mt-1">
                   <td>
                     <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Fonte de Alimentação</button>

@@ -46,15 +46,15 @@ public class MantemBuildI implements MantemBuild {
     @Override
     public Optional<Build> save(Build build) {
         logger.info(">>>>>> servico save chamado ");
-        Build.setDataCadastro(new DateTime());
+        build.setDataCadastro(new DateTime());
         return Optional.ofNullable(repository.save(build));
     }
 
     @Override
     public Optional<Build> atualiza(Long id, Build build) {
         logger.info(">>>>>> 1.servico atualiza informações de cliente chamado");
-        Build buildModificado = new Build(build.getOrcamento(), build.getDescricao(), build.getNome(),
-                build.getUsuario(), build.getItens());
+        Build buildModificado = new Build(build.getDescricao(), build.getNome(),
+                build.getUsuario(), build.getItens(), build.getItem());
         buildModificado.setId(id);
         buildModificado.obtemDataAtual(new DateTime());
         logger.info(buildModificado.getId());

@@ -12,6 +12,7 @@ import com.fatec.sig1.model.LocalVenda.LocalVenda;
 import jakarta.validation.constraints.NotBlank;
 
 public class ProdutoDTO {
+    private double custo;
     @NotBlank(message = "Nome é requerido")
     private String nome;
     @NotBlank(message = "Fabricante é requerido")
@@ -24,12 +25,14 @@ public class ProdutoDTO {
     @JsonIgnoreProperties("LocalVenda")
     private List<LocalVenda> locaisVendas = new ArrayList<LocalVenda>();
 
-    public ProdutoDTO(String nome,
+    public ProdutoDTO(double custo,
+            String nome,
             String fabricante,
             String modelo,
             String categoria,
             Map<String, String> especificacoes,
             List<LocalVenda> locaisVendas) {
+        this.custo = custo;
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -63,7 +66,7 @@ public class ProdutoDTO {
     }
 
     public Produto returnOneProduto() {
-        return new Produto(nome, fabricante, modelo, especificacoes, categoria);
+        return new Produto(nome, fabricante, modelo, especificacoes, categoria, custo);
     }
 
     public Map<String, String> getEspecificacoes() {

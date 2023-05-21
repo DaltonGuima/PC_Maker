@@ -418,7 +418,7 @@ li {
 #acessibilidade a {
   text-decoration: none;
   padding: 0.5rem;
-  color: #7042d5;
+  color: var(--text-primary);
 }
 
 .atalhos {

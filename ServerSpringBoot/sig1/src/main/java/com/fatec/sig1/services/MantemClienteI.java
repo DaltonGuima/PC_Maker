@@ -28,6 +28,7 @@ import com.fatec.sig1.model.Repositorys.MantemClienteRepository;
  */
 @Service
 public class MantemClienteI implements MantemCliente {
+
 	Logger logger = LogManager.getLogger(this.getClass());
 	@Autowired
 	MantemClienteRepository repository;

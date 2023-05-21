@@ -1,6 +1,8 @@
 package com.fatec.sig1.model.Build;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.fatec.sig1.model.Usuario.Usuario;
@@ -35,7 +37,7 @@ public class Build {
     @NotBlank(message = "Nome é requerido")
     private String nome;
     @NotNull(message = "Preço é requerido")
-    private float Orcamento;
+    private List<ItemBuild> item = new ArrayList<>();
     @NotBlank(message = "Descrição é requerida")
     private String Descricao;
     @Pattern(regexp = "^(0?[1-9]|[12][0-9]|3[01])[\\/-](0?[1-9]|1[012])[\\/-]\\d{4}$", message = "A data de cadastro deve estar no formato dd/MM/YYYY")
@@ -59,13 +61,13 @@ public class Build {
         this.id = id;
     }
 
-    public float getOrcamento() {
-        return Orcamento;
-    }
+    // public float getOrcamento() {
+    // return Orcamento;
+    // }
 
-    public void setOrcamento(float orcamento) {
-        Orcamento = orcamento;
-    }
+    // public void setOrcamento(float orcamento) {
+    // Orcamento = orcamento;
+    // }
 
     public String getDescricao() {
         return Descricao;
@@ -75,33 +77,54 @@ public class Build {
         Descricao = descricao;
     }
 
-    public Build(float orcamento,
-            String descricao,
-            String nome,
-            Usuario usuario) {
-        Orcamento = orcamento;
-        Descricao = descricao;
-        setDataCadastro(new DateTime());
-        this.nome = nome;
-        this.usuario = usuario;
-        
-    }
-
-    public Build(float orcamento,
+    public Build(
+            // float orcamento,
             String descricao,
             String nome,
             Usuario usuario,
-            Set<ItemBuild> itens) {
-        Orcamento = orcamento;
-        Descricao = descricao;
+            List<ItemBuild> item) {
+        // Orcamento = orcamento;
+        this.Descricao = descricao;
+        setDataCadastro(new DateTime());
+        this.nome = nome;
+        this.usuario = usuario;
+        this.item = item;
+
+    }
+
+    public Build(
+            // float orcamento,
+            String descricao,
+            String nome,
+            Usuario usuario,
+            Set<ItemBuild> itens,
+            List<ItemBuild> item) {
+        // Orcamento = orcamento;
+        this.Descricao = Descricao;
         setDataCadastro(new DateTime());
         this.nome = nome;
         this.usuario = usuario;
         this.itens = itens;
+        this.item = item;
     }
 
+    public double getValorTotal() {
+        double soma = 0.0;
+        for (ItemBuild ip : item) {
+            soma = soma + ip.getSubtotal();
+        }
+        return soma;
+    }
 
-    public String getDataCadastro(){
+    public List<ItemBuild> getItem() {
+        return item;
+    }
+
+    public void setItem(List<ItemBuild> item) {
+        this.item = item;
+    }
+
+    public String getDataCadastro() {
         return dataCadastro;
     }
 

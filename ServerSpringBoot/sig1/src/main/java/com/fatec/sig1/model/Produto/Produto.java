@@ -34,6 +34,7 @@ public class Produto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    private double custo;
     @NotBlank(message = "Nome é requerido")
     private String nome;
     @NotBlank(message = "Fabricante é requerido")
@@ -58,17 +59,18 @@ public class Produto {
     }
 
     public Produto(String nome, String fabricante, String modelo, Map<String, String> especificacoes,
-            String categoria) {
+            String categoria, double custo) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
         setDataCadastro(new DateTime());
         this.especificacoes = especificacoes;
         this.categoria = categoria;
+        this.custo = custo;
     }
 
     public Produto(String nome, String fabricante, String modelo, Map<String, String> especificacoes, String categoria,
-            List<LocalVenda> locaisVendas) {
+            List<LocalVenda> locaisVendas, double custo) {
         this.nome = nome;
         this.fabricante = fabricante;
         this.modelo = modelo;
@@ -76,6 +78,7 @@ public class Produto {
         this.especificacoes = especificacoes;
         this.categoria = categoria;
         this.locaisVendas = locaisVendas;
+        this.custo = custo;
     }
 
     public Long getId() {
@@ -112,6 +115,14 @@ public class Produto {
 
     public String getDataCadastro() {
         return dataCadastro;
+    }
+
+    public double getCusto() {
+        return custo;
+    }
+
+    public void setCusto(double custo) {
+        this.custo = custo;
     }
 
     public void setDataCadastro(DateTime dataAtual) {

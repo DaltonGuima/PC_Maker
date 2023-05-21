@@ -25,7 +25,7 @@ public class ItemBuild {
     @NotNull(message = "A Quantidade é requerida")
     private int quantidade;
     @NotNull(message = "O SubTotal é requerida")
-    private float subtotal;
+    private double subtotal;
     @ManyToOne
     @JoinColumn(name = "build_id")
     @JsonIncludeProperties({ "id", "nome" })
@@ -38,11 +38,11 @@ public class ItemBuild {
     public ItemBuild() {
     }
 
-    public ItemBuild(int quantidade, float subtotal, Build build, Produto produto) {
+    public ItemBuild(int quantidade, Build build, Produto produto, double subtotal) {
         this.quantidade = quantidade;
-        this.subtotal = subtotal;
         this.build = build;
         this.produto = produto;
+        this.subtotal = subtotal;
     }
 
     public Long getId() {
@@ -61,11 +61,11 @@ public class ItemBuild {
         this.quantidade = quantidade;
     }
 
-    public float getSubtotal() {
-        return subtotal;
+    public double getSubtotal() {
+        return quantidade * getProduto().getCusto();
     }
 
-    public void setSubtotal(float subtotal) {
+    public void setSubtotal(double subtotal) {
         this.subtotal = subtotal;
     }
 
