@@ -16,6 +16,8 @@ import { useHydrated } from "remix-utils";
 import { Link } from "@remix-run/react";
 import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
 import axios from "axios";
+import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
+import { LocaisVendas } from "~/Interface/ComponenteInterface";
 
 export const links: LinksFunction = () => {
   return [
@@ -49,14 +51,14 @@ function Builder() {
   const hydrated = useHydrated();
 
   function TrBuilder(props: { categoryProduct: string }) {
-    const [produto, setProduto] = useState<Produto>()
+    const [localVenda, setLocalVenda] = useState<LocaisVendas>()
 
 
     useEffect(() => {
       if (localStorage.getItem(props.categoryProduct))
-        axios.get(`http://127.0.0.1:8080/api/v1/produtos/${localStorage.getItem(props.categoryProduct)}`)
+        axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${localStorage.getItem(props.categoryProduct)}`)
           .catch(() => { return null })
-          .then(response => setProduto(response?.data))
+          .then(response => setLocalVenda(response?.data))
     }, [props.categoryProduct])
 
     if (hydrated && localStorage.getItem(props.categoryProduct)) {
@@ -71,15 +73,15 @@ function Builder() {
             </div>
             <div className="d-sm-inline-flex p-2 text-white">
               <span className="DescricaoProduto p-2 cont">
-                <p>{produto?.nome}</p>
+                <p>{localVenda?.produto.nome}</p>
               </span>
             </div>
           </td>
-          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" /></td>
-          <td className="text-success p-sm-2 fw-bold" >R$ 100,00</td>
+          {/* Vou ter que alterar aqui dp */}
+          <td className="text-success p-sm-2 fw-bold" >R$ {localVenda?.preco}</td>
+          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" defaultValue={1} /></td>
           <td className="d-flex justify-content-center p-sm-2">
-            <p className="d-block d-md-none cont">Kabum</p>
-            <img className="Vendedor" src="https://via.placeholder.com/80x22/" alt="Foto do Vendedor" />
+            <p className="d-block cont">{localVenda?.vendedor}</p>
           </td>
         </tr>
       )

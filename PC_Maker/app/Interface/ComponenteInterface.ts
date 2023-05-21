@@ -1,8 +1,12 @@
-interface LocaisVendas {
+export interface LocaisVendas {
     id: number,
     preco: number,
     vendedor: string,
     linkProduto: string
+    produto: {
+        id: number,
+        nome: string
+    }
 }
 
 export interface Componente {
@@ -11,7 +15,7 @@ export interface Componente {
     fabricante: string,
     modelo: string,
     categoria?: string,
-    locaisvendas?: LocaisVendas[]
+    locaisVendas?: LocaisVendas[]
 }
 
 export interface VentoinhaProps extends Componente {
