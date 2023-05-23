@@ -157,17 +157,17 @@ function DashboardInsercaoPlacaMae() {
                                     <div className="form-check">
                                         <div className="radio">
                                             <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="tecnologiaram" name="tecnologiaram" value="DDR3" className="form-check-input" />DDR3
+                                                <input type="radio" id="tecnologiaram" name="tecnologiaram" value="DDR3" className="form-check-input" required/>DDR3
                                             </label>
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="DDR4" className="form-check-input" />DDR4
+                                                <input type="radio" id="tecnologiaram" name="tecnologiaram" value="DDR4" className="form-check-input" required/>DDR4
                                             </label>
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio3" name="radios" value="DDR5" className="form-check-input" />DDR5
+                                                <input type="radio" id="tecnologiaram" name="tecnologiaram" value="DDR5" className="form-check-input" required/>DDR5
                                             </label>
                                         </div>
                                     </div>
@@ -175,35 +175,35 @@ function DashboardInsercaoPlacaMae() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots RAM</label>
-                                    <input type="email" name="email-input" placeholder="Slots RAM" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Slots RAM</label>
+                                    <input type="text" name="slotsram" id="slotsram" placeholder="Quantidade de Slots RAM" className="form-control" required/>
                                     <small className="help-block form-text">Quantidadede Slots RAM</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Capacidade Máxima de RAM</label>
-                                    <input type="email" name="email-input" placeholder="Capacidade Máxima de RAM" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Capacidade Máxima de RAM</label>
+                                    <input type="text" name="cmaxram" id="cmaxram" placeholder="Capacidade Máxima de RAM" className="form-control" required/>
                                     <small className="help-block form-text">Capacidade Máxima de RAM</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Gráfico Integrado</label>
-                                    <input type="email" name="email-input" placeholder="Gráfico Integrado" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Gráfico Integrado</label>
+                                    <input type="text" name="graficoi" id="graficoi" placeholder="Gráfico Integrado" className="form-control" required/>
                                     <small className="help-block form-text">Modelo do gráfico integrado</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots M.2</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots M.2" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Slots M.2</label>
+                                    <input type="text" name="slotsm2" id="slotsm2" placeholder="Quantidade de Slots M.2" className="form-control" required/>
                                     <small className="help-block form-text">Quantidade de Slots M.2</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots PCI Express x16</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots PCI Express x16" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Slots PCI Express x16</label>
+                                    <input type="text" name="slotspciex16" id="slotspciex16" placeholder="Quantidade de Slots PCI Express x16" className="form-control" required/>
                                     <small className="help-block form-text">Quantidade de Slots PCI Express x16</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Slots PCI</label>
-                                    <input type="email" name="email-input" placeholder="Quantidade de Slots PCI" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Slots PCI</label>
+                                    <input type="text" name="slotspci" id="slotspci" placeholder="Quantidade de Slots PCI" className="form-control" required/>
                                     <small className="help-block form-text">Quantidade de Slots PCI</small>
                                 </div>
                             </div>

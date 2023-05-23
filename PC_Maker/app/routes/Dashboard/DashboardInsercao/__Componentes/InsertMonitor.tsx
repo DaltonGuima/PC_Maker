@@ -29,9 +29,6 @@ function DashboardInsercaoMonitor() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "Monitor",
             especificacoes: {
                 "tamanho": data.tamanho, "resolucaover": data.resolucaover,
@@ -108,54 +105,38 @@ function DashboardInsercaoMonitor() {
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoMonitor} className="form-horizontal">
 
+                            
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" placeholder="Nome" className="form-control" />
+                                    <label htmlFor="nome" className=" form-control-label">Nome</label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" placeholder="Fabricante" className="form-control" />
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
+                                    <label htmlFor="modelo" className=" form-control-label">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Resolução vertical</label>
-                                    <input type="text" name="nome-produto" placeholder="resolucao" className="form-control" />
+                                    <label htmlFor="resolucaover" className=" form-control-label">Resolução vertical</label>
+                                    <input type="text" name="resolucaover" id="resolucaover" placeholder="Resolução" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Resolução horizontal e vertical do monitor em pixels (1920x1080p, etc)</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Taxa de Atualização</label>
-                                    <input type="text" name="nome-produto" placeholder="taxaatualizacao" className="form-control" />
+                                    <label htmlFor="taxadeatualiz" className=" form-control-label">Taxa de Atualização</label>
+                                    <input type="text" name="taxadeatualiz" id="taxadeatualiz" placeholder="Taxa de Atualização" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Taxa de atualização de imagem do monitor em Hertz (Hz)</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Tamanho</label>
-                                    <input type="text" name="nome-produto" placeholder="tamanho" className="form-control" />
+                                    <label htmlFor="tamanho" className=" form-control-label">Tamanho</label>
+                                    <input type="text" name="tamanho" id="tamanho" placeholder="Tamanho" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Tamanho em polegadas (")</small>
                                 </div>
                             </div>

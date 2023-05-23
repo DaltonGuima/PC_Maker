@@ -28,9 +28,6 @@ function DashboardInsercaoMemoriaRam() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "MemoriaRam",
             especificacoes: {
                 "capacidade": data.capacidade, "velocidade": data.velocidade,
@@ -110,49 +107,33 @@ function DashboardInsercaoMemoriaRam() {
                     </div>
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoMemoriaRam} className="form-horizontal">
+                            
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" placeholder="Nome" className="form-control" />
+                                    <label htmlFor="nome" className=" form-control-label">Nome</label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" placeholder="Fabricante" className="form-control" />
+                                    <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
+                                    <input type="text" name="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
+                                    <label htmlFor="modelo" className=" form-control-label">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col ">
-                                    <label htmlFor="email-input" className=" form-control-label">Capacidade</label>
-                                    <input type="email" name="email-input" placeholder="Capacidade" className="form-control" />
+                                    <label htmlFor="velocidade" className=" form-control-label">Capacidade</label>
+                                    <input type="text" name="capacidade" placeholder="Capacidade" className="form-control" required/>
                                     <small className="help-block form-text">Capacidade da memória</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Velocidade</label>
-                                    <input type="email" name="email-input" placeholder="Velocidade" className="form-control" />
+                                    <label htmlFor="velocidade" className=" form-control-label">Velocidade</label>
+                                    <input type="text" name="velocidade" id="velocidade" placeholder="Velocidade" className="form-control" required/>
                                     <small className="help-block form-text">Frequência padrão em que opera</small>
                                 </div>
                                 <div className="col">
@@ -160,29 +141,29 @@ function DashboardInsercaoMemoriaRam() {
                                     <div className="form-check">
                                         <div className="radio">
                                             <label htmlFor="radio1" className="form-check-label ">
-                                                <input type="radio" id="radio1" name="radios" value="DDR3" className="form-check-input" />DDR3
+                                                <input type="radio" id="tecnologia" name="tecnologia" value="DDR3" className="form-check-input" required/>DDR3
                                             </label>
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="DDR4" className="form-check-input" />DDR4
+                                                <input type="radio" id="tecnologia" name="tecnologia" value="DDR4" className="form-check-input" required/>DDR4
                                             </label>
                                         </div>
                                         <div className="radio">
                                             <label htmlFor="radio2" className="form-check-label ">
-                                                <input type="radio" id="radio2" name="radios" value="DDR5" className="form-check-input" />DDR5
+                                                <input type="radio" id="tecnologia" name="tecnologia" value="DDR5" className="form-check-input" required/>DDR5
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Voltagem</label>
-                                    <input type="email" name="email-input" placeholder="Voltagem" className="form-control" />
+                                    <label htmlFor="voltagem" className=" form-control-label">Voltagem</label>
+                                    <input type="text" name="voltagem" id="voltagem" placeholder="Voltagem" className="form-control" required/>
                                     <small className="help-block form-text">Voltagem padrão em que opera</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Latência</label>
-                                    <input type="email" name="email-input" placeholder="Latência" className="form-control" />
+                                    <label htmlFor="latencia" className=" form-control-label">Latência</label>
+                                    <input type="text" name="latencia" id="latencia" placeholder="Latência" className="form-control" required/>
                                     <small className="help-block form-text">Latência padrão em que opera</small>
                                 </div>
                             </div>
@@ -192,7 +173,7 @@ function DashboardInsercaoMemoriaRam() {
                                     <div className="form-check">
                                         <div className="checkbox">
                                             <label htmlFor="checkbox1" className="form-check-label ">
-                                                <input type="checkbox" id="checkbox1" name="checkbox1" value="notebook" className="form-check-input check" />É para notebooks?
+                                                <input type="checkbox" id="notebook" name="notebook" value="notebook" className="form-check-input check" />É para notebooks?
                                             </label>
                                         </div>
                                     </div>

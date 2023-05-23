@@ -28,9 +28,6 @@ function DashboardInsercaoPlacaDeVideo() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "PlacaDeVideo",
             especificacoes: {
                 "clock": data.clock, "memoria": data.memoria, "clmemoria": data.clmemoria,
@@ -107,59 +104,43 @@ function DashboardInsercaoPlacaDeVideo() {
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoPlacaDeVideo} className="form-horizontal">
 
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
+                            
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" placeholder="Nome" className="form-control" />
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" placeholder="Fabricante" className="form-control" />
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
                                     <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock</label>
-                                    <input type="email" name="email-input" placeholder="Clock" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Clock</label>
+                                    <input type="text" name="clock" id="clock" placeholder="Clock" className="form-control" required/>
                                     <small className="help-block form-text">Frequência da unidade de processamento da GPU</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Memória</label>
-                                    <input type="email" name="email-input" placeholder="Memória" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Memória</label>
+                                    <input type="text" name="memoria" id="memoria" placeholder="Memória" className="form-control" required/>
                                     <small className="help-block form-text">Capacidade de Memória da GPU</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Clock de Memória</label>
-                                    <input type="email" name="email-input" placeholder="Clock de Memória" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Clock de Memória</label>
+                                    <input type="text" name="clmemoria" id="clmemoria" placeholder="Clock de Memória" className="form-control" required/>
                                     <small className="help-block form-text">Frequência da Memória da GPU, ou a Largura de banda</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Conectores</label>
-                                    <input type="email" name="email-input" placeholder="Conectores" className="form-control" />
+                                    <label htmlFor="text-input" className=" form-control-label">Conectores</label>
+                                    <input type="text" name="conector" id="conector" placeholder="Conectores" className="form-control" required/>
                                     <small className="help-block form-text">Conectores de alimentação</small>
                                 </div>
                             </div>

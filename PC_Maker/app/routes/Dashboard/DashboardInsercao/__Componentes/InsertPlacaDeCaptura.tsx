@@ -29,9 +29,6 @@ function DashboardInsercaoPlacaCaptura() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "PlacaDeCaptura",
             especificacoes: {
                 "interface": data.interface, "saida": data.saida,
@@ -105,59 +102,43 @@ function DashboardInsercaoPlacaCaptura() {
                     </div>
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoPlacaDeCaptura} className="form-horizontal">
+                            
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" placeholder="Nome" className="form-control" />
+                                    <label htmlFor="nome" className=" form-control-label">Nome</label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" placeholder="Fabricante" className="form-control" />
+                                    <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
+                                    <label htmlFor="modelo" className=" form-control-label">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Interface</label>
-                                    <input type="text" name="preco-input" placeholder="Interface" className="form-control" />
+                                    <label htmlFor="interface" className=" form-control-label">Interface</label>
+                                    <input type="text" name="interface" id="interface" placeholder="Interface" className="form-control" required/>
                                     <small className="help-block form-text">Interface</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Saida</label>
-                                    <input type="text" name="preco-input" placeholder="Saida" className="form-control" />
+                                    <label htmlFor="saida" className=" form-control-label">Saida</label>
+                                    <input type="text" name="saida" id="saida" placeholder="Saida" className="form-control" required/>
                                     <small className="help-block form-text">Saida</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Taxa de bits</label>
-                                    <input type="text" name="preco-input" placeholder="Taxa de bits" className="form-control" />
+                                    <label htmlFor="taxadbit" className=" form-control-label">Taxa de bits</label>
+                                    <input type="text" name="taxadbit" id="taxadbit" placeholder="Taxa de bits" className="form-control" required/>
                                     <small className="help-block form-text">Taxa de bits</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Maior resolução suportada</label>
-                                    <input type="text" name="preco-input" placeholder="Maior resolução suportada" className="form-control" />
+                                    <label htmlFor="maioresupor" className=" form-control-label">Maior resolução suportada</label>
+                                    <input type="text" name="maioresupor" id="maioresupor" placeholder="Maior resolução suportada" className="form-control" required/>
                                     <small className="help-block form-text">Maior resolução suportada</small>
                                 </div>
                             </div>

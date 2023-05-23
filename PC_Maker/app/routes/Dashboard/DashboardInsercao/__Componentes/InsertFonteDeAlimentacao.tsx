@@ -28,9 +28,6 @@ function DashboardInsercaoFonteDeAlimentacao() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "FonteDeAlimentacao",
             especificacoes: {
                 "potencia": data.potencia, "certificacao": data.certificacao,
@@ -109,44 +106,28 @@ function DashboardInsercaoFonteDeAlimentacao() {
                     </div>
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoFonteDeAlimentacao} className="form-horizontal">
+                            
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="nome-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="nome-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" placeholder="Nome" className="form-control" />
+                                    <label htmlFor="nome" className=" form-control-label">Nome</label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" placeholder="Fabricante" className="form-control" />
+                                    <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" placeholder="Modelo" className="form-control" />
+                                    <label htmlFor="modelo" className=" form-control-label">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Potência</label>
-                                    <input type="text" name="preco-input" placeholder="Potência" className="form-control" />
+                                    <label htmlFor="potencia" className=" form-control-label">Potência</label>
+                                    <input type="text" name="potencia" id="potencia" placeholder="Potência" className="form-control" required/>
                                     <small className="help-block form-text">Potência</small>
                                 </div>
                                 <div className="col">
@@ -165,18 +146,18 @@ function DashboardInsercaoFonteDeAlimentacao() {
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector Principal</label>
-                                    <input type="text" name="preco-input" placeholder="Conector Principal" className="form-control" />
+                                    <label htmlFor="conPrincipal" className=" form-control-label">Conector Principal</label>
+                                    <input type="text" name="conPrincipal" id="conPrincipal" placeholder="Conector Principal" className="form-control" required/>
                                     <small className="help-block form-text">Conector Principal (20 + 4 Pin, etc) </small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector da CPU</label>
-                                    <input type="text" name="preco-input" placeholder="Conector da CPU" className="form-control" />
+                                    <label htmlFor="conCPU" className=" form-control-label">Conector da CPU</label>
+                                    <input type="text" name="conCPU" id="conCPU" placeholder="Conector da CPU" className="form-control" required/>
                                     <small className="help-block form-text">Conector da CPU (4 + 4 Pin, etc)</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Conector PCIe</label>
-                                    <input type="text" name="preco-input" placeholder="Conector PCIe" className="form-control" />
+                                    <label htmlFor="conPCIe" className=" form-control-label">Conector PCIe</label>
+                                    <input type="text" name="conPCIe" id="conPCIe" placeholder="Conector PCIe" className="form-control" required/>
                                     <small className="help-block form-text">Quantidade e tipo do conector PCIe (6 + 2 Pin, etc)</small>
                                 </div>
                             </div>
