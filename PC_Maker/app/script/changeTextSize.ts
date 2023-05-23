@@ -22,9 +22,6 @@
 
 
 
-
-
-
     */
 
 /* export const changeTextSize = (type: string) =>
@@ -43,7 +40,6 @@
   }); */
 
 
-
 /* Tentativa 02 */
 
 
@@ -52,14 +48,14 @@ $(document).ready(function () {
   $('#aumentar').click(function () {
     if (fonte < 10) {
       fonte++
-      $('body').css({ 'font-size': fonte + 'rem' })
+      $('home').css({ 'font-size': fonte + 'rem' })
     }
   })
 
   $('#diminuir').click(function () {
     if (fonte > 0) {
       fonte--
-      $('body').css({ 'font-size': fonte + 'rem' })
+      $('home').css({ 'font-size': fonte + 'rem' })
     }
   })
 })

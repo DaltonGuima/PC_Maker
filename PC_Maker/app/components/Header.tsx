@@ -7,23 +7,26 @@ import type { loader } from '~/routes';
 import { categoriaProduto } from '~/routes/Search/$searchType.$searchContent';
 
 
-
-
-
-
 export function Header() {
     const data = useLoaderData<typeof loader>();
 
-    
-
     const changeTheme = useHookstate(themePage)
-    const [theme, setTheme] = useLocalStorage('theme', changeTheme.get() ? 'dark' : 'light');
+    const [theme, setTheme] = useLocalStorage('theme', changeTheme.get());
     const navigate = useNavigate();
     
 
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme)
+    }
+
+    const switchContraste = () => {
+        const newTheme = theme === 'contraOn' ? 'contraOff' : 'contraOn';
+        setTheme(newTheme)
+    }
+
+    const changeFontSize = () => {
+        
     }
 
     useEffect(() => {
@@ -64,10 +67,10 @@ export function Header() {
                             <ul className="atalhos list-group list-group-horizontal">
                                 <li id="pgacess"><a href="../Acessibilidade"><i className="fa-solid fa-circle-info"></i></a></li>
                                 <li className="tema" id="temaSwitcher" onClick={switchTheme}><a><i className="fa-solid fa-sun"></i></a></li>
-                                <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
+                                <li className="contraste" onClick={switchContraste}><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 {/* <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li> */}
-                                <li className="fonte"><a id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
-                                <li className="fonte"><a id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
+                                <li className="fonte"><a onClick={changeFontSize} id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
+                                <li className="fonte"><a onClick={changeFontSize} id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -77,7 +80,7 @@ export function Header() {
             <nav className="navbar navbar-expand-sm navbar-dark" id="topo">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src={`/${changeTheme.get() == "dark" ? "logoJuntaPecaRoxoV2" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
+                        <img src={`/${changeTheme.get() == "dark" || changeTheme.get() == "contraOn"  ? "logoJuntaPecaRosaV1" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
                         {/* <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} /> */}
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -135,7 +138,8 @@ export function Header() {
                                             <img src="/among_us.jpg" alt="Foto de Perfil" className="imagemPerfil" /> {data.user?.nome}
                                         </button>
                                         <div className="dropdown-menu dropdown-menu-end perfilDropdown">
-                                            <Link className="dropdown-item" to="/perfil"><i className="fa fa-user-o"></i> Meu Perfil</Link>  {/* vou ter que parametizar depois */}
+                                            <Link className="dropdown-item" to="/perfil"><i className="fa fa-user-o"></i>  Meu Perfil</Link>  {/* vou ter que parametizar depois */}
+                                            <Link className="dropdown-item" to="/builds"><i className="fa-solid fa-wrench"></i> Minhas Builds</Link>  {/* vou ter que parametizar depois */}
                                             {/* pode colocar um builds salvas aqui */}
                                             <form action="/logout" method="post">
                                                 <button className="dropdown-item">
