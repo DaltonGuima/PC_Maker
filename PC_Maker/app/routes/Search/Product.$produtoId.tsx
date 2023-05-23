@@ -1,6 +1,5 @@
 import { useHookstate } from "@hookstate/core";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
-import { redirect } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useNavigate, useParams } from "@remix-run/react";
 import axios from "axios";
@@ -59,6 +58,27 @@ function Product() {
 
     }, [params.produtoId])
 
+    const categoriaProduto =
+        [
+            "Processador", "Armazenamento", "Placa de Vídeo",
+            "Memória RAM", "Placa-Mãe", "Fonte de Alimentação",
+            "Gabinete"
+        ]
+    function AddBuildButton(props: { categoria: string | undefined, id: number }) {
+
+        if (props.categoria?.valueOf != undefined && categoriaProduto.includes(props.categoria)) {
+            return (
+                <th>
+                    <button className="btn-details rounded p-2" onClick={() => addBuild(props.id)}>
+                        <i className="fa-sharp fa-solid fa-plus mx-1"></i>
+                        Adicionar na Build {/* Redireciona para a Loja Externa */}
+                    </button>
+                </th>
+            )
+        } else {
+            return null
+        }
+    }
 
     return (
         <div data-theme={changeTheme.get()}>
@@ -104,8 +124,6 @@ function Product() {
                                             <th className="col-md-7 pb-3">Nome</th>
                                             <th className="col-md-2">Disponibilidade</th>
                                             <th className="col-md-1">Preço</th>
-                                            {/* Precisa? tipo não está adicionado no banco de dados isso */}
-                                            <th className="col-md-1">Frete</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -114,29 +132,22 @@ function Product() {
                                             return (
                                                 <tr className="mt-2 my-3" key={localVenda.id}>
                                                     <th className="py-3">
-                                                        <img
+                                                        {/* <img
                                                             src="/among_us2.png"
                                                             className="img-fluid"
                                                             alt="Imagem responsiva"
                                                             style={{ width: "100px", height: "100px" }}
                                                         />
-                                                        &emsp;{localVenda.vendedor}
+                                                        &emsp; */}{localVenda.vendedor}
                                                     </th>
                                                     <th className="col-md-2">
                                                         Disponível
                                                     </th>
                                                     <th>R$ {localVenda.preco}</th>
-                                                    <th>R$ 5</th>
-                                                    <th>
-                                                        {/* Adicionar uma verificação se o componente é algum que compoê a build */}
-
-                                                        <button className="btn-details rounded p-2" onClick={() => addBuild(localVenda.id)}>
-                                                            <i className="fa-sharp fa-solid fa-plus mx-1"></i>
-                                                            Adicionar na Build {/* Redireciona para a Loja Externa */}
-                                                        </button>
-
-                                                        {/* vc pode fazer outra coluna para ir comprar direto na loja */}
-                                                    </th>
+                                                    <AddBuildButton
+                                                        id={localVenda.id}
+                                                        categoria={produto.categoria}
+                                                    />
                                                 </tr>
                                             )
                                         })}

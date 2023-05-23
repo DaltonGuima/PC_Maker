@@ -1,3 +1,5 @@
+import { ChartDashboard } from "../../components/ChartDashboard";
+
 function MainDashboard() {
     return (
         <div className="main-content">
@@ -446,6 +448,18 @@ function MainDashboard() {
                             </div>
                         </div>
                     </div>
+
+                    <div>
+                        <div className="row  text-center justify-content-center">
+                            <div className="col-lg-12">
+                                <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                                    {/* dw3d */}
+                                    <ChartDashboard />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

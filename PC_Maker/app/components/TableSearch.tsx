@@ -20,9 +20,8 @@ export default function TableSearch(props: TableSearchProps) {
                     <div className="col text-white fs-4 text-start">{props.body.length} Resultados Encontrados</div>
                     {/* Adcionar algum estilo aqui */}
                     <div className="col d-flex justify-content-end">
-
-                        <div className="form-floating text-light col-md-3">
-                            <select onChange={Paginacao} className="form-select form-select-dark bg-transparent text-light py-2" name="property" id='paginas'>
+                        <div className="form-floating text-light col-md-3" data-bs-theme="dark">
+                            <select onChange={Paginacao} className="form-select form-select-dark bg-transparent text-light py-2" data-bs-theme="dark" name="property" id='paginas'>
                                 {
                                     range.map((el: number) =>
                                         (<option key={el} value={el} className="bg-dark text-light">Página {el} </option>))

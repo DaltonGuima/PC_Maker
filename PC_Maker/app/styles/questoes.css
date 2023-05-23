@@ -171,4 +171,9 @@ h3 {
 
 .barrita {
   margin-bottom: 2rem !important;
+  background-color: var(--background-tertiary-transparent) !important;
+}
+
+.bg-info {
+  background-color: var(--background-secondary-transparent) !important;
 }

@@ -1,10 +1,18 @@
+import { useHookstate } from '@hookstate/core';
+import { themePage } from '../script/changeTheme';
+
+
+
 export function Footer() {
+
+    const changeTheme = useHookstate(themePage)
+
     return (
         <footer className="site-footer" id="rodape">
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12 col-md-3">
-                        <img src="/logoJuntaPecaRoxoV2.png" className="col-sm-12" id="low-logo" alt="Logo da empresa" style={{ width: '15rem', height: '5rem' }} />
+                        <img src={`/${changeTheme.get() == "dark" ? "logoJuntaPecaRoxoV2" : "logoJuntaPecaRosaV4"}.png`} className="col-sm-12" id="low-logo" alt="Logo da empresa" style={{ width: '15rem', height: '5rem' }} />
                     </div>
                     <div className="col-xs-6 col-md">
                         <h6>Categorias</h6>

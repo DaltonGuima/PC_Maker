@@ -188,9 +188,11 @@ li {
   padding: 10px;
 }
 
-.search-button a {
+.search-button button {
+  border: none;
   align-items: center;
   position: relative;
+  background-color: transparent;
   margin: 10px 10px 10px 15px;
   color: white;
   display: block;
@@ -199,7 +201,7 @@ li {
 @media screen and (min-width: 998px) {
   .profile {
     position: absolute;
-    right: 2rem;
+    right: 2.5rem;
   }
 }
 
@@ -211,7 +213,8 @@ li {
   border: 1px solid white;
 }
 
-.profile .dropdown-item {
+.profile .dropdown-item,
+.dropdown-navbar .dropdown-item {
   border-right: #7042d5 solid 20px;
   background-color: var(--background-primary);
   color: var(--text-primary);

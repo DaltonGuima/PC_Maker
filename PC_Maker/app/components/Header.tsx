@@ -1,9 +1,11 @@
 import { useHookstate } from '@hookstate/core';
-import { useEffect } from 'react';
+import { FormEvent, useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { themePage } from '../script/changeTheme';
-import { Link, useLoaderData } from "@remix-run/react"
+import { Link, useLoaderData, useNavigate } from "@remix-run/react"
 import type { loader } from '~/routes';
+import { categoriaProduto } from '~/routes/Search/$searchType.$searchContent';
+
 
 
 
@@ -14,14 +16,20 @@ export function Header() {
 
     const changeTheme = useHookstate(themePage)
     const [theme, setTheme] = useLocalStorage('theme', changeTheme.get() ? 'dark' : 'light');
+    const navigate = useNavigate();
 
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme)
+        changeTheme.set(newTheme)
     }
-    useEffect(() => {
-        changeTheme.set(theme)
-    }, [changeTheme, theme]);
+
+    function search(event: FormEvent) {
+        event.preventDefault();
+        const formData = new FormData(event.target as HTMLFormElement)
+
+        navigate(`Search/Componente/${formData.get("itemPesquisa")}`)
+    }
 
     return (
         <header data-theme={changeTheme.get()}>
@@ -49,7 +57,7 @@ export function Header() {
                         <div className="d-md-inline-flex col-md Funcoes">
                             <ul className="atalhos list-group list-group-horizontal">
                                 <li id="pgacess"><a href="../Acessibilidade"><i className="fa-solid fa-circle-info"></i></a></li>
-                                <li className="tema" id="temaSwitcher" onClick={switchTheme}><a ><i className="fa-solid fa-sun"></i></a></li>
+                                <li className="tema" id="temaSwitcher" onClick={switchTheme}><a><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste"><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 {/* <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li> */}
                                 <li className="fonte"><a id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
@@ -63,31 +71,50 @@ export function Header() {
             <nav className="navbar navbar-expand-sm navbar-dark" id="topo">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} />
+                        <img src={`/${changeTheme.get() == "dark" ? "logoJuntaPecaRoxoV2" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
+                        {/* <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} /> */}
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                         <span className="navbar-toggler-icon"></span>
                     </button>
                     <div className="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul className="navbar-nav">
-                            {/*                             <li className="nav-item">
-                                <a className="nav-link" href="#">Monte seu Computador</a>
-                            </li> */}
+
                             <li className="nav-item">
-                                <a className="nav-link" >Builds</a>
+                                <a className="nav-link">Builds</a>
                             </li>
-                            <li className="nav-item">
+                            <div className="dropdown-navbar">
+                                <ul className="navbar-nav">
+                                    <div className="nav-item dropdown">
+                                        <button className="nav-link dropleft dropdown-toggle" data-bs-toggle="dropdown">
+                                            Componentes
+                                        </button>
+                                        <div className="dropdown-menu dropdown-menu perfilDropdown">
+                                            {categoriaProduto.map(categoria => {
+                                                return (
+                                                    <Link className="dropdown-item" key={categoria} to={`/Search/CategoriaProduto/${categoria}`}>{categoria}</Link>
+                                                )
+                                            })}
+                                        </div>
+                                    </div>
+                                </ul>
+                            </div>
+
+
+
+
+                            {/* <li className="nav-item">
                                 <Link className="nav-link" to="/Guias">Guias</Link>
-                            </li>
+                            </li> */}
                         </ul>
                         <div className="search-button col-md-4">
-                            <form className="d-flex" id="barraPesquisa">
+                            <form className="d-flex" id="barraPesquisa" onSubmit={search}>
 
-                                <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='' />
+                                <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='itemPesquisa' />
                                 <label id="search-field" htmlFor='itemPesquisa'>
-                                    <a className='text-white'>
+                                    <button type='submit' className='text-white submitButtonSearch'>
                                         <i className="fa-solid fa-search"></i>
-                                    </a>
+                                    </button>
                                 </label>
 
                             </form>
@@ -96,23 +123,21 @@ export function Header() {
                         <div className="profile">
                             {data.user ?
                                 <ul className="navbar-nav">
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropleft dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                                    <div className="nav-item dropdown">
+
+                                        <button className="nav-link dropleft dropdown-toggle" data-bs-toggle="dropdown">
                                             <img src="/among_us.jpg" alt="Foto de Perfil" className="imagemPerfil" /> {data.user?.nome}
-                                        </a>
+                                        </button>
                                         <div className="dropdown-menu dropdown-menu-end perfilDropdown">
-                                            <button className="dropdown-item disabled"> Perfil
-                                                <i className="fa fa-user-o"></i>
-                                            </button>
-                                            <Link className="dropdown-item" to="/perfil">Meu Perfil</Link>  {/* vou ter que parametizar depois */}
-                                            <a className="dropdown-item"><i className="fa fa-question" aria-hidden="true"></i> Ajuda</a>
+                                            <Link className="dropdown-item" to="/perfil"><i className="fa fa-user-o"></i> Meu Perfil</Link>  {/* vou ter que parametizar depois */}
+                                            {/* pode colocar um builds salvas aqui */}
                                             <form action="/logout" method="post">
                                                 <button className="dropdown-item">
                                                     <i className="fa fa-sign-out" aria-hidden="true"></i> Logout
                                                 </button>
                                             </form>
                                         </div>
-                                    </li>
+                                    </div>
                                 </ul>
                                 :
                                 <div>

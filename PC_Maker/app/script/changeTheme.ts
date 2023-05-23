@@ -1,3 +1,4 @@
 import { hookstate } from "@hookstate/core";
 
-export const themePage = hookstate("");
+
+export const themePage = hookstate("dark");

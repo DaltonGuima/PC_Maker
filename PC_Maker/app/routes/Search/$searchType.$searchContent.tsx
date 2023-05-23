@@ -33,6 +33,14 @@ export const meta: MetaFunction = ({ params }) => {
 }
 
 
+export const categoriaProduto =
+    [
+        "Processador", "Armazenamento", "Placa de Vídeo",
+        "Memória RAM", "Placa-Mãe", "Fonte de Alimentação",
+        "Gabinete", "Placa de Captura", "Mouse", "Teclado",
+        "Cooler Box", "Ventoinha", "Monitor", "Placa de Som"
+    ]
+
 function Search() {
 
     const params = useParams();
@@ -42,12 +50,6 @@ function Search() {
     if (params.searchType?.valueOf != undefined && !searchType.includes(params.searchType?.toString()))
         throw new Error("Tipo de pesquisa inválido");
 
-    const categoriaProduto =
-        [
-            "Placa-Mãe", "Memória RAM", "Armazenamento",
-            "Placa de Vídeo", "Gabinete", "Fonte de Alimentação",
-            "Ventoinha"
-        ]
     if (params.searchType?.valueOf != undefined && params.searchType == "CategoriaProduto")
         if (params.searchContent?.valueOf != undefined && !categoriaProduto.includes(params.searchContent?.toString()))
             throw new Error("Componente Inexistente");
@@ -126,7 +128,7 @@ function Search() {
                 <div className="headline text text-white">
                     <h2 className="text-center py-3 pt-4">
                         {params.searchType == "CategoriaProduto" ?
-                            `Escolha 👉 ${params.searchContent}` : "Pesquisar"
+                            `Escolha 👉 ${params.searchContent}` : `Resultado da pesquisa: ${params.searchContent}`
                         }
                     </h2>
                     <button type="button" id="sidebarCollapse" className="btn btn-info m-0 p-2 d-lg-none" onClick={sidebarCollapse}>
@@ -155,7 +157,7 @@ function Search() {
                                     <div>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Intel
                                                 </label>
@@ -163,7 +165,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     AMD
                                                 </label>
@@ -171,7 +173,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Asus
                                                 </label>
@@ -179,7 +181,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Gigabyte
                                                 </label>
@@ -197,7 +199,7 @@ function Search() {
                                     <>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Todos
                                                 </label>
@@ -205,7 +207,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
@@ -215,7 +217,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
@@ -225,7 +227,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
@@ -235,7 +237,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star  text-muted" htmlFor="defaultCheck1"></label>
@@ -245,7 +247,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label fa fa-star text-warning" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star  text-muted" htmlFor="defaultCheck1"></label>
                                                 <label className="form-check-label fa fa-star  text-muted" htmlFor="defaultCheck1"></label>
@@ -266,7 +268,7 @@ function Search() {
                                     <>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Kabum
                                                 </label>
@@ -274,7 +276,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Pichau
                                                 </label>
@@ -282,7 +284,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Mercado Livre
                                                 </label>
@@ -290,7 +292,7 @@ function Search() {
                                         </ul>
                                         <ul>
                                             <div className="form-check">
-                                                <input className="form-check-input" type="checkbox" value="" id="defaultCheck1" />
+                                                <input className="form-check-input inpSty" type="checkbox" value="" id="defaultCheck1" />
                                                 <label className="form-check-label" htmlFor="defaultCheck1">
                                                     Amazon
                                                 </label>

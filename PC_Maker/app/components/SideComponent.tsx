@@ -6,7 +6,7 @@ interface SideComponentProps {
 }
 
 export function SideComponent(props: SideComponentProps) {
-    const [display, setDisplay] = useState("none")
+    const [display, setDisplay] = useState("block")
     const [iconState, setIconState] = useState("plus")
 
     function HandeDisplay() {
@@ -23,7 +23,7 @@ export function SideComponent(props: SideComponentProps) {
                     <h3>{props.nome}</h3>
                 </div>
                 <div className="col text-end">
-                <i className={`fa-solid fa-${iconState} bg-transparent`}></i>
+                    <i className={`fa-solid fa-${iconState} bg-transparent`}></i>
                 </div>
             </div>
             <form className={`d-${display} side-component`}>

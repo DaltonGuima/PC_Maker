@@ -66,7 +66,7 @@
 }
 
 .notes-builder {
-  border-bottom: #7042d5 solid 2px;
+  border-bottom: #7042d5 solid 0.15rem;
 }
 
 .state-note {
@@ -120,7 +120,7 @@
   position: relative;
   margin: 14px auto;
   height: 8rem;
-  border-bottom: #7042d5 solid 2px;
+  border-bottom: #7042d5 solid 0.15rem;
 }
 
 #carousel {
@@ -170,7 +170,7 @@
 
 #secaoSuperiorComponentes {
   padding-bottom: 2%;
-  border-bottom: #7042d5 solid 2px;
+  border-bottom: #7042d5 solid 0.15rem;
 }
 
 #listaComponentes {
@@ -298,7 +298,7 @@ div.slide:not(:last-child) {
 }
 
 .table thead {
-  border-bottom: #7042d5 solid 2px;
+  border-bottom: #7042d5 solid 0.15rem;
 }
 
 .table tr {
@@ -306,7 +306,7 @@ div.slide:not(:last-child) {
 }
 
 .table tr:last-child {
-  border-bottom: #7042d5 solid 2px;
+  border-bottom: #7042d5 solid 0.15rem;
 }
 
 .table tbody .peca {

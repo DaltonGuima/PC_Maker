@@ -17,7 +17,7 @@ import { Link } from "@remix-run/react";
 import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
 import axios from "axios";
 import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
-import { LocaisVendas } from "~/Interface/ComponenteInterface";
+import type { LocaisVendas } from "~/Interface/ComponenteInterface";
 
 export const links: LinksFunction = () => {
   return [
@@ -41,6 +41,8 @@ export const loader = async ({ request }: LoaderArgs) => {
 function Builder() {
   // const [teste, setTeste] = useLocalStorage('teste', ['a', 'b']);
   // console.log(formData.getAll("modelo"))
+
+
 
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
@@ -79,7 +81,7 @@ function Builder() {
           </td>
           {/* Vou ter que alterar aqui dp */}
           <td className="text-success p-sm-2 fw-bold" >R$ {localVenda?.preco}</td>
-          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" defaultValue={1} /></td>
+          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={1} /></td>
           <td className="d-flex justify-content-center p-sm-2">
             <p className="d-block cont">{localVenda?.vendedor}</p>
           </td>
@@ -141,7 +143,7 @@ function Builder() {
         </div>
 
 
-        <form action="post">
+        <form>
           <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
             <Modal.Header closeButton className="modal-exp-header">
               <Modal.Title>Salvar Build</Modal.Title>

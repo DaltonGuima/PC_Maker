@@ -1,6 +1,5 @@
 import type { FormEvent } from "react";
 import { useState, useEffect } from "react";
-/* import { useEffect } from "react"; */
 import { changeSelectValue } from "~/script/changeSelectValue";
 import type { AxiosError, AxiosResponse } from "axios";
 import axios from "axios";
@@ -126,7 +125,7 @@ function DashboardInsercaoVentoinha() {
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="tamanho" className=" form-control-label">Tamanho</label>
-                                    <select name="tamanho" id="tamanho" className="form-control-sm form-control" defaultValue={""} required>
+                                    <select name="tamanho" id="tamanho" className="form-control-sm form-control" defaultValue={"Selecione"} required>
                                         <option selected disabled>Selecione</option>
                                         <option value="80mm">80mm</option>
                                         <option value="92mm">92mm</option>
