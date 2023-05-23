@@ -28,11 +28,9 @@ function DashboardInsercaoArmazenamento() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "Armazenamento",
-            especificacoes: { "tamanho": data.tamanho }
+            especificacoes: { "tipo": data.tipo, "capacidade": data.capacidade,
+                              "velEscritura": data.velEscrita, "velLeitura": data.velLeitura }
         }).then((response) => {
             setResponse(response);
         }).catch(error => {
@@ -104,44 +102,28 @@ function DashboardInsercaoArmazenamento() {
                     </div>
                     <form onSubmit={handleCreateProdutoArmazenamento} className="form-horizontal">
                         <div className="card-body card-block">
+                            
                             <div className="row">
                                 <div className="col">
-                                    <label htmlFor="vendedor-produto" className=" form-control-label">Vendedor</label>
-                                    <input type="text" name="vendedor-produto" id="vendedor-produto" placeholder="Vendedor" className="form-control" />
-                                    <small className="help-block form-text text-muted">Nome da empresa que vende o produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="link-produto" className=" form-control-label">Link</label>
-                                    <input type="text" name="link-produto" id="link-produto" placeholder="Link" className="form-control" />
-                                    <small className="help-block form-text text-muted">Link url do produto</small>
-                                </div>
-                                <div className="col">
-                                    <label htmlFor="preco-input" className=" form-control-label">Preço</label>
-                                    <input type="text" name="preco-input" id="preco-produto" placeholder="Preço" className="form-control" />
-                                    <small className="help-block form-text">Preço do produto</small>
-                                </div>
-                            </div>
-                            <div className="row">
-                                <div className="col">
-                                    <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome-produto" id="nome-produto" placeholder="Nome" className="form-control" />
+                                    <label htmlFor="nome" className=" form-control-label">Nome</label>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="fabricante-processador" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante-processador" id="fabricante-processaor" placeholder="Fabricante" className="form-control" />
+                                    <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
-                                    <label htmlFor="modelo-input" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo-input" id="modelo-processador" placeholder="Modelo" className="form-control" />
+                                    <label htmlFor="modelo" className=" form-control-label">Modelo</label>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="selectSm" className=" form-control-label">Tipo</label>
-                                    <select name="tipo-processador" id="tipo-processador" className="form-control-sm form-control">
+                                    <select name="tipo" id="tipo" className="form-control-sm form-control" required>
                                         <option selected value="" disabled>Selecione</option>
                                         <option value="HDD-SATA">HDD SATA</option>
                                         <option value="SSD-SATA">SSD SATA</option>
@@ -152,30 +134,31 @@ function DashboardInsercaoArmazenamento() {
                                 </div>
                                 <div className="col">
                                     <label htmlFor="capacidade-processador" className=" form-control-label">Capacidade</label>
-                                    <input type="text" name="email-input" id="capacidade-processador" placeholder="Capacidade" className="form-control" />
+                                    <input type="text" name="capacidade" id="capacidade" placeholder="Capacidade" className="form-control" required/>
                                     <small className="help-block form-text">Capacidade de armazenamento</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Velocidade de Leitura</label>
-                                    <input type="text" name="email-input" placeholder="Velocidade de Leitura" className="form-control" />
+                                    <label htmlFor="velLeitura" className=" form-control-label">Velocidade de Leitura</label>
+                                    <input type="text" name="velLeitura" id="velLeitura" placeholder="Velocidade de Leitura" className="form-control" required/>
                                     <small className="help-block form-text">Velocidade de Leitura ou RPM</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="email-input" className=" form-control-label">Velocidade de Escrita</label>
-                                    <input type="text" name="email-input" placeholder="Velocidade de Escrita" className="form-control" />
+                                    <label htmlFor="velEscrita" className=" form-control-label">Velocidade de Escrita</label>
+                                    <input type="text" name="velEscrita" id="velEscrita" placeholder="Velocidade de Escrita" className="form-control" required/>
                                     <small className="help-block form-text">Velocidade de Escrita</small>
                                 </div>
                             </div>
 
                         </div>
                     </form>
-                </div>
-                <div className="card-footer">
+                    <div className="card-footer">
                     <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
                         <i className="zmdi zmdi-plus"></i>Adicionar</button>
                     <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                     </div>
                 </div>
+                </div>
+                
             </div>
         </div>
 

@@ -114,7 +114,7 @@ function Product() {
                         <div id="content" className="w-100 d-block">
                             <div className="container-fluid">
                                 <div className="row border-bottom border-secondary-subtle pb-3">
-                                    <div className="col text-white fs-4 text-start">Preços</div>
+                                    <div className="col textoCor fs-4 text-start">Preços</div>
 
                                     {/* Adcionar algum estilo aqui */}
                                     <div className="col d-flex justify-content-end"></div>

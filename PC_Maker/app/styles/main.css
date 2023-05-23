@@ -648,6 +648,8 @@ li {
 .loginButton,
 .cadButton {
   background-color: var(--background-secondary-transparent) !important;
+  color: var(--white) !important;
+  font-weight: var(--bold);
   margin-right: 2rem;
 }
 

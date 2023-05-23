@@ -125,7 +125,7 @@ function Search() {
             <Header />
 
             <main id="conteudo" className="app" >
-                <div className="headline text text-white">
+                <div className="headline text textoCor">
                     <h2 className="text-center py-3 pt-4">
                         {params.searchType == "CategoriaProduto" ?
                             `Escolha 👉 ${params.searchContent}` : `Resultado da pesquisa: ${params.searchContent}`
