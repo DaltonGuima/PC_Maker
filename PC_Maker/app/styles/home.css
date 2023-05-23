@@ -19,11 +19,16 @@ h6 {
 }
 
 .montarButton {
-  background-color: var(--background-tertiary-transparent) !important;
+  background-color: var(--background-tertiary-transparent);
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  color: var(--white) !important;
+  font-weight: var(--bold);
+  
 }
 
 .montarButton:hover {
   background-color: var(--background-secondary-transparent) !important;
+  border-color: var(--background-secondary-transparent);
 }
 
 #temaSwitcher {
@@ -114,10 +119,7 @@ h6 {
   margin-top: 20px;
 }
 
-.banner .btn {
-  background-color: rgba(112, 66, 213, 0.8);
-  border: 2px solid rgba(0, 0, 0, 0.5);
-}
+
 
 .cards {
   margin-bottom: 10rem;
@@ -152,4 +154,14 @@ h6 {
   position: absolute;
   top: 290px;
   left: 10px;
+}
+
+.cardMainMonteHead{
+  color: var(--white) !important;
+  font-size: 2rem;
+}
+
+.cardMainMonteCont{
+  color: var(--white) !important;
+  font-size: 1rem;
 }

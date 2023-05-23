@@ -236,7 +236,7 @@ function Cadastro() {
                           <div className="row">
                             <div className="col col-lg-9 text-wrap pt-1">
                               <input className="form-check-input bg-dark border-white" type="checkbox" value="" id="defaultCheck1" required />
-                              <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="">leia aqui</a></small></label>
+                              <label className="form-check-label px-1 minorText textTherme" htmlFor="defaultCheck1"> Termos de uso <small><a href="" className="linkCor">leia aqui</a></small></label>
                             </div>
                             <div className="col col-lg-3 ">
                               {/* Depois eu faço o disabled pro botão */}

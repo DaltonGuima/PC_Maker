@@ -24,6 +24,7 @@
   --text-quinary: #e3dfdf;
   --text-senary: #8d24f2;
   --social-icons: #e3dfdf;
+  --social-icons2: #1f8dd6;
   --accent: purple;
   --background-gradient-primary: linear-gradient(
     180deg,
@@ -33,6 +34,9 @@
   );
   --button-back: #8d24f2;
   --button-front: #3e1291;
+  --black: black;
+  --white: white;
+  
 }
 [data-theme="dark"] {
   --background-primary: #212425;
@@ -56,6 +60,7 @@
   --text-quinary: #e3dfdf;
   --text-senary: #c68bff;
   --social-icons: #1e1e1e;
+  --social-icons2: #1f8dd6;
   --accent: #811e4f;
   --background-gradient-primary: linear-gradient(
     180deg,
@@ -70,6 +75,38 @@
   );
   --button-back: #ae306f;
   --button-front: #3e1291;
+  --black: black;
+  --white: white;
+}
+[data-theme="contraOn"] {
+  --background-primary: black;
+  --background-secondary: black;
+  --background-tertiary: black;
+  --background-quaternary: black;
+  --background-quinary: black;
+  --background-senary: black;
+  --background-primary-transparent: black;
+  --background-secondary-transparent: black;
+  --background-tertiary-transparent: black;
+  --text-primary: yellow;
+  --text-secondary: yellow;
+  --text-tertiary: yellow;
+  --text-quaternary: yellow;
+  --text-quinary: yellow;
+  --text-senary: yellow;
+  --social-icons: black;
+  --social-icons2: black;
+  --accent: black;
+  --background-gradient-primary: black;
+  --background-gradient-secondary: black;
+  --button-back: black;
+  --button-front: black;
+
+  --black: yellow;
+  --white: yellow;
+  --yellow: yellow;
+  --bold: bold;
+  --borderContra: yellow;
 }
 
 /* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
@@ -113,21 +150,25 @@ body {
 .btn-modal-primary {
   background-color: var(--button-back) !important;
   border: none;
+  color: var(--text-primary) !important;
 }
 
 .btn-modal-primary:hover {
   background-color: var(--accent) !important;
   border: none;
+  color: var(--text-primary) !important;
 }
 
 .btn-modal-secondary {
   background-color: var(--button-front) !important;
   border: none;
+  color: var(--text-primary) !important;
 }
 
 .btn-modal-secondary:hover {
   background-color: var(--background-quinary) !important;
   border: none;
+  color: var(--text-primary) !important;
 }
 
 .modal-exp-header,
@@ -176,8 +217,10 @@ li {
 .search-button form {
   background-color: var(--background-tertiary);
   display: inline-block;
-  margin-left: 20px;
+  margin-left: 2rem;
   border-radius: 0.7rem;
+  border-color: var(--borderContra);
+  color: var(--yellow);
 }
 
 .search-button input {
@@ -185,7 +228,7 @@ li {
   background: none;
   border: none;
   color: var(--text-primary); /* white */
-  padding: 10px;
+  padding: 0.5rem;
 }
 
 .search-button button {
@@ -193,7 +236,7 @@ li {
   align-items: center;
   position: relative;
   background-color: transparent;
-  margin: 10px 10px 10px 15px;
+  margin: 0.5rem 0.5rem 0.5rem 0.7rem;
   color: white;
   display: block;
 }
@@ -215,7 +258,7 @@ li {
 
 .profile .dropdown-item,
 .dropdown-navbar .dropdown-item {
-  border-right: #7042d5 solid 20px;
+  border-right: #7042d5 solid 0.7rem;
   background-color: var(--background-primary);
   color: var(--text-primary);
 }
@@ -361,9 +404,9 @@ li {
 }
 
 .social-icons a {
-  background-color: #312b8e; /*#341688*/ /* trocar dps com o tema escuro*/
-  color: #818a91;
-  font-size: 16px;
+  background-color: var(--background-secondary-transparent); /*#341688*/ /* trocar dps com o tema escuro*/
+  /* color: #818a91; */
+  font-size: 1.2rem;
   display: inline-block;
   line-height: 44px;
   width: 44px;
@@ -390,15 +433,15 @@ li {
 }
 
 .social-icons a.facebook:hover {
-  background-color: rgba(26, 64, 200, 0.85);
+  background-color: var(--social-icons2);
 }
 
 .social-icons a.twitter:hover {
-  background-color: #7b67db;
+  background-color: var(--social-icons2);
 }
 
 .social-icons a.linkedin:hover {
-  background-color: #7b67db;
+  background-color: var(--social-icons2);
 }
 
 .social-icons a.dribbble:hover {

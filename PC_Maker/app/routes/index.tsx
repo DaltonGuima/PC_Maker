@@ -53,8 +53,8 @@ export default function Home() {
           <div className="row-fluid rounded">
             <div className="cardbanner">
               <div className="card-body-h">
-                <h2 className="card-title text-light text-bold">Monte seu Computador</h2>
-                <p className="card-text text-light">Utilize nossas mais recentes ferramentas para
+                <h2 className="card-title text-light text-bold cardMainMonteHead">Monte seu Computador</h2>
+                <p className="card-text text-light cardMainMonteCont">Utilize nossas mais recentes ferramentas para
                   montar o seu PC do seu jeito.</p>
                 {/* <Link to="#" className="btn text-light montarButton" >Montar</Link> */}
                 <Button className="btn text-light montarButton" variant="primary" onClick={handleShow}>Montar</Button>

@@ -41,6 +41,7 @@ function Product() {
     const hydrated = useHydrated();
     const navigate = useNavigate();
 
+
     function addBuild(localVendaId: number) {
         if (hydrated && produto != null && produto.categoria != null) {
             localStorage.setItem(produto?.categoria, localVendaId.toString())
@@ -57,6 +58,7 @@ function Product() {
             .then(response => setProduto(response?.data))
 
     }, [params.produtoId])
+
 
     const categoriaProduto =
         [
@@ -96,13 +98,13 @@ function Product() {
                             </div>
                             <table>
                                 <tbody>
+                                    <th className="specsBarraLatTh">Especificação</th>
+                                    <th className="specsBarraLatTd">Valor</th>
 
-                                    <tr className="specsBarraLatLinha">
-                                        <TableProduct
-                                            key={produto?.id}
-                                            produto={produto}
-                                        />
-                                    </tr>
+                                    <TableProduct
+                                        key={produto?.id}
+                                        produto={produto}
+                                    />
 
                                 </tbody>
                             </table>

@@ -79,3 +79,7 @@ input[type="date"] {
   position: relative;
   font-size: larger;
 }
+
+.linkCor{
+  color: #00dcff !important;
+}
