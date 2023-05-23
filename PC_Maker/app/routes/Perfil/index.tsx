@@ -90,8 +90,8 @@ function Perfil() {
                     </div>
                 </nav>
                 <div className="break"> </div>
-                <form className="was-validated">
-                    <div className="main-container" id="MyAccount">
+                <div className="main-container" id="MyAccount">
+                    <form className="was-validated">
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Nome</h3>
                             <input
@@ -166,8 +166,8 @@ function Perfil() {
                             </label>
                         </div>
                         {formControl ? <FormControl /> : null}
-                    </div>
-                </form>
+                    </form>
+                </div>
                 <br></br>
             </main>
             <Footer />

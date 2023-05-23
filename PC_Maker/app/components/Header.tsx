@@ -14,15 +14,21 @@ import { categoriaProduto } from '~/routes/Search/$searchType.$searchContent';
 export function Header() {
     const data = useLoaderData<typeof loader>();
 
+    
+
     const changeTheme = useHookstate(themePage)
     const [theme, setTheme] = useLocalStorage('theme', changeTheme.get() ? 'dark' : 'light');
     const navigate = useNavigate();
+    
 
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme)
-        changeTheme.set(newTheme)
     }
+
+    useEffect(() => {
+        changeTheme.set(theme)
+    }, [changeTheme, theme]);
 
     function search(event: FormEvent) {
         event.preventDefault();

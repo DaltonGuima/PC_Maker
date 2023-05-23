@@ -93,7 +93,7 @@ function Builder() {
         <tr className="mt-1">
           <td>
             <Link to={`/Search/CategoriaProduto/${props.categoryProduct}`}>
-              <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Gabinete</button>
+              <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher {props.categoryProduct}</button>
             </Link>
           </td>
         </tr>
@@ -181,38 +181,32 @@ function Builder() {
                   nome="Teste"
                   preco="R$ 100,00"
                 /> */}
-
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Escolher Placa-Mãe</button>
-                  </td>
-                </tr>
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Memória RAM</button>
-                  </td>
-                </tr>
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Armazenamento</button>
-                  </td>
-                </tr>
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Placa de Vídeo</button>
-                  </td>
-                </tr>
+                
                 {/* gabinete era para estar aqui */}
 
                 <TrBuilder
+                  categoryProduct="Placa-Mãe"
+                />
+                <TrBuilder
+                  categoryProduct="Memória RAM"
+                />
+                <TrBuilder
+                  categoryProduct="Processador"
+                />
+                <TrBuilder
+                  categoryProduct="Armazenamento"
+                />
+                <TrBuilder
+                  categoryProduct="Placa de Vídeo"
+                />
+                <TrBuilder
                   categoryProduct="Gabinete"
                 />
+                <TrBuilder
+                  categoryProduct="Fonte de Alimentação"
+                />
 
-                <tr className="mt-1">
-                  <td>
-                    <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher Fonte de Alimentação</button>
-                  </td>
-                </tr>
+                
               </tbody>
             </table>
           </div>
