@@ -29,8 +29,10 @@ function DashboardInsercaoArmazenamento() {
             fabricante: data.fabricante,
             modelo: data.modelo,
             categoria: "Armazenamento",
-            especificacoes: { "tipo": data.tipo, "capacidade": data.capacidade,
-                              "velEscritura": data.velEscrita, "velLeitura": data.velLeitura }
+            especificacoes: {
+                "tipo": data.tipo, "capacidade": data.capacidade,
+                "velEscritura": data.velEscrita, "velLeitura": data.velLeitura
+            }
         }).then((response) => {
             setResponse(response);
         }).catch(error => {
@@ -102,21 +104,21 @@ function DashboardInsercaoArmazenamento() {
                     </div>
                     <form onSubmit={handleCreateProdutoArmazenamento} className="form-horizontal">
                         <div className="card-body card-block">
-                            
+
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required />
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required />
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
                                     <label htmlFor="modelo" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
@@ -133,32 +135,33 @@ function DashboardInsercaoArmazenamento() {
                                     <small className="help-block form-text">Tipo de dispositivo e conexão</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="capacidade-processador" className=" form-control-label">Capacidade</label>
-                                    <input type="text" name="capacidade" id="capacidade" placeholder="Capacidade" className="form-control" required/>
+                                    <label htmlFor="capacidade" className=" form-control-label">Capacidade</label>
+                                    <input type="text" name="capacidade" id="capacidade" placeholder="Capacidade" className="form-control" required />
                                     <small className="help-block form-text">Capacidade de armazenamento</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="velLeitura" className=" form-control-label">Velocidade de Leitura</label>
-                                    <input type="text" name="velLeitura" id="velLeitura" placeholder="Velocidade de Leitura" className="form-control" required/>
+                                    <input type="text" name="velLeitura" id="velLeitura" placeholder="Velocidade de Leitura" className="form-control" required />
                                     <small className="help-block form-text">Velocidade de Leitura ou RPM</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="velEscrita" className=" form-control-label">Velocidade de Escrita</label>
-                                    <input type="text" name="velEscrita" id="velEscrita" placeholder="Velocidade de Escrita" className="form-control" required/>
+                                    <input type="text" name="velEscrita" id="velEscrita" placeholder="Velocidade de Escrita" className="form-control" required />
                                     <small className="help-block form-text">Velocidade de Escrita</small>
                                 </div>
                             </div>
 
                         </div>
+
+                        <div className="card-footer">
+                            <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
+                                <i className="zmdi zmdi-plus"></i>Adicionar</button>
+                            <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
+                            </div>
+                        </div>
                     </form>
-                    <div className="card-footer">
-                    <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
-                        <i className="zmdi zmdi-plus"></i>Adicionar</button>
-                    <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
-                    </div>
                 </div>
-                </div>
-                
+
             </div>
         </div>
 

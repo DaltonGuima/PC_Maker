@@ -100,7 +100,7 @@ function DashboardInsercaoMonitor() {
             <div className="col-lg-10 tabela-insercao">
                 <div className="card card-dash">
                     <div className="card-header">
-                        <strong>Gabinete</strong>
+                        <strong>Monitor</strong>
                     </div>
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoMonitor} className="form-horizontal">
@@ -140,14 +140,15 @@ function DashboardInsercaoMonitor() {
                                     <small className="help-block form-text text-muted">Tamanho em polegadas (")</small>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div className="card-footer">
+                            <div className="card-footer">
                         <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
                             <i className="zmdi zmdi-plus"></i>Adicionar</button>
                         <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                         </div>
                     </div>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
 

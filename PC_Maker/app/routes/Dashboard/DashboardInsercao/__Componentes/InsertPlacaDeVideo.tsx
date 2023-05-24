@@ -145,15 +145,15 @@ function DashboardInsercaoPlacaDeVideo() {
                                 </div>
                             </div>
 
-
-                        </form>
-                    </div>
-                    <div className="card-footer">
+                            <div className="card-footer">
                         <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
                             <i className="zmdi zmdi-plus"></i>Adicionar</button>
                         <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                         </div>
                     </div>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
 

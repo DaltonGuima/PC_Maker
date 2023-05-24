@@ -28,9 +28,6 @@ function DashboardInsercaoPlacaDeSom() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "PlacaDeSom",
         }).then((response) => {
             setResponse(response);

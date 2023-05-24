@@ -28,9 +28,6 @@ function DashboardInsercaoGabinete() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            preco: Number(data.preco),
-            vendedor: data.vendedor,
-            linkProduto: data.linkProduto,
             categoria: "Gabinete",
             especificacoes: { "tipo": data.tipo }
         }).then((response) => {
@@ -112,7 +109,7 @@ function DashboardInsercaoGabinete() {
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" />
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
                                     <small className="help-block form-text text-muted">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">

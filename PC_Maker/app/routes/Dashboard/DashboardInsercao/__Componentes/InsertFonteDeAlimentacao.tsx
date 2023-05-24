@@ -131,16 +131,16 @@ function DashboardInsercaoFonteDeAlimentacao() {
                                     <small className="help-block form-text">Potência</small>
                                 </div>
                                 <div className="col">
-                                    <label htmlFor="selectSm" className=" form-control-label">Certificação</label>
-                                    <select name="selectSm" id="SelectLm" className="form-control-sm form-control">
-                                        <option value="0" disabled className='text-secondary'>Selecione</option>
-                                        <option value="1">Nenhuma</option>
-                                        <option value="2">80 Plus White</option>
-                                        <option value="3">80 Plus Bronze</option>
-                                        <option value="4">80 Plus Silver</option>
-                                        <option value="5">80 Plus Gold</option>
-                                        <option value="5">80 Plus Platinum</option>
-                                        <option value="5">80 Plus Titanium</option>
+                                    <label htmlFor="certificacao" className=" form-control-label">Certificação</label>
+                                    <select name="certificacao" id="certificacao" className="form-control-sm form-control" defaultValue={""} required>
+                                        <option selected value="" disabled>Selecione</option>
+                                        <option value="Nenhuma">Nenhuma</option>
+                                        <option value="80 Plus White">80 Plus White</option>
+                                        <option value="80 Plus Bronze">80 Plus Bronze</option>
+                                        <option value="80 Plus Silver">80 Plus Silver</option>
+                                        <option value="80 Plus Gold">80 Plus Gold</option>
+                                        <option value="80 Plus Platinum">80 Plus Platinum</option>
+                                        <option value="80 Plus Titanium">80 Plus Titanium</option>
                                     </select>
                                 </div>
                             </div>
@@ -172,14 +172,15 @@ function DashboardInsercaoFonteDeAlimentacao() {
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
-                    <div className="card-footer">
+                            <div className="card-footer">
                         <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
                             <i className="zmdi zmdi-plus"></i>Adicionar</button>
                         <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
                         </div>
                     </div>
+                        </form>
+                    </div>
+                    
                 </div>
             </div>
 

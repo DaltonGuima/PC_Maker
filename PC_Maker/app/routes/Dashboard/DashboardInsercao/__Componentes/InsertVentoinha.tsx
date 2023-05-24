@@ -125,8 +125,8 @@ function DashboardInsercaoVentoinha() {
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="tamanho" className=" form-control-label">Tamanho</label>
-                                    <select name="tamanho" id="tamanho" className="form-control-sm form-control" defaultValue={"Selecione"} required>
-                                        <option selected disabled>Selecione</option>
+                                    <select name="tamanho" id="tamanho" className="form-control-sm form-control" defaultValue={""} required>
+                                        <option selected value="" disabled>Selecione</option>
                                         <option value="80mm">80mm</option>
                                         <option value="92mm">92mm</option>
                                         <option value="120mm">120mm</option>
