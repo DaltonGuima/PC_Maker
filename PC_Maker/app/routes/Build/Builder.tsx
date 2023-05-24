@@ -18,6 +18,7 @@ import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
 import axios from "axios";
 import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
+import TrBuilder, { ItemBuild } from "~/components/TrBuilder";
 
 export const links: LinksFunction = () => {
   return [
@@ -50,105 +51,9 @@ function Builder() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const hydrated = useHydrated();
+  const [teste, setTeste] = useState(0)
 
-  class ItemBuild {
-    idLocalVenda: number
-    qtdItem: number
-    preco: number
-
-    constructor(idLocalVenda: number, qtdItem: number, preco: number) {
-      this.idLocalVenda = idLocalVenda
-      this.qtdItem = qtdItem
-      this.preco = preco
-    }
-
-  }
-
-  const [ItemBuilds, setItemBuilds] = useState<ItemBuild[]>([])
-
-  function TrBuilder(props: { categoryProduct: string, id: number }) {
-    const [localVenda, setLocalVenda] = useState<LocaisVendas>()
-    const [subTotal, setSubTotal] = useState(0)
-    const [qtdItem, setQtdItem] = useState(1)
-
-    useEffect(() => {
-      if (localStorage.getItem(props.categoryProduct)) {
-        axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${localStorage.getItem(props.categoryProduct)}`)
-          .catch(() => { return null })
-          .then(response => {
-            setLocalVenda(response?.data)
-            setSubTotal(Number(localVenda?.preco))
-
-          })
-      }
-    }, [localVenda?.preco, props.categoryProduct])
-
-    /* ItemBuilds[props.id] =
-      new ItemBuild(
-        localVenda?.id as number,
-        qtdItem,
-        subTotal
-      ) */
-
-    useEffect(() => {
-      setItemBuilds((prevItens) => [
-        ...prevItens,
-        {
-          idLocalVenda: localVenda?.id as number,
-          preco: subTotal,
-          qtdItem: qtdItem
-        },
-      ])
-    }, [localVenda?.id, qtdItem, subTotal])
-
-
-
-    if (hydrated && localStorage.getItem(props.categoryProduct)) {
-      return (
-        <tr className="mt-2">
-
-          <td>
-            <div className="d-sm-inline-flex p-2">
-              <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
-                <p className="d-block d-md-none"><i className="fa fa-image cont"></i> Ver Imagem</p>
-                <img className="peca" src="https://via.placeholder.com/50x50/" alt="Foto componente" />
-              </button>
-            </div>
-            <div className="d-sm-inline-flex p-2 text-white">
-              <span className="DescricaoProduto p-2 cont">
-                <p>{localVenda?.produto.nome}</p>
-              </span>
-            </div>
-          </td>
-          {/* Vou ter que alterar aqui dp */}
-          <td className="text-success p-sm-2 fw-bold" >R$ {subTotal}</td>
-          <td>
-            <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={1} min={1}
-              onChange={event => {
-                setSubTotal(Number(event.target.value) * Number(localVenda?.preco))
-                setQtdItem(Number(event.target.value))
-              }
-              }
-            />
-          </td>
-          <td className="d-flex justify-content-center p-sm-2">
-            <p className="d-block cont">{localVenda?.vendedor}</p>
-          </td>
-        </tr>
-      )
-    }
-    else
-      return (
-        <tr className="mt-1">
-          <td>
-            <Link to={`/Search/CategoriaProduto/${props.categoryProduct}`}>
-              <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher {props.categoryProduct}</button>
-            </Link>
-          </td>
-        </tr>
-      )
-  }
+  // const [ItemBuilds, setItemBuilds] = useState<ItemBuild[]>([])
 
 
   return (
@@ -235,7 +140,7 @@ function Builder() {
 
               {/* gabinete era para estar aqui */}
 
-              <TrBuilder
+              {/* <TrBuilder
                 id={0}
                 categoryProduct="Placa-Mãe"
               />
@@ -254,15 +159,17 @@ function Builder() {
               <TrBuilder
                 id={4}
                 categoryProduct="Placa de Vídeo"
-              />
+              /> */}
               <TrBuilder
                 id={5}
                 categoryProduct="Gabinete"
+                teste={teste}
+                SetTeste={setTeste}
               />
-              <TrBuilder
+              {/* <TrBuilder
                 id={6}
                 categoryProduct="Fonte de Alimentação"
-              />
+              /> */}
 
 
             </tbody>
@@ -274,12 +181,13 @@ function Builder() {
             <div className="col">
               {/* <h3>Potência Estimada: <small className="text-secondary">315W</small></h3> */}
               <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$
-                {
+                {/* {
                   // aaaaa().map(teste => teste.idLocalVenda)
                   ItemBuilds.reduce((accumulator, object) => {
                     return accumulator + object.preco;
                   }, 0)
-                }
+                } */}
+                {teste}
               </small></h3>
             </div>
           </div>
