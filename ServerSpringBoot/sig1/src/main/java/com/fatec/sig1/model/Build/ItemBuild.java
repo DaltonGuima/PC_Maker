@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonIncludeProperties;
 import com.fatec.sig1.model.LocalVenda.LocalVenda;
-import com.fatec.sig1.model.Produto.Produto;
+// import com.fatec.sig1.model.Produto.Produto;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;

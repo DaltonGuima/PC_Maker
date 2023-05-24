@@ -13,7 +13,6 @@ import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { Spinner } from 'react-bootstrap';
-import { event } from 'jquery';
 
 
 export const links: LinksFunction = () => {

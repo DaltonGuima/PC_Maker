@@ -195,13 +195,14 @@ function DashboardInsercaoProcessador() {
                                     <input type="checkbox" name="overClock" id="overClock" value="overclock" className="form-check-input check" required /> Desbloqueado para overclock
                                 </label>
                             </div>
+
+                            <div className="card-footer">
+                                <button className="au-btn au-btn-icon au-btn--purple au-btn--small" type="submit">
+                                    <i className="zmdi zmdi-plus"></i>Adicionar</button>
+                                <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
+                                </div>
+                            </div>
                         </form>
-                    </div>
-                    <div className="card-footer">
-                        <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
-                            <i className="zmdi zmdi-plus"></i>Adicionar</button>
-                        <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
-                        </div>
                     </div>
                 </div>
             </div>

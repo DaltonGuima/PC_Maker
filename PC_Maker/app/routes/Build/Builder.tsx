@@ -52,20 +52,62 @@ function Builder() {
 
   const hydrated = useHydrated();
 
-  function TrBuilder(props: { categoryProduct: string }) {
-    const [localVenda, setLocalVenda] = useState<LocaisVendas>()
+  class ItemBuild {
+    idLocalVenda: number
+    qtdItem: number
+    preco: number
 
+    constructor(idLocalVenda: number, qtdItem: number, preco: number) {
+      this.idLocalVenda = idLocalVenda
+      this.qtdItem = qtdItem
+      this.preco = preco
+    }
+
+  }
+
+  const [ItemBuilds, setItemBuilds] = useState<ItemBuild[]>([])
+
+  function TrBuilder(props: { categoryProduct: string, id: number }) {
+    const [localVenda, setLocalVenda] = useState<LocaisVendas>()
+    const [subTotal, setSubTotal] = useState(0)
+    const [qtdItem, setQtdItem] = useState(1)
 
     useEffect(() => {
-      if (localStorage.getItem(props.categoryProduct))
+      if (localStorage.getItem(props.categoryProduct)) {
         axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${localStorage.getItem(props.categoryProduct)}`)
           .catch(() => { return null })
-          .then(response => setLocalVenda(response?.data))
-    }, [props.categoryProduct])
+          .then(response => {
+            setLocalVenda(response?.data)
+            setSubTotal(Number(localVenda?.preco))
+
+          })
+      }
+    }, [localVenda?.preco, props.categoryProduct])
+
+    /* ItemBuilds[props.id] =
+      new ItemBuild(
+        localVenda?.id as number,
+        qtdItem,
+        subTotal
+      ) */
+
+    useEffect(() => {
+      setItemBuilds((prevItens) => [
+        ...prevItens,
+        {
+          idLocalVenda: localVenda?.id as number,
+          preco: subTotal,
+          qtdItem: qtdItem
+        },
+      ])
+    }, [localVenda?.id, qtdItem, subTotal])
+
+
 
     if (hydrated && localStorage.getItem(props.categoryProduct)) {
       return (
         <tr className="mt-2">
+
           <td>
             <div className="d-sm-inline-flex p-2">
               <button data-bs-toggle="modal" data-bs-target="#ModalFoto" className="btnBuilderImg">
@@ -80,8 +122,16 @@ function Builder() {
             </div>
           </td>
           {/* Vou ter que alterar aqui dp */}
-          <td className="text-success p-sm-2 fw-bold" >R$ {localVenda?.preco}</td>
-          <td><input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={1} /></td>
+          <td className="text-success p-sm-2 fw-bold" >R$ {subTotal}</td>
+          <td>
+            <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={1} min={1}
+              onChange={event => {
+                setSubTotal(Number(event.target.value) * Number(localVenda?.preco))
+                setQtdItem(Number(event.target.value))
+              }
+              }
+            />
+          </td>
           <td className="d-flex justify-content-center p-sm-2">
             <p className="d-block cont">{localVenda?.vendedor}</p>
           </td>
@@ -99,6 +149,7 @@ function Builder() {
         </tr>
       )
   }
+
 
   return (
     <div data-theme={changeTheme.get()}>
@@ -143,79 +194,93 @@ function Builder() {
         </div>
 
 
-        <form>
-          <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
-            <Modal.Header closeButton className="modal-exp-header">
-              <Modal.Title>Salvar Build</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">Nome</label>
-                <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
-              </div>
-              <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">Descrição</label>
-                <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
-              </div>
-            </Modal.Body>
-            <Modal.Footer className="modal-exp-footer">
-              <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
-                Salvar
-              </Button>
-            </Modal.Footer>
-          </Modal>
-          {/* Teste */}
-          <div className="container col-md-10 mt-2 col">
-            <table className="table table-borderless text-light ">
-              <thead>
-                <tr className="mt-2 cont">
-                  <th className="col-md-8">Componente</th>
-                  <th className="col-md-2">Preço</th>
-                  <th className="col-md-2">Quantidade</th>
-                  <th className="col-md-1">Origem</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* <TableBuilder
+
+        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
+          <Modal.Header closeButton className="modal-exp-header">
+            <Modal.Title>Salvar Build</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Nome</label>
+              <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
+            </div>
+            <div className="form-group">
+              <label htmlFor="exampleFormControlTextarea1">Descrição</label>
+              <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
+            </div>
+          </Modal.Body>
+          <Modal.Footer className="modal-exp-footer">
+            <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+              Salvar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+        {/* Teste */}
+        <div className="container col-md-10 mt-2 col">
+          <table className="table table-borderless text-light ">
+            <thead>
+              <tr className="mt-2 cont">
+                <th className="col-md-8">Componente</th>
+                <th className="col-md-2">Preço</th>
+                <th className="col-md-2">Quantidade</th>
+                <th className="col-md-1">Origem</th>
+              </tr>
+            </thead>
+            <tbody>
+              {/* <TableBuilder
                   img="https://via.placeholder.com/50x50/"
                   nome="Teste"
                   preco="R$ 100,00"
                 /> */}
-                
-                {/* gabinete era para estar aqui */}
 
-                <TrBuilder
-                  categoryProduct="Placa-Mãe"
-                />
-                <TrBuilder
-                  categoryProduct="Memória RAM"
-                />
-                <TrBuilder
-                  categoryProduct="Processador"
-                />
-                <TrBuilder
-                  categoryProduct="Armazenamento"
-                />
-                <TrBuilder
-                  categoryProduct="Placa de Vídeo"
-                />
-                <TrBuilder
-                  categoryProduct="Gabinete"
-                />
-                <TrBuilder
-                  categoryProduct="Fonte de Alimentação"
-                />
+              {/* gabinete era para estar aqui */}
 
-                
-              </tbody>
-            </table>
-          </div>
-        </form>
+              <TrBuilder
+                id={0}
+                categoryProduct="Placa-Mãe"
+              />
+              <TrBuilder
+                id={1}
+                categoryProduct="Memória RAM"
+              />
+              <TrBuilder
+                id={2}
+                categoryProduct="Processador"
+              />
+              <TrBuilder
+                id={3}
+                categoryProduct="Armazenamento"
+              />
+              <TrBuilder
+                id={4}
+                categoryProduct="Placa de Vídeo"
+              />
+              <TrBuilder
+                id={5}
+                categoryProduct="Gabinete"
+              />
+              <TrBuilder
+                id={6}
+                categoryProduct="Fonte de Alimentação"
+              />
+
+
+            </tbody>
+          </table>
+        </div>
+
         <div className="container-fluid text-light text-right TextAfterTable" >
           <div className="row">
             <div className="col">
               {/* <h3>Potência Estimada: <small className="text-secondary">315W</small></h3> */}
-              <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$ 4137,21</small></h3>
+              <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$
+                {
+                  // aaaaa().map(teste => teste.idLocalVenda)
+                  ItemBuilds.reduce((accumulator, object) => {
+                    return accumulator + object.preco;
+                  }, 0)
+                }
+              </small></h3>
             </div>
           </div>
         </div>
