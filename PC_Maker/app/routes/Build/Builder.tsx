@@ -42,6 +42,9 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 function Builder() {
   const data = useLoaderData<typeof loader>();
+
+  const [response, setResponse] = useState<AxiosResponse<any, any>>();
+  const [error, setError] = useState<AxiosError<any, any>>();
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
 
@@ -128,19 +131,17 @@ function Builder() {
     }).catch(error => console.log(error))
   }
 
-  
-  const [response, setResponse] = useState<AxiosResponse<any, any>>();
-  const [error, setError] = useState<AxiosError<any, any>>();
-  const [teste1, setTeste1] = useState(0);
 
-  
-  async function handleCreateBuild(event: FormEvent) {
+  // const [teste1, setTeste1] = useState(0);
+
+
+  function handleCreateBuild(event: FormEvent) {
     event.preventDefault();
-    
+
     const formData = new FormData(event.target as HTMLFormElement)
     const dataForm = Object.fromEntries(formData)
-    
-    await axios.post("http://127.0.0.1:8080/api/v1/builds", {
+
+    axios.post("http://127.0.0.1:8080/api/v1/builds", {
       nome: dataForm.nome,
       descricao: dataForm.desc,
       usuario: {
@@ -149,16 +150,15 @@ function Builder() {
       itens: []
     }).then((response) => {
       setResponse(response);
+      teste(response.data.id)
     }).catch(error => {
       setError(error)
       console.log(error)
     })
-    
-    console.log(itensBuilds)
-    
-    
+
+
   }
-  function teste(id: number){
+  function teste(id: number) {
     itensBuilds.map(item => {
       if (item.idLocalVenda != 0 && item.idLocalVenda != null) {
         console.log(item.idLocalVenda)
@@ -167,8 +167,8 @@ function Builder() {
     }
     )
   }
-  
-  
+
+
   return (
     <div data-theme={changeTheme.get()}>
       <Header />
@@ -212,12 +212,13 @@ function Builder() {
         </div>
 
 
-
         <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
           </Modal.Header>
-          <form action="post" onSubmit={handleCreateBuild}>
+          <form action="post" onSubmit={(e) => {
+            handleCreateBuild(e)
+          }}>
             <Modal.Body>
               {data.user ?
                 <>
