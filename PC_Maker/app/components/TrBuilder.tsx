@@ -1,6 +1,7 @@
 import { Link } from "@remix-run/react"
 import axios from "axios"
-import { useState, useEffect, Dispatch } from "react"
+import type { Dispatch } from "react";
+import { useState, useEffect } from "react"
 import { useHydrated } from "remix-utils"
 import type { LocaisVendas } from "~/Interface/ComponenteInterface"
 
@@ -14,7 +15,7 @@ export interface ItemBuild {
 // 
 // const [teste, setTeste] = useState(0)
 
-export default function TrBuilder(props: { categoryProduct: string, id: number, teste: number, SetTeste: Dispatch<number> }) {
+export default function TrBuilder(props: { categoryProduct: string, SetSubtotal: Dispatch<number>, SetqtdItem: Dispatch<number> }) {
     const [localVenda, setLocalVenda] = useState<LocaisVendas>()
     const [subTotal, setSubTotal] = useState(0)
     const [qtdItem, setQtdItem] = useState(1)
@@ -23,42 +24,28 @@ export default function TrBuilder(props: { categoryProduct: string, id: number, 
 
     useEffect(() => {
 
-        if (localStorage.getItem(props.categoryProduct)) {
+        if (localStorage.getItem(props.categoryProduct) != null) {
             axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${localStorage.getItem(props.categoryProduct)}`)
                 .catch(() => { return null })
                 .then(response => {
                     setLocalVenda(response?.data)
+                    setSubTotal(response?.data.preco)
                 })
-            props.SetTeste(subTotal)
+            /* pq o o bglh de item não funfava aa */
+            props.SetSubtotal(subTotal)
+            props.SetqtdItem(qtdItem)
         }
 
-    }, [localVenda?.preco, props, props.categoryProduct, subTotal])
+    }, [props, props.categoryProduct, qtdItem, subTotal])
 
-    function loadValue() {
+    /* if (subTotal == 0)
+        setSubTotal(localVenda?.preco as number) */
+    /* function loadValue() {
         if (subTotal == 0) {
             setSubTotal(localVenda?.preco as number)
         }
         return subTotal
-    }
-
-
-
-    /* ItemBuilds[props.id] =
-      new ItemBuild(
-        localVenda?.id as number,
-        qtdItem,
-        subTotal
-      ) */
-
-    /* useEffect(() => {
-      setItemBuilds((prevItens) => [
-        {
-          idLocalVenda: localVenda?.id as number,
-          preco: subTotal,
-          qtdItem: qtdItem
-        },
-      ])
-    }, [localVenda?.id, qtdItem, subTotal]) */
+    } */
 
 
 
@@ -81,7 +68,7 @@ export default function TrBuilder(props: { categoryProduct: string, id: number, 
                     </div>
                 </td>
                 {/* Vou ter que alterar aqui dp */}
-                <td className="text-success p-sm-2 fw-bold" >R$ {loadValue()}</td>
+                <td className="text-success p-sm-2 fw-bold" >R$ {subTotal}</td>
                 <td>
                     <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={qtdItem} min={1}
                         onChange={event => {
