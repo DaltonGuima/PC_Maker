@@ -117,4 +117,5 @@ h6 {
   background: var(--background-tertiary) !important;
   color: var(--text-primary) !important;
   border-color: var(--background-tertiary-transparent);
+  width: 3rem;
 }

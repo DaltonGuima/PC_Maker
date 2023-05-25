@@ -2,6 +2,7 @@ import { Link } from "@remix-run/react"
 import axios from "axios"
 import type { Dispatch } from "react";
 import { useState, useEffect } from "react"
+import { Button } from "react-bootstrap";
 import { useHydrated } from "remix-utils"
 import type { LocaisVendas } from "~/Interface/ComponenteInterface"
 
@@ -29,23 +30,26 @@ export default function TrBuilder(props: { categoryProduct: string, SetSubtotal:
                 .catch(() => { return null })
                 .then(response => {
                     setLocalVenda(response?.data)
-                    setSubTotal(response?.data.preco)
+                    if (subTotal == 0) {
+                        setSubTotal(response?.data.preco as number)
+                    }
+
                 })
             /* pq o o bglh de item não funfava aa */
+
             props.SetSubtotal(subTotal)
             props.SetqtdItem(qtdItem)
         }
 
-    }, [props, props.categoryProduct, qtdItem, subTotal])
+    }, [localVenda?.preco, props, props.categoryProduct, qtdItem, subTotal])
 
-    /* if (subTotal == 0)
-        setSubTotal(localVenda?.preco as number) */
-    /* function loadValue() {
-        if (subTotal == 0) {
-            setSubTotal(localVenda?.preco as number)
+
+    function destroyLocalStorage() {
+        if (hydrated) {
+            localStorage.removeItem(props.categoryProduct)
+            location.reload()
         }
-        return subTotal
-    } */
+    }
 
 
 
@@ -70,7 +74,7 @@ export default function TrBuilder(props: { categoryProduct: string, SetSubtotal:
                 {/* Vou ter que alterar aqui dp */}
                 <td className="text-success p-sm-2 fw-bold" >R$ {subTotal}</td>
                 <td>
-                    <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem w-50" defaultValue={qtdItem} min={1}
+                    <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" defaultValue={qtdItem} min={1}
                         onChange={event => {
                             setSubTotal(Number(event.target.value) * Number(localVenda?.preco))
                             setQtdItem(Number(event.target.value))
@@ -81,9 +85,15 @@ export default function TrBuilder(props: { categoryProduct: string, SetSubtotal:
                 <td className="d-flex justify-content-center p-sm-2">
                     <p className="d-block cont">{localVenda?.vendedor}</p>
                 </td>
-                <td className="removeComponenteX align-items-end flex-column">
-                    <i className="fa-solid fa-x"></i>
+
+                <td>
+                    <Button className="btn-modal-primary" onClick={destroyLocalStorage}>
+                        <i className="fa-solid fa-x"></i>
+                    </Button>
                 </td>
+                {/* <td className="removeComponenteX align-items-end flex-column" onClick={destroyLocalStorage}>
+                    <button className=""></button>
+                </td> */}
             </tr>
         )
     }

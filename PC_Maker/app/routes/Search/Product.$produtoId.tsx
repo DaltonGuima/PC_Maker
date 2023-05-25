@@ -70,12 +70,12 @@ function Product() {
 
         if (props.categoria?.valueOf != undefined && categoriaProduto.includes(props.categoria)) {
             return (
-                <th>
+                <td>
                     <button className="btn-details rounded p-2" onClick={() => addBuild(props.id)}>
                         <i className="fa-sharp fa-solid fa-plus mx-1"></i>
                         Adicionar na Build {/* Redireciona para a Loja Externa */}
                     </button>
-                </th>
+                </td>
             )
         } else {
             return null
@@ -97,9 +97,14 @@ function Product() {
 
                             </div>
                             <table>
+                                <thead>
+                                    <tr>
+                                        <th className="specsBarraLatTh">Especificação</th>
+                                        <th className="specsBarraLatTd">Valor</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
-                                    <th className="specsBarraLatTh">Especificação</th>
-                                    <th className="specsBarraLatTd">Valor</th>
+
 
                                     <TableProduct
                                         key={produto?.id}
@@ -133,19 +138,19 @@ function Product() {
                                         {produto?.locaisVendas?.map(localVenda => {
                                             return (
                                                 <tr className="mt-2 my-3" key={localVenda.id}>
-                                                    <th className="py-3">
+                                                    <td className="py-3">
                                                         {/* <img
                                                             src="/among_us2.png"
                                                             className="img-fluid"
                                                             alt="Imagem responsiva"
-                                                            style={{ width: "100px", height: "100px" }}
+                                                            style={{ widtd: "100px", height: "100px" }}
                                                         />
                                                         &emsp; */}{localVenda.vendedor}
-                                                    </th>
-                                                    <th className="col-md-2">
+                                                    </td>
+                                                    <td className="col-md-2">
                                                         Disponível
-                                                    </th>
-                                                    <th>R$ {localVenda.preco}</th>
+                                                    </td>
+                                                    <td>R$ {localVenda.preco}</td>
                                                     <AddBuildButton
                                                         id={localVenda.id}
                                                         categoria={produto.categoria}

@@ -163,3 +163,31 @@ a[aria-expanded="true"] {
   background-color: var(--background-secondary-transparent);
   border-color: var(--background-secondary);
 }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  input[type="range"] {
+    overflow: hidden;
+    /*     width: 80px;
+ */
+    -webkit-appearance: none;
+    background-color: var(--background-tertiary-transparent);
+  }
+
+  input[type="range"]::-webkit-slider-runnable-track {
+    height: 1rem;
+
+    -webkit-appearance: none;
+    color: #13bba4;
+    margin-top: -0.1rem;
+  }
+
+  input[type="range"]::-webkit-slider-thumb {
+    width: 1rem;
+
+    -webkit-appearance: none;
+    height: 1rem;
+    cursor: ew-resize;
+    background: var(--background-senary);
+    box-shadow: -8rem 0 0 8rem var(--background-secondary-transparent);
+  }
+}

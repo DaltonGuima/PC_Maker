@@ -84,7 +84,34 @@ function Builder() {
         qtdItem: qtdItensGabinete
       },
       {
-
+        idLocalVenda: Number(localStorage.getItem("Fonte de Alimentação") ? localStorage.getItem("Fonte de Alimentação") : 0),
+        preco: subTotalFonteDeAlimentacao,
+        qtdItem: qtdItensFonteDeAlimentacao
+      },
+      {
+        idLocalVenda: Number(localStorage.getItem("Placa de Vídeo") ? localStorage.getItem("Placa de Vídeo") : 0),
+        preco: subTotalPlacaDeVideo,
+        qtdItem: qtdItensPlacaDeVideo
+      },
+      {
+        idLocalVenda: Number(localStorage.getItem("Armazenamento") ? localStorage.getItem("Armazenamento") : 0),
+        preco: subTotalArmazenamento,
+        qtdItem: qtdItensArmazenamento
+      },
+      {
+        idLocalVenda: Number(localStorage.getItem("Processador") ? localStorage.getItem("Processador") : 0),
+        preco: subTotalProcessador,
+        qtdItem: qtdItensProcessador
+      },
+      {
+        idLocalVenda: Number(localStorage.getItem("Memória RAM") ? localStorage.getItem("Memória RAM") : 0),
+        preco: subTotalMemoriaRam,
+        qtdItem: qtdItensMemoriaRam
+      },
+      {
+        idLocalVenda: Number(localStorage.getItem("Placa-Mãe") ? localStorage.getItem("Placa-Mãe") : 0),
+        preco: subTotalPlacaMae,
+        qtdItem: qtdItensPlacaMae
       }
 
     ]
@@ -175,15 +202,9 @@ function Builder() {
               />
 
               <TrBuilder
-                categoryProduct="Memóriam RAM"
+                categoryProduct="Memória RAM"
                 SetSubtotal={setsubTotalMemoriaRam}
                 SetqtdItem={setqtdItensMemoriaRam}
-              />
-
-              <TrBuilder
-                categoryProduct="Processador"
-                SetSubtotal={setsubTotalProcessador}
-                SetqtdItem={setqtdItensProcessador}
               />
 
               <TrBuilder
