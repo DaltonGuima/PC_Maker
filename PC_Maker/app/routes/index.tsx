@@ -73,7 +73,7 @@ export default function Home() {
               Pouca experiência
             </Button>
 
-            <Button variant="secondary" className="btn-modal-secondary" href="/Build/Builder" onClick={handleClose}>
+            <Button variant="secondary" className="btn-modal-secondary" href="/Build/Builder/new" onClick={handleClose}>
               Alguma experiência
             </Button>
           </Modal.Footer>

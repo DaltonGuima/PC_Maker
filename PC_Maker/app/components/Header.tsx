@@ -119,7 +119,7 @@ export function Header() {
                         <div className="search-button col-md-4">
                             <form className="d-flex" id="barraPesquisa" onSubmit={search}>
 
-                                <input className="form-control-plaintext" type="text" placeholder="Search" id="itemPesquisa" name='itemPesquisa' />
+                                <input className="form-control-plaintext" type="text" placeholder="Pesquisar por nome" id="itemPesquisa" name='itemPesquisa' />
                                 <label id="search-field" htmlFor='itemPesquisa'>
                                     <button type='submit' className='text-white submitButtonSearch'>
                                         <i className="fa-solid fa-search"></i>

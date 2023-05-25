@@ -47,7 +47,7 @@ function Product() {
             localStorage.setItem(produto?.categoria, localVendaId.toString())
         }
         console.log(produto)
-        return navigate("/Build/Builder")
+        return navigate("/Build/Builder/new")
     }
 
 

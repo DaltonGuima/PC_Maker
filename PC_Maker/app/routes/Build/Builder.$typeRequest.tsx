@@ -13,7 +13,7 @@ import { getUser } from "~/utils/session.server";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useHydrated } from "remix-utils";
-import { Link, useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData, useNavigate, useParams } from "@remix-run/react";
 import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
 import axios, { AxiosError, AxiosResponse } from "axios";
 import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
@@ -47,6 +47,8 @@ function Builder() {
   const [error, setError] = useState<AxiosError<any, any>>();
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
+  const navigate = useNavigate();
+  const params = useParams();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -135,26 +137,29 @@ function Builder() {
   // const [teste1, setTeste1] = useState(0);
 
 
-  async function handleCreateBuild(event: FormEvent) {
+  async function handleBuild(event: FormEvent) {
     event.preventDefault();
 
     const formData = new FormData(event.target as HTMLFormElement)
     const dataForm = Object.fromEntries(formData)
-
-    await axios.post("http://127.0.0.1:8080/api/v1/builds", {
-      nome: dataForm.nome,
-      descricao: dataForm.desc,
-      usuario: {
-        id: data.user?.id
-      },
-      itens: []
-    }).then((response) => {
-      setResponse(response);
-      teste(response.data.id)
-    }).catch(error => {
-      setError(error)
-      console.log(error)
-    })
+    
+    if (params.typeRequest == "new")
+    {
+      await axios.post("http://127.0.0.1:8080/api/v1/builds", {
+        nome: dataForm.nome,
+        descricao: dataForm.desc,
+        usuario: {
+          id: data.user?.id
+        },
+        itens: []
+      }).then((response) => {
+        setResponse(response);
+        teste(response.data.id)
+      }).catch(error => {
+        setError(error)
+        console.log(error)
+      })
+    }
 
 
   }
@@ -166,6 +171,8 @@ function Builder() {
       }
     }
     )
+    handleClose()
+    return navigate(`/Build/Builder/${id}`)
   }
 
 
@@ -212,23 +219,27 @@ function Builder() {
         </div>
 
 
-        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} className="modal-lg" centered>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          data-theme={changeTheme.get()}
+          className="modal-lg"
+          centered
+        >
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
           </Modal.Header>
-          <form action="post" onSubmit={(e) => {
-            handleCreateBuild(e)
-          }}>
+          <form action="post" onSubmit={handleBuild}>
             <Modal.Body>
               {data.user ?
                 <>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Nome</label>
-                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1} ></textarea>
+                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1}  required></textarea>
                   </div>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Descrição</label>
-                    <textarea className="form-control descBuild" id="exampleFormControlTextarea1" name="desc" rows={3} ></textarea>
+                    <textarea className="form-control descBuild" id="exampleFormControlTextarea1" name="desc" rows={3} required></textarea>
                   </div>
                 </>
                 :
@@ -237,7 +248,7 @@ function Builder() {
             </Modal.Body>
             <Modal.Footer className="modal-exp-footer">
               {data.user ?
-                <Button type="submit" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+                <Button type="submit" variant="primary" className="btn-modal-primary">
                   Salvar
                 </Button>
                 :
