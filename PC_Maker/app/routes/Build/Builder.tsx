@@ -19,6 +19,7 @@ import axios from "axios";
 import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
 import TrBuilder, { ItemBuild } from "~/components/TrBuilder";
+import { Gabinete } from "~/components/TableRead/Datas/componentes/Gabinete";
 
 export const links: LinksFunction = () => {
   return [
@@ -51,9 +52,42 @@ function Builder() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [teste, setTeste] = useState(0)
+  // Gabinete
+  const [subTotalGabinete, setsubTotalGabinete] = useState(0)
+  const [qtdItensGabinete, setqtdItensGabinete] = useState(0)
+  // FonteDeAlimentacao
+  const [subTotalFonteDeAlimentacao, setsubTotalFonteDeAlimentacao] = useState(0)
+  const [qtdItensFonteDeAlimentacao, setqtdItensFonteDeAlimentacao] = useState(0)
+  // PlacaDeVideo
+  const [subTotalPlacaDeVideo, setsubTotalPlacaDeVideo] = useState(0)
+  const [qtdItensPlacaDeVideo, setqtdItensPlacaDeVideo] = useState(0)
+  // Armazenamento
+  const [subTotalArmazenamento, setsubTotalArmazenamento] = useState(0)
+  const [qtdItensArmazenamento, setqtdItensArmazenamento] = useState(0)
+  // Processador
+  const [subTotalProcessador, setsubTotalProcessador] = useState(0)
+  const [qtdItensProcessador, setqtdItensProcessador] = useState(0)
+  // PlacaMae
+  const [subTotalMemoriaRam, setsubTotalMemoriaRam] = useState(0)
+  const [qtdItensMemoriaRam, setqtdItensMemoriaRam] = useState(0)
+  // PlacaMae
+  const [subTotalPlacaMae, setsubTotalPlacaMae] = useState(0)
+  const [qtdItensPlacaMae, setqtdItensPlacaMae] = useState(0)
 
-  // const [ItemBuilds, setItemBuilds] = useState<ItemBuild[]>([])
+  const hydrated = useHydrated();
+  let itensBuilds: ItemBuild[] = []
+  if (hydrated)
+    itensBuilds = [
+      {
+        idLocalVenda: Number(localStorage.getItem("Gabinete") ? localStorage.getItem("Gabinete") : 0),
+        preco: subTotalGabinete,
+        qtdItem: qtdItensGabinete
+      },
+      {
+
+      }
+
+    ]
 
 
   return (
@@ -132,44 +166,54 @@ function Builder() {
               </tr>
             </thead>
             <tbody>
-              {/* <TableBuilder
-                  img="https://via.placeholder.com/50x50/"
-                  nome="Teste"
-                  preco="R$ 100,00"
-                /> */}
 
-              {/* gabinete era para estar aqui */}
-
-              {/* <TrBuilder
-                id={0}
+              <TrBuilder
                 categoryProduct="Placa-Mãe"
+                SetSubtotal={setsubTotalPlacaMae}
+                SetqtdItem={setqtdItensPlacaMae}
               />
+
               <TrBuilder
-                id={1}
-                categoryProduct="Memória RAM"
+                categoryProduct="Memóriam RAM"
+                SetSubtotal={setsubTotalMemoriaRam}
+                SetqtdItem={setqtdItensMemoriaRam}
               />
+
               <TrBuilder
-                id={2}
                 categoryProduct="Processador"
+                SetSubtotal={setsubTotalProcessador}
+                SetqtdItem={setqtdItensProcessador}
               />
+
               <TrBuilder
-                id={3}
+                categoryProduct="Processador"
+                SetSubtotal={setsubTotalProcessador}
+                SetqtdItem={setqtdItensProcessador}
+              />
+
+              <TrBuilder
                 categoryProduct="Armazenamento"
+                SetSubtotal={setsubTotalArmazenamento}
+                SetqtdItem={setqtdItensArmazenamento}
               />
+
               <TrBuilder
-                id={4}
                 categoryProduct="Placa de Vídeo"
-              /> */}
-              <TrBuilder
-                id={5}
-                categoryProduct="Gabinete"
-                teste={teste}
-                SetTeste={setTeste}
+                SetSubtotal={setsubTotalPlacaDeVideo}
+                SetqtdItem={setqtdItensPlacaDeVideo}
               />
-              {/* <TrBuilder
-                id={6}
+
+              <TrBuilder
+                categoryProduct="Gabinete"
+                SetSubtotal={setsubTotalGabinete}
+                SetqtdItem={setqtdItensGabinete}
+              />
+
+              <TrBuilder
                 categoryProduct="Fonte de Alimentação"
-              /> */}
+                SetSubtotal={setsubTotalFonteDeAlimentacao}
+                SetqtdItem={setqtdItensFonteDeAlimentacao}
+              />
 
 
             </tbody>
@@ -181,13 +225,14 @@ function Builder() {
             <div className="col">
               {/* <h3>Potência Estimada: <small className="text-secondary">315W</small></h3> */}
               <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$
-                {/* {
+                {
                   // aaaaa().map(teste => teste.idLocalVenda)
-                  ItemBuilds.reduce((accumulator, object) => {
+                  itensBuilds.reduce((accumulator, object) => {
                     return accumulator + object.preco;
                   }, 0)
-                } */}
-                {teste}
+                }
+                {/* {subTotalGabinete}
+                {qtdItensGabinete} */}
               </small></h3>
             </div>
           </div>
