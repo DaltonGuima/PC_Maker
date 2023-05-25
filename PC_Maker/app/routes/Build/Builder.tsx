@@ -135,13 +135,13 @@ function Builder() {
   // const [teste1, setTeste1] = useState(0);
 
 
-  function handleCreateBuild(event: FormEvent) {
+  async function handleCreateBuild(event: FormEvent) {
     event.preventDefault();
 
     const formData = new FormData(event.target as HTMLFormElement)
     const dataForm = Object.fromEntries(formData)
 
-    axios.post("http://127.0.0.1:8080/api/v1/builds", {
+    await axios.post("http://127.0.0.1:8080/api/v1/builds", {
       nome: dataForm.nome,
       descricao: dataForm.desc,
       usuario: {
@@ -212,7 +212,7 @@ function Builder() {
         </div>
 
 
-        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} modal-dialog-centered className="modal-lg" centered>
+        <Modal show={show} onHide={handleClose} data-theme={changeTheme.get()} className="modal-lg" centered>
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
           </Modal.Header>
