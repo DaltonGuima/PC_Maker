@@ -131,6 +131,7 @@ function Builder() {
   
   const [response, setResponse] = useState<AxiosResponse<any, any>>();
   const [error, setError] = useState<AxiosError<any, any>>();
+  const [teste1, setTeste1] = useState(0);
 
   
   async function handleCreateBuild(event: FormEvent) {
@@ -155,15 +156,13 @@ function Builder() {
     
     console.log(itensBuilds)
     
-
-    return teste()
     
   }
-  function teste(){
+  function teste(id: number){
     itensBuilds.map(item => {
       if (item.idLocalVenda != 0 && item.idLocalVenda != null) {
         console.log(item.idLocalVenda)
-        postItens(item.qtdItem, response?.data.id, item.idLocalVenda)
+        postItens(item.qtdItem, id, item.idLocalVenda)
       }
     }
     )
