@@ -16,8 +16,6 @@ public class BuildDTO {
 
     @NotBlank(message = "Nome é requerido")
     private String nome;
-    @NotNull(message = "Preço é requerido")
-    private List<ItemBuild> item = new ArrayList<>();
     @NotBlank(message = "Descrição é requerido")
     private String descricao;
     @JsonIncludeProperties("id")
@@ -25,9 +23,8 @@ public class BuildDTO {
     @JsonIgnoreProperties("build")
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
 
-    public BuildDTO(String Nome, List<ItemBuild> item, String descricao, Usuario usuario, Set<ItemBuild> itens) {
+    public BuildDTO(String Nome, String descricao, Usuario usuario, Set<ItemBuild> itens) {
         this.nome = Nome;
-        this.item = item;
         this.descricao = descricao;
         this.usuario = usuario;
         this.itens = itens;

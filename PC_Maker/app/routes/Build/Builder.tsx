@@ -5,7 +5,7 @@ import { themePage } from "~/script/changeTheme";
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import React, { useEffect, useState } from 'react';
+import React, { FormEvent, useEffect, useState } from 'react';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
@@ -13,9 +13,9 @@ import { getUser } from "~/utils/session.server";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useHydrated } from "remix-utils";
-import { Link } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
-import axios from "axios";
+import axios, { AxiosError, AxiosResponse } from "axios";
 import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
 import TrBuilder, { ItemBuild } from "~/components/TrBuilder";
@@ -41,11 +41,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 
 function Builder() {
-  // const [teste, setTeste] = useLocalStorage('teste', ['a', 'b']);
-  // console.log(formData.getAll("modelo"))
-
-
-
+  const data = useLoaderData<typeof loader>();
   const changeTheme = useHookstate(themePage);
   const [show, setShow] = useState(false);
 
@@ -79,7 +75,7 @@ function Builder() {
   if (hydrated)
     itensBuilds = [
       {
-        idLocalVenda: Number(localStorage.getItem("Gabinete") ? localStorage.getItem("Gabinete") : 0),
+        idLocalVenda: 1,
         preco: subTotalGabinete,
         qtdItem: qtdItensGabinete
       },
@@ -116,7 +112,64 @@ function Builder() {
 
     ]
 
+  async function postItens(
+    qtd: number | undefined,
+    buildId: number | undefined,
+    localVendaId: number | undefined
+  ) {
+    await axios.post("http://127.0.0.1:8080/api/v1/itensbuilds", {
+      quantidade: qtd,
+      build: {
+        id: buildId
+      },
+      localVenda: {
+        id: localVendaId
+      }
+    }).catch(error => console.log(error))
+  }
 
+  
+  const [response, setResponse] = useState<AxiosResponse<any, any>>();
+  const [error, setError] = useState<AxiosError<any, any>>();
+
+  
+  async function handleCreateBuild(event: FormEvent) {
+    event.preventDefault();
+    
+    const formData = new FormData(event.target as HTMLFormElement)
+    const dataForm = Object.fromEntries(formData)
+    
+    await axios.post("http://127.0.0.1:8080/api/v1/builds", {
+      nome: dataForm.nome,
+      descricao: dataForm.desc,
+      usuario: {
+        id: data.user?.id
+      },
+      itens: []
+    }).then((response) => {
+      setResponse(response);
+    }).catch(error => {
+      setError(error)
+      console.log(error)
+    })
+    
+    console.log(itensBuilds)
+    
+
+    return teste()
+    
+  }
+  function teste(){
+    itensBuilds.map(item => {
+      if (item.idLocalVenda != 0 && item.idLocalVenda != null) {
+        console.log(item.idLocalVenda)
+        postItens(item.qtdItem, response?.data.id, item.idLocalVenda)
+      }
+    }
+    )
+  }
+  
+  
   return (
     <div data-theme={changeTheme.get()}>
       <Header />
@@ -165,21 +218,37 @@ function Builder() {
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
           </Modal.Header>
-          <Modal.Body>
-            <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Nome</label>
-              <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" rows={1} ></textarea>
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleFormControlTextarea1">Descrição</label>
-              <textarea className="form-control descBuild" id="exampleFormControlTextarea1" rows={3} ></textarea>
-            </div>
-          </Modal.Body>
-          <Modal.Footer className="modal-exp-footer">
-            <Button href="" variant="primary" className="btn-modal-primary" onClick={handleClose}>
-              Salvar
-            </Button>
-          </Modal.Footer>
+          <form action="post" onSubmit={handleCreateBuild}>
+            <Modal.Body>
+              {data.user ?
+                <>
+                  <div className="form-group">
+                    <label htmlFor="exampleFormControlTextarea1">Nome</label>
+                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1} ></textarea>
+                  </div>
+                  <div className="form-group">
+                    <label htmlFor="exampleFormControlTextarea1">Descrição</label>
+                    <textarea className="form-control descBuild" id="exampleFormControlTextarea1" name="desc" rows={3} ></textarea>
+                  </div>
+                </>
+                :
+                <h4>Precisa estar logado para salvar a Build</h4>
+              }
+            </Modal.Body>
+            <Modal.Footer className="modal-exp-footer">
+              {data.user ?
+                <Button type="submit" variant="primary" className="btn-modal-primary" onClick={handleClose}>
+                  Salvar
+                </Button>
+                :
+                <Link to="/login">
+                  <Button variant="secondary" className="btn-modal-primary" onClick={handleClose}>
+                    Fazer Login
+                  </Button>
+                </Link>
+              }
+            </Modal.Footer>
+          </form>
         </Modal>
         {/* Teste */}
         <div className="container col-md-10 mt-2 col">
@@ -253,8 +322,6 @@ function Builder() {
                     return accumulator + object.preco;
                   }, 0)
                 }
-                {/* {subTotalGabinete}
-                {qtdItensGabinete} */}
               </small></h3>
             </div>
           </div>
