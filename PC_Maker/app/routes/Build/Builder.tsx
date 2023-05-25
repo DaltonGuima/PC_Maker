@@ -159,10 +159,11 @@ function Builder() {
           <table className="table table-borderless text-light ">
             <thead>
               <tr className="mt-2 cont">
-                <th className="col-md-8">Componente</th>
+                <th className="col-md-6">Componente</th>
                 <th className="col-md-2">Preço</th>
                 <th className="col-md-2">Quantidade</th>
                 <th className="col-md-1">Origem</th>
+                <th className="col-md-1"></th>
               </tr>
             </thead>
             <tbody>

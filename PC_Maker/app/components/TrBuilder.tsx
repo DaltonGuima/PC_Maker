@@ -81,6 +81,9 @@ export default function TrBuilder(props: { categoryProduct: string, SetSubtotal:
                 <td className="d-flex justify-content-center p-sm-2">
                     <p className="d-block cont">{localVenda?.vendedor}</p>
                 </td>
+                <td className="removeComponenteX align-items-end flex-column">
+                    <i className="fa-solid fa-x"></i>
+                </td>
             </tr>
         )
     }

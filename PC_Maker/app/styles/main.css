@@ -150,25 +150,25 @@ body {
 .btn-modal-primary {
   background-color: var(--button-back) !important;
   border: none;
-  color: var(--text-primary) !important;
+  color: var(--white) !important;
 }
 
 .btn-modal-primary:hover {
   background-color: var(--accent) !important;
   border: none;
-  color: var(--text-primary) !important;
+  color: var(--white) !important;
 }
 
 .btn-modal-secondary {
   background-color: var(--button-front) !important;
   border: none;
-  color: var(--text-primary) !important;
+  color: var(--white) !important;
 }
 
 .btn-modal-secondary:hover {
   background-color: var(--background-quinary) !important;
   border: none;
-  color: var(--text-primary) !important;
+  color: var(--white) !important;
 }
 
 .modal-exp-header,
@@ -669,3 +669,7 @@ li {
   background-color: var(--button-front) !important;
 } 
 */
+
+.removeComponenteX{
+  margin-left: 2rem;
+}
