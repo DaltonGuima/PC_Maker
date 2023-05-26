@@ -99,7 +99,7 @@ function Builder() {
   if (hydrated)
     itensBuilds = [
       {
-        idLocalVenda: 1,
+        idLocalVenda: Number(localStorage.getItem("Gabinete") ? localStorage.getItem("Gabinete") : 0),
         preco: subTotalGabinete,
         qtdItem: qtdItensGabinete
       },
@@ -216,6 +216,19 @@ function Builder() {
   }
 
 
+
+  console.log(build?.itens.find((item) => item.localVenda.produto.categoria == "Gabinete")?.localVenda.id)
+
+  function teste(categoria: string) {
+    const localVendaId = (build?.itens.find((item) => item.localVenda.produto.categoria == "Gabinete")?.localVenda.id)
+
+    if (hydrated && localVendaId && !localStorage.getItem(`edit${categoria}`)) {
+      localStorage.setItem(`edit${categoria}`, localVendaId.toString())
+    }
+
+    return localVendaId
+  }
+
   return (
     <div data-theme={changeTheme.get()}>
       <Header />
@@ -314,9 +327,8 @@ function Builder() {
               </tr>
             </thead>
             <tbody>
-              {/* Mandar já filtrado
-               */}
-              <TrBuilder
+
+              {/* <TrBuilder
                 typeRequest={params.typeRequest}
                 categoryProduct="Placa-Mãe"
                 SetSubtotal={setsubTotalPlacaMae}
@@ -349,21 +361,23 @@ function Builder() {
                 categoryProduct="Placa de Vídeo"
                 SetSubtotal={setsubTotalPlacaDeVideo}
                 SetqtdItem={setqtdItensPlacaDeVideo}
-              />
+              /> */}
 
               <TrBuilder
-                typeRequest={params.typeRequest}
+                idLocalVenda={
+                  teste("Gabinete")
+                }
                 categoryProduct="Gabinete"
                 SetSubtotal={setsubTotalGabinete}
                 SetqtdItem={setqtdItensGabinete}
               />
 
-              <TrBuilder
+              {/*  <TrBuilder
                 typeRequest={params.typeRequest}
                 categoryProduct="Fonte de Alimentação"
                 SetSubtotal={setsubTotalFonteDeAlimentacao}
                 SetqtdItem={setqtdItensFonteDeAlimentacao}
-              />
+              /> */}
 
 
             </tbody>

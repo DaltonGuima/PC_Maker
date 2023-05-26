@@ -20,18 +20,32 @@ export default function TrBuilder(props: {
     categoryProduct: string,
     SetSubtotal: Dispatch<number>,
     SetqtdItem: Dispatch<number>,
-    typeRequest: string | undefined
+    idLocalVenda: number | undefined
 }) {
     const [localVenda, setLocalVenda] = useState<LocaisVendas>()
     const [subTotal, setSubTotal] = useState(0)
     const [qtdItem, setQtdItem] = useState(1)
     const hydrated = useHydrated();
+    const [idLocalVenda, setIdLocalVenda] = useState(props.idLocalVenda)
+
 
 
     useEffect(() => {
 
-        if (localStorage.getItem(props.categoryProduct) != null) {
-            axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${localStorage.getItem(props.categoryProduct)}`)
+/*         if (props.idLocalVenda && !localStorage.getItem(`edit${props.categoryProduct}`) ) {
+
+            localStorage.setItem(`edit${props.categoryProduct}`, props.idLocalVenda.toString())
+
+        } */
+        if (localStorage.getItem(`edit${props.categoryProduct}`)) {
+            handleAxios(Number(localStorage.getItem(`edit${props.categoryProduct}`)))
+        }
+        else if (localStorage.getItem(props.categoryProduct)) {
+            handleAxios(Number(localStorage.getItem(props.categoryProduct)))
+        }
+
+        function handleAxios(id: number) {
+            axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${id}`)
                 .catch(() => { return null })
                 .then(response => {
                     setLocalVenda(response?.data)
@@ -40,25 +54,31 @@ export default function TrBuilder(props: {
                     }
 
                 })
-            /* pq o o bglh de item não funfava aa */
-
-            props.SetSubtotal(subTotal)
-            props.SetqtdItem(qtdItem)
         }
 
-    }, [localVenda?.preco, props, props.categoryProduct, qtdItem, subTotal])
+
+
+
+
+
+        props.SetSubtotal(subTotal)
+        props.SetqtdItem(qtdItem)
+    }, [props, props.categoryProduct, qtdItem, subTotal, props.idLocalVenda])
 
 
     function destroyLocalStorage() {
         if (hydrated) {
-            localStorage.removeItem(props.categoryProduct)
+            if (props.idLocalVenda == undefined)
+                localStorage.removeItem(props.categoryProduct)
+            if (localStorage.getItem(`edit${props.categoryProduct}`))
+                localStorage.removeItem(`edit${props.categoryProduct}`)
             location.reload()
         }
     }
 
 
 
-    if (hydrated && localStorage.getItem(props.categoryProduct)) {
+    if (hydrated && (localStorage.getItem(props.categoryProduct) || props.idLocalVenda != undefined)) {
 
         return (
             <tr className="mt-2">
