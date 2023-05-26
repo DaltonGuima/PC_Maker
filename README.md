@@ -32,8 +32,12 @@ compra de um desktop funcional, sem que ocorra desperdícios de recursos econôm
 >O nosso site irá atender alguns requisitos como, por exemplo: o usuário poderá se cadastrar e
 fazer login no nosso site, para que o computador seja montado sob medida para o cliente, ele terá que
 realizar um questionário prévio com respostas delimitadas. Nesse, o cliente terá que responder perguntas
-como: "Quais aplicativos você irá utilizar?". Além disso, o cliente poderá montar a própria Build e postala para que outras pessoas possam visualiza-la. E, por fim, em ambos os casos, o cliente será
+como: "Quais aplicativos você irá utilizar?". Além disso, o cliente poderá montar a própria Build e postala para que outras pessoas possam visualizá-la. E, por fim, em ambos os casos, o cliente será
 redirecionado para os sites onde as peças do desktop montado estarão disponíveis para compra.
+
+
+##### Tecnologias Utilizadas
+>Devido a complexidade do sistema, utilizamos diversas tecnologias para a confecção do nosso projeto. Entre elas, podemos citar o Framework Spring Boot, esse foi utilizado para a construção do Back-end. 
 
 ##### Canvas 
 >
