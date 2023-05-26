@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react"
+import { Link, useParams } from "@remix-run/react"
 import axios from "axios"
 import type { Dispatch } from "react";
 import { useState, useEffect } from "react"
@@ -26,21 +26,16 @@ export default function TrBuilder(props: {
     const [subTotal, setSubTotal] = useState(0)
     const [qtdItem, setQtdItem] = useState(1)
     const hydrated = useHydrated();
-    const [idLocalVenda, setIdLocalVenda] = useState(props.idLocalVenda)
+    const params = useParams();
 
-
+    console.log(params.typeRequest)
 
     useEffect(() => {
 
-/*         if (props.idLocalVenda && !localStorage.getItem(`edit${props.categoryProduct}`) ) {
-
-            localStorage.setItem(`edit${props.categoryProduct}`, props.idLocalVenda.toString())
-
-        } */
-        if (localStorage.getItem(`edit${props.categoryProduct}`)) {
+        if (localStorage.getItem(`edit${props.categoryProduct}`) && params.typeRequest != "new") {
             handleAxios(Number(localStorage.getItem(`edit${props.categoryProduct}`)))
         }
-        else if (localStorage.getItem(props.categoryProduct)) {
+        else if (localStorage.getItem(props.categoryProduct) && params.typeRequest == "new") {
             handleAxios(Number(localStorage.getItem(props.categoryProduct)))
         }
 
@@ -68,9 +63,9 @@ export default function TrBuilder(props: {
 
     function destroyLocalStorage() {
         if (hydrated) {
-            if (props.idLocalVenda == undefined)
+            if (localStorage.getItem(props.categoryProduct) && params.typeRequest == "new")
                 localStorage.removeItem(props.categoryProduct)
-            if (localStorage.getItem(`edit${props.categoryProduct}`))
+            if (localStorage.getItem(`edit${props.categoryProduct}`) && params.typeRequest != "new")
                 localStorage.removeItem(`edit${props.categoryProduct}`)
             location.reload()
         }
