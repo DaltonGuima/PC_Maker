@@ -5,7 +5,8 @@ export interface LocaisVendas {
     linkProduto: string
     produto: {
         id: number,
-        nome: string
+        nome: string,
+        categoria: string
     }
 }
 

@@ -5,7 +5,9 @@ import { themePage } from "~/script/changeTheme";
 
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import React, { FormEvent, useEffect, useState } from 'react';
+import type { FormEvent } from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
@@ -14,12 +16,11 @@ import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useHydrated } from "remix-utils";
 import { Link, useLoaderData, useNavigate, useParams } from "@remix-run/react";
-import { Produto } from "../Dashboard/__localVenda/LocaisVendas.$produtoId";
-import axios, { AxiosError, AxiosResponse } from "axios";
-import { LocaisVendasProps } from "~/components/TableRead/Datas/LocalVendas";
+import type { AxiosError, AxiosResponse } from "axios";
+import axios from "axios";
+import type { ItemBuild } from "~/components/TrBuilder";
+import TrBuilder from "~/components/TrBuilder";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
-import TrBuilder, { ItemBuild } from "~/components/TrBuilder";
-import { Gabinete } from "~/components/TableRead/Datas/componentes/Gabinete";
 
 export const links: LinksFunction = () => {
   return [
@@ -38,6 +39,24 @@ export const loader = async ({ request }: LoaderArgs) => {
 
   return json({ user })
 };
+
+export interface Itens {
+  quantidade: number,
+  build: {
+    id: number
+  },
+  localVenda: LocaisVendas
+}
+
+export interface Build {
+  nome: string,
+  descricao: string,
+  usuario: {
+    id: number
+  },
+  itens: Itens[]
+
+}
 
 
 function Builder() {
@@ -117,6 +136,27 @@ function Builder() {
 
     ]
 
+  const [build, setBuild] = useState<Build>()
+
+  useEffect(() => {
+    if (params.typeRequest != "new") {
+      axios(`http://127.0.0.1:8080/api/v1/builds/${params.typeRequest}`)
+        .catch(error => console.log(error))
+        .then((response) => {
+          if (response?.data.usuario.id != data.user?.id) {
+            throw new Error("Acesso proibido")
+          } else {
+            setBuild(response?.data)
+          }
+          /* response?.data
+          .filter((item: Itens) => item.build.id == Number(props.typeRequest))
+          .filter((item: Itens) => item.localVenda.produto.categoria == props.categoryProduct.toString()) */
+        })
+    }
+  }, [data.user?.id, params.typeRequest])
+
+
+
   async function postItens(
     qtd: number | undefined,
     buildId: number | undefined,
@@ -142,19 +182,17 @@ function Builder() {
 
     const formData = new FormData(event.target as HTMLFormElement)
     const dataForm = Object.fromEntries(formData)
-    
-    if (params.typeRequest == "new")
-    {
+
+    if (params.typeRequest == "new") {
       await axios.post("http://127.0.0.1:8080/api/v1/builds", {
         nome: dataForm.nome,
         descricao: dataForm.desc,
         usuario: {
           id: data.user?.id
-        },
-        itens: []
+        }
       }).then((response) => {
         setResponse(response);
-        teste(response.data.id)
+        handlItens(response.data.id)
       }).catch(error => {
         setError(error)
         console.log(error)
@@ -163,13 +201,15 @@ function Builder() {
 
 
   }
-  function teste(id: number) {
-    itensBuilds.map(item => {
+  function handlItens(id: number) {
+    itensBuilds.forEach((item) => {
+
       if (item.idLocalVenda != 0 && item.idLocalVenda != null) {
         console.log(item.idLocalVenda)
         postItens(item.qtdItem, id, item.idLocalVenda)
       }
     }
+
     )
     handleClose()
     return navigate(`/Build/Builder/${id}`)
@@ -181,7 +221,7 @@ function Builder() {
       <Header />
       <main id="conteudo texto">
         <div className="headline text text-white">
-          <h2 className="text-center py-3">Escolha suas peças</h2>
+          <h2 className="text-center py-3">{params.typeRequest == "new" ? "Escolha suas peças" : `Build : ${build?.nome}`}</h2>
         </div>
 
         <div className="menu-line col-9 container-fluid my-3 rounded text-white">
@@ -235,7 +275,7 @@ function Builder() {
                 <>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Nome</label>
-                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1}  required></textarea>
+                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1} required></textarea>
                   </div>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Descrição</label>
@@ -276,42 +316,49 @@ function Builder() {
             <tbody>
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Placa-Mãe"
                 SetSubtotal={setsubTotalPlacaMae}
                 SetqtdItem={setqtdItensPlacaMae}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Memória RAM"
                 SetSubtotal={setsubTotalMemoriaRam}
                 SetqtdItem={setqtdItensMemoriaRam}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Processador"
                 SetSubtotal={setsubTotalProcessador}
                 SetqtdItem={setqtdItensProcessador}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Armazenamento"
                 SetSubtotal={setsubTotalArmazenamento}
                 SetqtdItem={setqtdItensArmazenamento}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Placa de Vídeo"
                 SetSubtotal={setsubTotalPlacaDeVideo}
                 SetqtdItem={setqtdItensPlacaDeVideo}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Gabinete"
                 SetSubtotal={setsubTotalGabinete}
                 SetqtdItem={setqtdItensGabinete}
               />
 
               <TrBuilder
+                typeRequest={params.typeRequest}
                 categoryProduct="Fonte de Alimentação"
                 SetSubtotal={setsubTotalFonteDeAlimentacao}
                 SetqtdItem={setqtdItensFonteDeAlimentacao}

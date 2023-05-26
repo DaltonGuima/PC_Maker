@@ -16,7 +16,12 @@ export interface ItemBuild {
 // 
 // const [teste, setTeste] = useState(0)
 
-export default function TrBuilder(props: { categoryProduct: string, SetSubtotal: Dispatch<number>, SetqtdItem: Dispatch<number> }) {
+export default function TrBuilder(props: {
+    categoryProduct: string,
+    SetSubtotal: Dispatch<number>,
+    SetqtdItem: Dispatch<number>,
+    typeRequest: string | undefined
+}) {
     const [localVenda, setLocalVenda] = useState<LocaisVendas>()
     const [subTotal, setSubTotal] = useState(0)
     const [qtdItem, setQtdItem] = useState(1)
