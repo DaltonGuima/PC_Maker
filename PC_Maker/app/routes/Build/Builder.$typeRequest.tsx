@@ -314,7 +314,8 @@ function Builder() {
               </tr>
             </thead>
             <tbody>
-
+              {/* Mandar já filtrado
+               */}
               <TrBuilder
                 typeRequest={params.typeRequest}
                 categoryProduct="Placa-Mãe"
