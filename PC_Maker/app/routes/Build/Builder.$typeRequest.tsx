@@ -40,7 +40,7 @@ export const loader = async ({ request }: LoaderArgs) => {
   return json({ user })
 };
 
-export interface Itens {
+export interface ItemBuildI {
   quantidade: number,
   build: {
     id: number
@@ -54,7 +54,7 @@ export interface Build {
   usuario: {
     id: number
   },
-  itens: Itens[]
+  itens: ItemBuildI[]
 
 }
 
@@ -376,7 +376,6 @@ function Builder() {
               {/* <h3>Potência Estimada: <small className="text-secondary">315W</small></h3> */}
               <h3 className="totalBuilder">Total: <small className="valorTotalBuilder tes">R$
                 {
-                  // aaaaa().map(teste => teste.idLocalVenda)
                   itensBuilds.reduce((accumulator, object) => {
                     return accumulator + object.preco;
                   }, 0)
