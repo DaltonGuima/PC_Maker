@@ -296,26 +296,25 @@ function Builder() {
             <div className="col-6 py-3 p-3 menu-info-medio btnFuncoesBuild">
 
 
-              <tr className="mt-2 cont">
-                <td className="col-md-1">
-                  <button className="btn-menu-line menu-info-medio" onClick={handleShow}>
-                    <i className="fa-solid fa-floppy-disk mx-1" ></i>Salvar
+              <div className="col-md-1">
+                <button className="btn-menu-line menu-info-medio" onClick={handleShow}>
+                  <i className="fa-solid fa-floppy-disk mx-1" ></i>Salvar
+                </button>
+              </div>
+              <div className="col-md-1">
+                <Link to="/Build/Builder/new" >
+                  <button className="btn-menu-line menu-info-medio">
+                    <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
                   </button>
-                </td>
-                <td className="col-md-1">
-                  <Link to="/Build/Builder/new" >
-                    <button className="btn-menu-line menu-info-medio">
-                      <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
-                    </button>
-                  </Link>
-                </td>
+                </Link>
+              </div>
 
-                <td className="col-md-1">
-                  <button className="btn-menu-line menu-info-medio" onClick={restart}>
-                    <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
-                  </button>
-                </td>
-              </tr>
+              <div className="col-md-1">
+                <button className="btn-menu-line menu-info-medio" onClick={restart}>
+                  <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
+                </button>
+              </div>
+
             </div>
           </div>
 
