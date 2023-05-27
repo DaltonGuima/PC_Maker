@@ -37,28 +37,43 @@ redirecionado para os sites onde as peças do desktop montado estarão disponív
 
 
 ##### Tecnologias Utilizadas
->Devido a complexidade do sistema, utilizamos diversas tecnologias para a confecção do nosso projeto. Entre elas, podemos citar o Framework Spring Boot, esse foi utilizado para a construção do Back-end. 
+>Devido a complexidade do sistema, utilizamos diversas tecnologias para a confecção do nosso projeto. Entre elas, podemos citar o Framework Spring Boot, esse foi utilizado para a construção do Back-end. Posteriormente, fizemos a análise estática do nosso código com a ferramenta Sonar. Estruturamos a parte do Front-end com React e Bootstrap, além do mais, utilizados o Axios para integração entre Front-end e Back-end.
 
 ##### Canvas 
 >
 O modelo Canva do Projeto:
 ![canvas](https://i.imgur.com/R1COMC1.png)
 
-##### Sprint Backlog
-> Cada requisito tem um identificador único de maneira que seja possível rastrear a necessidade do cliente com a implementação do software.
+##### Product Backlog
+> O Product Backlog é utilizado pela nossa equipe para mapear as atividades que devem ser realizadas.Cada requisito tem um identificador único de maneira que seja possível rastrear a necessidade do cliente com a implementação do software.
 ###
-| Identificador | Descrição | Prioridade |
+| Identificador | Nome | Descrição |
 | ------------ | ------------------------------------------------------------------------ | ------|
-| REQ01 –  Cadastrar Usuários | Como – usuário, Eu quero – cadastrar o cliente, De maneira que – seja possível identificar o cliente e as Builds que o mesmo montou. | Média |
-| REQ02 – Consultar Cliente por ID| Como – usuário, Eu quero – consultar um cliente pelo ID, De maneira que – seja possível obter informações detalhas do cliente. | Média |
-| REQ03 – Excluir Cliente | Como – usuário, Eu quero – excluir um usuário, De maneira que – seja possível identificar todas as peças cadastradas. | Baixa |
-| REQ04 – Cadastrar Produtos | Como – usuario, Eu quero – consultar todos os clientes cadastrado, De maneira que – seja possível obter uma lista de clientes. | Alta |
-| REQ05 –  Pesquisar Produto | Como – usuário, Eu quero – pesquisar produto, De maneira que –  poderá pesquisar por um produto de maneira ampla (Processador) ou de maneira específica (AMD Ryzen 5 5600X). | Alta |
-| REQ06 –  Excluir Produto | Como – usuário, Eu quero – excluir um produto, De maneira que – seja possível identificar todas as peças cadastradas. | Baixa |
-| REQ07 – Realizar Comentários | Como – usuário, Eu quero – poder comentar as Builds que foram criadas por outros usuários. | Médio |
-| REQ08 – Montar o Computador Manualmente | Como – usuário, Eu quero – poder montar um desktop de maneira manual, selecionando cada peça manualmente | Média |
-| REQ09 – Montar o Computador Automaticamente | Como – usuário, Eu quero – poder montar um desktop de maneira automática, qde modo que responderei algumas perguntas e o sistema me devolverá o desktop ideal | Alta |
-
+| 01 | Pesquisar por Build | Como – usuário, Eu quero – Pesquisar uma Build, De maneira que – seja possível encontrar uma Build específica. |
+| 02 | Pesquisar por Criador | Como – usuário, Eu quero – Pesquisar as Builds criadas por um usuário específico, De maneira que – seja possível encontrar ,com mais facilidade, as criações de um usuário de meu interesse. |
+| 03 | Pesquisar por Componente | Como – usuário, Eu quero – Pesquisar por componentes específicos, De maneira que – seja possível encontrar um componente especifico. |
+| 04 | Criar Build | Como – usuário, Eu quero – Criar uma Build, De maneira que – outras pessoas possam ver o meu projeto. |
+| 05 | Manter Build | Como – usuário, Eu quero – Modificar as informações da minha Build, De maneira que – eu possa atualizar a minha Build quando necessário. |
+| 06 | Publicar Build | Como – usuário, Eu quero – Compartilhar as Builds que fiz, De maneira que – seja possível receber feedbacks de como melhorar e ajude outros usuários. |
+| 07 | Precificação da Build | Como – usuário, Eu quero – Que o sistema Calcule o Preço final da Build, De maneira que – seja possível ter uma noção do preço total da Build que foi montada. |
+| 08 | Cadastro do Usuário | Como – usuário, Eu quero – Fazer Cadastro , De maneira que – seja possível ter acesso às funcionalidades exclusivas do site. |
+| 09 | Login do Usuário | Como – usuário, Eu quero – Fazer Login, De maneira que – eu possa ter acesso as minhas informações e criações que estão no site e modificá-las.|
+| 10 | Trocar minha senha | Como – usuário, Eu quero – Modificar a senha da minha conta, De maneira que – seja possível manter minhas informações de acesso atualizadas se necessário.  |
+| 11 | Trocar minhas preferências de e-mail | Como – usuário, Eu quero – Alterar o e-mail de contato, De maneira que – seja possível receber os e-mails no endereço mais relevante. |
+| 12 | Compatilhar o conteúdo em redes sociais | Como – usuário, Eu quero – Compartilhar as Peças e Builds em redes sociais, De maneira que – seja possível engajar amigos e os traga para a plataforma. |
+| 13 | Adicionar Comentários | Como – usuário, Eu quero – Adicionar um comentário a uma Build, De maneira que – seja possível compartilhar a minha opinião com outros usuários.  |
+| 14 | Avaliar Builds | Como – usuário, Eu quero – Avaliar as Builds e saber suas avaliações, De maneira que – eu possa avaliar se as builds recomendadas satisfazem a minha necessidade. |
+| 15 | Responder Questionário | Como – usuário, Eu quero – Responder questionários para identificação das minhas necessidades, De maneira que – eu possa receber o auxílio no momento de aquisição do meu computador. |
+| 16 | Criar Guias | Como – administrador, Eu quero – Criar Guias Informativos, De maneira que – seja possível criar páginas que orientem o usuário sobre os produtos que ele precisa. |
+| 17 | Adicionar Componentes | Como – administrador, Eu quero – Adicionar e disponibilizar mais componentes para o usuário, De maneira que – o Usuário tenha mais opções de componentes no momento da criação de Builds. |
+| 18 | Manter Componentes | Como – administrador, Eu quero – Modificar informações individuais de componentes, De maneira que – seja possível modificar as informações dos componentes para esses possam se manter atualizadas. |
+| 19 | Inserção do Questionário | Como – administrador, Eu quero – Que os desenvolvedores insiram um conjuto de 7 perguntas, De maneira que – seja possível identificar a necessidade do usuário. |
+| 20 | Validação de dados | Como – desenvolvedor, Eu quero – Garantir que os dados estejam corretos de acordo com o previsto, De maneira que – seja possível salvar os dados, sem que haja erros, como, por exemplo, de um campo com o valor inteiro receber um texto. |
+| 21 | Geração de Relatórios | Como – administrador, Eu quero – Analisar dados sobre produtos e compuadores cadastrados, De maneira que – seja possível analisar informações, como componente mais utilizados para recomendar em novas builds. |
+| 22 | Armazenamento de Dados | Como – administrador, Eu quero – Armazenar em um Banco de Dados todos os Dados relevantes para o negócio, De maneira que – futuramente, eu possa personalizar a experiência do usuário de acordo com seus gostos. |
+| 23 | Quem Somos | Como – usuário, Eu quero – Conhecer o Propósito da empresa, De maneira que – seja possível reconhecer as funcionalidades e intenções da empresa. |
+| 24 | Tela de Acessibilidade | Como – usuário, Eu quero – Conhecer os recursos de acessibilidade do Site, De maneira que – seja possível reconhecer recursos que facilitem a minha navegação no site. |
+| 25 | Recursos de Acessibilidade | Como – usuário, Eu quero – Utilizar o Alto Contraste e aumentar ou diminuir as fontes, De maneira que – o site se torne acessível para pessoas que possuem alguma deficiência visual, como eu. |
 
 ##### Definição de pronto
 > O sprint será considerado concluido quando:
