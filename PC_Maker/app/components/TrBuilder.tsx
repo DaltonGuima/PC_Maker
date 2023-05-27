@@ -5,6 +5,7 @@ import { useState, useEffect } from "react"
 import { Button } from "react-bootstrap";
 import { useHydrated } from "remix-utils"
 import type { LocaisVendas } from "~/Interface/ComponenteInterface"
+import type { ItemBuildI } from "~/routes/Build/Builder.$typeRequest";
 
 export interface ItemBuild {
     idLocalVenda: number
@@ -13,8 +14,6 @@ export interface ItemBuild {
 
 }
 
-// 
-// const [teste, setTeste] = useState(0)
 
 export default function TrBuilder(props: {
     categoryProduct: string,
@@ -28,52 +27,75 @@ export default function TrBuilder(props: {
     const hydrated = useHydrated();
     const params = useParams();
 
-    console.log(params.typeRequest)
 
     useEffect(() => {
 
-        if (localStorage.getItem(`edit${props.categoryProduct}`) && params.typeRequest != "new") {
+        if (
+            localStorage.getItem(`edit${props.categoryProduct}`)
+            && params.typeRequest != "new"
+            && localStorage.getItem(`edit${props.categoryProduct}`) != "0"
+        ) {
             handleAxios(Number(localStorage.getItem(`edit${props.categoryProduct}`)))
+            handleAxiosBuild()
+            let x = qtdItem
         }
         else if (localStorage.getItem(props.categoryProduct) && params.typeRequest == "new") {
             handleAxios(Number(localStorage.getItem(props.categoryProduct)))
         }
 
-        function handleAxios(id: number) {
-            axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${id}`)
+        async function handleAxiosBuild() {
+            await axios(`http://127.0.0.1:8080/api/v1/builds/${params.typeRequest}`)
                 .catch(() => { return null })
                 .then(response => {
-                    setLocalVenda(response?.data)
-                    if (subTotal == 0) {
-                        setSubTotal(response?.data.preco as number)
+                    const subTotalEdit = response?.data.itens
+                        .find((item: ItemBuildI) =>
+                            item.localVenda.id == Number(localStorage.getItem(`edit${props.categoryProduct}`))
+                        )?.subtotal
+                    const qtdEdit = response?.data.itens
+                        .find((item: ItemBuildI) =>
+                            item.localVenda.id == Number(localStorage.getItem(`edit${props.categoryProduct}`))
+                        )?.quantidade
+                    if (subTotal == 0)
+                        setSubTotal(subTotalEdit)
+                    if (qtdItem == 1)
+                        setQtdItem(qtdEdit)
+                })
+        }
+
+        async function handleAxios(id: number) {
+            await axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${id}`)
+                .catch(() => { return null })
+                .then(response => {
+                    if (subTotal == 0 && !(localStorage.getItem(`edit${props.categoryProduct}`)
+                        && params.typeRequest != "new"
+                        && localStorage.getItem(`edit${props.categoryProduct}`) != "0")) {
+                        setSubTotal(response?.data.preco)
                     }
+
+                    setLocalVenda(response?.data)
 
                 })
         }
 
-
-
-
-
-
         props.SetSubtotal(subTotal)
         props.SetqtdItem(qtdItem)
-    }, [props, props.categoryProduct, qtdItem, subTotal, props.idLocalVenda])
-
+    }, [props, props.categoryProduct, qtdItem, subTotal, props.idLocalVenda, params.typeRequest])
 
     function destroyLocalStorage() {
         if (hydrated) {
             if (localStorage.getItem(props.categoryProduct) && params.typeRequest == "new")
                 localStorage.removeItem(props.categoryProduct)
-            if (localStorage.getItem(`edit${props.categoryProduct}`) && params.typeRequest != "new")
-                localStorage.removeItem(`edit${props.categoryProduct}`)
+            if (localStorage.getItem(`edit${props.categoryProduct}`) && params.typeRequest != "new") {
+                localStorage.setItem(`edit${props.categoryProduct}`, "0")
+                setLocalVenda(undefined)
+            }
             location.reload()
         }
     }
 
+    // (localStorage.getItem(props.categoryProduct) || props.idLocalVenda != undefined)
 
-
-    if (hydrated && (localStorage.getItem(props.categoryProduct) || props.idLocalVenda != undefined)) {
+    if (hydrated && (localVenda)) {
 
         return (
             <tr className="mt-2">
@@ -94,7 +116,7 @@ export default function TrBuilder(props: {
                 {/* Vou ter que alterar aqui dp */}
                 <td className="text-success p-sm-2 fw-bold" >R$ {subTotal}</td>
                 <td>
-                    <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" defaultValue={qtdItem} min={1}
+                    <input type="number" name="qtdItem" id="qtdItem" className="inputQtdItem" value={qtdItem} min={1}
                         onChange={event => {
                             setSubTotal(Number(event.target.value) * Number(localVenda?.preco))
                             setQtdItem(Number(event.target.value))
@@ -111,9 +133,6 @@ export default function TrBuilder(props: {
                         <i className="fa-solid fa-x"></i>
                     </Button>
                 </td>
-                {/* <td className="removeComponenteX align-items-end flex-column" onClick={destroyLocalStorage}>
-                    <button className=""></button>
-                </td> */}
             </tr>
         )
     }

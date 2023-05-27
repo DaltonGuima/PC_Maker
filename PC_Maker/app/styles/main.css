@@ -36,7 +36,6 @@
   --button-front: #3e1291;
   --black: black;
   --white: white;
-  
 }
 [data-theme="dark"] {
   --background-primary: #212425;
@@ -114,6 +113,7 @@
 main {
   background-color: var(--background-primary);
   margin: 0;
+  min-height: 65vh !important;
 }
 
 body {
@@ -281,6 +281,11 @@ li {
   line-height: 24px;
   color: #737373;
 }
+@media (min-width: 720px) {
+  .site-footer {
+    height: 40vh !important; /*Impede de aparecer aql barra branca quando der zoom out */
+  }
+}
 
 .site-footer hr {
   border-top-color: #bbb;
@@ -404,7 +409,9 @@ li {
 }
 
 .social-icons a {
-  background-color: var(--background-secondary-transparent); /*#341688*/ /* trocar dps com o tema escuro*/
+  background-color: var(
+    --background-secondary-transparent
+  ); /*#341688*/ /* trocar dps com o tema escuro*/
   /* color: #818a91; */
   font-size: 1.2rem;
   display: inline-block;
@@ -670,6 +677,6 @@ li {
 } 
 */
 
-.removeComponenteX{
+.removeComponenteX {
   margin-left: 2rem;
 }

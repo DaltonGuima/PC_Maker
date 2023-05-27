@@ -119,3 +119,70 @@ h6 {
   border-color: var(--background-tertiary-transparent);
   width: 3rem;
 }
+
+.cardbanner {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 1rem;
+}
+
+.cardbanner .card-body-h a {
+  /* background-color: var(--background-secondary); */
+  margin-bottom: 1rem;
+  position: relative;
+  top: 0.8rem;
+}
+
+.card-body,
+.card-build {
+  background-color: var(--background-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.card-title {
+  color: var(--text-primary);
+}
+
+.cardbanner .card-body-h a:fa-close {
+  background-color: rgba(112, 66, 213, 0.6);
+}
+
+.card-custom {
+  overflow: hidden;
+  min-height: 450px;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+}
+
+.card-custom-img {
+  height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-custom-avatar img {
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(10, 10, 10, 0.3);
+  width: 100px;
+  height: 100px;
+}
+
+.card-custom-avatar {
+  align-self: left;
+  position: absolute;
+  top: 290px;
+  left: 10px;
+}
+
+.cardMainMonteHead {
+  color: var(--white) !important;
+  font-size: 2rem;
+}
+
+.cardMainMonteCont {
+  color: var(--white) !important;
+  font-size: 1rem;
+}
+
+.boxBuilds {
+  padding-bottom: 6rem !important;
+}

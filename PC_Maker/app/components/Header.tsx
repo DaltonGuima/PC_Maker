@@ -13,7 +13,7 @@ export function Header() {
     const changeTheme = useHookstate(themePage)
     const [theme, setTheme] = useLocalStorage('theme', changeTheme.get());
     const navigate = useNavigate();
-    
+
 
     const switchTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
@@ -26,7 +26,7 @@ export function Header() {
     }
 
     const changeFontSize = () => {
-        
+
     }
 
     useEffect(() => {
@@ -80,7 +80,7 @@ export function Header() {
             <nav className="navbar navbar-expand-sm navbar-dark" id="topo">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src={`/${changeTheme.get() == "dark" || changeTheme.get() == "contraOn"  ? "logoJuntaPecaRosaV1" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
+                        <img src={`/${changeTheme.get() == "dark" || changeTheme.get() == "contraOn" ? "logoJuntaPecaRosaV1" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
                         {/* <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} /> */}
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -90,7 +90,7 @@ export function Header() {
                         <ul className="navbar-nav">
 
                             <li className="nav-item">
-                                <a className="nav-link">Builds</a>
+                                <a className="nav-link" href="/Build/MyBuild">Builds</a>
                             </li>
                             <div className="dropdown-navbar">
                                 <ul className="navbar-nav">

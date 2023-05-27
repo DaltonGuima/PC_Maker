@@ -96,7 +96,7 @@ export default function Home() {
               title='Build 2'
               Itens={['Ryzen 7 5800X', 'Radeon RX 6800XT', '32GB DDR4 3200MHz']}
               perfilImg='/among_us2.png'
-              buildImg='./Build_2.png'
+              buildImg='/Build_2.png'
               criador='xxx_EnzoG4mer_xxx'
             />
             <CardBuild

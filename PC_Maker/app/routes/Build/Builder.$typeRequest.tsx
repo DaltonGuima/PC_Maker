@@ -21,6 +21,7 @@ import axios from "axios";
 import type { ItemBuild } from "~/components/TrBuilder";
 import TrBuilder from "~/components/TrBuilder";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
+import { categoriaProduto } from "../Search/$searchType.$searchContent";
 
 export const links: LinksFunction = () => {
   return [
@@ -49,6 +50,7 @@ export interface ItemBuildI {
 }
 
 export interface Build {
+  id: number,
   nome: string,
   descricao: string,
   usuario: {
@@ -94,42 +96,52 @@ function Builder() {
   const [subTotalPlacaMae, setsubTotalPlacaMae] = useState(0)
   const [qtdItensPlacaMae, setqtdItensPlacaMae] = useState(0)
 
+
+  function getIdLocalVenda(categoria: string) {
+    if (localStorage.getItem(`edit${categoria}`) && params.typeRequest != "new")
+      return Number(localStorage.getItem(`edit${categoria}`))
+    else if (localStorage.getItem(categoria) && params.typeRequest == "new")
+      return Number(localStorage.getItem(categoria))
+    else
+      return 0
+  }
+
   const hydrated = useHydrated();
   let itensBuilds: ItemBuild[] = []
   if (hydrated)
     itensBuilds = [
       {
-        idLocalVenda: Number(localStorage.getItem("Gabinete") ? localStorage.getItem("Gabinete") : 0),
+        idLocalVenda: getIdLocalVenda("Gabinete"),
         preco: subTotalGabinete,
         qtdItem: qtdItensGabinete
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Fonte de Alimentação") ? localStorage.getItem("Fonte de Alimentação") : 0),
+        idLocalVenda: getIdLocalVenda("Fonte de Alimentação"),
         preco: subTotalFonteDeAlimentacao,
         qtdItem: qtdItensFonteDeAlimentacao
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Placa de Vídeo") ? localStorage.getItem("Placa de Vídeo") : 0),
+        idLocalVenda: getIdLocalVenda("Placa de Vídeo"),
         preco: subTotalPlacaDeVideo,
         qtdItem: qtdItensPlacaDeVideo
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Armazenamento") ? localStorage.getItem("Armazenamento") : 0),
+        idLocalVenda: getIdLocalVenda("Armazenamento"),
         preco: subTotalArmazenamento,
         qtdItem: qtdItensArmazenamento
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Processador") ? localStorage.getItem("Processador") : 0),
+        idLocalVenda: getIdLocalVenda("Processador"),
         preco: subTotalProcessador,
         qtdItem: qtdItensProcessador
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Memória RAM") ? localStorage.getItem("Memória RAM") : 0),
+        idLocalVenda: getIdLocalVenda("Memória RAM"),
         preco: subTotalMemoriaRam,
         qtdItem: qtdItensMemoriaRam
       },
       {
-        idLocalVenda: Number(localStorage.getItem("Placa-Mãe") ? localStorage.getItem("Placa-Mãe") : 0),
+        idLocalVenda: getIdLocalVenda("Placa-Mãe"),
         preco: subTotalPlacaMae,
         qtdItem: qtdItensPlacaMae
       }
@@ -148,9 +160,6 @@ function Builder() {
           } else {
             setBuild(response?.data)
           }
-          /* response?.data
-          .filter((item: Itens) => item.build.id == Number(props.typeRequest))
-          .filter((item: Itens) => item.localVenda.produto.categoria == props.categoryProduct.toString()) */
         })
     }
   }, [data.user?.id, params.typeRequest])
@@ -172,9 +181,6 @@ function Builder() {
       }
     }).catch(error => console.log(error))
   }
-
-
-  // const [teste1, setTeste1] = useState(0);
 
 
   async function handleBuild(event: FormEvent) {
@@ -216,11 +222,8 @@ function Builder() {
   }
 
 
-
-  console.log(build?.itens.find((item) => item.localVenda.produto.categoria == "Gabinete")?.localVenda.id)
-
   function teste(categoria: string) {
-    const localVendaId = (build?.itens.find((item) => item.localVenda.produto.categoria == "Gabinete")?.localVenda.id)
+    const localVendaId = (build?.itens.find((item) => item.localVenda.produto.categoria == categoria)?.localVenda.id)
 
     if (hydrated && localVendaId && !localStorage.getItem(`edit${categoria}`)) {
       localStorage.setItem(`edit${categoria}`, localVendaId.toString())
@@ -228,6 +231,23 @@ function Builder() {
 
     return localVendaId
   }
+
+  function restart() {
+    if (hydrated) {
+      if (params.typeRequest != "new") {
+        build?.itens.forEach(item => {
+          if (item.localVenda.produto.categoria) {
+            localStorage.removeItem(`edit${item.localVenda.produto.categoria}`)
+          }
+        })
+      }
+      else {
+        categoriaProduto.forEach(categoria => localStorage.removeItem(categoria))
+      }
+      location.reload()
+    }
+  }
+
 
   return (
     <div data-theme={changeTheme.get()}>
@@ -250,13 +270,15 @@ function Builder() {
               </button>
             </div>
             <div className="col-sm-2 py-3">
-              <button className="btn-menu-line menu-info-medio">
-                <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
-              </button>
+              <Link to="/Build/Builder/new" onClick={restart}>
+                <button className="btn-menu-line menu-info-medio">
+                  <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
+                </button>
+              </Link>
             </div>
             <div className="col-sm-2 py-3 ">
-              <button className="btn-menu-line menu-info-medio">
-                <i className="fa-solid fa-pencil mx-1" aria-hidden="true"></i>Histórico
+              <button className="btn-menu-line menu-info-medio" onClick={restart}>
+                <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
               </button>
             </div>
           </div>
@@ -328,40 +350,41 @@ function Builder() {
             </thead>
             <tbody>
 
-              {/* <TrBuilder
-                typeRequest={params.typeRequest}
+              <TrBuilder
+                idLocalVenda={teste("Placa-Mãe")}
                 categoryProduct="Placa-Mãe"
                 SetSubtotal={setsubTotalPlacaMae}
                 SetqtdItem={setqtdItensPlacaMae}
               />
 
               <TrBuilder
-                typeRequest={params.typeRequest}
+                idLocalVenda={teste("Memória RAM")}
                 categoryProduct="Memória RAM"
                 SetSubtotal={setsubTotalMemoriaRam}
                 SetqtdItem={setqtdItensMemoriaRam}
               />
 
               <TrBuilder
-                typeRequest={params.typeRequest}
+                idLocalVenda={teste("Processador")}
                 categoryProduct="Processador"
                 SetSubtotal={setsubTotalProcessador}
                 SetqtdItem={setqtdItensProcessador}
               />
 
               <TrBuilder
-                typeRequest={params.typeRequest}
+                idLocalVenda={teste("Armazenamento")}
+
                 categoryProduct="Armazenamento"
                 SetSubtotal={setsubTotalArmazenamento}
                 SetqtdItem={setqtdItensArmazenamento}
               />
 
               <TrBuilder
-                typeRequest={params.typeRequest}
+                idLocalVenda={teste("Placa de Vídeo")}
                 categoryProduct="Placa de Vídeo"
                 SetSubtotal={setsubTotalPlacaDeVideo}
                 SetqtdItem={setqtdItensPlacaDeVideo}
-              /> */}
+              />
 
               <TrBuilder
                 idLocalVenda={
@@ -372,12 +395,12 @@ function Builder() {
                 SetqtdItem={setqtdItensGabinete}
               />
 
-              {/*  <TrBuilder
-                typeRequest={params.typeRequest}
+              <TrBuilder
+                idLocalVenda={teste("Fonte de Alimentação")}
                 categoryProduct="Fonte de Alimentação"
                 SetSubtotal={setsubTotalFonteDeAlimentacao}
                 SetqtdItem={setqtdItensFonteDeAlimentacao}
-              /> */}
+              />
 
 
             </tbody>
