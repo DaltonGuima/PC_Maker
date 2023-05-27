@@ -12,7 +12,7 @@ Grupo 6
 
 ##### Estudo de Caso / Objetivo do projeto
 
-> O nosso projeto foi batizado de PCMaker. Ele será uma plataforma responsável por realizar a 
+> O nosso projeto foi batizado de Junta Peça. Ele será uma plataforma responsável por realizar a 
 montagem de Hardware de acordo com a necessidade do cliente. 
 Ademais, os usuários da plataforma poderão realizar a montagem de computadores por conta 
 própria e salvar na aba Builds.
@@ -37,7 +37,7 @@ redirecionado para os sites onde as peças do desktop montado estarão disponív
 
 
 ##### Tecnologias Utilizadas
->Devido a complexidade do sistema, utilizamos diversas tecnologias para a confecção do nosso projeto. Entre elas, podemos citar o Framework Spring Boot, esse foi utilizado para a construção do Back-end. Posteriormente, fizemos a análise estática do nosso código com a ferramenta Sonar. Estruturamos a parte do Front-end com React e Bootstrap, além do mais, utilizados o Axios para integração entre Front-end e Back-end.
+>Devido a complexidade do sistema, utilizamos diversas tecnologias para a confecção do nosso projeto. Entre elas, podemos citar o Framework Spring Boot, esse foi utilizado para a construção do Back-end. Posteriormente, fizemos a análise estática do nosso código com a ferramenta Sonarlint. Estruturamos a parte do Front-end com React e Bootstrap, além do mais, utilizados o Axios para integração entre Front-end e Back-end.
 
 ##### Canvas 
 >
@@ -76,8 +76,8 @@ O modelo Canva do Projeto:
 | 25 | Recursos de Acessibilidade | Como – usuário, Eu quero – Utilizar o Alto Contraste e aumentar ou diminuir as fontes, De maneira que – o site se torne acessível para pessoas que possuem alguma deficiência visual, como eu. |
 
 ##### Definição de pronto
-> O sprint será considerado concluido quando:
-> 1) Todos os Testes de sistema concluídos com 100% de assertividade;
+> O sprint será considerado concluído quando:
+> 1) Todos os Testes de sistema forem concluídos com 100% de assertividade;
 > 2) Código Revisado e Identado;
 > 3) Checkout no github, após o projeto ser concluído e submetido a rotina de Testes, o mesmo deve ser atualizado no Github;
 > 4) Revisão do Relatório do Sonarlint, análise minuciosa do relatório gerado pelo detector. Todos os erros e sugestões totalmente analisados e caso necessário, corrigidos;
