@@ -251,31 +251,38 @@ function Builder() {
           <div className="row">
             <div className="col-6 text-decoration-underline first-column-build py-3 p-3 menu-info-medio">
               <i className="fa-solid fa-link mx-1"></i>
-              https://pcmaker.com.br/lista/dpGwc
-            </div>
-
-            <div className="col-sm-2 py-3">
-              <button className="btn-menu-line menu-info-medio" onClick={handleShow}>
-                <i className="fa-solid fa-floppy-disk mx-1" ></i>Salvar
-              </button>
-            </div>
-            <div className="col-sm-2 py-3">
-              <Link to="/Build/Builder/new" onClick={restart}>
-                <button className="btn-menu-line menu-info-medio">
-                  <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
-                </button>
-              </Link>
-            </div>
-            <div className="col-sm-2 py-3 ">
-              <button className="btn-menu-line menu-info-medio" onClick={restart}>
-                <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
-              </button>
-            </div>
+              https://juntapeca.com.br/build/#
           </div>
+          <div className="col-6 py-3 p-3 menu-info-medio btnFuncoesBuild">
+          
+            
+            <tr className="mt-2 cont">
+              <td className="col-md-1">
+                <button className="btn-menu-line menu-info-medio" onClick={handleShow}>
+                  <i className="fa-solid fa-floppy-disk mx-1" ></i>Salvar
+                </button>
+              </td>
+              <td className="col-md-1">
+                <Link to="/Build/Builder/new" onClick={restart}>
+                  <button className="btn-menu-line menu-info-medio">
+                    <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
+                  </button>
+                </Link>
+              </td>
+              
+              <td className="col-md-1">
+                <button className="btn-menu-line menu-info-medio" onClick={restart}>
+                  <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
+                </button>
+              </td>
+            </tr>
+          </div>
+        </div>
+
+          
           <div className="row compWattInferior tes">
             <div className="col-6 first-column-build w-75 p-3 py-3 menu-info-medio barra-compatibilidade">
-              <i className="fa-solid fa-check mx-1"></i>
-              Compatibilidade: Nenhum problema foi encontrado
+              <i className="fa-solid fa-check mx-1">Compatibilidade: Nenhum problema foi encontrado</i>
             </div>
             <div className="col-sm-2 py-3 barra-potencia w-25">
               <i className="fw-bold">Potência Estimada: 315W</i>
@@ -329,7 +336,7 @@ function Builder() {
         {/* Teste */}
         <div className="container col-md-10 mt-2 col">
           <table className="table table-borderless text-light ">
-            <thead>
+            <thead className="">
               <tr className="mt-2 cont">
                 <th className="col-md-6">Componente</th>
                 <th className="col-md-2">Preço</th>
@@ -412,7 +419,7 @@ function Builder() {
         <div className="container col-md-10 nvlComp">
 
 
-          <div className="row ">
+          {/* <div className="row ">
             <div className="bottonB">
               <div className="my-2">
 
@@ -430,7 +437,7 @@ function Builder() {
 
               </div>
             </div>
-          </div>
+          </div> */}
 
         </div>
 
