@@ -97,19 +97,6 @@ export async function requireUserId(
 
 export async function getUser(request: Request) {
   const userId = await getUserId(request);
-  /*  if (typeof userId !== "string") {
-     return null;
-   }
- 
-   try {
-     const user = await db.user.findUnique({
-       select: { id: true, username: true },
-       where: { id: userId },
-     });
-     return user;
-   } catch {
-     throw logout(request);
-   } */
   return axios(`http://127.0.0.1:8080/api/v1/usuarios/id/${userId}`)
     .catch(() => { return null })
     .then((response) => {
@@ -123,6 +110,21 @@ export async function getUser(request: Request) {
     }
 
     )
+}
+
+export async function getBuildUser(
+  user: User, buildID: number
+) {
+  return await axios(`http://127.0.0.1:8080/api/v1/builds/${buildID}`)
+    .catch(error => console.log(error))
+    .then((response) => {
+      if (response?.data.usuario.id != user.id) {
+        return false
+      }
+      return true
+    })
+
+
 }
 
 export async function logout(request: Request) {

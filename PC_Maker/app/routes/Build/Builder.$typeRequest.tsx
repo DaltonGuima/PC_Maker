@@ -11,7 +11,7 @@ import { useState } from 'react';
 
 import build from '../../styles/build.css';
 import builder_PC from '../../styles/builder_PC.css';
-import { getUser } from "~/utils/session.server";
+import { getBuildUser, getUser } from "~/utils/session.server";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
 import { useHydrated } from "remix-utils";
@@ -21,7 +21,7 @@ import axios from "axios";
 import type { ItemBuild } from "~/components/TrBuilder";
 import TrBuilder from "~/components/TrBuilder";
 import type { LocaisVendas } from "~/Interface/ComponenteInterface";
-import { categoriaProduto } from "../Search/$searchType.$searchContent";
+import { categoriaProduto } from "../Search/$searchType.$searchContent.$buildOperation";
 
 export const links: LinksFunction = () => {
   return [
@@ -34,14 +34,17 @@ export const meta: MetaFunction = () => ({
   title: "Builder"
 });
 
-export const loader = async ({ request }: LoaderArgs) => {
-
+export const loader = async ({ request, params }: LoaderArgs) => {
   const user = await getUser(request);
+  if (user != null && params.typeRequest != "new")
+    if (await getBuildUser(user, Number(params.typeRequest)) == false)
+      throw new Error("Acesso negado");
 
   return json({ user })
 };
 
 export interface ItemBuildI {
+  id: number,
   quantidade: number,
   build: {
     id: number
@@ -59,7 +62,6 @@ export interface Build {
   itens: ItemBuildI[]
 
 }
-
 
 function Builder() {
   const data = useLoaderData<typeof loader>();
@@ -108,6 +110,7 @@ function Builder() {
 
   const hydrated = useHydrated();
   let itensBuilds: ItemBuild[] = []
+
   if (hydrated)
     itensBuilds = [
       {
@@ -155,15 +158,17 @@ function Builder() {
       axios(`http://127.0.0.1:8080/api/v1/builds/${params.typeRequest}`)
         .catch(error => console.log(error))
         .then((response) => {
-          if (response?.data.usuario.id != data.user?.id) {
-            throw new Error("Acesso proibido")
-          } else {
-            setBuild(response?.data)
-          }
+          setBuild(response?.data)
+
+          const itens: ItemBuildI[] = response?.data.itens
+
+          itens.forEach(element => {
+            if (!localStorage.getItem(`edit${element.localVenda.produto.categoria}`))
+              localStorage.setItem(`edit${element.localVenda.produto.categoria}`, element.localVenda.id.toString())
+          });
         })
     }
   }, [data.user?.id, params.typeRequest])
-
 
 
   async function postItens(
@@ -180,6 +185,26 @@ function Builder() {
         id: localVendaId
       }
     }).catch(error => console.log(error))
+  }
+
+  async function deleteItens(buiildId: number) {
+
+    await axios("http://127.0.0.1:8080/api/v1/itensbuilds")
+      .catch(error => {
+        setError(error)
+        console.log(error)
+      }).then(response => {
+        deleteItem(response?.data.filter((item: ItemBuildI) => item.build.id == buiildId).map((item: ItemBuildI) => { return item.id }))
+      })
+
+    function deleteItem(itensIds: number[]) {
+      itensIds.forEach(item => {
+        axios.delete(`http://127.0.0.1:8080/api/v1/itensbuilds/${item}`)
+          .then(() => console.log("apagou"))
+      })
+      handlItens(buiildId)
+      location.reload()
+    }
   }
 
 
@@ -199,6 +224,21 @@ function Builder() {
       }).then((response) => {
         setResponse(response);
         handlItens(response.data.id)
+      }).catch(error => {
+        setError(error)
+        console.log(error)
+      })
+    }
+    else {
+      await axios.put(`http://127.0.0.1:8080/api/v1/builds/${params.typeRequest}`, {
+        nome: dataForm.nome,
+        descricao: dataForm.desc,
+        usuario: {
+          id: data.user?.id
+        }
+      }).then((response) => {
+        setResponse(response);
+        deleteItens(response.data.id)
       }).catch(error => {
         setError(error)
         console.log(error)
@@ -260,7 +300,7 @@ function Builder() {
               </button>
             </div>
             <div className="col-sm-2 py-3">
-              <Link to="/Build/Builder/new" onClick={restart}>
+              <Link to="/Build/Builder/new" >
                 <button className="btn-menu-line menu-info-medio">
                   <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
                 </button>
@@ -290,6 +330,7 @@ function Builder() {
           data-theme={changeTheme.get()}
           className="modal-lg"
           centered
+          data-bs-theme="dark"
         >
           <Modal.Header closeButton className="modal-exp-header">
             <Modal.Title>Salvar Build</Modal.Title>
@@ -300,11 +341,11 @@ function Builder() {
                 <>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Nome</label>
-                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1} required></textarea>
+                    <textarea className="form-control nomeBuild" id="exampleFormControlTextarea1" name="nome" rows={1} required defaultValue={build?.nome}></textarea>
                   </div>
                   <div className="form-group">
                     <label htmlFor="exampleFormControlTextarea1">Descrição</label>
-                    <textarea className="form-control descBuild" id="exampleFormControlTextarea1" name="desc" rows={3} required></textarea>
+                    <textarea className="form-control descBuild" id="exampleFormControlTextarea1" name="desc" rows={3} defaultValue={build?.descricao}></textarea>
                   </div>
                 </>
                 :
@@ -361,8 +402,6 @@ function Builder() {
               />
 
               <TrBuilder
-
-
                 categoryProduct="Armazenamento"
                 SetSubtotal={setsubTotalArmazenamento}
                 SetqtdItem={setqtdItensArmazenamento}

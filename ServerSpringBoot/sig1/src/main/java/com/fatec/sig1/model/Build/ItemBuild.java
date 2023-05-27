@@ -9,6 +9,7 @@ import com.fatec.sig1.model.LocalVenda.LocalVenda;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.JoinColumn;
@@ -25,11 +26,11 @@ public class ItemBuild {
     private int quantidade;
     @NotNull(message = "O SubTotal é requerida")
     private float subtotal;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "build_id")
     @JsonIncludeProperties({ "id", "nome" })
     private Build build;
-    @ManyToOne(cascade = { CascadeType.MERGE })
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     @JoinColumn(name = "produto_id", nullable = false)
     @JsonIncludeProperties({ "id", "produto", "preco" })
     private LocalVenda localVenda;

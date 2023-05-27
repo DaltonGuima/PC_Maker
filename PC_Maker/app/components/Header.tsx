@@ -1,10 +1,11 @@
 import { useHookstate } from '@hookstate/core';
-import { FormEvent, useEffect } from 'react';
+import type { FormEvent } from 'react';
+import { useEffect } from 'react';
 import useLocalStorage from 'use-local-storage';
 import { themePage } from '../script/changeTheme';
 import { Link, useLoaderData, useNavigate } from "@remix-run/react"
 import type { loader } from '~/routes';
-import { categoriaProduto } from '~/routes/Search/$searchType.$searchContent';
+import { categoriaProduto } from '~/routes/Search/$searchType.$searchContent.$buildOperation';
 
 
 export function Header() {
@@ -101,7 +102,7 @@ export function Header() {
                                         <div className="dropdown-menu dropdown-menu perfilDropdown">
                                             {categoriaProduto.map(categoria => {
                                                 return (
-                                                    <Link className="dropdown-item" key={categoria} to={`/Search/CategoriaProduto/${categoria}`}>{categoria}</Link>
+                                                    <Link className="dropdown-item" key={categoria} to={`/Search/CategoriaProduto/${categoria}/new`}>{categoria}</Link>
                                                 )
                                             })}
                                         </div>

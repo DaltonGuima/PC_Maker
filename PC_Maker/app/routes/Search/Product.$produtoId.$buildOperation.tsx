@@ -44,10 +44,12 @@ function Product() {
 
     function addBuild(localVendaId: number) {
         if (hydrated && produto != null && produto.categoria != null) {
-            localStorage.setItem(produto?.categoria, localVendaId.toString())
+            if (params.buildOperation == "new")
+                localStorage.setItem(produto?.categoria, localVendaId.toString())
+            else
+                localStorage.setItem(`edit${produto?.categoria}`, localVendaId.toString())
         }
-        console.log(produto)
-        return navigate("/Build/Builder/new")
+        return navigate(`/Build/Builder/${params.buildOperation}`)
     }
 
 

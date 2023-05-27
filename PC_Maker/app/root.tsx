@@ -58,13 +58,13 @@ function Document({
 
 export default function App() {
 
-  // const changeTheme = useHookstate(themePage)
-  /* const hydrated = useHydrated();
+  const changeTheme = useHookstate(themePage)
+  const hydrated = useHydrated();
   if (hydrated) {
     const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     const theme = defaultDark ? 'dark' : 'light';
     changeTheme.set(theme)
-  } */
+  }
 
   return (
     <Document>

@@ -26,7 +26,6 @@ export default function TrBuilder(props: {
     const hydrated = useHydrated();
     const params = useParams();
 
-
     useEffect(() => {
 
         if (
@@ -55,8 +54,10 @@ export default function TrBuilder(props: {
                         )?.quantidade
 
                     if (subTotalEdit || qtdEdit) {
-                        setSubTotal(subTotalEdit)
-                        setQtdItem(qtdEdit)
+                        if (subTotal == 0)
+                            setSubTotal(subTotalEdit)
+                        if (qtdItem == 1)
+                            setQtdItem(qtdEdit)
                     }
                 })
         }
@@ -68,7 +69,6 @@ export default function TrBuilder(props: {
                     if (subTotal == 0) {
                         setSubTotal(response?.data.preco)
                     }
-
                     setLocalVenda(response?.data)
                     if (hydrated && params.typeRequest != "new" && !localStorage.getItem(`edit${props.categoryProduct}`)) {
                         localStorage.setItem(`edit${props.categoryProduct}`, response?.data.id.toString())
@@ -92,8 +92,6 @@ export default function TrBuilder(props: {
             location.reload()
         }
     }
-
-    // (localStorage.getItem(props.categoryProduct) || props.idLocalVenda != undefined)
 
     if (hydrated && (localVenda)) {
 
@@ -140,7 +138,7 @@ export default function TrBuilder(props: {
         return (
             <tr className="mt-1">
                 <td>
-                    <Link to={`/Search/CategoriaProduto/${props.categoryProduct}`}>
+                    <Link to={`/Search/CategoriaProduto/${props.categoryProduct}/${params.typeRequest != "new" ? params.typeRequest : "new"}`}>
                         <button className="btn-builder mx-2 p-2 px-4 rounded"><i className="fa-sharp fa-solid fa-plus mx-1"></i>Escolher {props.categoryProduct}</button>
                     </Link>
                 </td>

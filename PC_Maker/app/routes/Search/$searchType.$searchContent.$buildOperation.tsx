@@ -109,7 +109,7 @@ function Search() {
                         <th>R$ {menorPreco?.preco}</th>
                         <th>{menorPreco?.vendedor}</th>
                         <th>
-                            <Link to={`/Search/Product/${componente.id}`}>
+                            <Link to={`/Search/Product/${componente.id}/${params.buildOperation}`}>
                                 <button className="btn-details rounded p-2"><i className="fa-sharp fa-solid fa-plus mx-1"></i> Ver mais detalhes</button>
                             </Link>
                         </th>
