@@ -19,7 +19,6 @@ export default function TrBuilder(props: {
     categoryProduct: string,
     SetSubtotal: Dispatch<number>,
     SetqtdItem: Dispatch<number>,
-    idLocalVenda: number | undefined
 }) {
     const [localVenda, setLocalVenda] = useState<LocaisVendas>()
     const [subTotal, setSubTotal] = useState(0)
@@ -37,7 +36,6 @@ export default function TrBuilder(props: {
         ) {
             handleAxios(Number(localStorage.getItem(`edit${props.categoryProduct}`)))
             handleAxiosBuild()
-            let x = qtdItem
         }
         else if (localStorage.getItem(props.categoryProduct) && params.typeRequest == "new") {
             handleAxios(Number(localStorage.getItem(props.categoryProduct)))
@@ -55,10 +53,11 @@ export default function TrBuilder(props: {
                         .find((item: ItemBuildI) =>
                             item.localVenda.id == Number(localStorage.getItem(`edit${props.categoryProduct}`))
                         )?.quantidade
-                    if (subTotal == 0)
+
+                    if (subTotalEdit || qtdEdit) {
                         setSubTotal(subTotalEdit)
-                    if (qtdItem == 1)
                         setQtdItem(qtdEdit)
+                    }
                 })
         }
 
@@ -66,20 +65,21 @@ export default function TrBuilder(props: {
             await axios.get(`http://127.0.0.1:8080/api/v1/localvendas/${id}`)
                 .catch(() => { return null })
                 .then(response => {
-                    if (subTotal == 0 && !(localStorage.getItem(`edit${props.categoryProduct}`)
-                        && params.typeRequest != "new"
-                        && localStorage.getItem(`edit${props.categoryProduct}`) != "0")) {
+                    if (subTotal == 0) {
                         setSubTotal(response?.data.preco)
                     }
 
                     setLocalVenda(response?.data)
+                    if (hydrated && params.typeRequest != "new" && !localStorage.getItem(`edit${props.categoryProduct}`)) {
+                        localStorage.setItem(`edit${props.categoryProduct}`, response?.data.id.toString())
+                    }
 
                 })
         }
 
         props.SetSubtotal(subTotal)
         props.SetqtdItem(qtdItem)
-    }, [props, props.categoryProduct, qtdItem, subTotal, props.idLocalVenda, params.typeRequest])
+    }, [props, props.categoryProduct, qtdItem, subTotal, params.typeRequest, hydrated])
 
     function destroyLocalStorage() {
         if (hydrated) {

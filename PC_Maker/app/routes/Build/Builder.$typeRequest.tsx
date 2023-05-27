@@ -222,16 +222,6 @@ function Builder() {
   }
 
 
-  function teste(categoria: string) {
-    const localVendaId = (build?.itens.find((item) => item.localVenda.produto.categoria == categoria)?.localVenda.id)
-
-    if (hydrated && localVendaId && !localStorage.getItem(`edit${categoria}`)) {
-      localStorage.setItem(`edit${categoria}`, localVendaId.toString())
-    }
-
-    return localVendaId
-  }
-
   function restart() {
     if (hydrated) {
       if (params.typeRequest != "new") {
@@ -351,28 +341,27 @@ function Builder() {
             <tbody>
 
               <TrBuilder
-                idLocalVenda={teste("Placa-Mãe")}
+
                 categoryProduct="Placa-Mãe"
                 SetSubtotal={setsubTotalPlacaMae}
                 SetqtdItem={setqtdItensPlacaMae}
               />
 
               <TrBuilder
-                idLocalVenda={teste("Memória RAM")}
+
                 categoryProduct="Memória RAM"
                 SetSubtotal={setsubTotalMemoriaRam}
                 SetqtdItem={setqtdItensMemoriaRam}
               />
 
               <TrBuilder
-                idLocalVenda={teste("Processador")}
                 categoryProduct="Processador"
                 SetSubtotal={setsubTotalProcessador}
                 SetqtdItem={setqtdItensProcessador}
               />
 
               <TrBuilder
-                idLocalVenda={teste("Armazenamento")}
+
 
                 categoryProduct="Armazenamento"
                 SetSubtotal={setsubTotalArmazenamento}
@@ -380,23 +369,21 @@ function Builder() {
               />
 
               <TrBuilder
-                idLocalVenda={teste("Placa de Vídeo")}
+
                 categoryProduct="Placa de Vídeo"
                 SetSubtotal={setsubTotalPlacaDeVideo}
                 SetqtdItem={setqtdItensPlacaDeVideo}
               />
 
               <TrBuilder
-                idLocalVenda={
-                  teste("Gabinete")
-                }
+
                 categoryProduct="Gabinete"
                 SetSubtotal={setsubTotalGabinete}
                 SetqtdItem={setqtdItensGabinete}
               />
 
               <TrBuilder
-                idLocalVenda={teste("Fonte de Alimentação")}
+
                 categoryProduct="Fonte de Alimentação"
                 SetSubtotal={setsubTotalFonteDeAlimentacao}
                 SetqtdItem={setqtdItensFonteDeAlimentacao}
