@@ -186,3 +186,33 @@ h6 {
 .boxBuilds {
   padding-bottom: 6rem !important;
 }
+
+@media (max-width: 1280px), (max-height: 720px) {
+  .site-footer{
+    height: 100% !important;
+  }
+  i{
+    font-size: 0.9rem;
+  }
+  th{
+    font-size: 0.7rem;
+  }
+  .btn-builder{
+    width: 85%;
+  }
+  .totalBuilder{
+    padding-bottom: 5rem;
+  }
+  .btnFuncoesBuild{
+    width: 100% !important;
+  }
+  .first-column-build {
+    border-right: none !important;
+  }
+  .barra-compatibilidade{
+    width: 100% !important;
+  }
+  .barra-potencia{
+    width: 100% !important;
+  }
+}
