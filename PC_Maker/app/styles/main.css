@@ -680,3 +680,30 @@ li {
 .removeComponenteX {
   margin-left: 2rem;
 }
+
+@media (max-width: 900px), (max-height: 450px) {
+  .logoFooter{
+    /* width: 35vh !important;
+    height: 14vh !important; */
+
+    width: 20vh !important;
+    height: 7vh !important;
+  }
+}
+
+@media (max-width: 1280px) and (max-height: 720px) {
+  .logoHeader{
+    width: 20vh !important;
+    height: 7vh !important;
+  }
+  .logoFooter{
+    width: 35vh !important;
+    height: 14vh !important;
+
+    /* width: 20vh !important;
+    height: 7vh !important; */
+  }
+}
+
+
+

@@ -360,7 +360,7 @@ div.slide:not(:last-child) {
 .TextAfterTable h3 {
   text-align: right;
   margin-right: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 7rem; /* Original é 2rem, remover se voltar com as notificacoes de compatibildade que estao ocultas */
 }
 
 @media screen and (min-width: 768px) {

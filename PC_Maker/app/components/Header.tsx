@@ -80,7 +80,7 @@ export function Header() {
             <nav className="navbar navbar-expand-sm navbar-dark" id="topo">
                 <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <img src={`/${changeTheme.get() == "dark" || changeTheme.get() == "contraOn" ? "logoJuntaPecaRosaV1" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} />
+                        <img src={`/${changeTheme.get() == "dark" || changeTheme.get() == "contraOn" ? "logoJuntaPecaRosaV1" : "logoJuntaPecaRosaV3"}.png`} alt="Logo JuntaPeça" style={{ width: '15rem', height: '5rem' }} className="logoHeader"/>
                         {/* <img src="/logoJuntaPecaRoxoV2.png" alt="Logo da Empresa" style={{ width: '15rem', height: '5rem', }} /> */}
                     </a>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">

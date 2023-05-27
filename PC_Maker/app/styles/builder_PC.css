@@ -187,7 +187,10 @@ h6 {
   padding-bottom: 6rem !important;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 1280px), (max-height: 720px) {
+  .site-footer{
+    height: 100% !important;
+  }
   i{
     font-size: 0.9rem;
   }
