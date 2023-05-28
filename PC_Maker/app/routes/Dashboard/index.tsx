@@ -1,6 +1,31 @@
 import { ChartDashboard } from "../../components/ChartDashboard";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 
 function MainDashboard() {
+    const [totalProdutos, getTotalProdutos] = useState(0)
+        useEffect(() => {
+            axios("http://127.0.0.1:8080/api/v1/produtos")
+                .catch(error => { throw new Error(error.message) })
+                .then(response => getTotalProdutos(response.data.length))
+        }, [])
+
+        const [totalUsuarios, getTotalUsuarios] = useState(0)
+        useEffect(() => {
+            axios("http://127.0.0.1:8080/api/v1/usuarios")
+                .catch(error => { throw new Error(error.message) })
+                .then(response => getTotalUsuarios(response.data.length))
+        }, [])
+
+        const [totalBuilds, getTotalBuilds] = useState(0)
+        useEffect(() => {
+            axios("http://127.0.0.1:8080/api/v1/builds")
+                .catch(error => { throw new Error(error.message) })
+                .then(response => getTotalBuilds(response.data.length))
+        }, [])
+
+
     return (
         <div className="main-content">
             <div className="section__content section__content--p30">
@@ -14,8 +39,8 @@ function MainDashboard() {
                                             <i className="zmdi zmdi-account-o"></i>
                                         </div>
                                         <div className="text">
-                                            <h2>10368</h2>
-                                            <span>membros online</span>
+                                            <h2>{totalUsuarios}</h2>
+                                            <span>Membros Cadastrados</span>
                                         </div>
                                     </div>
                                     <div className="overview-chart">
@@ -32,7 +57,7 @@ function MainDashboard() {
                                             <i className="fa-solid fa-computer"></i>
                                         </div>
                                         <div className="text">
-                                            <h2>388,688</h2>
+                                            <h2>{totalBuilds}</h2>
                                             <span>Builds Montadas</span>
                                         </div>
                                     </div>
@@ -50,7 +75,7 @@ function MainDashboard() {
                                             <i className="fa-solid fa-display"></i>
                                         </div>
                                         <div className="text">
-                                            <h2>50,086</h2>
+                                            <h2>{totalProdutos}</h2>
                                             <span>Peças Cadastradas</span>
                                         </div>
                                     </div>
