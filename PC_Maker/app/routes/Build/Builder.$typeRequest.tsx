@@ -66,6 +66,8 @@ export interface Build {
 function Builder() {
   const data = useLoaderData<typeof loader>();
 
+
+  // falta arrumar a mensagens de erro
   const [response, setResponse] = useState<AxiosResponse<any, any>>();
   const [error, setError] = useState<AxiosError<any, any>>();
   const changeTheme = useHookstate(themePage);
@@ -268,17 +270,15 @@ function Builder() {
 
   function restart() {
     if (hydrated) {
-      if (params.typeRequest != "new") {
-        build?.itens.forEach(item => {
-          if (item.localVenda.produto.categoria) {
-            localStorage.removeItem(`edit${item.localVenda.produto.categoria}`)
-          }
-        })
-      }
-      else {
-        categoriaProduto.forEach(categoria => localStorage.removeItem(categoria))
-      }
-      location.reload()
+
+      build?.itens.forEach(item => {
+        if (item.localVenda.produto.categoria) {
+          localStorage.removeItem(`edit${item.localVenda.produto.categoria}`)
+        }
+      })
+
+      categoriaProduto.forEach(categoria => localStorage.removeItem(categoria))
+
     }
   }
 
@@ -295,8 +295,9 @@ function Builder() {
         categoriaProduto.forEach(categoria => localStorage.removeItem(categoria))
       }
       axios.delete(`http://127.0.0.1:8080/api/v1/builds/${params.typeRequest}`)
+      restart()
       handleCloseDelete()
-      navigate("/build/Builder/new")
+
     }
 
   }
@@ -318,9 +319,11 @@ function Builder() {
 
             {params.typeRequest != "new" && (
               <div className="col-sm-2 py-3">
-                <button className="btn-menu-line menu-info-medio" onClick={handleShowDelete}>
-                  <i className="fa-solid fa-trash"></i> Deletar
-                </button>
+                <Link to="/Build/Builder/new" reloadDocument>
+                  <button className="btn-menu-line menu-info-medio" onClick={handleShowDelete}>
+                    <i className="fa-solid fa-trash"></i> Deletar
+                  </button>
+                </Link>
               </div>
             )
             }
@@ -331,14 +334,17 @@ function Builder() {
               </button>
             </div>
             <div className="col-sm-2 py-3">
-              <Link to="/Build/Builder/new">
-                <button className="btn-menu-line menu-info-medio">
+              <Link to="/Build/Builder/new" reloadDocument>
+                <button className="btn-menu-line menu-info-medio" onClick={restart}>
                   <i className="fa-sharp fa-solid fa-plus mx-1"></i>Novo
                 </button>
               </Link>
             </div>
             <div className="col-sm-2 py-3 ">
-              <button className="btn-menu-line menu-info-medio" onClick={restart}>
+              <button className="btn-menu-line menu-info-medio" onClick={() => {
+                restart()
+                location.reload()
+              }}>
                 <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
               </button>
             </div>

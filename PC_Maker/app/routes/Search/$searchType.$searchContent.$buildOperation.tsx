@@ -128,7 +128,7 @@ function Search() {
                 <div className="headline text textoCor">
                     <h2 className="text-center py-3 pt-4">
                         {params.searchType == "CategoriaProduto" ?
-                            `Escolha 👉 ${params.searchContent}` : `Resultado da pesquisa: ${params.searchContent}`
+                            `Escolha 👉 ${params.searchContent}` : `Resultados da pesquisa: ${params.searchContent}`
                         }
                     </h2>
                     <button type="button" id="sidebarCollapse" className="btn btn-info m-0 p-2 d-lg-none" onClick={sidebarCollapse}>
