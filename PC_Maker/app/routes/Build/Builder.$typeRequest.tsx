@@ -341,12 +341,13 @@ function Builder() {
               </Link>
             </div>
             <div className="col-sm-2 py-3 ">
-              <button className="btn-menu-line menu-info-medio" onClick={() => {
-                restart()
-                location.reload()
-              }}>
-                <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
-              </button>
+              <Link to={`/Build/Builder/${params.typeRequest}`} reloadDocument>
+                <button className="btn-menu-line menu-info-medio" onClick={() => {
+                  restart()
+                }}>
+                  <i className="fa-solid fa-arrow-rotate-left"></i> Reiniciar
+                </button>
+              </Link>
             </div>
           </div>
           <div className="row compWattInferior tes">

@@ -8,12 +8,12 @@ import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import builder_PC from '../../styles/builder_PC.css';
 import build from '../../styles/build.css';
-import type { LinksFunction, LoaderArgs, MetaFunction } from '@remix-run/node';
+import { LinksFunction, LoaderArgs, MetaFunction, redirect } from '@remix-run/node';
 import { json } from '@remix-run/node';
 import { getUser } from "~/utils/session.server";
 import { MyCardBuild } from "~/components/MyCardBuild";
 import { useEffect } from 'react';
-import { useLoaderData } from "@remix-run/react";
+import { useLoaderData, useNavigate } from "@remix-run/react";
 import axios from "axios";
 import type { Build } from "./Builder.$typeRequest";
 
@@ -30,7 +30,6 @@ export const meta: MetaFunction = () => ({
 });
 
 export const loader = async ({ request }: LoaderArgs) => {
-
     const user = await getUser(request);
 
     return json({ user })
@@ -38,21 +37,13 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 function MyBuild() {
     const data = useLoaderData<typeof loader>();
-
-    const [imgBody, setImgBody] = useState<string>();
-    const [titleModal, setTitleModal] = useState<string>();
-
-
-    function Modaltext(img: string, title: string) {
-        setImgBody(img);
-        setTitleModal(title);
-    }
+    const navigate = useNavigate();
 
     const [builds, setBuilds] = useState<Build[]>([])
 
     useEffect(() => {
         axios(`http://127.0.0.1:8080/api/v1/builds`)
-            .catch(error => console.log(error))
+            .catch(() => navigate('/Login'))
             .then((response) => {
                 setBuilds(
                     response?.data.filter((buildData: Build) =>
@@ -60,7 +51,7 @@ function MyBuild() {
                     )
                 )
             })
-    }, [data.user?.id])
+    }, [data.user?.id, navigate])
 
     console.log(builds)
 

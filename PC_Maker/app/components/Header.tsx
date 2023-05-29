@@ -140,7 +140,7 @@ export function Header() {
                                         </button>
                                         <div className="dropdown-menu dropdown-menu-end perfilDropdown">
                                             <Link className="dropdown-item" to="/perfil"><i className="fa fa-user-o"></i>  Meu Perfil</Link>  {/* vou ter que parametizar depois */}
-                                            <Link className="dropdown-item" to="/builds"><i className="fa-solid fa-wrench"></i> Minhas Builds</Link>  {/* vou ter que parametizar depois */}
+                                            <Link className="dropdown-item" to="/Build/MyBuild"><i className="fa-solid fa-wrench"></i> Minhas Builds</Link>  {/* vou ter que parametizar depois */}
                                             {/* pode colocar um builds salvas aqui */}
                                             <form action="/logout" method="post">
                                                 <button className="dropdown-item">
