@@ -1,29 +1,99 @@
-import { ChartDashboard } from "../../components/ChartDashboard";
 import axios from "axios";
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+} from 'chart.js';
 import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import type { Build } from "../Build/Builder.$typeRequest";
+
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    BarElement,
+    Title,
+    Tooltip,
+);
+
+export const options = {
+    /* scales: {
+        y: {
+            min: 0,
+            max: 100,
+        },
+    }, */
+    responsive: true,
+    plugins: {
+        title: {
+            display: true,
+            text: 'Quantidade de Builds',
+        },
+    },
+};
+
+
 
 
 function MainDashboard() {
     const [totalProdutos, getTotalProdutos] = useState(0)
-        useEffect(() => {
-            axios("http://127.0.0.1:8080/api/v1/produtos")
-                .catch(error => { throw new Error(error.message) })
-                .then(response => getTotalProdutos(response.data.length))
-        }, [])
+    useEffect(() => {
+        axios("http://127.0.0.1:8080/api/v1/produtos")
+            .catch(error => { throw new Error(error.message) })
+            .then(response => getTotalProdutos(response.data.length))
+    }, [])
 
-        const [totalUsuarios, getTotalUsuarios] = useState(0)
-        useEffect(() => {
-            axios("http://127.0.0.1:8080/api/v1/usuarios")
-                .catch(error => { throw new Error(error.message) })
-                .then(response => getTotalUsuarios(response.data.length))
-        }, [])
+    const [totalUsuarios, getTotalUsuarios] = useState(0)
+    useEffect(() => {
+        axios("http://127.0.0.1:8080/api/v1/usuarios")
+            .catch(error => { throw new Error(error.message) })
+            .then(response => getTotalUsuarios(response.data.length))
+    }, [])
 
-        const [totalBuilds, getTotalBuilds] = useState(0)
-        useEffect(() => {
-            axios("http://127.0.0.1:8080/api/v1/builds")
-                .catch(error => { throw new Error(error.message) })
-                .then(response => getTotalBuilds(response.data.length))
-        }, [])
+    const [totalBuilds, getTotalBuilds] = useState(0)
+    const [builds, setBuilds] = useState<Build[]>([])
+    useEffect(() => {
+        axios("http://127.0.0.1:8080/api/v1/builds")
+            .catch(error => { throw new Error(error.message) })
+            .then(response => {
+                getTotalBuilds(response.data.length)
+                setBuilds(response.data)
+            })
+    }, [])
+
+    const meses = ["Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Septembro", "Outubro", "Novembro", "Dezembro"];
+
+    function converteData(dataString: string) {
+
+        const mes = Number(dataString.slice(3, 5).replace('0', ''))
+
+        const dataFormatadaMes = (meses[mes - 1])
+        return dataFormatadaMes
+    }
+
+
+
+    function retornaTotalMesBuild() {
+        return meses.map(mes => {
+            return (builds.filter(build => converteData(build.dataCadastro) == mes).length)
+        })
+    }
+
+    const labels = meses
+    const data = {
+        labels,
+        datasets: [
+            {
+                label: 'Builds cadastradas ',
+                data: retornaTotalMesBuild(),
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            },
+        ],
+    };
 
 
     return (
@@ -479,7 +549,8 @@ function MainDashboard() {
                             <div className="col-lg-12">
                                 <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
                                     {/* dw3d */}
-                                    <ChartDashboard />
+                                    <Bar options={options} data={data} />
+
                                 </div>
                             </div>
                         </div>

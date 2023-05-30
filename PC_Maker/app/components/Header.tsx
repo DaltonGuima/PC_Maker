@@ -26,8 +26,17 @@ export function Header() {
         setTheme(newTheme)
     }
 
-    const changeFontSize = () => {
+    let size = 1
+    const changeFontSize = (tipoOperacao: string) => {
 
+        if (tipoOperacao == 'aumentar' && size < 2) {
+            size = 1.3
+        }
+        else if (tipoOperacao == 'diminuir' && size > 1) {
+            size = 1
+        }
+        document.documentElement.style.fontSize = `${size}rem`
+        console.log(size)
     }
 
     useEffect(() => {
@@ -70,8 +79,8 @@ export function Header() {
                                 <li className="tema" id="temaSwitcher" onClick={switchTheme}><a><i className="fa-solid fa-sun"></i></a></li>
                                 <li className="contraste" onClick={switchContraste}><a href="" id="contraste"><i className="fa-solid fa-circle-half-stroke"></i></a></li>
                                 {/* <li className="contraste"><a href="" id="semcontraste"><i className="fa-solid fa-circle-stop"></i></a></li> */}
-                                <li className="fonte"><a onClick={changeFontSize} id="aumentar" ><i className="fa-solid fa-arrow-up-a-z"></i></a></li>
-                                <li className="fonte"><a onClick={changeFontSize} id="diminuir" ><i className="fa-solid fa-arrow-down-z-a"></i></a></li>
+                                <li className="fonte" onClick={() => changeFontSize("aumentar")}><i className="fa-solid fa-arrow-up-a-z"></i></li>
+                                <li className="fonte" onClick={() => changeFontSize("diminuir")}><i className="fa-solid fa-arrow-down-z-a"></i></li>
                             </ul>
                         </div>
                     </div>

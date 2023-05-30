@@ -40,7 +40,7 @@
   }); */
 
 
-/* Tentativa 02 */
+/* 02 */
 
 
 $(document).ready(function () {
@@ -48,14 +48,14 @@ $(document).ready(function () {
   $('#aumentar').click(function () {
     if (fonte < 10) {
       fonte++
-      $('home').css({ 'font-size': fonte + 'rem' })
+      $('main').css({ 'font-size': fonte + 'rem' })
     }
   })
 
   $('#diminuir').click(function () {
-    if (fonte > 0) {
+    if (fonte > 1) {
       fonte--
-      $('home').css({ 'font-size': fonte + 'rem' })
+      $('main').css({ 'font-size': fonte + 'rem' })
     }
   })
 })

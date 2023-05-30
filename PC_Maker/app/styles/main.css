@@ -109,7 +109,9 @@
 }
 
 /* primary, secondary, tertiary, quaternary, quinary, senary, septenary, octonary, nonary, and denary*/
-
+html {
+  font-size: 15px;
+}
 main {
   background-color: var(--background-primary);
   margin: 0;
@@ -682,7 +684,7 @@ li {
 }
 
 @media (max-width: 900px), (max-height: 450px) {
-  .logoFooter{
+  .logoFooter {
     /* width: 35vh !important;
     height: 14vh !important; */
 
@@ -692,11 +694,11 @@ li {
 }
 
 @media (max-width: 1280px) and (max-height: 720px) {
-  .logoHeader{
+  .logoHeader {
     width: 20vh !important;
     height: 7vh !important;
   }
-  .logoFooter{
+  .logoFooter {
     width: 35vh !important;
     height: 14vh !important;
 
@@ -704,6 +706,3 @@ li {
     height: 7vh !important; */
   }
 }
-
-
-

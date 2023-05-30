@@ -56,6 +56,7 @@ export interface Build {
   id: number,
   nome: string,
   descricao: string,
+  dataCadastro: string
   usuario: {
     id: number
   },
@@ -312,7 +313,7 @@ function Builder() {
 
         <div className="menu-line col-9 container-fluid my-3 rounded text-white">
           <div className="row">
-            <div className="col-4 text-decoration-underline first-column-build py-3 p-3 menu-info-medio">
+            <div className="col-6 text-decoration-underline first-column-build py-3 p-3 menu-info-medio">
               <i className="fa-solid fa-link mx-1"></i>
               https://pcmaker.com.br/lista/dpGwc
             </div>
@@ -349,6 +350,7 @@ function Builder() {
                 </button>
               </Link>
             </div>
+
           </div>
           <div className="row compWattInferior tes">
             <div className="col-6 first-column-build w-75 p-3 py-3 menu-info-medio barra-compatibilidade">
