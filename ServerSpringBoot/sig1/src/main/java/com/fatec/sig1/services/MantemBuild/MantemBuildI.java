@@ -53,7 +53,7 @@ public class MantemBuildI implements MantemBuild {
     @Override
     public Optional<Build> atualiza(Long id, Build build) {
         logger.info(">>>>>> 1.servico atualiza informações de cliente chamado");
-        Build buildModificado = new Build(build.getNome(), build.getDescricao(), build.getItens(), build.getUsuario());
+        Build buildModificado = new Build(build.getNome(), build.getDescricao(), build.getUsuario());
         buildModificado.setId(id);
         buildModificado.obtemDataAtual(new DateTime());
         return Optional.ofNullable(repository.save(buildModificado));

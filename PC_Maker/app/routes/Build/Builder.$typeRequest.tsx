@@ -320,11 +320,11 @@ function Builder() {
 
             {params.typeRequest != "new" && (
               <div className="col-sm-2 py-3">
-                <Link to="/Build/Builder/new" reloadDocument>
-                  <button className="btn-menu-line menu-info-medio" onClick={handleShowDelete}>
-                    <i className="fa-solid fa-trash"></i> Deletar
-                  </button>
-                </Link>
+
+                <button className="btn-menu-line menu-info-medio" onClick={handleShowDelete}>
+                  <i className="fa-solid fa-trash"></i> Deletar
+                </button>
+
               </div>
             )
             }
@@ -385,10 +385,11 @@ function Builder() {
             <Button variant="suscess" className="btn-modal-primary" onClick={handleCloseDelete}>
               Não
             </Button>
-
-            <Button variant="danger" className="btn-modal-primary" onClick={deleteBuild}>
-              Sim
-            </Button>
+            <Link to="/Build/Builder/new" reloadDocument>
+              <Button variant="danger" className="btn-modal-primary" onClick={deleteBuild}>
+                Sim
+              </Button>
+            </Link>
 
           </Modal.Footer>
         </Modal>

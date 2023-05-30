@@ -44,7 +44,7 @@ public class Build {
     @OneToMany(mappedBy = "build", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties("build")
     private Set<ItemBuild> itens = new HashSet<ItemBuild>();
-    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @ManyToOne(cascade = CascadeType.DETACH, fetch = FetchType.LAZY)
     @JoinColumn(name = "usuario_id", nullable = false)
     @JsonIncludeProperties("id")
     private Usuario usuario;
