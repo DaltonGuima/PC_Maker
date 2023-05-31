@@ -2,9 +2,10 @@ import { Input } from '../components/Form/Input'
 import { SubmitForm } from '../components/Form/SubmitForm'
 import cadastro from '../styles/cadastro.css'
 import login from '../styles/login.css'
-import axios, { AxiosError, AxiosResponse } from 'axios';
-import { LinksFunction, MetaFunction, redirect } from '@remix-run/node';
-import type { ChangeEvent, FormEvent } from "react";
+import type { AxiosError, AxiosResponse } from 'axios';
+import axios from 'axios';
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import type { FormEvent } from "react";
 import { handleDate } from "~/script/handleDate";
 import { Link } from "@remix-run/react"
 
