@@ -90,7 +90,7 @@ function MainDashboard() {
             {
                 label: 'Builds cadastradas ',
                 data: retornaTotalMesBuild(),
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                backgroundColor: 'rgba(175, 12, 201,0.8)',
             },
         ],
     };
@@ -170,6 +170,19 @@ function MainDashboard() {
                                     <div className="overview-chart">
                                         <canvas id="widgetChart4"></canvas>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 className="title-1 m-b-25">Quantidade Builds, cadastradas por mês</h2>
+                        <div className="row  text-center justify-content-center">
+                            <div className="col-lg-12">
+                                <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
+                                    {/* dw3d */}
+                                    <Bar options={options} data={data} />
+
                                 </div>
                             </div>
                         </div>
@@ -544,17 +557,7 @@ function MainDashboard() {
                         </div>
                     </div>
 
-                    <div>
-                        <div className="row  text-center justify-content-center">
-                            <div className="col-lg-12">
-                                <div className="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                    {/* dw3d */}
-                                    <Bar options={options} data={data} />
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </div>
