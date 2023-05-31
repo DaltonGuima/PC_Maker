@@ -11,6 +11,7 @@ type User = {
   senha: string | undefined;
   email: string | undefined;
   nome: string | undefined,
+  dataNascimento: string | undefined
 };
 
 

@@ -1,13 +1,16 @@
 import { useHookstate } from "@hookstate/core";
 import type { LinksFunction, LoaderArgs, MetaFunction } from "@remix-run/node";
 import { json } from "@remix-run/node";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { Footer } from "~/components/Footer";
 import { FormControl } from "~/components/FormControl";
 import { Header } from "~/components/Header";
 import { themePage } from "~/script/changeTheme";
 import perfil from '../../styles/profile.css'
 import { getUser } from "~/utils/session.server";
+import { useLoaderData } from "@remix-run/react";
+import axios from "axios";
+import { handleDate } from "~/script/handleDate";
 
 
 export const links: LinksFunction = () => {
@@ -29,6 +32,7 @@ export const loader = async ({ request }: LoaderArgs) => {
 
 
 function Perfil() {
+    const data = useLoaderData<typeof loader>();
 
     const changeTheme = useHookstate(themePage)
     const [checked, setChecked] = useState(false);
@@ -52,6 +56,21 @@ function Perfil() {
     }
 
 
+    async function AtualizaUsuario(event: FormEvent) {
+
+
+        const formData = new FormData(event.target as HTMLFormElement)
+        const dataForm = Object.fromEntries(formData)
+        await axios.put(`http://127.0.0.1:8080/api/v1/usuarios/${data.user?.id}`, {
+            nome: dataForm.nome,
+            email: dataForm.email,
+            senha: data.user?.senha,
+            dataNascimento: data.user?.dataNascimento
+        })
+            .catch(error => console.log(error))
+    }
+
+
     return (
         <div data-theme={changeTheme.get()}>
             <title>Home</title>
@@ -65,8 +84,8 @@ function Perfil() {
                             <img src="/among_us.jpg" alt="Foto do Perfil" className="img-fluid rounded-circle" />
                         </div>
                         <div className="col-sm-5 text-light">
-                            <h1>Usuario</h1>
-                            <p>usuario@email.com</p>
+                            <h1>{data.user?.nome}</h1>
+                            <p>{data.user?.email}</p>
                         </div>
                     </div>
 
@@ -91,7 +110,7 @@ function Perfil() {
                 </nav>
                 <div className="break"> </div>
                 <div className="main-container" id="MyAccount">
-                    <form className="was-validated">
+                    <form className="was-validated" onSubmit={AtualizaUsuario}>
                         <div className="col-md-11 pt-3 text-light box">
                             <h3 className="bold">Nome</h3>
                             <input
@@ -99,10 +118,10 @@ function Perfil() {
                                 name="nome"
                                 id="nome"
                                 className="form-control-plaintext text-light FormProfile"
-                                placeholder="Usuario"
+                                placeholder={data.user?.nome}
                                 readOnly={formButton}
                                 required
-                                defaultValue={'Usuario'}
+                                defaultValue={data.user?.nome}
                             />
 
                             <label
@@ -123,13 +142,13 @@ function Perfil() {
                             <h3 className="bold">Endereço de email</h3>
                             <input
                                 type='email'
-                                name="emailProfile"
+                                name="email"
                                 id="emailProfile"
                                 className="form-control-plaintext text-light FormProfile"
-                                placeholder="usuario@email.com"
+                                placeholder={data.user?.email}
                                 readOnly={formButton}
                                 required
-                                defaultValue={'usuario@email.com'}
+                                defaultValue={data.user?.email}
                             />
 
                             <label
@@ -155,17 +174,7 @@ function Perfil() {
                             </div>
                             <button className="btn text-light btn-block float-end" type="button">Desconectar </button>
                         </div>
-                        <div className="col-md-11 pt-3 text-light box">
-                            <h3 className="bold">Acessibilidade</h3>
-                            <p className="disabled" >Alto Contraste de Cores</p>
-                            <label className="switch float-end">
-                                <input type="checkbox" id="AltoContraste"
-                                    checked={checked}
-                                    onChange={handleChange} />
-                                <span className="slider round"></span>
-                            </label>
-                        </div>
-                        {formControl ? <FormControl /> : null}
+                        {formControl && <FormControl />}
                     </form>
                 </div>
                 <br></br>
