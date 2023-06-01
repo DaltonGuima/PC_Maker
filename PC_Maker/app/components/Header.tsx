@@ -47,7 +47,7 @@ export function Header() {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement)
 
-        navigate(`Search/Componente/${formData.get("itemPesquisa")}/new`)
+        navigate(`/Search/Componente/${formData.get("itemPesquisa")}/new`)
     }
 
     return (
