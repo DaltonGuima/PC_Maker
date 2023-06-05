@@ -1,6 +1,0 @@
-2023-06-05 19:58:33 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM BUILD [*]'"; SQL statement:
-SELECT * FROM BUILD ' [42000-214]
-2023-06-05 19:58:34 jdbc[13]: exception
-org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM BUILD [*]'"; SQL statement:
-SELECT * FROM BUILD ' [42000-214]
