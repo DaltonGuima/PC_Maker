@@ -265,7 +265,7 @@ function Builder() {
 
     )
     handleClose()
-    return navigate(`/Build/Builder/${id}`)
+    location.reload()
   }
 
 

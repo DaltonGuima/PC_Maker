@@ -60,7 +60,7 @@ export default function TableProduct(props: { produto: Componente | undefined })
             map.set("Saída", (props.produto as PlacaDeCapturaProps).especificacoes.saida)
             map.set("Taxa de Bits", (props.produto as PlacaDeCapturaProps).especificacoes.taxadbit)
             map.set("Maior Resolução Suportada", (props.produto as PlacaDeCapturaProps).especificacoes.maioresupor)
-            break;    
+            break;
         case 'Processador':
             map.set("Soquete", (props.produto as ProcessadorProps).especificacoes.soquete)
             map.set("Nº de Núcleos", (props.produto as ProcessadorProps).especificacoes.nNucleos)
@@ -98,18 +98,18 @@ export default function TableProduct(props: { produto: Componente | undefined })
     const teste = () => {
         map.forEach((value, key) => {
             forEach.push(
-                <>
+                <tr key={key} className="specsBarraLatLinha">
                     <td className="specsBarraLatTh">{key}</td>
                     <td className="specsBarraLatTd">{value}</td>
-                </>
+                </tr>
             )
         })
         return forEach
     }
     return (
-        <tr className="specsBarraLatLinha">
+        <>
             {teste()}
-        </tr>
+        </>
     )
 
 

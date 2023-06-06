@@ -31,7 +31,7 @@ function DashboardInsercaoProcessador() {
             especificacoes: {
                 "soquete": data.soquete, "tdp": data.tdp, "nNucleos": data.nNucleos,
                 "nThreads": data.nThreads, "frequencia": data.frequencia, "freBoost": data.freBoost,
-                "overClock": data.overClock, "graficoIntegrado": data.graficoIntegrado, "tipoMemoria": data.tipoMemoria
+                "overClock": `${data.overClock ? "Sim" : "Não"}`, "graficoIntegrado": `${data.graficoIntegrado ? "Sim" : "Não"}`, "tipoMemoria": data.tipoMemoria
             }
         }).then((response) => {
             setResponse(response);

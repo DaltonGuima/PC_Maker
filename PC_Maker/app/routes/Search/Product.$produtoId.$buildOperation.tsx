@@ -131,6 +131,7 @@ function Product() {
                                     <thead>
                                         <tr className="p-2">
                                             <th className="col-md-7 pb-3">Nome</th>
+                                            <th className="col-md-3">Link do Produto</th>
                                             <th className="col-md-2">Disponibilidade</th>
                                             <th className="col-md-1">Preço</th>
                                         </tr>
@@ -141,14 +142,9 @@ function Product() {
                                             return (
                                                 <tr className="mt-2 my-3" key={localVenda.id}>
                                                     <td className="py-3">
-                                                        {/* <img
-                                                            src="/among_us2.png"
-                                                            className="img-fluid"
-                                                            alt="Imagem responsiva"
-                                                            style={{ widtd: "100px", height: "100px" }}
-                                                        />
-                                                        &emsp; */}{localVenda.vendedor}
+                                                        {localVenda.vendedor}
                                                     </td>
+                                                    <td><a href={localVenda.linkProduto}>Link da loja</a></td>
                                                     <td className="col-md-2">
                                                         Disponível
                                                     </td>
