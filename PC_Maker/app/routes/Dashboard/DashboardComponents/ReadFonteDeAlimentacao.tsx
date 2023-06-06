@@ -15,12 +15,12 @@ function ReadPsu() {
     const SearchByNomeInput = useHookstate(SearchTable)
 
     async function handleAxios() {
-        setPsu(await getComponents("Psu"))
+        setPsu(await getComponents("Fonte de Alimentação"))
     }
 
     useEffect(() => {
         handleAxios();
-        changeSelectValue('Psu')
+        changeSelectValue('FonteDeAlimentacao')
     }, [])
 
     console.log(psu)
@@ -29,7 +29,7 @@ function ReadPsu() {
         <TableRead
             key={'Psu'}
             id='Psu'
-            title="Psu"
+            title="Fonte de Alimentação"
             tipoCRUD={'componentes'}
             insereDados
             tipoPesquisa="Nome"

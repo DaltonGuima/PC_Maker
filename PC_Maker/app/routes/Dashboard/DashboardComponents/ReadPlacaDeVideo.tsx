@@ -1,52 +1,52 @@
 import { useHookstate } from "@hookstate/core";
 import { useEffect, useState } from "react";
-import type { RamProps } from "~/Interface/ComponenteInterface";
+import type { GpuProps } from "~/Interface/ComponenteInterface";
 import { TableRead } from "~/components/TableRead"
 
-import { Ram } from "~/components/TableRead/Datas/componentes/Ram"
+import { Gpu } from "~/components/TableRead/Datas/componentes/Gpu"
 import { SearchTable } from "~/components/TableRead/TableElements";
 
 
 import { changeSelectValue } from "~/script/changeSelectValue";
 import { getComponents } from "~/script/getComponents";
 
-function ReadRam() {
-    const [ram, setRam] = useState<RamProps[]>([]);
+function ReadGpu() {
+    const [gpu, setGpu] = useState<GpuProps[]>([]);
     const SearchByNomeInput = useHookstate(SearchTable)
 
     async function handleAxios() {
-        setRam(await getComponents("Ram"))
+        setGpu(await getComponents("Placa de Vídeo"))
     }
 
     useEffect(() => {
         handleAxios();
-        changeSelectValue('Ram')
+        changeSelectValue('PlacaDeVideo')
     }, [])
 
-    console.log(ram)
+    console.log(gpu)
 
     return (
         <TableRead
-            key={'Ram'}
-            id='Ram'
-            title="Ram"
+            key={'PlacaDeVideo'}
+            id='PlacaDeVideo'
+            title="Placa de Vídeo"
             tipoCRUD={'componentes'}
             insereDados
             tipoPesquisa="Nome"
-            cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Capacidade', 'Velocidade', 'Tecnologia', 'Voltagem', 'Latencia', 'Notebook', 'Locais Vendas']}
-            body={ram.filter(teste => teste.nome.includes(SearchByNomeInput.get()))
+            cols={['ID', 'Nome', 'Fabricante', 'Modelo', 'Clock', 'Memoria', 'ClMemoria', 'Barramento', 'Conector', 'Locais Vendas']}
+            body={gpu.filter(teste => teste.nome.includes(SearchByNomeInput.get()))
                 .map(componente => {
                     return (
-                        <Ram
+                        <Gpu
                             key={componente.id}
                             id={componente.id}
                             nome={componente.nome}
                             fabricante={componente.fabricante}
                             modelo={componente.modelo}
                             especificacoes={{
-                                capacidade: `${componente.especificacoes.capacidade}`, velocidade: `${componente.especificacoes.velocidade}`,
-                                tecnologia: `${componente.especificacoes.tecnologia}`, voltagem: `${componente.especificacoes.voltagem}`,
-                                latencia: `${componente.especificacoes.latencia}`, notebook: `${componente.especificacoes.notebook}`
+                                clock: `${componente.especificacoes.clock}`, memoria: `${componente.especificacoes.memoria}`,
+                                clmemoria: `${componente.especificacoes.clmemoria}`, barramento: `${componente.especificacoes.barramento}`,
+                                conector: `${componente.especificacoes.conector}`,
                             }}
                         />
                     )
@@ -55,4 +55,4 @@ function ReadRam() {
     )
 }
 
-export default ReadRam
+export default ReadGpu

@@ -15,7 +15,7 @@ function ReadPlacaDeCaptura() {
     const SearchByNomeInput = useHookstate(SearchTable)
 
     async function handleAxios() {
-        setPlacaDeCaptura(await getComponents("PlacaDeCaptura"))
+        setPlacaDeCaptura(await getComponents("Placa de Captura"))
     }
 
     useEffect(() => {

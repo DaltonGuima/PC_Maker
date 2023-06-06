@@ -22,8 +22,6 @@ function DashboardInsercaoProcessador() {
 
         const formData = new FormData(event.target as HTMLFormElement)
         const data = Object.fromEntries(formData)
-        // data
-        // data.nome
 
         await axios.post("http://127.0.0.1:8080/api/v1/produtos", {
             nome: data.nome,
@@ -109,7 +107,7 @@ function DashboardInsercaoProcessador() {
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome-produto" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required />
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
@@ -192,7 +190,7 @@ function DashboardInsercaoProcessador() {
                             <div className="col">
                                 <br />
                                 <label htmlFor="checkbox1" className="form-check-label">
-                                    <input type="checkbox" name="overClock" id="overClock" value="overclock" className="form-check-input check"  /> Desbloqueado para overclock
+                                    <input type="checkbox" name="overClock" id="overClock" value="overclock" className="form-check-input check" /> Desbloqueado para overclock
                                 </label>
                             </div>
 

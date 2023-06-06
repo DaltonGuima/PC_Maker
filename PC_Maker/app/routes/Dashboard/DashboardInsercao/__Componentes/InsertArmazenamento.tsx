@@ -14,7 +14,7 @@ function DashboardInsercaoArmazenamento() {
     const [error, setError] = useState<AxiosError<any, any>>();
 
     useEffect(() => {
-        changeSelectValue('armazenamento')
+        changeSelectValue('Armazenamento')
     });
 
     async function handleCreateProdutoArmazenamento(event: FormEvent) {

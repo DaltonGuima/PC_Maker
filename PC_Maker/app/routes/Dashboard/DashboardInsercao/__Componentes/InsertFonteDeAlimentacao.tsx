@@ -28,7 +28,7 @@ function DashboardInsercaoFonteDeAlimentacao() {
             nome: data.nome,
             fabricante: data.fabricante,
             modelo: data.modelo,
-            categoria: "FonteDeAlimentacao",
+            categoria: "Fonte de Alimentação",
             especificacoes: {
                 "potencia": data.potencia, "certificacao": data.certificacao,
                 "pfc": data.pfc, "ventoinha": data.ventoinha, "conPrincipal": data.conPrincipal,
@@ -106,28 +106,28 @@ function DashboardInsercaoFonteDeAlimentacao() {
                     </div>
                     <div className="card-body card-block">
                         <form onSubmit={handleCreateProdutoFonteDeAlimentacao} className="form-horizontal">
-                            
+
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="nome" className=" form-control-label">Nome</label>
-                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required/>
+                                    <input type="text" name="nome" id="nome" placeholder="Nome" className="form-control" required />
                                     <small className="help-block form-text text-muted">Nome utilizado para vendas</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="fabricante" className=" form-control-label">Fabricante</label>
-                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required/>
+                                    <input type="text" name="fabricante" id="fabricante" placeholder="Fabricante" className="form-control" required />
                                     <small className="help-block form-text">Nome do fabricante</small>
                                 </div>
                                 <div className="col ">
                                     <label htmlFor="modelo" className=" form-control-label">Modelo</label>
-                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required/>
+                                    <input type="text" name="modelo" id="modelo" placeholder="Modelo" className="form-control" required />
                                     <small className="help-block form-text">Nome técnico do produto</small>
                                 </div>
                             </div>
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="potencia" className=" form-control-label">Potência</label>
-                                    <input type="text" name="potencia" id="potencia" placeholder="Potência" className="form-control" required/>
+                                    <input type="text" name="potencia" id="potencia" placeholder="Potência" className="form-control" required />
                                     <small className="help-block form-text">Potência</small>
                                 </div>
                                 <div className="col">
@@ -147,17 +147,17 @@ function DashboardInsercaoFonteDeAlimentacao() {
                             <div className="row">
                                 <div className="col">
                                     <label htmlFor="conPrincipal" className=" form-control-label">Conector Principal</label>
-                                    <input type="text" name="conPrincipal" id="conPrincipal" placeholder="Conector Principal" className="form-control" required/>
+                                    <input type="text" name="conPrincipal" id="conPrincipal" placeholder="Conector Principal" className="form-control" required />
                                     <small className="help-block form-text">Conector Principal (20 + 4 Pin, etc) </small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="conCPU" className=" form-control-label">Conector da CPU</label>
-                                    <input type="text" name="conCPU" id="conCPU" placeholder="Conector da CPU" className="form-control" required/>
+                                    <input type="text" name="conCPU" id="conCPU" placeholder="Conector da CPU" className="form-control" required />
                                     <small className="help-block form-text">Conector da CPU (4 + 4 Pin, etc)</small>
                                 </div>
                                 <div className="col">
                                     <label htmlFor="conPCIe" className=" form-control-label">Conector PCIe</label>
-                                    <input type="text" name="conPCIe" id="conPCIe" placeholder="Conector PCIe" className="form-control" required/>
+                                    <input type="text" name="conPCIe" id="conPCIe" placeholder="Conector PCIe" className="form-control" required />
                                     <small className="help-block form-text">Quantidade e tipo do conector PCIe (6 + 2 Pin, etc)</small>
                                 </div>
                             </div>
@@ -173,14 +173,14 @@ function DashboardInsercaoFonteDeAlimentacao() {
                                 </div>
                             </div>
                             <div className="card-footer">
-                        <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
-                            <i className="zmdi zmdi-plus"></i>Adicionar</button>
-                        <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
-                        </div>
-                    </div>
+                                <button className="au-btn au-btn-icon au-btn--purple au-btn--small">
+                                    <i className="zmdi zmdi-plus"></i>Adicionar</button>
+                                <div className="rs-select2--dark rs-select2--sm rs-select2--dark2 ">
+                                </div>
+                            </div>
                         </form>
                     </div>
-                    
+
                 </div>
             </div>
 

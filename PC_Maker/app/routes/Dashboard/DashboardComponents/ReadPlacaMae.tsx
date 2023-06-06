@@ -15,7 +15,7 @@ function ReadPlacaMae() {
     const SearchByNomeInput = useHookstate(SearchTable)
 
     async function handleAxios() {
-        setPlacaMae(await getComponents("PlacaMae"))
+        setPlacaMae(await getComponents("Placa-Mãe"))
     }
 
     useEffect(() => {
@@ -29,7 +29,7 @@ function ReadPlacaMae() {
         <TableRead
             key={'PlacaMae'}
             id='PlacaMae'
-            title="PlacaMae"
+            title="Placa-Mãe"
             tipoCRUD={'componentes'}
             insereDados
             tipoPesquisa="Nome"
