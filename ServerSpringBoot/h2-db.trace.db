@@ -1,0 +1,3 @@
+2023-06-06 00:35:58 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+insert into local_venda (link_produto, preco, local_venda_id, vendedor, id) values (?, ?, ?, ?, ?) [22001-214]
