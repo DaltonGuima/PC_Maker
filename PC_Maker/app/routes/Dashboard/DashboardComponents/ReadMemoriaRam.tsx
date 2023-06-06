@@ -27,8 +27,8 @@ function ReadRam() {
 
     return (
         <TableRead
-            key={'Ram'}
-            id='Ram'
+            key={'MemoriaRam'}
+            id='MemoriaRam'
             title="Memória RAM"
             tipoCRUD={'componentes'}
             insereDados

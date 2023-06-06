@@ -34,7 +34,7 @@ export async function loginSession({ email, password }: LoginForm) {
 
 }
 
-const sessionSecret = process.env.SESSION_SECRET;
+const sessionSecret = "RJ_session";
 if (!sessionSecret) {
   throw new Error("SESSION_SECRET must be set");
 }

@@ -27,8 +27,8 @@ function ReadPsu() {
 
     return (
         <TableRead
-            key={'Psu'}
-            id='Psu'
+            key={'FonteDeAlimentacao'}
+            id='FonteDeAlimentacao'
             title="Fonte de Alimentação"
             tipoCRUD={'componentes'}
             insereDados
