@@ -1,3 +1,18 @@
 2023-06-06 00:35:58 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
 insert into local_venda (link_produto, preco, local_venda_id, vendedor, id) values (?, ?, ?, ?, ?) [22001-214]
+2023-06-06 00:36:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+insert into local_venda (link_produto, preco, local_venda_id, vendedor, id) values (?, ?, ?, ?, ?) [22001-214]
+2023-06-06 00:37:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+update local_venda set link_produto=?, preco=?, local_venda_id=?, vendedor=? where id=? [22001-214]
+2023-06-06 00:38:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+update local_venda set link_produto=?, preco=?, local_venda_id=?, vendedor=? where id=? [22001-214]
+2023-06-06 00:44:07 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+insert into local_venda (link_produto, preco, local_venda_id, vendedor, id) values (?, ?, ?, ?, ?) [22001-214]
+2023-06-06 00:44:39 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "LINK_PRODUTO CHARACTER VARYING(255)": "'https://www.amazon.com.br/Gabinete-TGT-Mid-Tower-Acrilico-TGT-TRC-RGB01/dp/B0B9... (306)"; SQL statement:
+insert into local_venda (link_produto, preco, local_venda_id, vendedor, id) values (?, ?, ?, ?, ?) [22001-214]
