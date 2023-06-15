@@ -89,7 +89,7 @@ export default function TrBuilder(props: {
                 localStorage.setItem(`edit${props.categoryProduct}`, "0")
                 setLocalVenda(undefined)
             }
-            location.reload()
+            // location.reload()
         }
     }
 
